@@ -1,0 +1,11 @@
+[Unit]
+Description=Strike Force Heroes 3 room watchdog, every minute
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=1min
+AccuracySec=5s
+Unit=sfh3-watch.service
+
+[Install]
+WantedBy=timers.target

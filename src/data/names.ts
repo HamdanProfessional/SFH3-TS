@@ -1,0 +1,31 @@
+export const HERO_NAMES: readonly string[] = [
+  "Rodriguez", "Volkov", "Kafka", "Thompson", "Al Jabbar", "Menendez", "Mendoza",
+  "Smith", "Smythe", "Fisk", "Assad", "Liebowitz", "Trung", "Tran", "Chang", "Yan",
+  "Toulouse", "Pushkin", "Torn", "Cage", "Vasquez", "Kidd", "Alistair", "Crimson",
+  "Blazkowicz", "Bull", "Wallace", "Kane", "Bison", "Blair", "Junior", "Fury",
+  "Falcon", "Olimar", "Payne", "Johnson", "De Leon", "Threepwood", "Touchdown",
+  "Silverberg", "Redfield", "Strife", "Raynor", "Bosconovich", "Jay", "Kong",
+  "Gordo", "Edgeworth", "Everett", "Da Firenze", "Lombardi", "McCloud", "Long",
+  "West", "Garrett", "Howard", "Freeman", "Haggar", "Mishima", "Honda", "Yagami",
+  "Jago", "Masters", "Kennedy", "Lao", "Law", "Layton", "LeChuck", "Cohen", "Mac",
+  "Fenix", "Marston", "Miles", "Spencer", "Bellic", "Tobias", "Funke", "Bluth",
+  "Simpson", "Miyamoto", "Wright", "Philips", "Pitt", "Chi", "Price",
+];
+
+export const EVIL_NAMES: readonly string[] = [
+  "KwikPain", "GameKultist", "Mc Swagger", "Gen. Raxon", "Pvt. Jael", "Roxxar",
+  "Sheep", "Poseidon", "Medic of Vietnam", "Sgt. Sledge", "Pickle", "Idan01",
+  "Thrax", "Xap", "Mir", "Labraxadores", "Bedomp", "Math-E-Matic", "Masterfish",
+  "Juice_Box", "Sundalo37", "Jo Jo", "Rocky", "Black Mage", "Jacob",
+  "Belle", "Golgomot", "MegaMrBob", "Aswanson", "KidBuuSmells101", "Slicer",
+  "The Celt Viking", "Caboose", "Womble", "elite commando", "Gen. Ducko",
+  "NoobKiller", "Vagueshade", "Millennium", "GS_Ourous", "Dark123456789",
+  "Kairosh", "Captain Pwn", "Your Cat", "Juice-Box", "Zetaprime", "Platinum123",
+  "Col_Mukund", "Fortytwopercent",
+  "J.A. Prufrock", "T. Lannister", "P. North", "S. Claus", "M. Corleone",
+  "C.F. Kane", "Pvt. Pile", "T. Stark", "E. Bachmann", "G.R.R. Martin",
+  "Mischief", "Pvt. Whitman", "W. White", "A. Ripburger", "E.S. Blofeld",
+  "Saint", "Morde", "Garen", "PeeWee", "Tiny", "Bravo", "Johnson", "MrMatrix",
+  "Jeepers", "Polly", "Donut", "Raze",
+  "MaestroRage", "WaterFlame", "sonicmega",
+];

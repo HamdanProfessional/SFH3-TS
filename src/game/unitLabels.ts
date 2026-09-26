@@ -1,0 +1,27 @@
+export const LABELS: Readonly<Record<string, readonly [number, number]>> = {
+  idle: [1, 30],
+  spawn: [31, 64],
+  run1: [65, 86],
+  landrun1: [87, 104],
+  runback1: [105, 126],
+  landrunback1: [127, 144],
+  run2: [145, 172],
+  landrun2: [173, 193],
+  runback2: [194, 221],
+  landrunback2: [222, 242],
+  jump: [243, 269],
+  fall: [270, 290],
+  fallloop: [291, 325],
+  land: [326, 340],
+  slide: [341, 351],
+  duck: [352, 355],
+  duckloop: [356, 371],
+  duckrun: [372, 404],
+  duckrunback: [405, 437],
+  getup: [438, 441],
+  climbsmall: [442, 446],
+  climbbig: [447, 458],
+  landhard: [459, 499],
+};
+
+export const TOTAL_FRAMES = 499;

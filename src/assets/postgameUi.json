@@ -1,0 +1,711 @@
+{
+ "scale": 2,
+ "plate": {
+  "file": "plate_postgame.png",
+  "plateX": -240.0,
+  "plateY": 0,
+  "plateW": 1280,
+  "plateH": 600
+ },
+ "tile": {
+  "filled": {
+   "file": "tile_filled.png",
+   "w": 352.25,
+   "h": 201.4,
+   "ox": 237.95,
+   "oy": 101.55
+  },
+  "empty": {
+   "file": "tile_empty.png",
+   "w": 352.25,
+   "h": 201.4,
+   "ox": 237.95,
+   "oy": 101.55
+  }
+ },
+ "ring": {
+  "1": {
+   "file": "ring_1.png",
+   "w": 201.4,
+   "h": 201.4,
+   "ox": 100.5,
+   "oy": 101.25
+  },
+  "2": {
+   "file": "ring_2.png",
+   "w": 201.4,
+   "h": 201.4,
+   "ox": 100.5,
+   "oy": 101.25
+  },
+  "3": {
+   "file": "ring_3.png",
+   "w": 201.4,
+   "h": 201.4,
+   "ox": 100.5,
+   "oy": 101.25
+  },
+  "4": {
+   "file": "ring_4.png",
+   "w": 201.4,
+   "h": 201.4,
+   "ox": 100.5,
+   "oy": 101.25
+  }
+ },
+ "badge": {
+  "sni": {
+   "file": "badge_sni.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "med": {
+   "file": "badge_med.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "eng": {
+   "file": "badge_eng.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "mer": {
+   "file": "badge_mer.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "jug": {
+   "file": "badge_jug.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "gun": {
+   "file": "badge_gun.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "eli": {
+   "file": "badge_eli.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "nin": {
+   "file": "badge_nin.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "spe": {
+   "file": "badge_spe.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "akq": {
+   "file": "badge_akq.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  }
+ },
+ "selected": {
+  "file": "selected.png",
+  "w": 201.4,
+  "h": 201.4,
+  "ox": 100.5,
+  "oy": 101.25
+ },
+ "newskill": {
+  "file": "newskill.png",
+  "w": 16.1,
+  "h": 14.7,
+  "ox": 8.05,
+  "oy": 7.35
+ },
+ "levelup": {
+  "1": {
+   "file": "levelup_1.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "2": {
+   "file": "levelup_2.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "3": {
+   "file": "levelup_3.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "4": {
+   "file": "levelup_4.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "5": {
+   "file": "levelup_5.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "6": {
+   "file": "levelup_6.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "7": {
+   "file": "levelup_7.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "8": {
+   "file": "levelup_8.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "9": {
+   "file": "levelup_9.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "10": {
+   "file": "levelup_10.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "11": {
+   "file": "levelup_11.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "12": {
+   "file": "levelup_12.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "13": {
+   "file": "levelup_13.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "14": {
+   "file": "levelup_14.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "15": {
+   "file": "levelup_15.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "16": {
+   "file": "levelup_16.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "17": {
+   "file": "levelup_17.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "18": {
+   "file": "levelup_18.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "19": {
+   "file": "levelup_19.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "20": {
+   "file": "levelup_20.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "21": {
+   "file": "levelup_21.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "22": {
+   "file": "levelup_22.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "23": {
+   "file": "levelup_23.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "24": {
+   "file": "levelup_24.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "25": {
+   "file": "levelup_25.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "26": {
+   "file": "levelup_26.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "27": {
+   "file": "levelup_27.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "28": {
+   "file": "levelup_28.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "29": {
+   "file": "levelup_29.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  },
+  "30": {
+   "file": "levelup_30.png",
+   "w": 820.0,
+   "h": 516.4,
+   "ox": 416.85,
+   "oy": 465.1
+  }
+ },
+ "back": {
+  "states": {
+   "up": "btn_2087_up.png",
+   "over": "btn_2087_over.png",
+   "down": "btn_2087_down.png"
+  },
+  "offX": -0.0,
+  "offY": -0.0,
+  "w": 50.0,
+  "h": 50.0,
+  "x": 341.1,
+  "y": 501.05,
+  "sx": 2.1647,
+  "sy": 0.74
+ },
+ "fields": {
+  "txt_title": {
+   "cid": 2054,
+   "x": 21.85,
+   "y": -2.0,
+   "w": 555.6,
+   "h": 25.55,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 20.0,
+   "fontId": 2053,
+   "font": "Xoireqe",
+   "color": 16763904,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"Xoireqe\" size=\"20\" color=\"#ffcc00\" letterSpacing=\"0.00\" kerning=\"1\">BATTLE RESULTS</font></p>"
+  },
+  "txt_back": {
+   "cid": 2088,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 104.0,
+   "h": 21.25,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 14.0,
+   "fontId": 23,
+   "font": "QTypeSquare-BlackMajuscles",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"14\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\"><b>CONTINUE</b></font></p>"
+  },
+  "txt_day": {
+   "cid": 2093,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 392.45,
+   "h": 21.25,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 14.0,
+   "fontId": 2053,
+   "font": "Xoireqe",
+   "color": 65535,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"Xoireqe\" size=\"14\" color=\"#00ffff\" letterSpacing=\"0.00\" kerning=\"1\">Day</font></p>"
+  },
+  "txt_funds": {
+   "cid": 2094,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 391.65,
+   "h": 21.25,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 14.0,
+   "fontId": 2053,
+   "font": "Xoireqe",
+   "color": 16763904,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"Xoireqe\" size=\"14\" color=\"#ffcc00\" letterSpacing=\"0.00\" kerning=\"1\">99999</font></p>"
+  },
+  "txt_name": {
+   "cid": 2077,
+   "x": -24.75,
+   "y": -2.0,
+   "w": 206.3,
+   "h": 20.85,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 14.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"QTypeSquare-Book\" size=\"14\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">Josana Gerfolo</font></p>"
+  },
+  "txt_level": {
+   "cid": 2078,
+   "x": -16.3,
+   "y": 0.45,
+   "w": 65.9,
+   "h": 20.85,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 14.0,
+   "fontId": 2061,
+   "font": "QTypeSquare-Bold",
+   "color": 16750848,
+   "alpha": 0.902,
+   "align": "right",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"right\"><font face=\"QTypeSquare-Bold\" size=\"14\" color=\"#ff9900\" letterSpacing=\"0.00\" kerning=\"1\"><b>Lv 30</b></font></p>"
+  },
+  "txt_status": {
+   "cid": 2079,
+   "x": 23.35,
+   "y": -2.0,
+   "w": 218.15,
+   "h": 19.1,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 14.0,
+   "fontId": 2053,
+   "font": "Xoireqe",
+   "color": 16776960,
+   "alpha": 1.0,
+   "align": "right",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"right\"><font face=\"Xoireqe\" size=\"14\" color=\"#ffff00\" letterSpacing=\"0.00\" kerning=\"1\">INJURED</font></p>"
+  }
+ },
+ "place": {
+  "txt_title": [
+   1.0,
+   1.0,
+   98.0,
+   116.0
+  ],
+  "txt_day": [
+   1.0,
+   1.0,
+   116.9,
+   450.95
+  ],
+  "txt_funds": [
+   1.0,
+   1.0,
+   116.9,
+   472.9
+  ],
+  "txt_back": [
+   1.0,
+   1.0,
+   344.05,
+   512.15
+  ],
+  "bt_back": [
+   2.1647,
+   0.74,
+   341.1,
+   501.05
+  ],
+  "char": [
+   -3.1345,
+   3.1345,
+   632.2,
+   456.45
+  ],
+  "levelup": [
+   1.0,
+   1.0,
+   394.7,
+   423.75
+  ],
+  "bar0": [
+   2.4472,
+   4.4877,
+   5.15,
+   154.35
+  ],
+  "bar1": [
+   2.4472,
+   4.4877,
+   5.15,
+   212.3
+  ],
+  "bar2": [
+   2.4472,
+   4.4877,
+   5.15,
+   270.2
+  ],
+  "bar3": [
+   2.4472,
+   4.4877,
+   5.15,
+   328.35
+  ],
+  "bar4": [
+   2.4472,
+   4.4877,
+   5.15,
+   386.9
+  ],
+  "bar5": [
+   4.3243,
+   4.0831,
+   5.15,
+   445.6
+  ],
+  "squad0": [
+   1.0,
+   1.0,
+   179.15,
+   181.95
+  ],
+  "squad1": [
+   1.0,
+   1.0,
+   179.15,
+   240.4
+  ],
+  "squad2": [
+   1.0,
+   1.0,
+   179.15,
+   298.85
+  ],
+  "squad3": [
+   1.0,
+   1.0,
+   179.15,
+   356.3
+  ],
+  "squad4": [
+   1.0,
+   1.0,
+   179.15,
+   414.9
+  ],
+  "tile_txt_name": [
+   1.0,
+   1.0,
+   -80.5,
+   -21.75
+  ],
+  "tile_txt_level": [
+   1.0,
+   1.0,
+   62.85,
+   -24.4
+  ],
+  "tile_txt_status": [
+   1.0,
+   1.0,
+   -128.45,
+   2.15
+  ],
+  "tile_bar": [
+   3.6318,
+   0.3217,
+   -103.3,
+   15.85
+  ],
+  "tile_icon": [
+   1.0,
+   1.0,
+   -137.45,
+   -0.3
+  ],
+  "icon_head": {
+   "x": -6.2,
+   "y": 11.25,
+   "sx": 1.4734,
+   "sy": 1.4734
+  },
+  "icon_class": {
+   "x": -11.2,
+   "y": 11.35,
+   "sx": 1.2568,
+   "sy": 1.2568
+  }
+ },
+ "alpha": {
+  "txt_title": 1.0,
+  "txt_day": 1.0,
+  "txt_funds": 1.0,
+  "txt_back": 1.0,
+  "bt_back": 1.0,
+  "char": 1.0,
+  "levelup": 1.0,
+  "bar0": 0.1406,
+  "bar1": 0.1406,
+  "bar2": 0.1406,
+  "bar3": 0.1406,
+  "bar4": 0.1406,
+  "bar5": 0.1406,
+  "squad0": 1.0,
+  "squad1": 1.0,
+  "squad2": 1.0,
+  "squad3": 1.0,
+  "squad4": 1.0
+ },
+ "tilebar": {
+  "file": "tile_bar.png",
+  "w": 59.2,
+  "h": 11.5,
+  "ox": 0.0,
+  "oy": 0.0
+ },
+ "beam": {
+  "file": "beam.png",
+  "w": 123.2,
+  "h": 12.15,
+  "ox": 0.0,
+  "oy": 0.0
+ }
+}

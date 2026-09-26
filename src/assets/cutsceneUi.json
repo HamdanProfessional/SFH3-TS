@@ -1,0 +1,566 @@
+{
+ "scale": 2,
+ "frames": {
+  "1": {
+   "art": {
+    "file": "bg_1.png",
+    "x": -26.4,
+    "y": -68.47,
+    "w": 880.0,
+    "h": 724.32
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    413.6,
+    265.85
+   ],
+   "cut2": [
+    1.3226,
+    1.3226,
+    477.25,
+    131.7
+   ],
+   "markers": [],
+   "caption": "GlobeX HeadquartersUnknown Location"
+  },
+  "2": {
+   "art": {
+    "file": "bg_2.png",
+    "x": -40.0,
+    "y": -40.0,
+    "w": 880.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    400.0,
+    250.0
+   ],
+   "cut2": [
+    1.2212,
+    1.2212,
+    400.0,
+    250.0
+   ],
+   "markers": [],
+   "caption": "\"The SFH have been a thorn in our side for quite some time. But no longer.\""
+  },
+  "3": {
+   "art": {
+    "file": "bg_3.png",
+    "x": -51.95,
+    "y": -41.0,
+    "w": 912.5,
+    "h": 687.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    420.55,
+    249.0
+   ],
+   "cut2": [
+    1.0,
+    1.0,
+    388.05,
+    256.0
+   ],
+   "markers": [],
+   "caption": "\"Our clone army is ready to deploy all over the world.\" "
+  },
+  "4": {
+   "art": {
+    "file": "bg_4.png",
+    "x": -40.0,
+    "y": -28.0,
+    "w": 880.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    400.0,
+    262.0
+   ],
+   "cut2": [
+    1.2176,
+    1.2176,
+    400.0,
+    243.0
+   ],
+   "markers": [],
+   "caption": "\"And what about our plan for the SFH?\""
+  },
+  "5": {
+   "art": {
+    "file": "bg_5.png",
+    "x": -1.25,
+    "y": -64.0,
+    "w": 880.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.2299,
+    1.2299,
+    361.25,
+    226.0
+   ],
+   "cut2": [
+    1.0,
+    1.0,
+    438.75,
+    226.0
+   ],
+   "markers": [
+    "long0"
+   ],
+   "caption": "\"The \"reprogramming\" has finished. All but one are now under our control...\" "
+  },
+  "6": {
+   "art": {
+    "file": "bg_6.png",
+    "x": -40.0,
+    "y": -46.0,
+    "w": 880.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    400.0,
+    244.0
+   ],
+   "cut2": [
+    1.1949,
+    1.1949,
+    400.0,
+    218.0
+   ],
+   "markers": [
+    "long0",
+    "long2"
+   ],
+   "caption": "\"I will succeed where my predecessor failed. And as the world burns, only the SFH will be to blame.\" "
+  },
+  "7": {
+   "art": {
+    "file": "bg_7.png",
+    "x": -40.0,
+    "y": -40.0,
+    "w": 886.0,
+    "h": 684.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    406.0,
+    254.0
+   ],
+   "cut2": [
+    1.0,
+    1.0,
+    400.0,
+    250.0
+   ],
+   "markers": [
+    "short1"
+   ],
+   "caption": "SFH BaseSouth America"
+  },
+  "8": {
+   "art": {
+    "file": "bg_8.png",
+    "x": -15.47,
+    "y": -18.46,
+    "w": 830.94,
+    "h": 628.2
+   },
+   "cut1": [
+    1.0945,
+    1.0945,
+    389.05,
+    249.95
+   ],
+   "cut2": [
+    1.0945,
+    1.0945,
+    410.95,
+    249.95
+   ],
+   "markers": [
+    "long0"
+   ],
+   "caption": "\"Scanners have detected GlobeX activity all over the world! Their troops appear to be led by members of the SFH!\""
+  },
+  "9": {
+   "art": {
+    "file": "bg_9.png",
+    "x": -50.35,
+    "y": -45.9,
+    "w": 913.85,
+    "h": 702.9
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    389.65,
+    244.1
+   ],
+   "cut2": [
+    1.0,
+    1.0,
+    423.5,
+    267.0
+   ],
+   "markers": [
+    "long0"
+   ],
+   "caption": "\"You must rebuild SFH. Assemble a team and find your former squadmates, and together, end this GlobeX nightmare.\""
+  },
+  "10": {
+   "art": {
+    "file": "bg_10.png",
+    "x": -40.0,
+    "y": -40.0,
+    "w": 880.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    400.0,
+    250.0
+   ],
+   "cut2": [
+    1.1494,
+    1.1494,
+    415.65,
+    246.05
+   ],
+   "markers": [
+    "long2"
+   ],
+   "caption": "\"Good luck, Sir, or should I say...Commander.\""
+  },
+  "11": {
+   "art": {
+    "file": "bg_11.png",
+    "x": -58.06,
+    "y": -2.0,
+    "w": 918.29,
+    "h": 616.31
+   },
+   "cut1": [
+    1.2229,
+    1.2229,
+    288.75,
+    296.6
+   ],
+   "cut2": [
+    1.2229,
+    1.2229,
+    513.9,
+    240.75
+   ],
+   "markers": [
+    "long1",
+    "long0"
+   ],
+   "caption": "\"You said these clones would be unstoppable. That they were bred from perfect genes?\""
+  },
+  "12": {
+   "art": {
+    "file": "bg_12.png",
+    "x": -70.0,
+    "y": -40.0,
+    "w": 930.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    370.0,
+    250.0
+   ],
+   "cut2": [
+    1.0,
+    1.0,
+    420.0,
+    250.0
+   ],
+   "markers": [
+    "long0"
+   ],
+   "caption": "\"Sir, the Heroes have grown exceptionally quick, we weren't prepared for--\""
+  },
+  "13": {
+   "art": {
+    "file": "bg_13.png",
+    "x": -61.05,
+    "y": -53.16,
+    "w": 922.11,
+    "h": 711.58
+   },
+   "cut1": [
+    1.1371,
+    1.1371,
+    400.05,
+    210.0
+   ],
+   "cut2": [
+    0.95,
+    0.95,
+    400.0,
+    250.0
+   ],
+   "markers": [
+    "long0"
+   ],
+   "caption": "\"Do you know how much I've sacrificed to gain their trust...to get to where we are, only to have you fail?\""
+  },
+  "14": {
+   "art": {
+    "file": "bg_14.png",
+    "x": -90.0,
+    "y": -40.0,
+    "w": 980.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    450.0,
+    250.0
+   ],
+   "cut2": [
+    1.0,
+    1.0,
+    350.0,
+    250.0
+   ],
+   "markers": [
+    "short0"
+   ],
+   "caption": ""
+  },
+  "15": {
+   "art": {
+    "file": "bg_15.png",
+    "x": -40.0,
+    "y": -40.0,
+    "w": 880.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.2752,
+    1.2752,
+    400.0,
+    250.0
+   ],
+   "cut2": [
+    1.0,
+    1.0,
+    400.0,
+    250.0
+   ],
+   "markers": [
+    "long0"
+   ],
+   "caption": "\"I said I'd succeed where my predecessor failed.\""
+  },
+  "16": {
+   "art": {
+    "file": "bg_16.png",
+    "x": -40.0,
+    "y": -64.09,
+    "w": 880.0,
+    "h": 704.09
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    400.0,
+    250.0
+   ],
+   "cut2": [
+    1.461,
+    1.461,
+    354.0,
+    99.55
+   ],
+   "markers": [
+    "long0"
+   ],
+   "caption": "\"And once I infiltrate SFH...there'll be no one left to stop me!\""
+  },
+  "17": {
+   "art": {
+    "file": "bg_17.png",
+    "x": -55.85,
+    "y": -39.65,
+    "w": 950.1,
+    "h": 719.4
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    454.25,
+    289.75
+   ],
+   "cut2": [
+    1.0,
+    1.0,
+    384.15,
+    250.35
+   ],
+   "markers": [
+    "long1",
+    "long0"
+   ],
+   "caption": "\"We've dealt with the clone army but we still have no leads on where to find GlobeX or who's controlling them!\""
+  },
+  "18": {
+   "art": {
+    "file": "bg_18.png",
+    "x": 101.26,
+    "y": 75.38,
+    "w": 705.53,
+    "h": 529.09
+   },
+   "cut1": [
+    1.3523,
+    1.3523,
+    450.1,
+    317.95
+   ],
+   "cut2": [
+    1.3523,
+    1.3523,
+    496.0,
+    325.25
+   ],
+   "markers": [
+    "short0"
+   ],
+   "caption": "*Incoming transmission*"
+  },
+  "19": {
+   "art": {
+    "file": "bg_19.png",
+    "x": -40.0,
+    "y": -40.0,
+    "w": 880.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    400.0,
+    250.0
+   ],
+   "cut2": [
+    1.688,
+    1.688,
+    389.85,
+    257.55
+   ],
+   "markers": [
+    "long2"
+   ],
+   "caption": "\"GlobeX eh... I may be able to help with that...\""
+  },
+  "20": {
+   "art": {
+    "file": "bg_20.png",
+    "x": -40.0,
+    "y": -40.0,
+    "w": 880.0,
+    "h": 680.0
+   },
+   "cut1": [
+    1.0,
+    1.0,
+    400.0,
+    250.0
+   ],
+   "cut2": [
+    1.0,
+    1.0,
+    400.0,
+    250.0
+   ],
+   "markers": [],
+   "caption": ""
+  }
+ },
+ "top": {
+  "file": "top.png",
+  "w": 800,
+  "h": 600,
+  "black": [
+   1.0,
+   1.0,
+   -18.0,
+   12.0
+  ],
+  "fields": {
+   "3780": {
+    "cid": 3780,
+    "x": 42.5,
+    "y": -2.0,
+    "w": 760.95,
+    "h": 49.2,
+    "wordWrap": true,
+    "multiline": true,
+    "autoSize": false,
+    "html": true,
+    "size": 18.0,
+    "fontId": 20,
+    "font": "QTypeSquare-Book",
+    "color": 13421772,
+    "alpha": 1.0,
+    "align": "center",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"center\"><font face=\"QTypeSquare-Book\" size=\"18\" color=\"#cccccc\" letterSpacing=\"0.00\" kerning=\"1\">&quot;The SFH have been a thorn in our side for quite some time. But no longer.&quot;</font></p>"
+   }
+  }
+ },
+ "skip": {
+  "states": {
+   "up": "btn_2923_up.png",
+   "over": "btn_2923_over.png",
+   "down": "btn_2923_down.png"
+  },
+  "offX": -44.85,
+  "offY": -14.6,
+  "w": 89.7,
+  "h": 31.1,
+  "x": 726.85,
+  "y": 577.15,
+  "sx": 1.0,
+  "sy": 1.0
+ },
+ "credits": {
+  "roll": {
+   "file": "credits_roll.png",
+   "y": -120,
+   "h": 1840
+  },
+  "end": {
+   "file": "credits_end.png"
+  },
+  "rate": 0.9605,
+  "ref": 300,
+  "first": 79,
+  "last": 1800,
+  "offset": [
+   390.4,
+   299.65
+  ]
+ }
+}

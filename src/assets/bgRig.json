@@ -1,0 +1,361 @@
+{
+ "maps": {
+  "factory": {
+   "bg1": "factory1",
+   "bg2": "factory2",
+   "sky": "factory"
+  },
+  "street": {
+   "bg1": "street1",
+   "bg2": "street2",
+   "sky": "street"
+  },
+  "canyon": {
+   "bg1": "canyon1",
+   "bg2": "canyon2",
+   "sky": "canyon"
+  },
+  "caves": {
+   "bg1": "caves1",
+   "bg2": "caves2",
+   "sky": "caves"
+  },
+  "forest": {
+   "bg1": "forest1",
+   "bg2": "forest2",
+   "sky": "forest"
+  },
+  "cavesb": {
+   "bg1": "cavern1",
+   "bg2": "cavern2",
+   "sky": "cavern"
+  },
+  "cqc": {
+   "bg1": "cqc1",
+   "bg2": "",
+   "sky": ""
+  },
+  "frigate": {
+   "bg1": "",
+   "bg2": "",
+   "sky": "frigate"
+  },
+  "construction": {
+   "bg1": "construction1",
+   "bg2": "construction2",
+   "sky": "construction"
+  },
+  "junkyard": {
+   "bg1": "junkyard1",
+   "bg2": "junkyard2",
+   "sky": "junkyard"
+  },
+  "temple": {
+   "bg1": "temple1",
+   "bg2": "temple2",
+   "sky": "temple"
+  },
+  "volcano": {
+   "bg1": "volcano1",
+   "bg2": "volcano2",
+   "sky": "volcano"
+  },
+  "gorge": {
+   "bg1": "canyon1",
+   "bg2": "canyon2",
+   "sky": "canyon"
+  }
+ },
+ "bg": {
+  "canyon1": {
+   "file": "canyon1.png",
+   "w": 1658,
+   "h": 798,
+   "lx": 0.1,
+   "ly": 238.1,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "canyon2": {
+   "file": "canyon2.png",
+   "w": 1425,
+   "h": 742,
+   "lx": -76.9,
+   "ly": 273.1,
+   "useW": 1240.3,
+   "useH": 730.2
+  },
+  "cavern1": {
+   "file": "cavern1.png",
+   "w": 1850,
+   "h": 398,
+   "lx": -99.9,
+   "ly": 582.1,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "cavern2": {
+   "file": "cavern2.png",
+   "w": 1425,
+   "h": 742,
+   "lx": -82.9,
+   "ly": 181.1,
+   "useW": 1240.3,
+   "useH": 730.2
+  },
+  "caves1": {
+   "file": "caves1.png",
+   "w": 1850,
+   "h": 1061,
+   "lx": -99.9,
+   "ly": -80.9,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "caves2": {
+   "file": "caves2.png",
+   "w": 1393,
+   "h": 798,
+   "lx": -89.9,
+   "ly": -13.9,
+   "useW": 1240.3,
+   "useH": 730.2
+  },
+  "construction1": {
+   "file": "construction1.png",
+   "w": 1689,
+   "h": 1207,
+   "lx": -9.9,
+   "ly": 117.1,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "construction2": {
+   "file": "construction2.png",
+   "w": 1565,
+   "h": 820,
+   "lx": -149.9,
+   "ly": 39.1,
+   "useW": 1240.3,
+   "useH": 730.2
+  },
+  "cqc1": {
+   "file": "cqc1.png",
+   "w": 2352,
+   "h": 896,
+   "lx": -378.9,
+   "ly": -110.9,
+   "useW": 1462.1,
+   "useH": 681.2
+  },
+  "factory1": {
+   "file": "factory1.png",
+   "w": 2204,
+   "h": 1018,
+   "lx": -329.9,
+   "ly": 48.1,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "factory2": {
+   "file": "factory2.png",
+   "w": 1425,
+   "h": 742,
+   "lx": -59.9,
+   "ly": 168.1,
+   "useW": 1240.3,
+   "useH": 730.2
+  },
+  "forest1": {
+   "file": "forest1.png",
+   "w": 2073,
+   "h": 1289,
+   "lx": -214.9,
+   "ly": 99.1,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "forest2": {
+   "file": "forest2.png",
+   "w": 1499,
+   "h": 628,
+   "lx": -122.9,
+   "ly": 170.1,
+   "useW": 1240.3,
+   "useH": 730.2
+  },
+  "junkyard1": {
+   "file": "junkyard1.png",
+   "w": 1715,
+   "h": 753,
+   "lx": -26.9,
+   "ly": 206.1,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "junkyard2": {
+   "file": "junkyard2.png",
+   "w": 1324,
+   "h": 751,
+   "lx": -46.9,
+   "ly": 7.1,
+   "useW": 1240.3,
+   "useH": 730.2
+  },
+  "street1": {
+   "file": "street1.png",
+   "w": 1689,
+   "h": 1208,
+   "lx": -9.9,
+   "ly": 2.1,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "street2": {
+   "file": "street2.png",
+   "w": 1565,
+   "h": 820,
+   "lx": -149.9,
+   "ly": -281.9,
+   "useW": 1240.3,
+   "useH": 730.2
+  },
+  "temple1": {
+   "file": "temple1.png",
+   "w": 2060,
+   "h": 976,
+   "lx": -163.9,
+   "ly": 216.1,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "temple2": {
+   "file": "temple2.png",
+   "w": 1499,
+   "h": 628,
+   "lx": -144.9,
+   "ly": 170.1,
+   "useW": 1240.3,
+   "useH": 730.2
+  },
+  "volcano1": {
+   "file": "volcano1.png",
+   "w": 1944,
+   "h": 949,
+   "lx": -159.9,
+   "ly": 131.1,
+   "useW": 1657.0,
+   "useH": 893.7
+  },
+  "volcano2": {
+   "file": "volcano2.png",
+   "w": 1499,
+   "h": 628,
+   "lx": -144.9,
+   "ly": 170.1,
+   "useW": 1240.3,
+   "useH": 730.2
+  }
+ },
+ "sky": {
+  "canyon": {
+   "file": "canyon.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "cavern": {
+   "file": "cavern.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "caves": {
+   "file": "caves.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "construction": {
+   "file": "construction.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "factory": {
+   "file": "factory.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "forest": {
+   "file": "forest.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "frigate": {
+   "file": "frigate.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "junkyard": {
+   "file": "junkyard.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "street": {
+   "file": "street.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "temple": {
+   "file": "temple.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  },
+  "volcano": {
+   "file": "volcano.png",
+   "w": 1168,
+   "h": 812,
+   "lx": 0.0,
+   "ly": 0.0,
+   "useW": 1168,
+   "useH": 812
+  }
+ }
+}

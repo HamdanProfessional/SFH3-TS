@@ -1,0 +1,72 @@
+[Unit]
+Description=Strike Force Heroes 3 dedicated server #%i
+Documentation=https://sfh3.retris.io/
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=sfh3
+Group=sfh3
+EnvironmentFile=/etc/sfh3/sfh3-server-%i.conf
+
+ExecStart=/usr/bin/node --disable-warning=ExperimentalWarning /opt/sfh3/sfh3-server.cjs \
+    --port 780%i \
+    --name ${SFH3_NAME} \
+    --mode ${SFH3_MODE} \
+    --map ${SFH3_MAP} \
+    --rotation ${SFH3_ROTATION} \
+    --modes ${SFH3_MODES} \
+    --score ${SFH3_SCORE} \
+    --mod ${SFH3_MOD} \
+    --bots ${SFH3_BOTS} \
+    --botLevel ${SFH3_BOTLEVEL} \
+    --max ${SFH3_MAX} \
+    --timeLimit ${SFH3_TIMELIMIT} \
+    --coop ${SFH3_COOP} \
+    --kind ${SFH3_KIND} \
+    --assets /var/www/sfh3.retris.io/assets \
+    --db /var/lib/sfh3/accounts.db
+
+Restart=always
+RestartSec=3
+
+NoNewPrivileges=yes
+PrivateTmp=yes
+PrivateDevices=yes
+ProtectSystem=strict
+ProtectHome=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectKernelLogs=yes
+ProtectControlGroups=yes
+ProtectClock=yes
+ProtectHostname=yes
+ProtectProc=invisible
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+LockPersonality=yes
+RemoveIPC=yes
+RestrictAddressFamilies=AF_INET AF_INET6
+CapabilityBoundingSet=
+AmbientCapabilities=
+SystemCallArchitectures=native
+SystemCallFilter=@system-service
+SystemCallErrorNumber=EPERM
+ReadOnlyPaths=/opt/sfh3 /var/www/sfh3.retris.io
+StateDirectory=sfh3
+StateDirectoryMode=0700
+
+MemoryMax=512M
+CPUWeight=50
+TasksMax=64
+
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=sfh3-server-%i
+
+[Install]
+WantedBy=multi-user.target

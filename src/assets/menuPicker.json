@@ -1,0 +1,224 @@
+{
+ "scale": 2,
+ "card": {
+  "1": {
+   "file": "picker/card_1.png",
+   "w": 201.4,
+   "h": 201.4,
+   "ox": 100.5,
+   "oy": 101.25
+  },
+  "2": {
+   "file": "picker/card_2.png",
+   "w": 201.4,
+   "h": 201.4,
+   "ox": 100.5,
+   "oy": 101.25
+  },
+  "3": {
+   "file": "picker/card_3.png",
+   "w": 201.4,
+   "h": 201.4,
+   "ox": 100.5,
+   "oy": 101.25
+  },
+  "4": {
+   "file": "picker/card_4.png",
+   "w": 201.4,
+   "h": 201.4,
+   "ox": 100.5,
+   "oy": 101.25
+  },
+  "5": {
+   "file": "picker/card_5.png",
+   "w": 201.4,
+   "h": 201.4,
+   "ox": 100.5,
+   "oy": 101.25
+  }
+ },
+ "tray": {
+  "1": {
+   "file": "picker/tray_1.png",
+   "w": 943.5,
+   "h": 201.4,
+   "ox": 80.55,
+   "oy": 77.9
+  },
+  "2": {
+   "file": "picker/tray_2.png",
+   "w": 943.5,
+   "h": 201.4,
+   "ox": 80.55,
+   "oy": 77.9
+  }
+ },
+ "class": {
+  "sni": {
+   "file": "picker/class_sni.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 1
+  },
+  "med": {
+   "file": "picker/class_med.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 2
+  },
+  "eng": {
+   "file": "picker/class_eng.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 3
+  },
+  "mer": {
+   "file": "picker/class_mer.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 4
+  },
+  "jug": {
+   "file": "picker/class_jug.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 5
+  },
+  "gun": {
+   "file": "picker/class_gun.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 6
+  },
+  "eli": {
+   "file": "picker/class_eli.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 7
+  },
+  "nin": {
+   "file": "picker/class_nin.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 8
+  },
+  "spe": {
+   "file": "picker/class_spe.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 9
+  },
+  "akq": {
+   "file": "picker/class_akq.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25,
+   "frame": 10
+  }
+ },
+ "selected": {
+  "file": "picker/selected.png",
+  "w": 201.4,
+  "h": 201.4,
+  "ox": 100.5,
+  "oy": 101.25,
+  "m": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ "newskill": {
+  "file": "picker/newskill.png",
+  "w": 16.1,
+  "h": 14.7,
+  "ox": 8.05,
+  "oy": 7.35,
+  "m": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   17.7,
+   -16.0
+  ]
+ },
+ "button": {
+  "cid": 2064,
+  "states": {
+   "over": "picker/btn_2064_over.png",
+   "down": "picker/btn_2064_down.png"
+  },
+  "offX": -19.95,
+  "offY": -19.9,
+  "w": 39.9,
+  "h": 39.85,
+  "m": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   0.0,
+   0.0
+  ]
+ },
+ "head": [
+  1.4734,
+  0.0,
+  0.0,
+  1.4734,
+  -6.2,
+  11.25
+ ],
+ "icon": [
+  1.2568,
+  0.0,
+  0.0,
+  1.2568,
+  -11.2,
+  11.35
+ ],
+ "deck": {
+  "firstX": 19.95,
+  "firstY": 23.35,
+  "step": 53.0071,
+  "count": 15,
+  "place": {
+   "heroes": {
+    "x": 9.75,
+    "y": 600.7
+   },
+   "deploy": {
+    "x": 9.75,
+    "y": 627.45
+   }
+  },
+  "openY": 515,
+  "homeY": {
+   "heroes": 572,
+   "deploy": 605
+  }
+ }
+}

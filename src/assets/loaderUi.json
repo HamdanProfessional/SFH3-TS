@@ -1,0 +1,133 @@
+{
+ "bar": {
+  "file": "loader_bar.png",
+  "h": 31.0,
+  "w": 295.0,
+  "x": 252.5,
+  "y": 460.5
+ },
+ "children": {
+  "bar1": {
+   "x": 252.85,
+   "y": 460.6
+  },
+  "txt_loading": {
+   "x": 276.0,
+   "y": 508.25
+  },
+  "txt_play": {
+   "x": 319.95,
+   "y": 510.75
+  },
+  "txt_size": {
+   "x": 286.4,
+   "y": 540.25
+  },
+  "txt_version": {
+   "x": 728.2,
+   "y": 577.95
+  }
+ },
+ "design": [
+  800,
+  600
+ ],
+ "fields": {
+  "txt_loading": 21,
+  "txt_play": 24,
+  "txt_play2": 25,
+  "txt_size": 22,
+  "txt_version": 17
+ },
+ "parts": {
+  "copy": {
+   "file": "loader_copy.png",
+   "h": 28.5,
+   "w": 289.0,
+   "x": 253.5,
+   "y": 567.0
+  },
+  "logo": {
+   "file": "loader_logo.png",
+   "h": 106.5,
+   "w": 385.5,
+   "x": 220.5,
+   "y": 2.5
+  },
+  "sky9": {
+   "file": "loader_sky9.png",
+   "h": 28.5,
+   "w": 71.5,
+   "x": 15.0,
+   "y": 567.0
+  }
+ },
+ "scale": 2,
+ "text": {
+  "17": {
+   "align": "right",
+   "alpha": 1.0,
+   "cid": 17,
+   "color": 16776960,
+   "font": "QTypeSquare-Medium",
+   "h": 20.85,
+   "leading": 2.0,
+   "size": 14.0,
+   "w": 185.75,
+   "x": -120.25,
+   "y": -2.0
+  },
+  "21": {
+   "align": "center",
+   "alpha": 1.0,
+   "cid": 21,
+   "color": 13421772,
+   "font": "QTypeSquare-Book",
+   "h": 34.8,
+   "leading": 2.0,
+   "size": 12.0,
+   "w": 251.95,
+   "x": -2.0,
+   "y": -2.0
+  },
+  "22": {
+   "align": "right",
+   "alpha": 1.0,
+   "cid": 22,
+   "color": 13421772,
+   "font": "QTypeSquare-Book",
+   "h": 18.4,
+   "leading": 2.0,
+   "size": 12.0,
+   "w": 166.05,
+   "x": -2.0,
+   "y": -2.0
+  },
+  "24": {
+   "align": "center",
+   "alpha": 1.0,
+   "cid": 24,
+   "color": 16763904,
+   "font": "QTypeSquare-BlackMajuscles",
+   "h": 40.9,
+   "leading": 2.0,
+   "size": 30.0,
+   "w": 164.0,
+   "x": -2.0,
+   "y": -2.0
+  },
+  "25": {
+   "align": "center",
+   "alpha": 1.0,
+   "cid": 25,
+   "color": 16763904,
+   "font": "QTypeSquare-BlackMajuscles",
+   "h": 40.9,
+   "leading": 2.0,
+   "size": 30.0,
+   "w": 164.0,
+   "x": -2.0,
+   "y": -2.0
+  }
+ }
+}

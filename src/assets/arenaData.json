@@ -1,0 +1,9943 @@
+{
+ "maps": {
+  "street": {
+   "image": {
+    "file": "street.png",
+    "x": -34.15,
+    "y": 54.0,
+    "w": 1798,
+    "h": 1022
+   },
+   "wall": {
+    "file": "street_wall.png",
+    "w": 1712,
+    "h": 971
+   },
+   "radar": {
+    "file": "street_radarwall.png",
+    "w": 179,
+    "h": 107
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 849.1,
+     "y": 929.45,
+     "width": 1674.43,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 77.0,
+     "y": 493.3,
+     "width": 83.94,
+     "height": 915.34
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 515.2,
+     "y": 775.95,
+     "width": 314.77,
+     "height": 36.58
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1154.6,
+     "y": 772.9,
+     "width": 287.18,
+     "height": 36.58
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1246.55,
+     "y": 900.55,
+     "width": 105.27,
+     "height": 65.42
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 550.4,
+     "y": 900.55,
+     "width": 105.27,
+     "height": 65.42
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 841.75,
+     "y": 367.95,
+     "width": 47.08,
+     "height": 624.65
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1629.9,
+     "y": 493.3,
+     "width": 83.94,
+     "height": 915.34
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 252.8,
+     "y": 823.75,
+     "width": 85.53,
+     "height": 79.31
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 688.75,
+     "y": 824.75,
+     "width": 85.53,
+     "height": 79.31
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 890.75,
+     "y": 822.75,
+     "width": 85.53,
+     "height": 79.31
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1317.75,
+     "y": 822.75,
+     "width": 85.53,
+     "height": 79.31
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 1165.75,
+     "y": 678.75,
+     "width": 85.53,
+     "height": 79.31
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 1245.75,
+     "y": 560.8,
+     "width": 85.53,
+     "height": 79.31
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 399.75,
+     "y": 681.75,
+     "width": 85.53,
+     "height": 79.31
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 340.8,
+     "y": 566.8,
+     "width": 85.53,
+     "height": 79.31
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_be",
+     "x": 206.65,
+     "y": 895.15
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_acde",
+     "x": 827.45,
+     "y": 893.15
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_bd",
+     "x": 1464.2,
+     "y": 893.15
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_cbf",
+     "x": 1137.3,
+     "y": 748.25
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_abi",
+     "x": 531.55,
+     "y": 748.25
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_i",
+     "x": 695.5,
+     "y": 552.3
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_dg",
+     "x": 1425.2,
+     "y": 630.3
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_eh",
+     "x": 229.65,
+     "y": 630.3
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_f",
+     "x": 977.35,
+     "y": 552.3
+    },
+    {
+     "kind": "waypoint",
+     "name": "z_h",
+     "x": 698.5,
+     "y": 270.35
+    },
+    {
+     "kind": "spawn",
+     "name": "h_1",
+     "x": 771.9,
+     "y": 553.1
+    },
+    {
+     "kind": "spawn",
+     "name": "i_1",
+     "x": 151.95,
+     "y": 630.1
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 890.1,
+     "y": 552.2
+    },
+    {
+     "kind": "spawn",
+     "name": "h_1",
+     "x": 702.9,
+     "y": 553.1
+    },
+    {
+     "kind": "spawn",
+     "name": "h_1",
+     "x": 631.9,
+     "y": 553.1
+    },
+    {
+     "kind": "spawn",
+     "name": "i_1",
+     "x": 223.95,
+     "y": 630.1
+    },
+    {
+     "kind": "spawn",
+     "name": "i_1",
+     "x": 298.95,
+     "y": 630.1
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 145.95,
+     "y": 897.05
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 214.95,
+     "y": 897.05
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 982.1,
+     "y": 552.2
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 1065.1,
+     "y": 552.2
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1362.1,
+     "y": 631.2
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1440.1,
+     "y": 631.2
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1514.1,
+     "y": 631.2
+    },
+    {
+     "kind": "spawn",
+     "name": "c_2",
+     "x": 1530.1,
+     "y": 895.15
+    },
+    {
+     "kind": "spawn",
+     "name": "c_2",
+     "x": 1430.1,
+     "y": 895.15
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 166.65,
+     "y": 627.6
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 206.15,
+     "y": 896.6
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 579.35,
+     "y": 749.65
+    },
+    {
+     "kind": "spawn",
+     "name": "h_0",
+     "x": 694.85,
+     "y": 551.05
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 975.6,
+     "y": 551.05
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 1525.3,
+     "y": 627.6
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1037.75,
+     "y": 748.5
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 1540.55,
+     "y": 895.5
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 804.2,
+     "y": 894.65
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 322.1,
+     "y": 627.6
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1182.05,
+     "y": 748.5
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 1388.8,
+     "y": 895.5
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 843.7,
+     "y": 898.35
+    },
+    {
+     "kind": "ctfflag",
+     "name": "h__1",
+     "x": 694.3,
+     "y": 551.35
+    },
+    {
+     "kind": "ctfflag",
+     "name": "g__2",
+     "x": 973.75,
+     "y": 550.75
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1376.45,
+     "y": 629.5
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 477.6,
+     "y": 753.45
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 239.05,
+     "y": 625.05
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 1137.15,
+     "y": 748.3
+    }
+   ]
+  },
+  "factory": {
+   "image": {
+    "file": "factory.png",
+    "x": -249.05,
+    "y": -158.15,
+    "w": 3342,
+    "h": 1370
+   },
+   "wall": {
+    "file": "factory_wall.png",
+    "w": 2872,
+    "h": 1148
+   },
+   "radar": {
+    "file": "factory_radarwall.png",
+    "w": 334,
+    "h": 137
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 594.65,
+     "y": 855.75,
+     "width": 1218.37,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 25.95,
+     "y": 430.9,
+     "width": 49.09,
+     "height": 885.44
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2858.45,
+     "y": 430.9,
+     "width": 49.09,
+     "height": 885.44
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 561.0,
+     "y": 730.75,
+     "width": 1064.78,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2011.3,
+     "y": 727.75,
+     "width": 1034.26,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1161.9,
+     "y": 926.3,
+     "width": 59.01,
+     "height": 479.28
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1109.45,
+     "y": 715.35,
+     "width": 172.76,
+     "height": 39.91,
+     "rotation": -10.282
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1490.15,
+     "y": 711.8,
+     "width": 172.76,
+     "height": 39.91,
+     "rotation": 9.12
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1436.9,
+     "y": 926.3,
+     "width": 59.01,
+     "height": 479.28
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 271.95,
+     "y": 693.8,
+     "width": 128.64,
+     "height": 64.52
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 711.9,
+     "y": 671.25,
+     "width": 128.64,
+     "height": 127.04
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 768.9,
+     "y": 716.25,
+     "width": 128.64,
+     "height": 127.04
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 234.0,
+     "y": 343.25,
+     "width": 153.27,
+     "height": 157.76
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2512.35,
+     "y": 668.85,
+     "width": 144.01,
+     "height": 168.99
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2664.8,
+     "y": 590.85,
+     "width": 276.21,
+     "height": 168.99
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2768.35,
+     "y": 374.9,
+     "width": 74.31,
+     "height": 35.94
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1694.3,
+     "y": 701.35,
+     "width": 94.8,
+     "height": 67.69
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2081.8,
+     "y": 698.35,
+     "width": 65.11,
+     "height": 67.69
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 269.5,
+     "y": 444.25,
+     "width": 76.45,
+     "height": 112.66
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 73.55,
+     "y": 308.75,
+     "width": 76.45,
+     "height": 230.49
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 193.55,
+     "y": 122.3,
+     "width": 238.37,
+     "height": 225.4
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2137.05,
+     "y": 855.75,
+     "width": 1491.4,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1224.95,
+     "y": 763.05,
+     "width": 89.73,
+     "height": 21.61,
+     "rotation": -0.002
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1377.65,
+     "y": 865.65,
+     "width": 89.73,
+     "height": 21.61,
+     "rotation": -0.002
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1231.8,
+     "y": 964.7,
+     "width": 89.73,
+     "height": 21.61,
+     "rotation": -0.002
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1384.5,
+     "y": 1074.1,
+     "width": 89.73,
+     "height": 21.61,
+     "rotation": -0.002
+    },
+    {
+     "kind": "aiaction",
+     "name": "c_a",
+     "x": 272.6,
+     "y": 217.5,
+     "width": 91.66,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_n",
+     "x": 253.6,
+     "y": 591.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 513.6,
+     "y": 425.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_n",
+     "x": 660.8,
+     "y": 546.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_p",
+     "x": 584.8,
+     "y": 631.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 1127.5,
+     "y": 384.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 1404.5,
+     "y": 388.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1150.5,
+     "y": 621.4,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 1377.5,
+     "y": 619.4,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 1722.5,
+     "y": 605.4,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_ki",
+     "x": 2443.45,
+     "y": 521.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 2186.5,
+     "y": 489.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 2004.5,
+     "y": 485.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 1924.5,
+     "y": 353.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 2649.45,
+     "y": 434.45,
+     "width": 48.45,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 2340.5,
+     "y": 626.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 2202.5,
+     "y": 294.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_o",
+     "x": 632.6,
+     "y": 337.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_q",
+     "x": 122.85,
+     "y": 704.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_qp",
+     "x": 481.8,
+     "y": 703.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_pd",
+     "x": 963.8,
+     "y": 701.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_ce",
+     "x": 1571.8,
+     "y": 701.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_dfk",
+     "x": 1684.85,
+     "y": 666.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_eg",
+     "x": 1860.8,
+     "y": 702.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_fh",
+     "x": 2328.8,
+     "y": 702.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_igk",
+     "x": 2483.8,
+     "y": 585.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_hj",
+     "x": 2709.8,
+     "y": 507.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_kil",
+     "x": 2422.8,
+     "y": 353.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_lefgh",
+     "x": 2090.85,
+     "y": 554.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_kjcm",
+     "x": 1766.85,
+     "y": 413.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_ldno",
+     "x": 821.9,
+     "y": 414.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "n_qpm",
+     "x": 473.9,
+     "y": 497.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "o_ma",
+     "x": 469.9,
+     "y": 307.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "p_bcn",
+     "x": 715.9,
+     "y": 607.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "q_abn",
+     "x": 277.9,
+     "y": 659.9
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 92.75,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 142.7,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 174.7,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 404.6,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 460.6,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 514.6,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 617.4,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2567.8,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2511.85,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2453.85,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2373.9,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2317.9,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "i_2",
+     "x": 2745.75,
+     "y": 507.2
+    },
+    {
+     "kind": "spawn",
+     "name": "i_2",
+     "x": 2705.8,
+     "y": 507.2
+    },
+    {
+     "kind": "spawn",
+     "name": "n_1",
+     "x": 455.6,
+     "y": 498.2
+    },
+    {
+     "kind": "spawn",
+     "name": "n_1",
+     "x": 504.6,
+     "y": 498.2
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 2478.8,
+     "y": 585.2
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2327.9,
+     "y": 703.25
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2275.9,
+     "y": 704.25
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 132.75,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 480.6,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 964.45,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1572.2,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 1902.05,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 2317.9,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 2711.8,
+     "y": 509.2
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 2425.9,
+     "y": 353.25
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 2092.05,
+     "y": 553.2
+    },
+    {
+     "kind": "spawn",
+     "name": "l_0",
+     "x": 1766.15,
+     "y": 415.25
+    },
+    {
+     "kind": "spawn",
+     "name": "m_0",
+     "x": 822.5,
+     "y": 415.25
+    },
+    {
+     "kind": "spawn",
+     "name": "o_0",
+     "x": 468.65,
+     "y": 309.3
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 490.6,
+     "y": 497.5
+    },
+    {
+     "kind": "ctfflag",
+     "name": "a__1",
+     "x": 124.3,
+     "y": 713.4
+    },
+    {
+     "kind": "ctfflag",
+     "name": "j__2",
+     "x": 2682.9,
+     "y": 508.85
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 2209.95,
+     "y": 703.6
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1649.0,
+     "y": 414.1
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 1861.6,
+     "y": 409.9
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 728.6,
+     "y": 601.55
+    }
+   ]
+  },
+  "caves": {
+   "image": {
+    "file": "caves.png",
+    "x": -332.4,
+    "y": -236.55,
+    "w": 3418,
+    "h": 1632
+   },
+   "wall": {
+    "file": "caves_wall.png",
+    "w": 2757,
+    "h": 1270
+   },
+   "radar": {
+    "file": "caves_radarwall.png",
+    "w": 341,
+    "h": 163
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1451.45,
+     "y": 1202.05,
+     "width": 3205.72,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1460.6,
+     "y": 36.5,
+     "width": 3224.45,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2728.1,
+     "y": 553.95,
+     "width": 83.96,
+     "height": 1094.12
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 38.4,
+     "y": 599.0,
+     "width": 83.94,
+     "height": 1186.44
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 898.6,
+     "y": 935.1,
+     "width": 299.6,
+     "height": 49.16,
+     "rotation": -48.743
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 263.5,
+     "y": 862.85,
+     "width": 343.66,
+     "height": 36.9,
+     "rotation": -24.968
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 226.8,
+     "y": 785.55,
+     "width": 406.18,
+     "height": 39.5,
+     "rotation": -0.221
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 160.95,
+     "y": 996.45,
+     "width": 156.93,
+     "height": 52.99,
+     "rotation": 89.268
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 273.2,
+     "y": 1138.95,
+     "width": 220.08,
+     "height": 167.78,
+     "rotation": 0.343
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1465.15,
+     "y": 1141.5,
+     "width": 169.05,
+     "height": 75.86,
+     "rotation": -175.533
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2648.95,
+     "y": 1144.25,
+     "width": 250.96,
+     "height": 167.79,
+     "rotation": 172.711
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 962.5,
+     "y": 834.4,
+     "width": 616.1,
+     "height": 52.35,
+     "rotation": -14.119
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2529.8,
+     "y": 852.75,
+     "width": 141.93,
+     "height": 36.9,
+     "rotation": 44.731
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1264.5,
+     "y": 519.95,
+     "width": 235.23,
+     "height": 36.9,
+     "rotation": -17.428
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2583.95,
+     "y": 768.05,
+     "width": 243.7,
+     "height": 36.9,
+     "rotation": -13.387
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1390.15,
+     "y": 570.3,
+     "width": 487.05,
+     "height": 36.9,
+     "rotation": -176.34
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 697.1,
+     "y": 992.05,
+     "width": 228.35,
+     "height": 145.44,
+     "rotation": 0.343
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2005.35,
+     "y": 1005.4,
+     "width": 702.08,
+     "height": 116.94,
+     "rotation": 0.343
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1926.4,
+     "y": 891.85,
+     "width": 875.36,
+     "height": 52.35,
+     "rotation": -167.921
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1657.0,
+     "y": 902.25,
+     "width": 162.45,
+     "height": 49.16,
+     "rotation": -118.682
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1499.85,
+     "y": 530.65,
+     "width": 292.33,
+     "height": 36.9,
+     "rotation": -159.491
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2639.4,
+     "y": 838.75,
+     "width": 192.52,
+     "height": 36.9,
+     "rotation": 138.006
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1267.1,
+     "y": 1141.55,
+     "width": 254.73,
+     "height": 75.86,
+     "rotation": 176.748
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 220.85,
+     "y": 179.2,
+     "width": 359.72,
+     "height": 86.62,
+     "rotation": 54.041
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 420.75,
+     "y": 179.2,
+     "width": 359.72,
+     "height": 86.62,
+     "rotation": 125.959
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1940.25,
+     "y": 179.2,
+     "width": 366.59,
+     "height": 89.93,
+     "rotation": 52.586
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2151.05,
+     "y": 179.2,
+     "width": 366.59,
+     "height": 89.93,
+     "rotation": 127.414
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2415.15,
+     "y": 140.3,
+     "width": 278.28,
+     "height": 68.27,
+     "rotation": 52.586
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2575.2,
+     "y": 140.3,
+     "width": 278.28,
+     "height": 68.27,
+     "rotation": 127.414
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1377.65,
+     "y": 114.35,
+     "width": 278.28,
+     "height": 68.27,
+     "rotation": 52.586
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1537.7,
+     "y": 114.35,
+     "width": 278.28,
+     "height": 68.27,
+     "rotation": 127.414
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 872.9,
+     "y": 149.4,
+     "width": 311.83,
+     "height": 75.38,
+     "rotation": 61.997
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1025.0,
+     "y": 147.5,
+     "width": 311.83,
+     "height": 75.38,
+     "rotation": 123.282
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_b",
+     "x": 294.7,
+     "y": 705.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 965.65,
+     "y": 561.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 1734.6,
+     "y": 612.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 2498.55,
+     "y": 697.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 2290.55,
+     "y": 878.1,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 1498.6,
+     "y": 723.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 1206.6,
+     "y": 693.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_b",
+     "x": 1071.65,
+     "y": 706.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1635.6,
+     "y": 745.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 2495.55,
+     "y": 1017.05,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 2396.55,
+     "y": 1126.05,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 632.65,
+     "y": 829.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 350.65,
+     "y": 1009.1,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 434.65,
+     "y": 1124.1,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 1059.6,
+     "y": 1122.1,
+     "width": 104.05,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 1539.6,
+     "y": 1126.1,
+     "width": 104.99,
+     "height": 74.14
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_n",
+     "x": 1354.6,
+     "y": 1033.15,
+     "width": 70.07,
+     "height": 74.14
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_bi",
+     "x": 261.6,
+     "y": 766.4
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_ach",
+     "x": 717.55,
+     "y": 572.4
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_bd",
+     "x": 1378.5,
+     "y": 470.4
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_ceg",
+     "x": 2070.45,
+     "y": 637.4
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_df",
+     "x": 2596.45,
+     "y": 748.4
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_egm",
+     "x": 2228.45,
+     "y": 919.35
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_fhdl",
+     "x": 1608.45,
+     "y": 795.35
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_gbil",
+     "x": 1150.45,
+     "y": 762.35
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_hak",
+     "x": 724.5,
+     "y": 862.35
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_il",
+     "x": 315.55,
+     "y": 1061.3
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_l",
+     "x": 500.5,
+     "y": 1190.3
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_n",
+     "x": 1390.45,
+     "y": 1094.3
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_lf",
+     "x": 2582.35,
+     "y": 1067.3
+    },
+    {
+     "kind": "waypoint",
+     "name": "n_gh",
+     "x": 1390.45,
+     "y": 812.35
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 128.35,
+     "y": 764.9
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2666.5,
+     "y": 728.05
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 175.35,
+     "y": 764.9
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 225.35,
+     "y": 764.9
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 464.3,
+     "y": 585.9
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 535.3,
+     "y": 563.9
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 600.3,
+     "y": 560.9
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 671.3,
+     "y": 566.9
+    },
+    {
+     "kind": "spawn",
+     "name": "j_1",
+     "x": 229.35,
+     "y": 1057.85
+    },
+    {
+     "kind": "spawn",
+     "name": "j_1",
+     "x": 299.35,
+     "y": 1057.85
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2617.5,
+     "y": 740.05
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2563.5,
+     "y": 755.05
+    },
+    {
+     "kind": "spawn",
+     "name": "d_2",
+     "x": 2389.5,
+     "y": 606.05
+    },
+    {
+     "kind": "spawn",
+     "name": "d_2",
+     "x": 2305.5,
+     "y": 615.05
+    },
+    {
+     "kind": "spawn",
+     "name": "d_2",
+     "x": 2234.5,
+     "y": 620.05
+    },
+    {
+     "kind": "spawn",
+     "name": "d_2",
+     "x": 2161.5,
+     "y": 626.05
+    },
+    {
+     "kind": "spawn",
+     "name": "m_2",
+     "x": 2668.5,
+     "y": 1054.0
+    },
+    {
+     "kind": "spawn",
+     "name": "m_2",
+     "x": 2610.5,
+     "y": 1065.0
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 260.75,
+     "y": 764.15
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 314.75,
+     "y": 1059.1
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 722.7,
+     "y": 861.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 887.7,
+     "y": 598.15
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 1379.65,
+     "y": 471.15
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1861.6,
+     "y": 664.15
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 2595.6,
+     "y": 746.15
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 2229.65,
+     "y": 921.15
+    },
+    {
+     "kind": "spawn",
+     "name": "m_0",
+     "x": 2581.6,
+     "y": 1069.1
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 1609.7,
+     "y": 796.15
+    },
+    {
+     "kind": "spawn",
+     "name": "h_0",
+     "x": 1151.7,
+     "y": 764.15
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 2299.55,
+     "y": 616.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 548.7,
+     "y": 565.15
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 915.05,
+     "y": 813.1,
+     "rotation": -11.199
+    },
+    {
+     "kind": "ctfflag",
+     "name": "a__1",
+     "x": 260.85,
+     "y": 768.15
+    },
+    {
+     "kind": "ctfflag",
+     "name": "e__2",
+     "x": 2603.3,
+     "y": 744.2,
+     "rotation": -14.223
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1962.5,
+     "y": 864.7,
+     "rotation": 12.982
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1257.75,
+     "y": 1100.65
+    },
+    {
+     "kind": "pickup",
+     "name": "armor_15",
+     "x": 813.5,
+     "y": 576.55,
+     "rotation": 0.255
+    },
+    {
+     "kind": "pickup",
+     "name": "armor_15",
+     "x": 1982.1,
+     "y": 639.8,
+     "rotation": 0.255
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_15",
+     "x": 2043.95,
+     "y": 1193.9,
+     "rotation": 0.255
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_15",
+     "x": 775.55,
+     "y": 1193.9,
+     "rotation": 0.255
+    }
+   ]
+  },
+  "canyon": {
+   "image": {
+    "file": "canyon.png",
+    "x": -314.45,
+    "y": -154.05,
+    "w": 4214,
+    "h": 2254
+   },
+   "wall": {
+    "file": "canyon_wall.png",
+    "w": 3649,
+    "h": 1863
+   },
+   "radar": {
+    "file": "canyon_radarwall.png",
+    "w": 421,
+    "h": 225
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 24.95,
+     "y": 1027.65,
+     "width": 2142.35,
+     "height": 75.51,
+     "rotation": -90.016
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3621.25,
+     "y": 1027.65,
+     "width": 2142.35,
+     "height": 115.38,
+     "rotation": -90.016
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1830.75,
+     "y": 21.7,
+     "width": 75.82,
+     "height": 3762.8,
+     "rotation": -90.005
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 510.45,
+     "y": 1141.7,
+     "width": 362.47,
+     "height": 61.9,
+     "rotation": 19.634
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1157.9,
+     "y": 808.9,
+     "width": 325.27,
+     "height": 34.55,
+     "rotation": -0.201
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1182.4,
+     "y": 789.25,
+     "width": 105.48,
+     "height": 34.66,
+     "rotation": -22.648
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1267.05,
+     "y": 781.9,
+     "width": 99.31,
+     "height": 41.66,
+     "rotation": 9.878
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2197.65,
+     "y": 1234.55,
+     "width": 743.18,
+     "height": 47.34,
+     "rotation": -0.415
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2675.55,
+     "y": 1100.5,
+     "width": 342.74,
+     "height": 47.34,
+     "rotation": 1.318
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2469.0,
+     "y": 1111.45,
+     "width": 111.19,
+     "height": 47.34,
+     "rotation": -16.855
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2427.5,
+     "y": 1175.55,
+     "width": 47.57,
+     "height": 136.97,
+     "rotation": 6.831
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3079.85,
+     "y": 1086.5,
+     "width": 625.15,
+     "height": 47.34,
+     "rotation": -2.917
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1715.2,
+     "y": 651.75,
+     "width": 380.4,
+     "height": 47.34,
+     "rotation": -13.307
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3410.15,
+     "y": 1011.7,
+     "width": 56.44,
+     "height": 156.53,
+     "rotation": -1.572
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3508.8,
+     "y": 946.9,
+     "width": 258.64,
+     "height": 47.34,
+     "rotation": -7.191
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1322.05,
+     "y": 466.45,
+     "width": 98.56,
+     "height": 41.66,
+     "rotation": -64.672
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1370.35,
+     "y": 415.8,
+     "width": 166.34,
+     "height": 41.66,
+     "rotation": -33.506
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1450.4,
+     "y": 378.7,
+     "width": 166.34,
+     "height": 41.66,
+     "rotation": -13.491
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1520.6,
+     "y": 375.45,
+     "width": 161.64,
+     "height": 41.66,
+     "rotation": 7.111
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1580.6,
+     "y": 394.45,
+     "width": 102.91,
+     "height": 41.66,
+     "rotation": 55.068
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1605.9,
+     "y": 434.55,
+     "width": 76.05,
+     "height": 41.66,
+     "rotation": 62.874
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1295.7,
+     "y": 375.45,
+     "width": 316.7,
+     "height": 41.66,
+     "rotation": -88.916
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1768.8,
+     "y": 424.35,
+     "width": 362.84,
+     "height": 41.66,
+     "rotation": -7.93
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 389.45,
+     "y": 1247.6,
+     "width": 496.66,
+     "height": 61.89,
+     "rotation": -16.697
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 114.35,
+     "y": 1449.85,
+     "width": 508.39,
+     "height": 61.9,
+     "rotation": -54.737
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1830.75,
+     "y": 2037.4,
+     "width": 75.82,
+     "height": 3762.8,
+     "rotation": -90.005
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1935.45,
+     "y": 319.5,
+     "width": 202.4,
+     "height": 41.66,
+     "rotation": -88.916
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1941.85,
+     "y": 622.3,
+     "width": 123.88,
+     "height": 47.34,
+     "rotation": 8.97
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1780.0,
+     "y": 698.55,
+     "width": 324.9,
+     "height": 47.34,
+     "rotation": -28.874
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1596.55,
+     "y": 736.2,
+     "width": 152.68,
+     "height": 47.33,
+     "rotation": -133.008
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1080.05,
+     "y": 1273.8,
+     "width": 384.42,
+     "height": 47.34,
+     "rotation": 9.321
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1415.2,
+     "y": 1249.3,
+     "width": 361.12,
+     "height": 47.34,
+     "rotation": -19.381
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1816.0,
+     "y": 1166.65,
+     "width": 361.11,
+     "height": 47.34,
+     "rotation": 27.551
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1614.35,
+     "y": 1161.65,
+     "width": 196.87,
+     "height": 101.47,
+     "rotation": 90.293
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1976.85,
+     "y": 816.7,
+     "width": 507.88,
+     "height": 30.4,
+     "rotation": -24.421
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2192.65,
+     "y": 850.1,
+     "width": 263.91,
+     "height": 41.66,
+     "rotation": -89.364
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2381.4,
+     "y": 815.45,
+     "width": 286.64,
+     "height": 41.66,
+     "rotation": -89.364
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2460.75,
+     "y": 695.95,
+     "width": 140.38,
+     "height": 40.74,
+     "rotation": -179.364
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2695.75,
+     "y": 675.35,
+     "width": 140.38,
+     "height": 40.74,
+     "rotation": -179.364
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2585.15,
+     "y": 685.0,
+     "width": 114.91,
+     "height": 40.73,
+     "rotation": 166.94
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2743.25,
+     "y": 773.55,
+     "width": 197.89,
+     "height": 41.66,
+     "rotation": -89.364
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2680.2,
+     "y": 861.55,
+     "width": 140.38,
+     "height": 40.74,
+     "rotation": 172.177
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2571.95,
+     "y": 915.0,
+     "width": 160.68,
+     "height": 40.74,
+     "rotation": 142.544
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2469.7,
+     "y": 967.95,
+     "width": 102.75,
+     "height": 40.73,
+     "rotation": 168.197
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2401.4,
+     "y": 959.1,
+     "width": 87.78,
+     "height": 40.73,
+     "rotation": -150.339
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2086.15,
+     "y": 934.4,
+     "width": 145.06,
+     "height": 40.74,
+     "rotation": -145.861
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2167.85,
+     "y": 964.75,
+     "width": 87.78,
+     "height": 40.73,
+     "rotation": 171.956
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1972.95,
+     "y": 900.5,
+     "width": 114.11,
+     "height": 40.74,
+     "rotation": 167.239
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1844.35,
+     "y": 914.55,
+     "width": 175.7,
+     "height": 29.09,
+     "rotation": 179.697
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1618.1,
+     "y": 247.5,
+     "width": 645.99,
+     "height": 41.66,
+     "rotation": 0.584
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 193.05,
+     "y": 994.55,
+     "width": 338.75,
+     "height": 112.43,
+     "rotation": 7.163
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 803.6,
+     "y": 1550.5,
+     "width": 148.12,
+     "height": 47.34,
+     "rotation": 96.303
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 859.55,
+     "y": 1477.1,
+     "width": 147.06,
+     "height": 47.34,
+     "rotation": -4.739
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 758.75,
+     "y": 1594.1,
+     "width": 147.06,
+     "height": 47.34,
+     "rotation": -4.739
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 712.4,
+     "y": 1739.3,
+     "width": 147.06,
+     "height": 47.34,
+     "rotation": -4.739
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 635.75,
+     "y": 1860.25,
+     "width": 147.06,
+     "height": 47.34,
+     "rotation": -4.739
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 704.75,
+     "y": 1679.55,
+     "width": 148.12,
+     "height": 47.34,
+     "rotation": 96.303
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 662.4,
+     "y": 1804.55,
+     "width": 148.12,
+     "height": 47.34,
+     "rotation": 96.303
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 583.75,
+     "y": 1953.8,
+     "width": 148.12,
+     "height": 47.34,
+     "rotation": 96.303
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 918.8,
+     "y": 1362.6,
+     "width": 213.66,
+     "height": 47.34,
+     "rotation": 91.101
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_ge",
+     "x": 1445.15,
+     "y": 1106.55,
+     "width": 110.44,
+     "height": 113.77
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_jl",
+     "x": 2352.65,
+     "y": 1117.3,
+     "width": 118.87,
+     "height": 105.61
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 857.9,
+     "y": 1147.05,
+     "width": 82.62,
+     "height": 90.75
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 870.45,
+     "y": 841.6,
+     "width": 82.62,
+     "height": 90.75
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 483.8,
+     "y": 922.75,
+     "width": 82.62,
+     "height": 90.75
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 1128.85,
+     "y": 924.95,
+     "width": 82.62,
+     "height": 113.77
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 1528.25,
+     "y": 1023.45,
+     "width": 82.62,
+     "height": 65.97
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 1646.65,
+     "y": 896.25,
+     "width": 53.76,
+     "height": 100.73
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 1285.85,
+     "y": 696.1,
+     "width": 82.62,
+     "height": 100.73
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 2746.45,
+     "y": 1021.85,
+     "width": 82.62,
+     "height": 65.97
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 3288.05,
+     "y": 999.45,
+     "width": 82.62,
+     "height": 65.97
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 3121.45,
+     "y": 831.35,
+     "width": 42.23,
+     "height": 65.97
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_mi",
+     "x": 3330.05,
+     "y": 887.85,
+     "width": 82.62,
+     "height": 65.97
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_hed",
+     "x": 431.5,
+     "y": 1014.0,
+     "width": 82.62,
+     "height": 90.75
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_mkl",
+     "x": 2184.15,
+     "y": 642.3,
+     "width": 80.62,
+     "height": 75.77
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1384.45,
+     "y": 779.65,
+     "width": 82.62,
+     "height": 100.73
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 3185.45,
+     "y": 822.35,
+     "width": 42.23,
+     "height": 65.97
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 2349.6,
+     "y": 616.8,
+     "width": 51.94,
+     "height": 75.77
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 660.95,
+     "y": 1086.3,
+     "width": 82.62,
+     "height": 90.75
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 2094.15,
+     "y": 661.3,
+     "width": 80.62,
+     "height": 75.77
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 2154.65,
+     "y": 1131.3,
+     "width": 74.64,
+     "height": 87.01
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1482.85,
+     "y": 595.1,
+     "width": 82.62,
+     "height": 100.73
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 337.5,
+     "y": 993.0,
+     "width": 82.62,
+     "height": 90.75
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_hed",
+     "x": 323.2,
+     "y": 891.4,
+     "width": 82.62,
+     "height": 90.75
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_fedh",
+     "x": 166.55,
+     "y": 941.85
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_eahi",
+     "x": 1149.85,
+     "y": 780.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_adhg",
+     "x": 823.15,
+     "y": 896.7
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_edgm",
+     "x": 1547.05,
+     "y": 895.8
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_aeg",
+     "x": 1528.25,
+     "y": 1187.1
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_hfelj",
+     "x": 2281.45,
+     "y": 1202.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_ghk",
+     "x": 3321.45,
+     "y": 1051.9
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_jkmg",
+     "x": 3167.85,
+     "y": 872.15
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_lmgi",
+     "x": 3516.65,
+     "y": 919.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_klihg",
+     "x": 2506.65,
+     "y": 668.25
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_dhmgkl",
+     "x": 1788.45,
+     "y": 604.2
+    },
+    {
+     "kind": "holdpoint",
+     "name": "e_",
+     "x": 3150.7,
+     "y": 1061.65
+    },
+    {
+     "kind": "ctfflag",
+     "name": "k__2",
+     "x": 3516.45,
+     "y": 921.2,
+     "rotation": 0.267
+    },
+    {
+     "kind": "holdpoint",
+     "name": "i_",
+     "x": 1646.5,
+     "y": 640.05,
+     "rotation": -12.234
+    },
+    {
+     "kind": "holdpoint",
+     "name": "c_",
+     "x": 630.8,
+     "y": 946.15,
+     "rotation": -15.221
+    },
+    {
+     "kind": "ctfflag",
+     "name": "a__1",
+     "x": 171.8,
+     "y": 926.9,
+     "rotation": -0.033
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 822.75,
+     "y": 898.2
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 1513.05,
+     "y": 1194.85
+    },
+    {
+     "kind": "spawn",
+     "name": "h_0",
+     "x": 1553.25,
+     "y": 895.8
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 1792.45,
+     "y": 609.2
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 2281.25,
+     "y": 1202.95
+    },
+    {
+     "kind": "spawn",
+     "name": "m_0",
+     "x": 2551.65,
+     "y": 664.8
+    },
+    {
+     "kind": "spawn",
+     "name": "l_0",
+     "x": 3177.05,
+     "y": 876.6
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 3323.0,
+     "y": 1047.45
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 256.25,
+     "y": 953.55
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 337.35,
+     "y": 957.25
+    },
+    {
+     "kind": "spawn",
+     "name": "e_1",
+     "x": 573.4,
+     "y": 970.0
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 273.8,
+     "y": 956.15
+    },
+    {
+     "kind": "spawn",
+     "name": "e_1",
+     "x": 799.75,
+     "y": 896.2
+    },
+    {
+     "kind": "spawn",
+     "name": "e_1",
+     "x": 685.05,
+     "y": 930.85
+    },
+    {
+     "kind": "spawn",
+     "name": "e_1",
+     "x": 737.35,
+     "y": 905.8
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 219.6,
+     "y": 941.6
+    },
+    {
+     "kind": "spawn",
+     "name": "k_2",
+     "x": 3410.05,
+     "y": 938.15
+    },
+    {
+     "kind": "spawn",
+     "name": "m_2",
+     "x": 3015.95,
+     "y": 759.8
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1147.3,
+     "y": 780.8
+    },
+    {
+     "kind": "spawn",
+     "name": "k_2",
+     "x": 3447.05,
+     "y": 931.15
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 3325.05,
+     "y": 1051.15
+    },
+    {
+     "kind": "spawn",
+     "name": "l_2",
+     "x": 3179.05,
+     "y": 874.15
+    },
+    {
+     "kind": "spawn",
+     "name": "m_2",
+     "x": 2941.95,
+     "y": 732.8
+    },
+    {
+     "kind": "spawn",
+     "name": "m_2",
+     "x": 2871.95,
+     "y": 695.8
+    },
+    {
+     "kind": "pickup",
+     "name": "armorbig_30",
+     "x": 2189.6,
+     "y": 701.75
+    },
+    {
+     "kind": "pickup",
+     "name": "health_10",
+     "x": 642.05,
+     "y": 1148.45,
+     "rotation": 0.977
+    },
+    {
+     "kind": "pickup",
+     "name": "ammobig_30",
+     "x": 1237.65,
+     "y": 754.05,
+     "rotation": 0.255
+    },
+    {
+     "kind": "pickup",
+     "name": "health_10",
+     "x": 2595.9,
+     "y": 1073.4
+    }
+   ]
+  },
+  "forest": {
+   "image": {
+    "file": "forest.png",
+    "x": -65.9,
+    "y": -44.1,
+    "w": 3860,
+    "h": 1638
+   },
+   "wall": {
+    "file": "forest_wall.png",
+    "w": 3687,
+    "h": 1272
+   },
+   "radar": {
+    "file": "forest_radarwall.png",
+    "w": 386,
+    "h": 163
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 206.55,
+     "y": 536.8,
+     "width": 346.82,
+     "height": 43.61,
+     "rotation": -170.875
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 24.95,
+     "y": 433.45,
+     "width": 46.81,
+     "height": 908.28,
+     "rotation": -179.897
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 415.4,
+     "y": 594.05,
+     "width": 120.0,
+     "height": 43.61,
+     "rotation": -152.429
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 485.95,
+     "y": 756.45,
+     "width": 366.25,
+     "height": 43.61,
+     "rotation": -174.829
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 256.9,
+     "y": 753.85,
+     "width": 124.16,
+     "height": 41.04,
+     "rotation": 166.687
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 350.05,
+     "y": 911.5,
+     "width": 644.32,
+     "height": 43.61,
+     "rotation": -171.132
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 627.35,
+     "y": 1011.5,
+     "width": 72.88,
+     "height": 142.11,
+     "rotation": -179.495
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 755.2,
+     "y": 1037.9,
+     "width": 230.77,
+     "height": 43.55,
+     "rotation": -176.654
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1032.05,
+     "y": 1092.4,
+     "width": 372.43,
+     "height": 43.55,
+     "rotation": -165.6
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1359.2,
+     "y": 1138.65,
+     "width": 387.18,
+     "height": 43.55,
+     "rotation": -179.824
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1508.7,
+     "y": 1087.35,
+     "width": 40.27,
+     "height": 69.48,
+     "rotation": -179.824
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1589.95,
+     "y": 1056.9,
+     "width": 210.08,
+     "height": 43.0,
+     "rotation": 169.614
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1797.35,
+     "y": 1077.95,
+     "width": 248.81,
+     "height": 89.78,
+     "rotation": -170.692
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1948.25,
+     "y": 1138.65,
+     "width": 78.61,
+     "height": 89.77,
+     "rotation": 178.566
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2467.2,
+     "y": 1211.6,
+     "width": 996.79,
+     "height": 89.77,
+     "rotation": -176.733
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2965.8,
+     "y": 1231.2,
+     "width": 130.3,
+     "height": 89.77,
+     "rotation": 172.699
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3098.9,
+     "y": 1208.65,
+     "width": 155.83,
+     "height": 89.77,
+     "rotation": 168.014
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3219.2,
+     "y": 1176.8,
+     "width": 111.11,
+     "height": 89.77,
+     "rotation": 159.543
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3326.15,
+     "y": 1150.5,
+     "width": 127.99,
+     "height": 89.77,
+     "rotation": 171.275
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3446.5,
+     "y": 1135.75,
+     "width": 127.99,
+     "height": 89.77,
+     "rotation": 174.261
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3565.3,
+     "y": 1125.95,
+     "width": 127.99,
+     "height": 89.77,
+     "rotation": 175.261
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3634.3,
+     "y": 1108.8,
+     "width": 127.99,
+     "height": 89.77,
+     "rotation": 166.533
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3674.4,
+     "y": 535.55,
+     "width": 44.03,
+     "height": 1097.04,
+     "rotation": -179.881
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 959.2,
+     "y": 699.1,
+     "width": 291.82,
+     "height": 137.73,
+     "rotation": 178.712
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1167.85,
+     "y": 669.2,
+     "width": 174.48,
+     "height": 54.95,
+     "rotation": -170.401
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 900.0,
+     "y": 891.75,
+     "width": 248.16,
+     "height": 43.61,
+     "rotation": 175.768
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1265.3,
+     "y": 934.5,
+     "width": 235.01,
+     "height": 43.61,
+     "rotation": -159.758
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2084.9,
+     "y": 846.95,
+     "width": 426.93,
+     "height": 43.0,
+     "rotation": -179.805
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2099.8,
+     "y": 810.8,
+     "width": 124.07,
+     "height": 52.22,
+     "rotation": 179.379
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2420.65,
+     "y": 947.05,
+     "width": 56.6,
+     "height": 21.58,
+     "rotation": -163.67
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2551.0,
+     "y": 965.1,
+     "width": 222.28,
+     "height": 21.58,
+     "rotation": -174.563
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2749.9,
+     "y": 1027.1,
+     "width": 225.4,
+     "height": 21.58,
+     "rotation": -151.106
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2714.8,
+     "y": 1045.45,
+     "width": 281.69,
+     "height": 26.61,
+     "rotation": -163.881
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3044.6,
+     "y": 926.7,
+     "width": 91.24,
+     "height": 35.56,
+     "rotation": 175.814
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3143.9,
+     "y": 936.5,
+     "width": 129.47,
+     "height": 25.6,
+     "rotation": -162.99
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3184.2,
+     "y": 1003.8,
+     "width": 26.97,
+     "height": 102.62,
+     "rotation": -159.985
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3089.45,
+     "y": 994.9,
+     "width": 207.05,
+     "height": 35.56,
+     "rotation": -142.446
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1868.05,
+     "y": 18.65,
+     "width": 46.81,
+     "height": 3750.38,
+     "rotation": -89.842
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2566.85,
+     "y": 1005.65,
+     "width": 281.69,
+     "height": 26.61,
+     "rotation": -165.598
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 621.15,
+     "y": 671.05,
+     "width": 105.66,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_b",
+     "x": 96.85,
+     "y": 763.05,
+     "width": 58.45,
+     "height": 107.38
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_p",
+     "x": 647.2,
+     "y": 939.45,
+     "width": 103.63,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_ef",
+     "x": 626.55,
+     "y": 863.4,
+     "width": 64.05,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 1355.9,
+     "y": 889.4,
+     "width": 109.76,
+     "height": 82.71
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_hoj",
+     "x": 1437.05,
+     "y": 1068.75,
+     "width": 64.6,
+     "height": 62.13
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_hge",
+     "x": 1981.35,
+     "y": 1073.6,
+     "width": 74.24,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 1457.2,
+     "y": 1000.75,
+     "width": 69.4,
+     "height": 68.31
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 2805.45,
+     "y": 996.05,
+     "width": 78.93,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_if",
+     "x": 2974.55,
+     "y": 836.35,
+     "width": 78.93,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 3237.6,
+     "y": 917.75,
+     "width": 78.93,
+     "height": 70.0
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 3423.3,
+     "y": 772.25,
+     "width": 78.93,
+     "height": 70.0
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_kf",
+     "x": 3362.0,
+     "y": 1040.75,
+     "width": 78.93,
+     "height": 70.0
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 2873.85,
+     "y": 1130.9,
+     "width": 78.93,
+     "height": 70.0
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 2920.5,
+     "y": 739.65,
+     "width": 78.93,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 2511.2,
+     "y": 883.8,
+     "width": 78.93,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_ba",
+     "x": 761.1,
+     "y": 817.05,
+     "width": 64.05,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_if",
+     "x": 3077.95,
+     "y": 631.55,
+     "width": 78.93,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 2352.75,
+     "y": 855.75,
+     "width": 89.35,
+     "height": 97.22
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 493.8,
+     "y": 662.85,
+     "width": 67.57,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1565.9,
+     "y": 757.45,
+     "width": 109.76,
+     "height": 82.71
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_bac",
+     "x": 799.15,
+     "y": 577.05,
+     "width": 105.66,
+     "height": 86.85
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_hge",
+     "x": 1895.35,
+     "y": 1041.6,
+     "width": 74.24,
+     "height": 86.85
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_be",
+     "x": 137.65,
+     "y": 499.8
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_mkij",
+     "x": 3532.7,
+     "y": 806.15
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_defca",
+     "x": 593.7,
+     "y": 732.5
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_bp",
+     "x": 101.6,
+     "y": 851.35
+    },
+    {
+     "kind": "waypoint",
+     "name": "p_ceghf",
+     "x": 561.15,
+     "y": 918.55
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_fhbpa",
+     "x": 1059.85,
+     "y": 859.15
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_hpjo",
+     "x": 1047.25,
+     "y": 1071.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_gojepq",
+     "x": 1712.55,
+     "y": 1019.7
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_deijk",
+     "x": 1874.05,
+     "y": 827.4
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_fkonhiq",
+     "x": 2495.55,
+     "y": 941.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_fkjmeh",
+     "x": 2827.05,
+     "y": 745.7
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_inljfh",
+     "x": 3143.95,
+     "y": 909.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "o_jnheq",
+     "x": 2998.6,
+     "y": 1180.8
+    },
+    {
+     "kind": "waypoint",
+     "name": "n_kojifh",
+     "x": 3494.05,
+     "y": 1087.85
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_ifjl",
+     "x": 3284.0,
+     "y": 689.65
+    },
+    {
+     "kind": "waypoint",
+     "name": "q_ho",
+     "x": 2210.3,
+     "y": 1148.4
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_fjoabc",
+     "x": 1091.55,
+     "y": 624.4
+    },
+    {
+     "kind": "ctfflag",
+     "name": "a__1",
+     "x": 153.1,
+     "y": 503.15,
+     "rotation": 8.248
+    },
+    {
+     "kind": "holdpoint",
+     "name": "d_",
+     "x": 362.95,
+     "y": 721.05
+    },
+    {
+     "kind": "ctfflag",
+     "name": "l__2",
+     "x": 3532.95,
+     "y": 803.05,
+     "rotation": -8.227
+    },
+    {
+     "kind": "holdpoint",
+     "name": "q_",
+     "x": 1724.7,
+     "y": 822.8,
+     "rotation": -1.264
+    },
+    {
+     "kind": "holdpoint",
+     "name": "m_",
+     "x": 2526.0,
+     "y": 1171.5
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 1000.85,
+     "y": 1062.95
+    },
+    {
+     "kind": "spawn",
+     "name": "h_0",
+     "x": 1751.25,
+     "y": 1011.05
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 1013.45,
+     "y": 863.25
+    },
+    {
+     "kind": "spawn",
+     "name": "p_0",
+     "x": 279.25,
+     "y": 870.35
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 594.55,
+     "y": 734.0
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1039.45,
+     "y": 634.3
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 2113.5,
+     "y": 770.9
+    },
+    {
+     "kind": "spawn",
+     "name": "o_0",
+     "x": 2950.45,
+     "y": 1198.3
+    },
+    {
+     "kind": "spawn",
+     "name": "n_0",
+     "x": 3562.95,
+     "y": 1086.7
+    },
+    {
+     "kind": "spawn",
+     "name": "m_0",
+     "x": 3285.65,
+     "y": 687.5
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 2485.2,
+     "y": 944.0
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 2672.75,
+     "y": 809.45
+    },
+    {
+     "kind": "spawn",
+     "name": "q_0",
+     "x": 2059.95,
+     "y": 1148.4
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 275.25,
+     "y": 524.9
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 352.1,
+     "y": 540.6
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 655.75,
+     "y": 744.4
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 594.55,
+     "y": 738.6
+    },
+    {
+     "kind": "spawn",
+     "name": "p_1",
+     "x": 389.05,
+     "y": 888.9
+    },
+    {
+     "kind": "spawn",
+     "name": "p_1",
+     "x": 326.1,
+     "y": 883.5
+    },
+    {
+     "kind": "spawn",
+     "name": "p_1",
+     "x": 229.05,
+     "y": 869.75
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 208.25,
+     "y": 514.9
+    },
+    {
+     "kind": "spawn",
+     "name": "n_2",
+     "x": 3562.95,
+     "y": 1085.9
+    },
+    {
+     "kind": "spawn",
+     "name": "n_2",
+     "x": 3429.05,
+     "y": 1099.65
+    },
+    {
+     "kind": "spawn",
+     "name": "k_2",
+     "x": 3166.95,
+     "y": 932.3
+    },
+    {
+     "kind": "spawn",
+     "name": "k_2",
+     "x": 3098.25,
+     "y": 912.5
+    },
+    {
+     "kind": "spawn",
+     "name": "l_2",
+     "x": 3627.45,
+     "y": 785.5
+    },
+    {
+     "kind": "spawn",
+     "name": "l_2",
+     "x": 3572.5,
+     "y": 800.2
+    },
+    {
+     "kind": "spawn",
+     "name": "m_2",
+     "x": 3386.45,
+     "y": 691.15
+    },
+    {
+     "kind": "spawn",
+     "name": "m_2",
+     "x": 3329.0,
+     "y": 691.15
+    },
+    {
+     "kind": "spawn",
+     "name": "m_2",
+     "x": 3232.25,
+     "y": 691.15
+    },
+    {
+     "kind": "spawn",
+     "name": "m_2",
+     "x": 3174.8,
+     "y": 691.15
+    },
+    {
+     "kind": "spawn",
+     "name": "q_0",
+     "x": 2374.95,
+     "y": 1161.4
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 2869.75,
+     "y": 749.45
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 2626.75,
+     "y": 958.95
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 1332.15,
+     "y": 665.6,
+     "rotation": 5.241
+    },
+    {
+     "kind": "pickup",
+     "name": "health_10",
+     "x": 3495.95,
+     "y": 1090.15
+    },
+    {
+     "kind": "pickup",
+     "name": "armorbig_30",
+     "x": 1863.65,
+     "y": 1037.45
+    },
+    {
+     "kind": "pickup",
+     "name": "health_10",
+     "x": 496.35,
+     "y": 900.2,
+     "rotation": 5.241
+    }
+   ]
+  },
+  "cavesb": {
+   "image": {
+    "file": "cavesb.png",
+    "x": -165.15,
+    "y": -7.35,
+    "w": 4074,
+    "h": 1004
+   },
+   "wall": {
+    "file": "cavesb_wall.png",
+    "w": 3745,
+    "h": 939
+   },
+   "radar": {
+    "file": "cavesb_radarwall.png",
+    "w": 470,
+    "h": 109
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1451.75,
+     "y": 398.55,
+     "width": 87.8,
+     "height": 43.9,
+     "rotation": -27.076
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1360.3,
+     "y": 443.05,
+     "width": 124.81,
+     "height": 25.25,
+     "rotation": -33.604
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1469.75,
+     "y": 450.35,
+     "width": 258.66,
+     "height": 28.24,
+     "rotation": -1.395
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1670.5,
+     "y": 476.0,
+     "width": 185.46,
+     "height": 28.24,
+     "rotation": 20.339
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1815.35,
+     "y": 544.05,
+     "width": 155.23,
+     "height": 28.24,
+     "rotation": 31.57
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 953.4,
+     "y": 693.65,
+     "width": 229.6,
+     "height": 36.43,
+     "rotation": -16.124
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1038.0,
+     "y": 503.9,
+     "width": 132.2,
+     "height": 36.43,
+     "rotation": 27.424
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1251.3,
+     "y": 582.55,
+     "width": 90.33,
+     "height": 36.43,
+     "rotation": 4.928
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1421.15,
+     "y": 635.1,
+     "width": 287.87,
+     "height": 36.43,
+     "rotation": 20.849
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1589.8,
+     "y": 695.6,
+     "width": 85.79,
+     "height": 36.43,
+     "rotation": 15.905
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1712.9,
+     "y": 745.1,
+     "width": 185.54,
+     "height": 35.73,
+     "rotation": 24.432
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 984.25,
+     "y": 703.7,
+     "width": 156.78,
+     "height": 33.15,
+     "rotation": -9.074
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1130.75,
+     "y": 667.9,
+     "width": 162.1,
+     "height": 33.15,
+     "rotation": -18.046
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1264.4,
+     "y": 657.85,
+     "width": 134.71,
+     "height": 33.15,
+     "rotation": 15.415
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1356.95,
+     "y": 697.65,
+     "width": 97.53,
+     "height": 33.15,
+     "rotation": 39.656
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1463.8,
+     "y": 742.5,
+     "width": 161.89,
+     "height": 33.15,
+     "rotation": 12.912
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1595.05,
+     "y": 742.2,
+     "width": 138.78,
+     "height": 33.15,
+     "rotation": -16.058
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 917.4,
+     "y": 455.05,
+     "width": 143.04,
+     "height": 36.42,
+     "rotation": 17.708
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 801.5,
+     "y": 429.2,
+     "width": 113.65,
+     "height": 36.42,
+     "rotation": 6.811
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 695.7,
+     "y": 444.45,
+     "width": 130.0,
+     "height": 36.42,
+     "rotation": -20.424
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 568.6,
+     "y": 504.85,
+     "width": 170.04,
+     "height": 28.81,
+     "rotation": -31.423
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 576.85,
+     "y": 518.75,
+     "width": 170.04,
+     "height": 28.81,
+     "rotation": -20.186
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 698.25,
+     "y": 497.25,
+     "width": 170.04,
+     "height": 28.81,
+     "rotation": -4.195
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 836.2,
+     "y": 507.95,
+     "width": 133.35,
+     "height": 28.81,
+     "rotation": 18.05
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 980.4,
+     "y": 526.0,
+     "width": 184.69,
+     "height": 28.81,
+     "rotation": -0.39
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1126.85,
+     "y": 624.1,
+     "width": 214.27,
+     "height": 36.43,
+     "rotation": -27.222
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 576.3,
+     "y": 679.65,
+     "width": 173.08,
+     "height": 21.38,
+     "rotation": 17.891
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 443.15,
+     "y": 622.2,
+     "width": 135.34,
+     "height": 21.38,
+     "rotation": 30.85
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 341.4,
+     "y": 591.25,
+     "width": 95.82,
+     "height": 21.38,
+     "rotation": -1.573
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 287.75,
+     "y": 572.65,
+     "width": 41.68,
+     "height": 21.38,
+     "rotation": -14.113
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 338.65,
+     "y": 621.1,
+     "width": 77.32,
+     "height": 21.38,
+     "rotation": 4.811
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 385.05,
+     "y": 641.4,
+     "width": 64.8,
+     "height": 21.38,
+     "rotation": 59.986
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 453.85,
+     "y": 686.3,
+     "width": 129.07,
+     "height": 21.38,
+     "rotation": 20.81
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 549.3,
+     "y": 709.9,
+     "width": 81.03,
+     "height": 21.38,
+     "rotation": 4.327
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 607.2,
+     "y": 705.7,
+     "width": 50.73,
+     "height": 21.38,
+     "rotation": -19.111
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 137.3,
+     "y": 753.9,
+     "width": 188.69,
+     "height": 88.59,
+     "rotation": 5.723
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 251.25,
+     "y": 778.25,
+     "width": 93.21,
+     "height": 88.59,
+     "rotation": 27.209
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 333.15,
+     "y": 815.1,
+     "width": 96.19,
+     "height": 88.59,
+     "rotation": 22.025
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 508.85,
+     "y": 867.15,
+     "width": 287.52,
+     "height": 88.59,
+     "rotation": 14.539
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 849.75,
+     "y": 928.55,
+     "width": 434.89,
+     "height": 45.94,
+     "rotation": -0.11
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1176.1,
+     "y": 906.2,
+     "width": 264.98,
+     "height": 88.59,
+     "rotation": -0.194
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1401.55,
+     "y": 946.8,
+     "width": 194.82,
+     "height": 88.59,
+     "rotation": 0.568
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1580.1,
+     "y": 938.3,
+     "width": 168.91,
+     "height": 88.59,
+     "rotation": -6.123
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1719.6,
+     "y": 920.1,
+     "width": 124.27,
+     "height": 88.59,
+     "rotation": -10.078
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1872.6,
+     "y": 911.8,
+     "width": 208.53,
+     "height": 88.59,
+     "rotation": 0.141
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 23.35,
+     "y": 407.9,
+     "width": 49.21,
+     "height": 844.95,
+     "rotation": -0.003
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 245.35,
+     "y": 625.8,
+     "width": 123.96,
+     "height": 37.91,
+     "rotation": -21.852
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1627.05,
+     "y": 383.0,
+     "width": 303.0,
+     "height": 43.9,
+     "rotation": 0.169
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1872.6,
+     "y": 351.45,
+     "width": 202.4,
+     "height": 43.9,
+     "rotation": 0.169
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2292.95,
+     "y": 398.55,
+     "width": 87.8,
+     "height": 43.9,
+     "rotation": -152.924
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2384.4,
+     "y": 443.05,
+     "width": 124.81,
+     "height": 25.25,
+     "rotation": -146.396
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2274.95,
+     "y": 450.35,
+     "width": 258.66,
+     "height": 28.24,
+     "rotation": -178.605
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2074.2,
+     "y": 476.0,
+     "width": 185.46,
+     "height": 28.24,
+     "rotation": 159.661
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1929.35,
+     "y": 544.05,
+     "width": 155.23,
+     "height": 28.24,
+     "rotation": 148.43
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2791.3,
+     "y": 693.65,
+     "width": 229.6,
+     "height": 36.43,
+     "rotation": -163.876
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2706.7,
+     "y": 503.9,
+     "width": 132.2,
+     "height": 36.43,
+     "rotation": 152.576
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2493.4,
+     "y": 582.55,
+     "width": 90.33,
+     "height": 36.43,
+     "rotation": 175.072
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2323.55,
+     "y": 635.1,
+     "width": 287.87,
+     "height": 36.43,
+     "rotation": 159.151
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2154.9,
+     "y": 695.6,
+     "width": 85.79,
+     "height": 36.43,
+     "rotation": 164.095
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2031.8,
+     "y": 745.1,
+     "width": 185.54,
+     "height": 35.73,
+     "rotation": 155.568
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2760.45,
+     "y": 703.7,
+     "width": 156.78,
+     "height": 33.15,
+     "rotation": -170.926
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2613.95,
+     "y": 667.9,
+     "width": 162.1,
+     "height": 33.15,
+     "rotation": -161.954
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2480.3,
+     "y": 657.85,
+     "width": 134.71,
+     "height": 33.15,
+     "rotation": 164.585
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2387.75,
+     "y": 697.65,
+     "width": 97.53,
+     "height": 33.15,
+     "rotation": 140.344
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2280.9,
+     "y": 742.5,
+     "width": 161.89,
+     "height": 33.15,
+     "rotation": 167.088
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2149.65,
+     "y": 742.2,
+     "width": 138.78,
+     "height": 33.15,
+     "rotation": -163.942
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2827.3,
+     "y": 455.05,
+     "width": 143.04,
+     "height": 36.42,
+     "rotation": 162.292
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2943.2,
+     "y": 429.2,
+     "width": 113.65,
+     "height": 36.42,
+     "rotation": 173.189
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3049.0,
+     "y": 444.45,
+     "width": 130.0,
+     "height": 36.42,
+     "rotation": -159.576
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3176.1,
+     "y": 504.85,
+     "width": 170.04,
+     "height": 28.81,
+     "rotation": -148.577
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3167.85,
+     "y": 518.75,
+     "width": 170.04,
+     "height": 28.81,
+     "rotation": -159.814
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3046.45,
+     "y": 497.25,
+     "width": 170.04,
+     "height": 28.81,
+     "rotation": -175.805
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2908.5,
+     "y": 507.95,
+     "width": 133.35,
+     "height": 28.81,
+     "rotation": 161.95
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2764.3,
+     "y": 526.0,
+     "width": 184.69,
+     "height": 28.81,
+     "rotation": -179.61
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2617.85,
+     "y": 624.1,
+     "width": 214.27,
+     "height": 36.43,
+     "rotation": -152.778
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3168.4,
+     "y": 679.65,
+     "width": 173.08,
+     "height": 21.38,
+     "rotation": 162.109
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3301.55,
+     "y": 622.2,
+     "width": 135.34,
+     "height": 21.38,
+     "rotation": 149.15
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3403.3,
+     "y": 591.25,
+     "width": 95.82,
+     "height": 21.38,
+     "rotation": -178.427
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3456.95,
+     "y": 572.65,
+     "width": 41.68,
+     "height": 21.38,
+     "rotation": -165.887
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3406.05,
+     "y": 621.1,
+     "width": 77.32,
+     "height": 21.38,
+     "rotation": 175.189
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3359.65,
+     "y": 641.4,
+     "width": 64.8,
+     "height": 21.38,
+     "rotation": 120.014
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3290.85,
+     "y": 686.3,
+     "width": 129.07,
+     "height": 21.38,
+     "rotation": 159.19
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3195.4,
+     "y": 709.9,
+     "width": 81.03,
+     "height": 21.38,
+     "rotation": 175.673
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3137.5,
+     "y": 705.7,
+     "width": 50.73,
+     "height": 21.38,
+     "rotation": -160.889
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3607.4,
+     "y": 753.9,
+     "width": 188.69,
+     "height": 88.59,
+     "rotation": 174.277
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3493.45,
+     "y": 778.25,
+     "width": 93.21,
+     "height": 88.59,
+     "rotation": 152.791
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3411.55,
+     "y": 815.1,
+     "width": 96.19,
+     "height": 88.59,
+     "rotation": 157.975
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3235.85,
+     "y": 867.15,
+     "width": 287.52,
+     "height": 88.59,
+     "rotation": 165.461
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2894.95,
+     "y": 928.55,
+     "width": 434.89,
+     "height": 45.94,
+     "rotation": -179.89
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2568.6,
+     "y": 906.2,
+     "width": 264.98,
+     "height": 88.59,
+     "rotation": -179.806
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2343.15,
+     "y": 946.8,
+     "width": 194.82,
+     "height": 88.59,
+     "rotation": 179.432
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2164.6,
+     "y": 938.3,
+     "width": 168.91,
+     "height": 88.59,
+     "rotation": -173.877
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2025.1,
+     "y": 920.1,
+     "width": 124.27,
+     "height": 88.59,
+     "rotation": -169.922
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3721.35,
+     "y": 407.9,
+     "width": 49.21,
+     "height": 844.95,
+     "rotation": -179.997
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3499.35,
+     "y": 625.8,
+     "width": 123.96,
+     "height": 37.91,
+     "rotation": -158.148
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2117.65,
+     "y": 383.0,
+     "width": 303.0,
+     "height": 43.9,
+     "rotation": 179.831
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 3038.0,
+     "y": 836.75,
+     "width": 79.12,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 3271.25,
+     "y": 530.3,
+     "width": 79.12,
+     "height": 95.77
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 2453.75,
+     "y": 492.75,
+     "width": 79.12,
+     "height": 87.58
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 2407.15,
+     "y": 407.8,
+     "width": 79.12,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_fd",
+     "x": 1828.85,
+     "y": 794.1,
+     "width": 98.67,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 1128.0,
+     "y": 511.75,
+     "width": 79.12,
+     "height": 87.58
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 1062.0,
+     "y": 455.75,
+     "width": 79.12,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 623.2,
+     "y": 644.7,
+     "width": 91.59,
+     "height": 73.35
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 380.2,
+     "y": 542.7,
+     "width": 79.12,
+     "height": 65.5
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_b",
+     "x": 124.5,
+     "y": 640.8,
+     "width": 79.12,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 2872.9,
+     "y": 659.8,
+     "width": 81.46,
+     "height": 73.19
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 3576.25,
+     "y": 643.8,
+     "width": 64.72,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 1279.25,
+     "y": 403.15,
+     "width": 79.12,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 2603.75,
+     "y": 456.05,
+     "width": 79.12,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 608.65,
+     "y": 806.6,
+     "width": 100.29,
+     "height": 64.99
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 1215.0,
+     "y": 493.75,
+     "width": 79.12,
+     "height": 87.58
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 672.6,
+     "y": 852.6,
+     "width": 76.64,
+     "height": 64.99
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 1755.85,
+     "y": 707.15,
+     "width": 83.2,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1903.85,
+     "y": 707.15,
+     "width": 83.2,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 3045.0,
+     "y": 802.75,
+     "width": 79.12,
+     "height": 75.18
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_b",
+     "x": 773.15,
+     "y": 649.7,
+     "width": 91.59,
+     "height": 73.35
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 3034.85,
+     "y": 648.85,
+     "width": 81.46,
+     "height": 73.19
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 2537.75,
+     "y": 511.75,
+     "width": 79.12,
+     "height": 87.58
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_dcfg",
+     "x": 1874.85,
+     "y": 327.75
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_hj",
+     "x": 3637.25,
+     "y": 700.25
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_ki",
+     "x": 2955.95,
+     "y": 899.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_gfji",
+     "x": 3389.6,
+     "y": 576.75
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_efh",
+     "x": 2966.0,
+     "y": 401.1
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_jhegk",
+     "x": 2524.7,
+     "y": 572.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_ldfj",
+     "x": 1877.8,
+     "y": 863.9
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_cblek",
+     "x": 1212.3,
+     "y": 562.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_bde",
+     "x": 789.7,
+     "y": 406.9
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_acld",
+     "x": 347.95,
+     "y": 580.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_ak",
+     "x": 782.25,
+     "y": 891.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_bl",
+     "x": 110.9,
+     "y": 690.25
+    },
+    {
+     "kind": "ctfflag",
+     "name": "h__2",
+     "x": 3399.4,
+     "y": 575.95,
+     "rotation": -0.486
+    },
+    {
+     "kind": "holdpoint",
+     "name": "S_",
+     "x": 903.95,
+     "y": 892.6
+    },
+    {
+     "kind": "holdpoint",
+     "name": "k_",
+     "x": 2049.4,
+     "y": 357.05
+    },
+    {
+     "kind": "ctfflag",
+     "name": "b__1",
+     "x": 351.3,
+     "y": 578.6,
+     "rotation": 1.528
+    },
+    {
+     "kind": "holdpoint",
+     "name": "L_",
+     "x": 2798.3,
+     "y": 891.6,
+     "rotation": -0.894
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 1876.95,
+     "y": 864.15
+    },
+    {
+     "kind": "spawn",
+     "name": "h_0",
+     "x": 3411.1,
+     "y": 578.65
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 301.65,
+     "y": 582.5
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1208.0,
+     "y": 562.5
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 2553.7,
+     "y": 574.25
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 2819.9,
+     "y": 431.6
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 673.8,
+     "y": 427.4
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 1614.0,
+     "y": 361.5
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 2959.65,
+     "y": 904.2
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 3637.05,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "l_0",
+     "x": 783.05,
+     "y": 902.85
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 111.65,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 3518.7,
+     "y": 611.65
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 199.65,
+     "y": 624.0
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 513.45,
+     "y": 517.75
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 953.75,
+     "y": 449.4
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 2143.95,
+     "y": 361.5
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 2366.7,
+     "y": 904.2
+    },
+    {
+     "kind": "spawn",
+     "name": "l_0",
+     "x": 1362.0,
+     "y": 902.85
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 3081.85,
+     "y": 431.6
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 3455.7,
+     "y": 587.65
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 3350.75,
+     "y": 583.65
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 3210.7,
+     "y": 503.65
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 3155.7,
+     "y": 467.65
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 3076.7,
+     "y": 429.65
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 3018.7,
+     "y": 409.65
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 257.6,
+     "y": 598.0
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 388.6,
+     "y": 584.0
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 576.45,
+     "y": 477.75
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 643.45,
+     "y": 446.75
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 710.45,
+     "y": 417.75
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 786.85,
+     "y": 392.4,
+     "rotation": -0.996
+    },
+    {
+     "kind": "pickup",
+     "name": "healthbig_30",
+     "x": 1186.95,
+     "y": 850.4
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 2955.7,
+     "y": 393.4,
+     "rotation": -0.996
+    },
+    {
+     "kind": "pickup",
+     "name": "healthbig_30",
+     "x": 2560.9,
+     "y": 850.4
+    },
+    {
+     "kind": "pickup",
+     "name": "armorbig_10",
+     "x": 1873.75,
+     "y": 318.4,
+     "rotation": -0.996
+    }
+   ]
+  },
+  "cqc": {
+   "image": {
+    "file": "cqc.png",
+    "x": -450.1,
+    "y": -84.35,
+    "w": 2490,
+    "h": 946
+   },
+   "wall": {
+    "file": "cqc_wall.png",
+    "w": 1745,
+    "h": 771
+   },
+   "radar": {
+    "file": "cqc_radarwall.png",
+    "w": 249,
+    "h": 86
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 24.1,
+     "y": 384.95,
+     "width": 51.55,
+     "height": 817.55
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1716.05,
+     "y": 384.95,
+     "width": 51.55,
+     "height": 817.55
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 218.15,
+     "y": 466.35,
+     "width": 51.54,
+     "height": 388.71,
+     "rotation": -73.691
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 359.05,
+     "y": 568.55,
+     "width": 149.01,
+     "height": 100.29,
+     "rotation": -90.651
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 573.35,
+     "y": 666.05,
+     "width": 374.87,
+     "height": 35.77,
+     "rotation": -166.832
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 869.3,
+     "y": 706.9,
+     "width": 256.03,
+     "height": 35.76,
+     "rotation": -179.561
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 506.25,
+     "y": 347.3,
+     "width": 203.7,
+     "height": 25.13,
+     "rotation": 173.164
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1524.2,
+     "y": 466.35,
+     "width": 51.54,
+     "height": 388.71,
+     "rotation": -106.309
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1383.3,
+     "y": 568.55,
+     "width": 149.01,
+     "height": 100.29,
+     "rotation": -89.349
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1169.0,
+     "y": 666.05,
+     "width": 374.87,
+     "height": 35.77,
+     "rotation": -13.168
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1246.3,
+     "y": 349.3,
+     "width": 188.15,
+     "height": 25.13,
+     "rotation": 6.128
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 876.35,
+     "y": 34.0,
+     "width": 1758.93,
+     "height": 29.99,
+     "rotation": -179.862
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 273.45,
+     "y": 403.0,
+     "width": 78.27,
+     "height": 81.36
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 388.5,
+     "y": 546.6,
+     "width": 144.16,
+     "height": 91.68
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 390.55,
+     "y": 441.2,
+     "width": 76.19,
+     "height": 67.0
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 593.6,
+     "y": 466.25,
+     "width": 78.27,
+     "height": 81.36
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 733.35,
+     "y": 300.0,
+     "width": 115.64,
+     "height": 101.43
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 887.65,
+     "y": 445.05,
+     "width": 41.24,
+     "height": 81.36
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 1069.65,
+     "y": 468.55,
+     "width": 78.27,
+     "height": 81.36
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 1221.65,
+     "y": 556.6,
+     "width": 120.44,
+     "height": 81.36
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1293.65,
+     "y": 446.05,
+     "width": 63.83,
+     "height": 62.99
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 1380.8,
+     "y": 386.25,
+     "width": 78.27,
+     "height": 107.1
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 899.35,
+     "y": 300.0,
+     "width": 115.64,
+     "height": 101.43
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 794.65,
+     "y": 445.05,
+     "width": 41.24,
+     "height": 81.36
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_af",
+     "x": 560.5,
+     "y": 313.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_edg",
+     "x": 1148.8,
+     "y": 325.8
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_dg",
+     "x": 133.35,
+     "y": 415.8
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_agdcz",
+     "x": 518.0,
+     "y": 631.55
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_badez",
+     "x": 1246.15,
+     "y": 631.55
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_fd",
+     "x": 1583.3,
+     "y": 431.7
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_aecbgf",
+     "x": 863.05,
+     "y": 523.5
+    },
+    {
+     "kind": "waypoint",
+     "name": "z_bc",
+     "x": 873.0,
+     "y": 685.55
+    },
+    {
+     "kind": "ctfflag",
+     "name": "e__2",
+     "x": 1533.85,
+     "y": 437.0,
+     "rotation": -15.424
+    },
+    {
+     "kind": "holdpoint",
+     "name": "S_",
+     "x": 467.8,
+     "y": 332.95,
+     "rotation": -12.512
+    },
+    {
+     "kind": "holdpoint",
+     "name": "k_",
+     "x": 1255.35,
+     "y": 330.6,
+     "rotation": 11.705
+    },
+    {
+     "kind": "ctfflag",
+     "name": "a__1",
+     "x": 206.3,
+     "y": 429.5,
+     "rotation": 16.008
+    },
+    {
+     "kind": "holdpoint",
+     "name": "L_",
+     "x": 871.45,
+     "y": 681.6,
+     "rotation": -0.894
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 563.0,
+     "y": 321.8
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 132.85,
+     "y": 423.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 519.0,
+     "y": 635.05
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 1247.2,
+     "y": 635.05
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 864.1,
+     "y": 525.0
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 1585.35,
+     "y": 433.2
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 1149.15,
+     "y": 327.3
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 1637.35,
+     "y": 412.8
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 78.85,
+     "y": 405.6
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 463.0,
+     "y": 624.9
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 1309.7,
+     "y": 624.9
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 1241.2,
+     "y": 334.7
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 463.0,
+     "y": 339.8
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 649.0,
+     "y": 343.8
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 1080.65,
+     "y": 343.8
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 74.75,
+     "y": 405.6
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1007.2,
+     "y": 362.8
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 132.85,
+     "y": 423.15
+    },
+    {
+     "kind": "spawn",
+     "name": "g_1",
+     "x": 443.4,
+     "y": 343.8
+    },
+    {
+     "kind": "spawn",
+     "name": "g_1",
+     "x": 514.1,
+     "y": 327.3
+    },
+    {
+     "kind": "spawn",
+     "name": "g_1",
+     "x": 605.5,
+     "y": 334.7
+    },
+    {
+     "kind": "spawn",
+     "name": "g_1",
+     "x": 649.0,
+     "y": 343.8
+    },
+    {
+     "kind": "spawn",
+     "name": "g_1",
+     "x": 735.95,
+     "y": 362.8
+    },
+    {
+     "kind": "spawn",
+     "name": "g_1",
+     "x": 563.0,
+     "y": 314.95
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1073.55,
+     "y": 351.1
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1116.55,
+     "y": 339.8
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1149.15,
+     "y": 325.8
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1193.8,
+     "y": 321.8
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1241.2,
+     "y": 334.7
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 1309.7,
+     "y": 351.1
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 1637.35,
+     "y": 413.3
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 1585.35,
+     "y": 431.7
+    },
+    {
+     "kind": "pickup",
+     "name": "armor_10",
+     "x": 869.45,
+     "y": 517.65,
+     "rotation": -0.996
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 1613.55,
+     "y": 410.45,
+     "rotation": -17.685
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 113.45,
+     "y": 403.4,
+     "rotation": 14.564
+    }
+   ]
+  },
+  "frigate": {
+   "image": {
+    "file": "frigate.png",
+    "x": -0.05,
+    "y": -5.25,
+    "w": 3600,
+    "h": 1184
+   },
+   "wall": {
+    "file": "frigate_wall.png",
+    "w": 3590,
+    "h": 1119
+   },
+   "radar": {
+    "file": "frigate_radarwall.png",
+    "w": 360,
+    "h": 118
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1684.2,
+     "y": 1173.55,
+     "width": 4002.48,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3572.55,
+     "y": 591.55,
+     "width": 49.09,
+     "height": 1217.1
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": -233.1,
+     "y": 586.35,
+     "width": 49.09,
+     "height": 1205.07
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3120.3,
+     "y": 1145.85,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": 79.234
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2808.45,
+     "y": 1147.0,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": -67.953
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2507.05,
+     "y": 1145.85,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": 79.234
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2195.2,
+     "y": 1147.0,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": -67.953
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1900.95,
+     "y": 1146.0,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": 79.234
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1589.1,
+     "y": 1147.15,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": -67.953
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1214.75,
+     "y": 1145.85,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": 79.234
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 902.9,
+     "y": 1147.0,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": -67.953
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 541.0,
+     "y": 1145.85,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": 79.234
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 229.15,
+     "y": 1147.0,
+     "width": 12.44,
+     "height": 46.52,
+     "rotation": -67.953
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 863.2,
+     "y": 876.05,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 740.2,
+     "y": 813.05,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 948.15,
+     "y": 699.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 1175.1,
+     "y": 704.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 1363.1,
+     "y": 679.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 1820.05,
+     "y": 680.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 1520.05,
+     "y": 652.1,
+     "width": 215.42,
+     "height": 102.97
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 1974.05,
+     "y": 857.05,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 1222.1,
+     "y": 858.05,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_fe",
+     "x": 2546.05,
+     "y": 830.05,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 2630.05,
+     "y": 715.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 2433.05,
+     "y": 703.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 2247.05,
+     "y": 705.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 1672.05,
+     "y": 528.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 1522.05,
+     "y": 528.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 1839.05,
+     "y": 528.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 1347.1,
+     "y": 528.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 1206.1,
+     "y": 518.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 1964.1,
+     "y": 517.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 1687.1,
+     "y": 335.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 1500.1,
+     "y": 335.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_n",
+     "x": 2056.1,
+     "y": 705.1,
+     "width": 62.88,
+     "height": 65.89
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_ok",
+     "x": 737.4,
+     "y": 870.05
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_ock",
+     "x": 1305.35,
+     "y": 909.05
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_bpf",
+     "x": 1947.15,
+     "y": 910.15
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_pfe",
+     "x": 2576.15,
+     "y": 890.15
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_df",
+     "x": 3037.15,
+     "y": 776.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_decgn",
+     "x": 2343.15,
+     "y": 759.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_fnmh",
+     "x": 2078.15,
+     "y": 595.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_gi",
+     "x": 1813.2,
+     "y": 390.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_jh",
+     "x": 1434.2,
+     "y": 390.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_lmik",
+     "x": 1177.2,
+     "y": 590.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_ajbl",
+     "x": 923.2,
+     "y": 755.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_bkjm",
+     "x": 1494.15,
+     "y": 729.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_ngjl",
+     "x": 1624.15,
+     "y": 569.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "n_cfgm",
+     "x": 1773.15,
+     "y": 731.2
+    },
+    {
+     "kind": "waypoint",
+     "name": "o_ab",
+     "x": 1019.2,
+     "y": 925.15
+    },
+    {
+     "kind": "waypoint",
+     "name": "p_cd",
+     "x": 2318.1,
+     "y": 927.15
+    },
+    {
+     "kind": "spawn",
+     "name": "o_1",
+     "x": 1018.6,
+     "y": 929.5
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2931.85,
+     "y": 784.75
+    },
+    {
+     "kind": "spawn",
+     "name": "o_1",
+     "x": 943.6,
+     "y": 929.5
+    },
+    {
+     "kind": "spawn",
+     "name": "o_1",
+     "x": 1088.6,
+     "y": 929.5
+    },
+    {
+     "kind": "spawn",
+     "name": "o_1",
+     "x": 1158.6,
+     "y": 929.5
+    },
+    {
+     "kind": "spawn",
+     "name": "k_1",
+     "x": 875.6,
+     "y": 754.55
+    },
+    {
+     "kind": "spawn",
+     "name": "k_1",
+     "x": 933.6,
+     "y": 754.55
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 722.6,
+     "y": 869.55
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 3089.85,
+     "y": 774.75
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2801.85,
+     "y": 772.75
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2722.85,
+     "y": 772.75
+    },
+    {
+     "kind": "spawn",
+     "name": "p_2",
+     "x": 2479.85,
+     "y": 929.7
+    },
+    {
+     "kind": "spawn",
+     "name": "p_2",
+     "x": 2420.85,
+     "y": 929.7
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 2428.85,
+     "y": 759.75
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 2365.85,
+     "y": 759.75
+    },
+    {
+     "kind": "spawn",
+     "name": "o_0",
+     "x": 1019.5,
+     "y": 926.7
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 1303.5,
+     "y": 907.7
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 1944.45,
+     "y": 910.7
+    },
+    {
+     "kind": "spawn",
+     "name": "p_0",
+     "x": 2319.4,
+     "y": 926.7
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 3039.35,
+     "y": 775.75
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 2344.4,
+     "y": 758.75
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 922.55,
+     "y": 755.75
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 1188.5,
+     "y": 583.75
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 2076.45,
+     "y": 594.75
+    },
+    {
+     "kind": "spawn",
+     "name": "h_0",
+     "x": 1814.45,
+     "y": 390.75
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 1433.45,
+     "y": 389.75
+    },
+    {
+     "kind": "spawn",
+     "name": "l_0",
+     "x": 1493.45,
+     "y": 730.7
+    },
+    {
+     "kind": "spawn",
+     "name": "n_0",
+     "x": 1771.45,
+     "y": 730.7
+    },
+    {
+     "kind": "spawn",
+     "name": "m_0",
+     "x": 1624.45,
+     "y": 568.75
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1101.45,
+     "y": 754.8
+    },
+    {
+     "kind": "ctfflag",
+     "name": "o__1",
+     "x": 1019.05,
+     "y": 925.5
+    },
+    {
+     "kind": "ctfflag",
+     "name": "e__2",
+     "x": 3037.9,
+     "y": 774.95
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 2187.05,
+     "y": 921.75
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1616.1,
+     "y": 295.7
+    },
+    {
+     "kind": "pickup",
+     "name": "healthbig_30",
+     "x": 1611.5,
+     "y": 849.0,
+     "rotation": -0.996
+    },
+    {
+     "kind": "pickup",
+     "name": "ammobig_30",
+     "x": 1928.2,
+     "y": 558.95,
+     "rotation": -0.996
+    }
+   ]
+  },
+  "construction": {
+   "image": {
+    "file": "construction.png",
+    "x": 0.0,
+    "y": -31.05,
+    "w": 3286,
+    "h": 1518
+   },
+   "wall": {
+    "file": "construction_wall.png",
+    "w": 3280,
+    "h": 1370
+   },
+   "radar": {
+    "file": "construction_radarwall.png",
+    "w": 328,
+    "h": 151
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1653.6,
+     "y": 1307.6,
+     "width": 2976.54,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 33.65,
+     "y": 689.35,
+     "width": 49.09,
+     "height": 1405.14
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 3263.75,
+     "y": 640.65,
+     "width": 49.09,
+     "height": 1313.36
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 750.15,
+     "y": 1017.7,
+     "width": 484.94,
+     "height": 31.75
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1565.75,
+     "y": 1139.7,
+     "width": 595.43,
+     "height": 31.75
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 882.85,
+     "y": 1223.6,
+     "width": 154.78,
+     "height": 175.07
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 313.0,
+     "y": 1223.6,
+     "width": 240.94,
+     "height": 175.07
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1526.6,
+     "y": 1265.55,
+     "width": 60.55,
+     "height": 39.86
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 932.8,
+     "y": 981.65,
+     "width": 60.55,
+     "height": 39.86
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2722.15,
+     "y": 1263.55,
+     "width": 60.55,
+     "height": 39.86
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1378.6,
+     "y": 1103.6,
+     "width": 154.79,
+     "height": 39.86
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1958.65,
+     "y": 1172.9,
+     "width": 237.13,
+     "height": 39.86,
+     "rotation": 18.308
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2133.55,
+     "y": 1214.75,
+     "width": 147.71,
+     "height": 23.72,
+     "rotation": 10.581
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 905.35,
+     "y": 855.75,
+     "width": 282.63,
+     "height": 30.17,
+     "rotation": 0.376
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1142.9,
+     "y": 884.8,
+     "width": 236.47,
+     "height": 30.17,
+     "rotation": 15.338
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1687.45,
+     "y": 865.55,
+     "width": 350.1,
+     "height": 30.17,
+     "rotation": -11.847
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2247.15,
+     "y": 834.1,
+     "width": 421.23,
+     "height": 43.24,
+     "rotation": -2.321
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2456.4,
+     "y": 894.85,
+     "width": 226.94,
+     "height": 94.69,
+     "rotation": 0.132
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2575.35,
+     "y": 841.6,
+     "width": 264.49,
+     "height": 44.56,
+     "rotation": 5.595
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2872.45,
+     "y": 1084.95,
+     "width": 155.39,
+     "height": 151.95,
+     "rotation": 0.132
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2644.45,
+     "y": 1136.7,
+     "width": 327.16,
+     "height": 45.38,
+     "rotation": 0.132
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2439.5,
+     "y": 1141.85,
+     "width": 120.29,
+     "height": 39.7,
+     "rotation": -7.316
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 655.9,
+     "y": 917.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 435.9,
+     "y": 1187.6,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 688.85,
+     "y": 1185.6,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_a",
+     "x": 960.85,
+     "y": 1185.6,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_ji",
+     "x": 1324.8,
+     "y": 1011.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 1210.8,
+     "y": 827.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 1445.85,
+     "y": 819.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_b",
+     "x": 384.9,
+     "y": 1057.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 1748.85,
+     "y": 1029.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 1854.85,
+     "y": 888.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 2049.85,
+     "y": 897.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 1820.85,
+     "y": 751.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 2073.85,
+     "y": 763.65,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 2704.85,
+     "y": 1021.6,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 2965.8,
+     "y": 1184.55,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 2727.85,
+     "y": 920.55,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 2188.85,
+     "y": 1217.6,
+     "width": 82.39,
+     "height": 80.28
+    },
+    {
+     "kind": "aiaction",
+     "name": "c_kl",
+     "x": 2023.85,
+     "y": 1224.55,
+     "width": 219.5,
+     "height": 59.71
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 2317.85,
+     "y": 1055.6,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 2185.85,
+     "y": 1195.6,
+     "width": 192.57,
+     "height": 108.11
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_bk",
+     "x": 266.7,
+     "y": 1138.8
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_ajc",
+     "x": 639.9,
+     "y": 998.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_bci",
+     "x": 1008.9,
+     "y": 838.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_jchg",
+     "x": 1667.85,
+     "y": 852.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_bjid",
+     "x": 1381.85,
+     "y": 1083.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_idge",
+     "x": 2005.85,
+     "y": 970.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_ihf",
+     "x": 2358.85,
+     "y": 817.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_gem",
+     "x": 2870.85,
+     "y": 1008.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_fl",
+     "x": 3009.8,
+     "y": 1279.9
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_mkde",
+     "x": 2300.85,
+     "y": 1279.9
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_hdlf",
+     "x": 2577.85,
+     "y": 1114.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_chel",
+     "x": 1676.85,
+     "y": 1119.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_al",
+     "x": 1221.9,
+     "y": 1279.9
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 640.85,
+     "y": 998.15
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 266.6,
+     "y": 1141.0
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 1222.8,
+     "y": 1280.1
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 883.85,
+     "y": 1135.15
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 623.85,
+     "y": 1281.1
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 1758.75,
+     "y": 1280.1
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1677.75,
+     "y": 1121.15
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 1669.75,
+     "y": 853.15
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 1010.8,
+     "y": 838.15
+    },
+    {
+     "kind": "spawn",
+     "name": "h_0",
+     "x": 2004.75,
+     "y": 972.15
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 2359.75,
+     "y": 818.15
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 2867.75,
+     "y": 1010.15
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 2576.75,
+     "y": 1114.15
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 224.35,
+     "y": 1141.5
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 575.0,
+     "y": 997.25
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2520.2,
+     "y": 808.7
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 409.3,
+     "y": 1137.6
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 675.15,
+     "y": 997.25
+    },
+    {
+     "kind": "spawn",
+     "name": "k_1",
+     "x": 570.1,
+     "y": 1281.15
+    },
+    {
+     "kind": "spawn",
+     "name": "k_1",
+     "x": 654.35,
+     "y": 1281.15
+    },
+    {
+     "kind": "spawn",
+     "name": "k_1",
+     "x": 716.95,
+     "y": 1281.15
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 2924.95,
+     "y": 1008.4
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 2822.4,
+     "y": 1008.4
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2544.35,
+     "y": 1114.15
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2675.8,
+     "y": 1114.15
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2429.5,
+     "y": 813.0
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2329.15,
+     "y": 822.7
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 684.15,
+     "y": 1279.85
+    },
+    {
+     "kind": "ctfflag",
+     "name": "a__1",
+     "x": 362.15,
+     "y": 1135.15
+    },
+    {
+     "kind": "ctfflag",
+     "name": "f__2",
+     "x": 2870.0,
+     "y": 1010.5
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 2678.75,
+     "y": 1112.4
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1551.15,
+     "y": 1121.3
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_15",
+     "x": 2445.05,
+     "y": 1281.45,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_15",
+     "x": 714.05,
+     "y": 995.55,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "armor_15",
+     "x": 1294.05,
+     "y": 1279.45,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "$health_15",
+     "x": 2107.9,
+     "y": 807.55,
+     "rotation": 0.986
+    }
+   ]
+  },
+  "junkyard": {
+   "image": {
+    "file": "junkyard.png",
+    "x": -164.45,
+    "y": -41.8,
+    "w": 3190,
+    "h": 1498
+   },
+   "wall": {
+    "file": "junkyard_wall.png",
+    "w": 2872,
+    "h": 1370
+   },
+   "radar": {
+    "file": "junkyard_radarwall.png",
+    "w": 319,
+    "h": 149
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1442.0,
+     "y": 1301.65,
+     "width": 2949.17,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 29.05,
+     "y": 636.7,
+     "width": 49.09,
+     "height": 1313.36
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2857.95,
+     "y": 636.7,
+     "width": 49.09,
+     "height": 1313.36
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1022.65,
+     "y": 794.8,
+     "width": 683.38,
+     "height": 25.6
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1848.35,
+     "y": 794.8,
+     "width": 683.38,
+     "height": 25.6
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1617.45,
+     "y": 567.6,
+     "width": 222.71,
+     "height": 25.6,
+     "rotation": 9.996
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1250.1,
+     "y": 565.2,
+     "width": 222.71,
+     "height": 25.6,
+     "rotation": -8.219
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 598.85,
+     "y": 834.5,
+     "width": 209.69,
+     "height": 25.6,
+     "rotation": -21.435
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2270.75,
+     "y": 833.75,
+     "width": 209.69,
+     "height": 25.6,
+     "rotation": 21.778
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 954.5,
+     "y": 734.8,
+     "width": 134.58,
+     "height": 127.95
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1916.15,
+     "y": 734.8,
+     "width": 134.58,
+     "height": 127.95
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1752.2,
+     "y": 996.7,
+     "width": 118.2,
+     "height": 115.62
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1120.4,
+     "y": 996.7,
+     "width": 118.2,
+     "height": 115.62
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1606.85,
+     "y": 982.9,
+     "width": 202.71,
+     "height": 25.6,
+     "rotation": -17.185
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1029.05,
+     "y": 982.9,
+     "width": 202.71,
+     "height": 25.6,
+     "rotation": -17.185
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1261.8,
+     "y": 980.6,
+     "width": 198.83,
+     "height": 25.6,
+     "rotation": 16.985
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1837.6,
+     "y": 980.6,
+     "width": 198.83,
+     "height": 25.6,
+     "rotation": 16.985
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1075.55,
+     "y": 1006.75,
+     "width": 574.76,
+     "height": 25.6
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1795.25,
+     "y": 1006.75,
+     "width": 574.76,
+     "height": 25.6
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 607.35,
+     "y": 1094.9,
+     "width": 488.74,
+     "height": 25.6,
+     "rotation": 21.93
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1252.75,
+     "y": 1238.1,
+     "width": 319.34,
+     "height": 25.6,
+     "rotation": 21.929
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1619.6,
+     "y": 1238.8,
+     "width": 319.34,
+     "height": 25.6,
+     "rotation": -22.317
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2265.6,
+     "y": 1094.4,
+     "width": 484.21,
+     "height": 25.6,
+     "rotation": -22.317
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 217.3,
+     "y": 1140.65,
+     "width": 356.1,
+     "height": 299.97
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2654.4,
+     "y": 1140.65,
+     "width": 356.1,
+     "height": 299.97
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 746.1,
+     "y": 1224.55,
+     "width": 759.39,
+     "height": 115.65
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2125.6,
+     "y": 1224.55,
+     "width": 759.39,
+     "height": 115.65
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1435.95,
+     "y": 277.4,
+     "width": 152.01,
+     "height": 128.96
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 343.3,
+     "y": 913.7,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 1002.05,
+     "y": 701.8,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 615.2,
+     "y": 1031.7,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 2410.55,
+     "y": 913.7,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 1755.75,
+     "y": 701.8,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 2122.65,
+     "y": 1031.7,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 1802.85,
+     "y": 585.9,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 961.15,
+     "y": 585.9,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 1293.05,
+     "y": 901.75,
+     "width": 293.6,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 1293.05,
+     "y": 1177.65,
+     "width": 293.6,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_p",
+     "x": 1293.05,
+     "y": 687.85,
+     "width": 293.6,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 1963.75,
+     "y": 701.8,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 798.1,
+     "y": 701.8,
+     "width": 118.42,
+     "height": 108.11
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_li",
+     "x": 1255.15,
+     "y": 552.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_mk",
+     "x": 1623.0,
+     "y": 552.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_nog",
+     "x": 1437.05,
+     "y": 1279.75
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_dhj",
+     "x": 1750.95,
+     "y": 937.85
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_bfj",
+     "x": 1121.15,
+     "y": 937.85
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_hfj",
+     "x": 1437.05,
+     "y": 987.85
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_ikp",
+     "x": 1437.05,
+     "y": 767.9
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_elmp",
+     "x": 1916.9,
+     "y": 671.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_amkp",
+     "x": 957.25,
+     "y": 671.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_b",
+     "x": 215.5,
+     "y": 991.85
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_dk",
+     "x": 2664.6,
+     "y": 991.85
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_ahn",
+     "x": 591.35,
+     "y": 1071.8
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_efn",
+     "x": 2280.75,
+     "y": 1071.8
+    },
+    {
+     "kind": "waypoint",
+     "name": "p_lm",
+     "x": 1437.05,
+     "y": 520.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "n_cbg",
+     "x": 1053.2,
+     "y": 1165.75
+    },
+    {
+     "kind": "waypoint",
+     "name": "o_cdg",
+     "x": 1840.9,
+     "y": 1165.75
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 956.15,
+     "y": 672.3
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 1915.75,
+     "y": 670.3
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 1975.75,
+     "y": 996.15
+    },
+    {
+     "kind": "spawn",
+     "name": "h_0",
+     "x": 912.15,
+     "y": 996.15
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 216.4,
+     "y": 992.15
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 2661.5,
+     "y": 992.15
+    },
+    {
+     "kind": "spawn",
+     "name": "l_0",
+     "x": 1621.9,
+     "y": 552.3
+    },
+    {
+     "kind": "spawn",
+     "name": "m_0",
+     "x": 1252.0,
+     "y": 552.3
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 592.25,
+     "y": 1072.15
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 2279.65,
+     "y": 1072.15
+    },
+    {
+     "kind": "spawn",
+     "name": "n_0",
+     "x": 1052.1,
+     "y": 1164.1
+    },
+    {
+     "kind": "spawn",
+     "name": "o_0",
+     "x": 1841.8,
+     "y": 1164.1
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 85.05,
+     "y": 994.4
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 460.95,
+     "y": 1019.2
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2799.1,
+     "y": 994.4
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2721.85,
+     "y": 994.4
+    },
+    {
+     "kind": "spawn",
+     "name": "e_2",
+     "x": 2587.55,
+     "y": 994.4
+    },
+    {
+     "kind": "spawn",
+     "name": "d_2",
+     "x": 2415.95,
+     "y": 1019.25
+    },
+    {
+     "kind": "spawn",
+     "name": "d_2",
+     "x": 2247.6,
+     "y": 1087.2
+    },
+    {
+     "kind": "spawn",
+     "name": "d_2",
+     "x": 2333.9,
+     "y": 1050.55
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 157.35,
+     "y": 994.4
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 283.6,
+     "y": 994.4
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 547.3,
+     "y": 1051.55
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 638.0,
+     "y": 1094.75
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 322.05,
+     "y": 994.0
+    },
+    {
+     "kind": "ctfflag",
+     "name": "a__1",
+     "x": 214.8,
+     "y": 990.9
+    },
+    {
+     "kind": "ctfflag",
+     "name": "e__2",
+     "x": 2664.35,
+     "y": 991.45
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 2559.5,
+     "y": 994.1
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1688.8,
+     "y": 780.6
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_15",
+     "x": 796.75,
+     "y": 783.7,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_15",
+     "x": 2090.3,
+     "y": 783.7,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "$armor_15",
+     "x": 1436.55,
+     "y": 533.75,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "$health_15",
+     "x": 1436.55,
+     "y": 1275.55,
+     "rotation": 0.986
+    }
+   ]
+  },
+  "temple": {
+   "image": {
+    "file": "temple.png",
+    "x": -103.5,
+    "y": -74.6,
+    "w": 3038,
+    "h": 1488
+   },
+   "wall": {
+    "file": "temple_wall.png",
+    "w": 2755,
+    "h": 1204
+   },
+   "radar": {
+    "file": "temple_radarwall.png",
+    "w": 300,
+    "h": 141
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1445.45,
+     "y": 1186.8,
+     "width": 3205.72,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2721.1,
+     "y": 553.1,
+     "width": 49.09,
+     "height": 1094.12
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 15.4,
+     "y": 534.2,
+     "width": 49.09,
+     "height": 1055.46
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 761.1,
+     "y": 1133.8,
+     "width": 298.61,
+     "height": 49.16,
+     "rotation": 26.971
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 559.15,
+     "y": 1093.35,
+     "width": 192.35,
+     "height": 49.17,
+     "rotation": -16.002
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1420.4,
+     "y": 744.6,
+     "width": 282.12,
+     "height": 77.8,
+     "rotation": 90.0
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1683.7,
+     "y": 682.7,
+     "width": 287.93,
+     "height": 36.9,
+     "rotation": 21.494
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 477.05,
+     "y": 676.0,
+     "width": 249.4,
+     "height": 36.9,
+     "rotation": -31.779
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2209.4,
+     "y": 835.8,
+     "width": 139.19,
+     "height": 36.9,
+     "rotation": -16.964
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 717.95,
+     "y": 808.95,
+     "width": 343.67,
+     "height": 36.9,
+     "rotation": -10.046
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 357.15,
+     "y": 845.55,
+     "width": 406.18,
+     "height": 39.5,
+     "rotation": -1.705
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 962.6,
+     "y": 756.7,
+     "width": 170.35,
+     "height": 35.03,
+     "rotation": -15.498
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 131.15,
+     "y": 1025.05,
+     "width": 250.96,
+     "height": 167.79,
+     "rotation": 16.006
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2401.95,
+     "y": 832.4,
+     "width": 282.26,
+     "height": 36.9,
+     "rotation": 6.715
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2138.4,
+     "y": 984.4,
+     "width": 284.08,
+     "height": 36.93
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1916.05,
+     "y": 954.55,
+     "width": 182.41,
+     "height": 37.77,
+     "rotation": -163.031
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 333.3,
+     "y": 1115.6,
+     "width": 250.96,
+     "height": 167.78,
+     "rotation": 30.765
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1611.05,
+     "y": 1141.85,
+     "width": 298.61,
+     "height": 49.16,
+     "rotation": 153.029
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1831.45,
+     "y": 1129.85,
+     "width": 254.42,
+     "height": 49.16,
+     "rotation": -154.343
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2610.9,
+     "y": 1023.1,
+     "width": 250.96,
+     "height": 167.79,
+     "rotation": 163.994
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2408.75,
+     "y": 1113.65,
+     "width": 250.96,
+     "height": 167.78,
+     "rotation": 149.235
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2103.55,
+     "y": 1159.6,
+     "width": 347.9,
+     "height": 49.17,
+     "rotation": 169.241
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1101.9,
+     "y": 761.05,
+     "width": 151.47,
+     "height": 35.03,
+     "rotation": 19.241
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 769.4,
+     "y": 626.05,
+     "width": 213.9,
+     "height": 36.9,
+     "rotation": -15.579
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 921.45,
+     "y": 623.8,
+     "width": 150.17,
+     "height": 36.9,
+     "rotation": -157.315
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 616.85,
+     "y": 634.6,
+     "width": 123.36,
+     "height": 36.9,
+     "rotation": -161.538
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 936.5,
+     "y": 940.15,
+     "width": 341.34,
+     "height": 39.5,
+     "rotation": -14.119
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1372.25,
+     "y": 925.45,
+     "width": 571.78,
+     "height": 39.5,
+     "rotation": -174.427
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2573.35,
+     "y": 845.45,
+     "width": 69.16,
+     "height": 36.9,
+     "rotation": -1.75
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1909.1,
+     "y": 729.6,
+     "width": 273.01,
+     "height": 36.9,
+     "rotation": 4.018
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1455.2,
+     "y": 623.9,
+     "width": 235.23,
+     "height": 36.9,
+     "rotation": 5.295
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1856.5,
+     "y": 545.7,
+     "width": 249.4,
+     "height": 36.9,
+     "rotation": -26.585
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2264.05,
+     "y": 656.4,
+     "width": 243.7,
+     "height": 36.9,
+     "rotation": 25.343
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2139.25,
+     "y": 607.65,
+     "width": 59.81,
+     "height": 36.9,
+     "rotation": -179.107
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2032.2,
+     "y": 550.15,
+     "width": 207.01,
+     "height": 36.9,
+     "rotation": -147.356
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1301.85,
+     "y": 634.8,
+     "width": 100.69,
+     "height": 36.9,
+     "rotation": 163.948
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_b",
+     "x": 67.5,
+     "y": 871.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 277.45,
+     "y": 784.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 1027.4,
+     "y": 682.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 1091.4,
+     "y": 697.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 942.4,
+     "y": 579.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 1224.4,
+     "y": 576.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "c_lk",
+     "x": 1346.95,
+     "y": 859.35,
+     "width": 151.48,
+     "height": 69.5
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 642.4,
+     "y": 1005.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_ki",
+     "x": 1711.35,
+     "y": 1010.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 2045.35,
+     "y": 915.35,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_g",
+     "x": 2617.3,
+     "y": 875.35,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 2158.35,
+     "y": 781.4,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 2405.35,
+     "y": 770.4,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 1627.4,
+     "y": 606.4,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 1820.35,
+     "y": 879.35,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 1599.35,
+     "y": 890.35,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1220.4,
+     "y": 849.25,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 2331.3,
+     "y": 1003.35,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_bm",
+     "x": 76.25,
+     "y": 917.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_acd",
+     "x": 256.25,
+     "y": 835.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_bde",
+     "x": 678.2,
+     "y": 629.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_cbel",
+     "x": 1100.15,
+     "y": 744.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_dcfg",
+     "x": 1535.15,
+     "y": 606.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_eg",
+     "x": 2097.1,
+     "y": 565.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_fhie",
+     "x": 2480.05,
+     "y": 824.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_gij",
+     "x": 2670.05,
+     "y": 918.4
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_hgk",
+     "x": 2046.1,
+     "y": 967.35
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_ihkn",
+     "x": 1746.1,
+     "y": 1063.3
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_jil",
+     "x": 1555.1,
+     "y": 926.35
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_kdm",
+     "x": 1282.1,
+     "y": 899.35
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_lan",
+     "x": 630.15,
+     "y": 1039.35
+    },
+    {
+     "kind": "waypoint",
+     "name": "n_mj",
+     "x": 1230.1,
+     "y": 1175.3
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 408.05,
+     "y": 698.05
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 2346.25,
+     "y": 675.2
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 258.05,
+     "y": 826.05
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 480.05,
+     "y": 649.05
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 562.05,
+     "y": 602.05
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 634.05,
+     "y": 614.05
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 192.1,
+     "y": 829.05
+    },
+    {
+     "kind": "spawn",
+     "name": "m_1",
+     "x": 190.1,
+     "y": 957.05
+    },
+    {
+     "kind": "spawn",
+     "name": "m_1",
+     "x": 266.05,
+     "y": 980.05
+    },
+    {
+     "kind": "spawn",
+     "name": "m_1",
+     "x": 339.05,
+     "y": 1020.05
+    },
+    {
+     "kind": "spawn",
+     "name": "m_1",
+     "x": 402.05,
+     "y": 1054.05
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2579.25,
+     "y": 829.2
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2511.25,
+     "y": 824.2
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 2276.25,
+     "y": 644.2
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 2211.25,
+     "y": 613.2
+    },
+    {
+     "kind": "spawn",
+     "name": "f_2",
+     "x": 2141.25,
+     "y": 583.2
+    },
+    {
+     "kind": "spawn",
+     "name": "i_2",
+     "x": 2057.25,
+     "y": 966.2
+    },
+    {
+     "kind": "spawn",
+     "name": "i_2",
+     "x": 1992.25,
+     "y": 959.2
+    },
+    {
+     "kind": "spawn",
+     "name": "i_2",
+     "x": 1929.3,
+     "y": 942.2
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 258.15,
+     "y": 836.7
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1099.1,
+     "y": 743.7
+    },
+    {
+     "kind": "spawn",
+     "name": "l_0",
+     "x": 1283.1,
+     "y": 901.65
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 1556.1,
+     "y": 927.65
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 1536.1,
+     "y": 608.7
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 1893.05,
+     "y": 511.7
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 1747.1,
+     "y": 1063.6
+    },
+    {
+     "kind": "spawn",
+     "name": "n_0",
+     "x": 1227.1,
+     "y": 1177.55
+    },
+    {
+     "kind": "spawn",
+     "name": "m_0",
+     "x": 630.1,
+     "y": 1038.6
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 2047.1,
+     "y": 968.6
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 2482.05,
+     "y": 826.65
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 2222.05,
+     "y": 618.7
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 524.1,
+     "y": 623.7
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 869.1,
+     "y": 587.7
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 664.55,
+     "y": 804.0,
+     "rotation": -9.7
+    },
+    {
+     "kind": "ctfflag",
+     "name": "b__1",
+     "x": 254.6,
+     "y": 837.25
+    },
+    {
+     "kind": "ctfflag",
+     "name": "g__2",
+     "x": 2477.3,
+     "y": 826.6
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1396.6,
+     "y": 1175.35
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1885.35,
+     "y": 707.6,
+     "rotation": 4.488
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_15",
+     "x": 1939.7,
+     "y": 497.85,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "health_15",
+     "x": 843.5,
+     "y": 594.15,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "armorbig_30",
+     "x": 472.25,
+     "y": 1075.45,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "healthbig_30",
+     "x": 2096.9,
+     "y": 1154.0,
+     "rotation": 0.986
+    }
+   ]
+  },
+  "volcano": {
+   "image": {
+    "file": "volcano.png",
+    "x": -193.9,
+    "y": -0.6,
+    "w": 3106,
+    "h": 1620
+   },
+   "wall": {
+    "file": "volcano_wall.png",
+    "w": 2875,
+    "h": 1426
+   },
+   "radar": {
+    "file": "volcano_radarwall.png",
+    "w": 310,
+    "h": 161
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1452.8,
+     "y": 1571.2,
+     "width": 3205.72,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1461.95,
+     "y": 7.65,
+     "width": 3224.45,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2936.45,
+     "y": 806.25,
+     "width": 49.09,
+     "height": 1604.45
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": -89.25,
+     "y": 806.25,
+     "width": 49.09,
+     "height": 1604.45
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1464.9,
+     "y": 762.4,
+     "width": 810.39,
+     "height": 49.17
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1360.95,
+     "y": 829.35,
+     "width": 810.39,
+     "height": 84.0
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1329.55,
+     "y": 700.35,
+     "width": 152.8,
+     "height": 122.93
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1435.5,
+     "y": 742.35,
+     "width": 152.8,
+     "height": 122.93
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1677.4,
+     "y": 492.5,
+     "width": 287.93,
+     "height": 36.9
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1044.25,
+     "y": 491.05,
+     "width": 381.95,
+     "height": 36.9,
+     "rotation": 15.951
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1503.0,
+     "y": 519.8,
+     "width": 126.17,
+     "height": 36.9,
+     "rotation": -16.964
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 917.2,
+     "y": 803.6,
+     "width": 341.2,
+     "height": 36.9,
+     "rotation": -17.488
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 410.65,
+     "y": 672.7,
+     "width": 455.12,
+     "height": 75.81,
+     "rotation": 16.234
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 583.3,
+     "y": 464.5,
+     "width": 298.62,
+     "height": 49.17
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 425.3,
+     "y": 1030.25,
+     "width": 215.63,
+     "height": 82.68,
+     "rotation": -27.199
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1926.7,
+     "y": 537.35,
+     "width": 282.26,
+     "height": 36.9,
+     "rotation": 19.441
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2555.05,
+     "y": 777.6,
+     "width": 185.77,
+     "height": 106.77,
+     "rotation": -10.22
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2243.5,
+     "y": 850.45,
+     "width": 582.91,
+     "height": 36.93
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2319.4,
+     "y": 812.25,
+     "width": 309.86,
+     "height": 55.71,
+     "rotation": -17.73
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2258.65,
+     "y": 709.1,
+     "width": 299.13,
+     "height": 55.71,
+     "rotation": -21.977
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2097.3,
+     "y": 762.3,
+     "width": 128.19,
+     "height": 49.2
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2435.15,
+     "y": 648.35,
+     "width": 128.19,
+     "height": 49.2
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1925.1,
+     "y": 873.4,
+     "width": 100.07,
+     "height": 37.77,
+     "rotation": -26.212
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 585.3,
+     "y": 1023.95,
+     "width": 214.47,
+     "height": 93.31,
+     "rotation": 17.8
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_p",
+     "x": 563.85,
+     "y": 923.25,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_b",
+     "x": 831.85,
+     "y": 1079.2,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1070.85,
+     "y": 1090.2,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_e",
+     "x": 1494.85,
+     "y": 1029.2,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_f",
+     "x": 1782.8,
+     "y": 942.25,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 1962.8,
+     "y": 763.3,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "c_g",
+     "x": 1990.8,
+     "y": 763.3,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "c_f",
+     "x": 2125.8,
+     "y": 763.3,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 2548.75,
+     "y": 646.3,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 2162.8,
+     "y": 641.3,
+     "width": 65.98,
+     "height": 79.26
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 2001.8,
+     "y": 690.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_i",
+     "x": 1803.8,
+     "y": 690.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 1234.8,
+     "y": 585.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 1367.8,
+     "y": 583.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 1189.8,
+     "y": 467.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 1410.8,
+     "y": 471.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 690.85,
+     "y": 409.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_n",
+     "x": 848.8,
+     "y": 373.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_n",
+     "x": 302.8,
+     "y": 548.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_o",
+     "x": 746.8,
+     "y": 791.25,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 1888.8,
+     "y": 802.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 1179.8,
+     "y": 685.3,
+     "width": 65.98,
+     "height": 58.67
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_b",
+     "x": 370.7,
+     "y": 1015.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_apc",
+     "x": 558.65,
+     "y": 973.5
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_bd",
+     "x": 980.65,
+     "y": 1141.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_ce",
+     "x": 1393.65,
+     "y": 1084.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_df",
+     "x": 1775.6,
+     "y": 1010.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_egik",
+     "x": 1956.6,
+     "y": 834.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_fh",
+     "x": 2611.55,
+     "y": 707.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_ig",
+     "x": 2463.55,
+     "y": 619.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_hfkj",
+     "x": 2235.55,
+     "y": 687.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_ilm",
+     "x": 1766.55,
+     "y": 472.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_ifl",
+     "x": 1689.55,
+     "y": 734.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_kpjm",
+     "x": 1335.55,
+     "y": 634.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_jln",
+     "x": 1057.55,
+     "y": 473.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "n_mpo",
+     "x": 581.55,
+     "y": 436.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "o_pn",
+     "x": 300.6,
+     "y": 599.45
+    },
+    {
+     "kind": "waypoint",
+     "name": "p_lob",
+     "x": 910.55,
+     "y": 786.4
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 342.45,
+     "y": 1028.0
+    },
+    {
+     "kind": "spawn",
+     "name": "o_1",
+     "x": 237.35,
+     "y": 585.05
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 2504.55,
+     "y": 618.1
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 2438.55,
+     "y": 626.1
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 2374.55,
+     "y": 632.05
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 2325.55,
+     "y": 650.05
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 2277.55,
+     "y": 672.05
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2612.5,
+     "y": 708.0
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2041.55,
+     "y": 555.05
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 1970.55,
+     "y": 530.05
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 398.4,
+     "y": 997.0
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 448.4,
+     "y": 973.0
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 504.4,
+     "y": 963.0
+    },
+    {
+     "kind": "spawn",
+     "name": "o_1",
+     "x": 282.35,
+     "y": 592.05
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 926.35,
+     "y": 1141.95
+    },
+    {
+     "kind": "spawn",
+     "name": "c_1",
+     "x": 1004.35,
+     "y": 1141.95
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 374.95,
+     "y": 1014.2
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 977.9,
+     "y": 1140.2
+    },
+    {
+     "kind": "spawn",
+     "name": "e_0",
+     "x": 1774.85,
+     "y": 1013.2
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 2603.8,
+     "y": 713.25
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 2221.85,
+     "y": 690.25
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 1687.85,
+     "y": 736.25
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 1763.85,
+     "y": 472.25
+    },
+    {
+     "kind": "spawn",
+     "name": "l_0",
+     "x": 1336.85,
+     "y": 635.3
+    },
+    {
+     "kind": "spawn",
+     "name": "m_0",
+     "x": 1053.85,
+     "y": 475.3
+    },
+    {
+     "kind": "spawn",
+     "name": "p_0",
+     "x": 909.85,
+     "y": 790.3
+    },
+    {
+     "kind": "spawn",
+     "name": "o_0",
+     "x": 300.85,
+     "y": 601.3
+    },
+    {
+     "kind": "spawn",
+     "name": "n_0",
+     "x": 579.8,
+     "y": 437.3
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1394.0,
+     "y": 1086.3
+    },
+    {
+     "kind": "ctfflag",
+     "name": "a__1",
+     "x": 379.6,
+     "y": 1011.45,
+     "rotation": -21.943
+    },
+    {
+     "kind": "ctfflag",
+     "name": "h__2",
+     "x": 2460.7,
+     "y": 624.65
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 519.9,
+     "y": 658.75,
+     "rotation": 24.042
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1624.7,
+     "y": 470.5
+    },
+    {
+     "kind": "pickup",
+     "name": "ammobig_30",
+     "x": 933.85,
+     "y": 411.35,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "health_15",
+     "x": 2085.05,
+     "y": 725.65,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "armor_15",
+     "x": 1468.2,
+     "y": 674.55,
+     "rotation": 0.986
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_15",
+     "x": 686.3,
+     "y": 996.8,
+     "rotation": 0.986
+    }
+   ]
+  },
+  "gorge": {
+   "image": {
+    "file": "gorge.png",
+    "x": 125.4,
+    "y": 33.75,
+    "w": 3284,
+    "h": 1206
+   },
+   "wall": {
+    "file": "gorge_wall.png",
+    "w": 3012,
+    "h": 1148
+   },
+   "radar": {
+    "file": "gorge_radarwall.png",
+    "w": 340,
+    "h": 124
+   },
+   "nodes": [
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 734.45,
+     "y": 855.75,
+     "width": 1218.37,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 160.85,
+     "y": 787.9,
+     "width": 49.09,
+     "height": 164.82
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2998.25,
+     "y": 430.9,
+     "width": 49.09,
+     "height": 885.44
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 700.8,
+     "y": 730.75,
+     "width": 1064.78,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2151.1,
+     "y": 727.75,
+     "width": 1034.26,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1301.7,
+     "y": 926.3,
+     "width": 59.01,
+     "height": 479.28
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1249.25,
+     "y": 715.35,
+     "width": 172.76,
+     "height": 39.91,
+     "rotation": -10.282
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1629.95,
+     "y": 711.8,
+     "width": 172.76,
+     "height": 39.91,
+     "rotation": 9.12
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1576.7,
+     "y": 926.3,
+     "width": 59.01,
+     "height": 479.28
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 411.75,
+     "y": 693.8,
+     "width": 128.64,
+     "height": 64.52
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 851.7,
+     "y": 671.25,
+     "width": 128.64,
+     "height": 127.04
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 908.7,
+     "y": 716.25,
+     "width": 128.64,
+     "height": 127.04
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 373.8,
+     "y": 343.25,
+     "width": 153.27,
+     "height": 157.76
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2652.15,
+     "y": 668.85,
+     "width": 144.01,
+     "height": 168.99
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2804.6,
+     "y": 590.85,
+     "width": 276.21,
+     "height": 168.99
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2908.15,
+     "y": 374.9,
+     "width": 74.31,
+     "height": 35.94
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 1834.1,
+     "y": 701.35,
+     "width": 94.8,
+     "height": 67.69
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2221.6,
+     "y": 698.35,
+     "width": 65.11,
+     "height": 67.69
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 409.3,
+     "y": 444.25,
+     "width": 76.45,
+     "height": 112.66
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 372.6,
+     "y": 141.4,
+     "width": 157.95,
+     "height": 186.43
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": 2276.85,
+     "y": 855.75,
+     "width": 1491.4,
+     "height": 48.13
+    },
+    {
+     "kind": "physbox",
+     "name": "",
+     "x": -18.6,
+     "y": 430.9,
+     "width": 49.09,
+     "height": 885.44
+    },
+    {
+     "kind": "aiaction",
+     "name": "c_a",
+     "x": 424.85,
+     "y": 217.5,
+     "width": 91.66,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_n",
+     "x": 405.85,
+     "y": 591.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 665.85,
+     "y": 425.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_n",
+     "x": 813.05,
+     "y": 546.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_p",
+     "x": 737.05,
+     "y": 631.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 1279.75,
+     "y": 384.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_m",
+     "x": 1556.75,
+     "y": 388.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_d",
+     "x": 1302.75,
+     "y": 621.4,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_c",
+     "x": 1529.75,
+     "y": 619.4,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_k",
+     "x": 1874.75,
+     "y": 605.4,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_ki",
+     "x": 2595.7,
+     "y": 521.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 2338.75,
+     "y": 489.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 2156.75,
+     "y": 485.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 2076.75,
+     "y": 353.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_j",
+     "x": 2801.7,
+     "y": 434.45,
+     "width": 48.45,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_h",
+     "x": 2492.75,
+     "y": 626.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_l",
+     "x": 2354.75,
+     "y": 294.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "aiaction",
+     "name": "j_o",
+     "x": 784.85,
+     "y": 337.45,
+     "width": 77.29,
+     "height": 85.47
+    },
+    {
+     "kind": "waypoint",
+     "name": "a_q",
+     "x": 275.1,
+     "y": 704.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "b_qp",
+     "x": 634.05,
+     "y": 703.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "c_pd",
+     "x": 1116.05,
+     "y": 701.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "d_ce",
+     "x": 1724.05,
+     "y": 701.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "e_dfk",
+     "x": 1837.1,
+     "y": 666.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "f_eg",
+     "x": 2013.05,
+     "y": 702.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "g_fh",
+     "x": 2481.05,
+     "y": 702.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "h_igk",
+     "x": 2636.05,
+     "y": 585.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "i_hj",
+     "x": 2862.05,
+     "y": 507.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "j_kil",
+     "x": 2575.05,
+     "y": 353.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "k_lefgh",
+     "x": 2243.1,
+     "y": 554.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "l_kjcm",
+     "x": 1919.1,
+     "y": 413.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "m_ldno",
+     "x": 974.15,
+     "y": 414.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "n_qpm",
+     "x": 626.15,
+     "y": 497.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "o_ma",
+     "x": 622.15,
+     "y": 307.0
+    },
+    {
+     "kind": "waypoint",
+     "name": "p_bcn",
+     "x": 868.15,
+     "y": 607.95
+    },
+    {
+     "kind": "waypoint",
+     "name": "q_abn",
+     "x": 430.15,
+     "y": 659.9
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 245.0,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 294.95,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "a_1",
+     "x": 326.95,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 556.85,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 612.85,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 666.85,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_1",
+     "x": 769.65,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2720.05,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2664.1,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2606.1,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2526.15,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "j_2",
+     "x": 2470.15,
+     "y": 355.3
+    },
+    {
+     "kind": "spawn",
+     "name": "i_2",
+     "x": 2898.0,
+     "y": 507.2
+    },
+    {
+     "kind": "spawn",
+     "name": "i_2",
+     "x": 2858.05,
+     "y": 507.2
+    },
+    {
+     "kind": "spawn",
+     "name": "n_1",
+     "x": 607.85,
+     "y": 498.2
+    },
+    {
+     "kind": "spawn",
+     "name": "n_1",
+     "x": 656.85,
+     "y": 498.2
+    },
+    {
+     "kind": "spawn",
+     "name": "h_2",
+     "x": 2631.05,
+     "y": 585.2
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2480.15,
+     "y": 703.25
+    },
+    {
+     "kind": "spawn",
+     "name": "g_2",
+     "x": 2428.15,
+     "y": 704.25
+    },
+    {
+     "kind": "spawn",
+     "name": "a_0",
+     "x": 285.0,
+     "y": 707.15
+    },
+    {
+     "kind": "spawn",
+     "name": "b_0",
+     "x": 632.85,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "c_0",
+     "x": 1116.7,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "d_0",
+     "x": 1724.45,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "f_0",
+     "x": 2054.3,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "g_0",
+     "x": 2470.15,
+     "y": 703.15
+    },
+    {
+     "kind": "spawn",
+     "name": "i_0",
+     "x": 2864.05,
+     "y": 509.2
+    },
+    {
+     "kind": "spawn",
+     "name": "j_0",
+     "x": 2578.15,
+     "y": 353.25
+    },
+    {
+     "kind": "spawn",
+     "name": "k_0",
+     "x": 2244.3,
+     "y": 553.2
+    },
+    {
+     "kind": "spawn",
+     "name": "l_0",
+     "x": 1918.4,
+     "y": 415.25
+    },
+    {
+     "kind": "spawn",
+     "name": "m_0",
+     "x": 974.75,
+     "y": 415.25
+    },
+    {
+     "kind": "spawn",
+     "name": "o_0",
+     "x": 620.9,
+     "y": 309.3
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 642.85,
+     "y": 495.6
+    },
+    {
+     "kind": "ctfflag",
+     "name": "a__1",
+     "x": 276.55,
+     "y": 713.4
+    },
+    {
+     "kind": "ctfflag",
+     "name": "j__2",
+     "x": 2835.15,
+     "y": 508.85
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 2362.2,
+     "y": 701.6
+    },
+    {
+     "kind": "holdpoint",
+     "name": "",
+     "x": 1801.25,
+     "y": 413.65
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 2013.85,
+     "y": 409.9
+    },
+    {
+     "kind": "pickup",
+     "name": "ammo_10",
+     "x": 880.85,
+     "y": 601.55
+    }
+   ]
+  }
+ }
+}

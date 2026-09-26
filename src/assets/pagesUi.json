@@ -1,0 +1,3210 @@
+{
+ "scale": 2,
+ "credits": {
+  "plate": "pages/plate_credits.png",
+  "plateX": 0.0,
+  "plateY": 0,
+  "plateW": 800,
+  "plateH": 600,
+  "logo1": {
+   "x": 282.5,
+   "y": 258.6
+  },
+  "logo2": {
+   "x": 500.45,
+   "y": 258.6
+  },
+  "logo": {
+   "armor": {
+    "file": "pages/logo_armor.png",
+    "w": 147.05,
+    "h": 81.95,
+    "ox": 72.45,
+    "oy": 45.5
+   },
+   "notdoppler": {
+    "file": "pages/logo_notdoppler.png",
+    "w": 147.05,
+    "h": 81.95,
+    "ox": 72.45,
+    "oy": 45.5
+   }
+  },
+  "runs": {
+   "2873": [
+    [
+     344.3,
+     95.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "Credits"
+    ]
+   ],
+   "2874": [
+    [
+     202.9,
+     137.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Justin"
+    ],
+    [
+     250.9,
+     137.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Goncalves"
+    ]
+   ],
+   "2876": [
+    [
+     358.6,
+     319.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "Music"
+    ]
+   ],
+   "2877": [
+    [
+     506.95,
+     137.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Mike"
+    ],
+    [
+     542.45,
+     137.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Sleva"
+    ]
+   ],
+   "2878": [
+    [
+     202.9,
+     343.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Waterflame"
+    ],
+    [
+     202.9,
+     360.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "PictureAndSound"
+    ],
+    [
+     202.9,
+     376.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "OutLoudMusic"
+    ],
+    [
+     202.9,
+     392.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Soundroll"
+    ],
+    [
+     202.9,
+     409.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Symphony"
+    ],
+    [
+     280.0,
+     409.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Of"
+    ],
+    [
+     300.2,
+     409.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Specters"
+    ],
+    [
+     202.9,
+     425.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Symphony"
+    ],
+    [
+     280.0,
+     425.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Of"
+    ],
+    [
+     300.2,
+     425.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Specters"
+    ],
+    [
+     202.9,
+     442.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "YellowBrick_Media"
+    ],
+    [
+     202.9,
+     458.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "YellowBrick_Media"
+    ],
+    [
+     202.9,
+     474.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "YellowBrick_Media"
+    ]
+   ],
+   "2879": [
+    [
+     499.95,
+     343.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Rocketrace"
+    ],
+    [
+     471.95,
+     360.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Future"
+    ],
+    [
+     523.95,
+     360.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Warfare"
+    ],
+    [
+     454.95,
+     376.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Monsieur"
+    ],
+    [
+     523.8,
+     376.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Mischief"
+    ],
+    [
+     546.95,
+     392.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Rush"
+    ],
+    [
+     451.95,
+     409.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Team"
+    ],
+    [
+     494.1,
+     409.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Strike"
+    ],
+    [
+     541.55,
+     409.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Force"
+    ],
+    [
+     463.95,
+     425.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Relentless"
+    ],
+    [
+     546.95,
+     425.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Rage"
+    ],
+    [
+     397.95,
+     442.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Cinematic"
+    ],
+    [
+     472.7,
+     442.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Trailer"
+    ],
+    [
+     524.35,
+     442.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Pack"
+    ],
+    [
+     563.25,
+     442.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "(v1)"
+    ],
+    [
+     393.95,
+     458.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Cinematic"
+    ],
+    [
+     468.7,
+     458.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Trailer"
+    ],
+    [
+     520.35,
+     458.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Pack"
+    ],
+    [
+     559.25,
+     458.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "(v2)"
+    ],
+    [
+     393.95,
+     474.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Cinematic"
+    ],
+    [
+     468.7,
+     474.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Trailer"
+    ],
+    [
+     520.35,
+     474.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Pack"
+    ],
+    [
+     559.25,
+     474.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "(v3)"
+    ]
+   ],
+   "2880": [
+    [
+     325.9,
+     123.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#999999",
+     1.0,
+     "Programming"
+    ],
+    [
+     424.65,
+     123.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#999999",
+     1.0,
+     "&"
+    ],
+    [
+     439.05,
+     123.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#999999",
+     1.0,
+     "Art"
+    ]
+   ],
+   "2881": [
+    [
+     202.9,
+     180.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Wesley"
+    ],
+    [
+     259.45,
+     180.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Jue"
+    ]
+   ],
+   "2882": [
+    [
+     323.9,
+     167.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#999999",
+     1.0,
+     "Testing"
+    ],
+    [
+     380.65,
+     167.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#999999",
+     1.0,
+     "&"
+    ],
+    [
+     395.05,
+     167.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#999999",
+     1.0,
+     "Feedback"
+    ]
+   ],
+   "2883": [
+    [
+     359.9,
+     214.15,
+     12.0,
+     "QTypeSquare-Book",
+     "#999999",
+     1.0,
+     "Sponsors"
+    ]
+   ],
+   "2478": [
+    [
+     349.95,
+     590.0,
+     16.0,
+     "QTypeSquare-Light",
+     "#00ffff",
+     1.0,
+     "DAY"
+    ]
+   ],
+   "2479": [
+    [
+     608.95,
+     590.0,
+     16.0,
+     "QTypeSquare-Light",
+     "#ffcc00",
+     1.0,
+     "FUNDS"
+    ]
+   ]
+  }
+ },
+ "medals": {
+  "plate": "pages/plate_medals.png",
+  "plateX": 0.0,
+  "plateY": 0,
+  "plateW": 800,
+  "plateH": 600,
+  "tile": {
+   "earned": {
+    "file": "pages/tile_earned.png",
+    "w": 260.65,
+    "h": 108.0,
+    "ox": 27.0,
+    "oy": 49.3
+   },
+   "locked": {
+    "file": "pages/tile_locked.png",
+    "w": 260.65,
+    "h": 108.0,
+    "ox": 27.0,
+    "oy": 49.3
+   }
+  },
+  "bar": {
+   "file": "pages/tile_bar.png",
+   "w": 123.2,
+   "h": 12.15,
+   "ox": 0.0,
+   "oy": 0.0
+  },
+  "fields": {
+   "txt_name": {
+    "x": 62.25,
+    "y": -0.2,
+    "spec": {
+     "cid": 2850,
+     "x": -2.0,
+     "y": -2.0,
+     "w": 161.0,
+     "h": 18.75,
+     "wordWrap": false,
+     "multiline": false,
+     "autoSize": false,
+     "html": true,
+     "size": 12.0,
+     "fontId": 23,
+     "font": "QTypeSquare-BlackMajuscles",
+     "color": 16777215,
+     "alpha": 1.0,
+     "align": "center",
+     "leftMargin": 0.0,
+     "rightMargin": 0.0,
+     "indent": 0.0,
+     "leading": -23.0,
+     "text": "<p align=\"center\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"0\"><b>Watch your head</b></font></p>"
+    }
+   },
+   "txt_desc": {
+    "x": 62.35,
+    "y": 15.3,
+    "spec": {
+     "cid": 2851,
+     "x": -2.0,
+     "y": -2.0,
+     "w": 164.8,
+     "h": 44.65,
+     "wordWrap": true,
+     "multiline": true,
+     "autoSize": false,
+     "html": false,
+     "size": 11.0,
+     "fontId": 2350,
+     "font": "QTypeSquare-Light",
+     "color": 0,
+     "alpha": 1.0,
+     "align": "left",
+     "leftMargin": 0.0,
+     "rightMargin": 0.0,
+     "indent": 0.0,
+     "leading": 0.0,
+     "text": "Kill the final boss by pulling down his pants"
+    }
+   },
+   "txt_unlock": {
+    "x": 61.35,
+    "y": 43.5,
+    "spec": {
+     "cid": 2853,
+     "x": -2.0,
+     "y": -2.0,
+     "w": 151.2,
+     "h": 17.2,
+     "wordWrap": true,
+     "multiline": true,
+     "autoSize": false,
+     "html": false,
+     "size": 11.0,
+     "fontId": 20,
+     "font": "QTypeSquare-Book",
+     "color": 10066329,
+     "alpha": 1.0,
+     "align": "left",
+     "leftMargin": 0.0,
+     "rightMargin": 0.0,
+     "indent": 0.0,
+     "leading": -3.0,
+     "text": "Sky9 Mod unlocked!"
+    }
+   },
+   "icon": {
+    "x": 4.65,
+    "y": 4.15,
+    "sx": 1.0,
+    "sy": 1.0
+   },
+   "mc_backbar": {
+    "x": 60.75,
+    "y": 43.75,
+    "sx": 1.2305,
+    "sy": 1.0
+   },
+   "mc_bar": {
+    "x": 61.5,
+    "y": 44.15,
+    "sx": 1.2177,
+    "sy": 0.9098
+   }
+  },
+  "icon": {
+   "campaign": {
+    "file": "pages/icon_campaign.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "challenges": {
+    "file": "pages/icon_challenges.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "levelmax": {
+    "file": "pages/icon_levelmax.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "hard": {
+    "file": "pages/icon_hard.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "insane": {
+    "file": "pages/icon_insane.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "upgrade": {
+    "file": "pages/icon_upgrade.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "buy": {
+    "file": "pages/icon_buy.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "sell": {
+    "file": "pages/icon_sell.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "enemies": {
+    "file": "pages/icon_enemies.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "eng": {
+    "file": "pages/icon_eng.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "mer": {
+    "file": "pages/icon_mer.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "gun": {
+    "file": "pages/icon_gun.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "sni": {
+    "file": "pages/icon_sni.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "jug": {
+    "file": "pages/icon_jug.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "eli": {
+    "file": "pages/icon_eli.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "med": {
+    "file": "pages/icon_med.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "nin": {
+    "file": "pages/icon_nin.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "classes": {
+    "file": "pages/icon_classes.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "secret1": {
+    "file": "pages/icon_secret1.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "secret2": {
+    "file": "pages/icon_secret2.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   },
+   "secret3": {
+    "file": "pages/icon_secret3.png",
+    "w": 89.4,
+    "h": 102.95,
+    "ox": 31.65,
+    "oy": 53.45
+   }
+  },
+  "tiles": {
+   "ach0": {
+    "x": 44.3,
+    "y": 72.15
+   },
+   "ach1": {
+    "x": 289.3,
+    "y": 72.15
+   },
+   "ach3": {
+    "x": 44.3,
+    "y": 139.15
+   },
+   "ach4": {
+    "x": 289.3,
+    "y": 139.15
+   },
+   "ach6": {
+    "x": 44.3,
+    "y": 217.15
+   },
+   "ach7": {
+    "x": 289.3,
+    "y": 217.15
+   },
+   "ach9": {
+    "x": 44.3,
+    "y": 285.1
+   },
+   "ach10": {
+    "x": 289.3,
+    "y": 285.1
+   },
+   "ach12": {
+    "x": 44.3,
+    "y": 353.1
+   },
+   "ach13": {
+    "x": 289.3,
+    "y": 353.1
+   },
+   "ach2": {
+    "x": 530.3,
+    "y": 72.15
+   },
+   "ach5": {
+    "x": 530.3,
+    "y": 139.15
+   },
+   "ach8": {
+    "x": 530.3,
+    "y": 217.15
+   },
+   "ach11": {
+    "x": 530.3,
+    "y": 285.1
+   },
+   "ach14": {
+    "x": 530.3,
+    "y": 353.1
+   },
+   "ach15": {
+    "x": 44.3,
+    "y": 422.05
+   },
+   "ach16": {
+    "x": 289.3,
+    "y": 422.05
+   },
+   "ach17": {
+    "x": 530.3,
+    "y": 422.05
+   },
+   "ach18": {
+    "x": 44.3,
+    "y": 499.05
+   },
+   "ach19": {
+    "x": 289.3,
+    "y": 499.05
+   },
+   "ach20": {
+    "x": 530.3,
+    "y": 499.05
+   }
+  }
+ },
+ "app": {
+  "cid": 2693,
+  "x": 186.0,
+  "y": 565.75,
+  "w": 249.4,
+  "h": 63.85,
+  "states": {
+   "up": "btn_2693_up.png",
+   "over": "btn_2693_over.png",
+   "down": "btn_2693_down.png"
+  },
+  "offX": -180.5,
+  "offY": -60.95
+ },
+ "tips": {
+  "plate": "pages/plate_tips.png",
+  "plateX": 0.0,
+  "plateY": 0,
+  "plateW": 800,
+  "plateH": 600,
+  "runs": {
+   "2857": [
+    [
+     210.5,
+     327.1,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "Elements"
+    ],
+    [
+     341.85,
+     327.1,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "&"
+    ],
+    [
+     366.75,
+     327.1,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "Status"
+    ],
+    [
+     469.75,
+     327.1,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "Effects"
+    ]
+   ],
+   "2858": [
+    [
+     29.95,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "IGNITED"
+    ],
+    [
+     117.25,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "enemies"
+    ],
+    [
+     180.6,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "quickly"
+    ],
+    [
+     234.85,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "take"
+    ],
+    [
+     270.4,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "damage"
+    ],
+    [
+     330.0,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "over"
+    ],
+    [
+     365.95,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "a"
+    ],
+    [
+     378.6,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "short"
+    ],
+    [
+     421.8,
+     349.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ff9900",
+     1.0,
+     "time"
+    ]
+   ],
+   "2859": [
+    [
+     29.95,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "POISONED"
+    ],
+    [
+     135.5,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "enemies"
+    ],
+    [
+     198.85,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "slowly"
+    ],
+    [
+     250.4,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "take"
+    ],
+    [
+     285.95,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "damage"
+    ],
+    [
+     345.55,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "over"
+    ],
+    [
+     381.5,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "a"
+    ],
+    [
+     394.15,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "very"
+    ],
+    [
+     429.3,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "long"
+    ],
+    [
+     464.35,
+     368.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#7fff00",
+     1.0,
+     "time"
+    ]
+   ],
+   "2860": [
+    [
+     29.95,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "CHILLED"
+    ],
+    [
+     121.25,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "enemies"
+    ],
+    [
+     184.6,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "will"
+    ],
+    [
+     214.5,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "become"
+    ],
+    [
+     274.4,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "frozen"
+    ],
+    [
+     324.95,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "if"
+    ],
+    [
+     338.4,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "they"
+    ],
+    [
+     374.1,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "stay"
+    ],
+    [
+     409.65,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "chilled"
+    ],
+    [
+     462.2,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "long"
+    ],
+    [
+     497.25,
+     387.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#00ffff",
+     1.0,
+     "enough"
+    ]
+   ],
+   "2861": [
+    [
+     29.95,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "ELECTRIFIED"
+    ],
+    [
+     152.75,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "enemies"
+    ],
+    [
+     216.1,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "take"
+    ],
+    [
+     251.65,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "10%"
+    ],
+    [
+     281.75,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "more"
+    ],
+    [
+     322.4,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "damage"
+    ],
+    [
+     382.0,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "from"
+    ],
+    [
+     419.85,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "all"
+    ],
+    [
+     442.8,
+     406.1,
+     12.0,
+     "QTypeSquare-Book",
+     "#ffff00",
+     1.0,
+     "sources"
+    ]
+   ],
+   "2863": [
+    [
+     247.6,
+     224.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "Recruiting"
+    ],
+    [
+     387.45,
+     224.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "new"
+    ],
+    [
+     444.3,
+     224.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "Heroes"
+    ]
+   ],
+   "2864": [
+    [
+     29.95,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "You"
+    ],
+    [
+     67.6,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "can"
+    ],
+    [
+     97.5,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "RECRUIT"
+    ],
+    [
+     192.9,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "a"
+    ],
+    [
+     205.55,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "new"
+    ],
+    [
+     238.9,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "hero"
+    ],
+    [
+     275.7,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "once"
+    ],
+    [
+     314.35,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "per"
+    ],
+    [
+     342.35,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "day"
+    ],
+    [
+     371.5,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "(in-game"
+    ],
+    [
+     432.2,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "time)."
+    ],
+    [
+     474.3,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "You"
+    ],
+    [
+     505.2,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "can"
+    ],
+    [
+     535.1,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "have"
+    ],
+    [
+     572.95,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "a"
+    ],
+    [
+     585.6,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "maximum"
+    ],
+    [
+     655.5,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "of"
+    ],
+    [
+     674.1,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "15"
+    ],
+    [
+     692.25,
+     249.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "heroes."
+    ],
+    [
+     29.95,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Each"
+    ],
+    [
+     76.0,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "recruited"
+    ],
+    [
+     146.6,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "hero"
+    ],
+    [
+     183.4,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "will"
+    ],
+    [
+     213.3,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "have"
+    ],
+    [
+     251.15,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "their"
+    ],
+    [
+     289.2,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "own"
+    ],
+    [
+     322.55,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "flaw,"
+    ],
+    [
+     361.3,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "trait,"
+    ],
+    [
+     400.05,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "killstreak,"
+    ],
+    [
+     475.7,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "and"
+    ],
+    [
+     505.6,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "set"
+    ],
+    [
+     533.4,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "of"
+    ],
+    [
+     552.0,
+     266.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "perks."
+    ],
+    [
+     29.95,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Heroes"
+    ],
+    [
+     92.5,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "can"
+    ],
+    [
+     122.4,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "be"
+    ],
+    [
+     143.8,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "DISMISSED"
+    ],
+    [
+     247.85,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "to"
+    ],
+    [
+     267.0,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "free"
+    ],
+    [
+     300.95,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "up"
+    ],
+    [
+     322.2,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "space"
+    ],
+    [
+     369.35,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "and"
+    ],
+    [
+     399.25,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "gain"
+    ],
+    [
+     432.55,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "additional"
+    ],
+    [
+     506.85,
+     282.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "funds."
+    ],
+    [
+     29.95,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Leveling"
+    ],
+    [
+     99.75,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "up"
+    ],
+    [
+     121.0,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "your"
+    ],
+    [
+     156.9,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "heroes"
+    ],
+    [
+     211.0,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "allows"
+    ],
+    [
+     263.25,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "you"
+    ],
+    [
+     292.45,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "to"
+    ],
+    [
+     311.6,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "set"
+    ],
+    [
+     339.4,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "which"
+    ],
+    [
+     385.05,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "perks"
+    ],
+    [
+     429.55,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "they"
+    ],
+    [
+     465.25,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "can"
+    ],
+    [
+     495.15,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "take"
+    ],
+    [
+     530.7,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "into"
+    ],
+    [
+     561.95,
+     298.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "battle."
+    ]
+   ],
+   "2866": [
+    [
+     310.2,
+     107.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "Hero"
+    ],
+    [
+     381.15,
+     107.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "Status"
+    ]
+   ],
+   "2867": [
+    [
+     29.95,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "As"
+    ],
+    [
+     59.5,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "heroes"
+    ],
+    [
+     113.6,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "fight"
+    ],
+    [
+     150.7,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "battles"
+    ],
+    [
+     207.25,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "they"
+    ],
+    [
+     242.95,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "become"
+    ],
+    [
+     302.85,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "TIRED."
+    ],
+    [
+     352.25,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Tired"
+    ],
+    [
+     392.15,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "heroes"
+    ],
+    [
+     446.25,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "will"
+    ],
+    [
+     476.15,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "perform"
+    ],
+    [
+     537.9,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "worse"
+    ],
+    [
+     586.65,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "in"
+    ],
+    [
+     602.85,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "battle"
+    ],
+    [
+     650.75,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "and"
+    ],
+    [
+     680.65,
+     129.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "will"
+    ],
+    [
+     29.95,
+     146.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "eventually"
+    ],
+    [
+     109.5,
+     146.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "become"
+    ],
+    [
+     169.4,
+     146.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "INJURED"
+    ],
+    [
+     236.05,
+     146.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "or"
+    ],
+    [
+     255.5,
+     146.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "CRITICAL."
+    ],
+    [
+     29.95,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Heroes"
+    ],
+    [
+     92.5,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "can"
+    ],
+    [
+     122.4,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "recover"
+    ],
+    [
+     182.35,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "by"
+    ],
+    [
+     202.95,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "not"
+    ],
+    [
+     230.7,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "battling."
+    ],
+    [
+     293.95,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Make"
+    ],
+    [
+     334.5,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "sure"
+    ],
+    [
+     371.2,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "to"
+    ],
+    [
+     390.35,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "switch"
+    ],
+    [
+     442.35,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "up"
+    ],
+    [
+     463.6,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "your"
+    ],
+    [
+     499.5,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "squad"
+    ],
+    [
+     546.6,
+     162.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "often!"
+    ],
+    [
+     29.95,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Playing"
+    ],
+    [
+     92.75,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "a"
+    ],
+    [
+     105.4,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "team"
+    ],
+    [
+     145.65,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "game"
+    ],
+    [
+     188.05,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "without"
+    ],
+    [
+     246.4,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "teammates"
+    ],
+    [
+     331.45,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "will"
+    ],
+    [
+     361.35,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "make"
+    ],
+    [
+     403.05,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "your"
+    ],
+    [
+     438.95,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Hero"
+    ],
+    [
+     477.45,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "get"
+    ],
+    [
+     505.15,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "tired"
+    ],
+    [
+     543.15,
+     178.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "quicker."
+    ]
+   ],
+   "2868": [
+    [
+     29.0,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "IMPORTANT:"
+    ],
+    [
+     119.8,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "If"
+    ],
+    [
+     134.15,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "you"
+    ],
+    [
+     163.35,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "QUIT"
+    ],
+    [
+     200.9,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "or"
+    ],
+    [
+     220.5,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "LOSE"
+    ],
+    [
+     262.4,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "a"
+    ],
+    [
+     275.05,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "battle,"
+    ],
+    [
+     325.9,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "your"
+    ],
+    [
+     361.95,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "squad"
+    ],
+    [
+     409.05,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "will"
+    ],
+    [
+     439.6,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "NOT"
+    ],
+    [
+     472.8,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "get"
+    ],
+    [
+     500.1,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "tired."
+    ],
+    [
+     542.5,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "Retry"
+    ],
+    [
+     586.25,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "as"
+    ],
+    [
+     607.55,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "often"
+    ],
+    [
+     649.4,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "as"
+    ],
+    [
+     670.7,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "you"
+    ],
+    [
+     699.9,
+     192.95,
+     12.0,
+     "QTypeSquare-Bold",
+     "#ffcc00",
+     1.0,
+     "need!"
+    ]
+   ],
+   "2870": [
+    [
+     190.0,
+     439.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "WEAPON"
+    ],
+    [
+     293.15,
+     439.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "UPGRADES"
+    ],
+    [
+     426.55,
+     439.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "&"
+    ],
+    [
+     451.45,
+     439.35,
+     14.0,
+     "Xoireqe",
+     "#ffcc00",
+     1.0,
+     "BLUEPRINTS"
+    ]
+   ],
+   "2871": [
+    [
+     29.95,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Blueprints"
+    ],
+    [
+     115.75,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "are"
+    ],
+    [
+     143.75,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "earned"
+    ],
+    [
+     197.65,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "by"
+    ],
+    [
+     218.25,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "completing"
+    ],
+    [
+     301.6,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "MISSIONS"
+    ],
+    [
+     375.9,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "but"
+    ],
+    [
+     403.65,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "must"
+    ],
+    [
+     443.95,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "be"
+    ],
+    [
+     465.35,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "built"
+    ],
+    [
+     501.75,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "at"
+    ],
+    [
+     520.8,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "the"
+    ],
+    [
+     548.65,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "WORKSHOP."
+    ],
+    [
+     639.5,
+     464.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Building"
+    ],
+    [
+     29.95,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "blueprints"
+    ],
+    [
+     107.5,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "make"
+    ],
+    [
+     149.2,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "the"
+    ],
+    [
+     177.05,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "weapons"
+    ],
+    [
+     244.8,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "available"
+    ],
+    [
+     313.5,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "in"
+    ],
+    [
+     329.7,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "the"
+    ],
+    [
+     357.55,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "SHOP,"
+    ],
+    [
+     405.4,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "SLOT"
+    ],
+    [
+     446.3,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "MACHINE,"
+    ],
+    [
+     519.0,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "or"
+    ],
+    [
+     538.45,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "after"
+    ],
+    [
+     578.7,
+     481.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "MISSIONS."
+    ],
+    [
+     29.95,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Weapons"
+    ],
+    [
+     105.95,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "in"
+    ],
+    [
+     122.15,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "your"
+    ],
+    [
+     158.05,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "inventory"
+    ],
+    [
+     228.95,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "can"
+    ],
+    [
+     258.85,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "be"
+    ],
+    [
+     280.25,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "upgraded"
+    ],
+    [
+     351.25,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "at"
+    ],
+    [
+     370.3,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "the"
+    ],
+    [
+     398.15,
+     497.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "WORKSHOP."
+    ],
+    [
+     29.95,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "-"
+    ],
+    [
+     36.7,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Upgrading"
+    ],
+    [
+     112.8,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "can"
+    ],
+    [
+     142.7,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "lower"
+    ],
+    [
+     187.95,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "a"
+    ],
+    [
+     200.6,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "weapon's"
+    ],
+    [
+     270.95,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "LEVEL,"
+    ],
+    [
+     322.85,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "so"
+    ],
+    [
+     344.25,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "a"
+    ],
+    [
+     356.9,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "lvl"
+    ],
+    [
+     379.15,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "31"
+    ],
+    [
+     397.3,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "weapon"
+    ],
+    [
+     456.4,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "can"
+    ],
+    [
+     486.3,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "be"
+    ],
+    [
+     507.7,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "used"
+    ],
+    [
+     546.35,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "by"
+    ],
+    [
+     566.95,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "lvl"
+    ],
+    [
+     589.2,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "30"
+    ],
+    [
+     611.5,
+     513.35,
+     12.0,
+     "QTypeSquare-Book",
+     "#cccccc",
+     1.0,
+     "Heroes."
+    ]
+   ],
+   "2478": [
+    [
+     349.95,
+     590.0,
+     16.0,
+     "QTypeSquare-Light",
+     "#00ffff",
+     1.0,
+     "DAY"
+    ]
+   ],
+   "2479": [
+    [
+     608.95,
+     590.0,
+     16.0,
+     "QTypeSquare-Light",
+     "#ffcc00",
+     1.0,
+     "FUNDS"
+    ]
+   ]
+  }
+ }
+}

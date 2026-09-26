@@ -1,0 +1,28 @@
+{
+  "name": "sfh3-ts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "TypeScript/WebGL port of the Flash game Strike Force Heroes 3 (Sky9Games). Ported from decompiled ActionScript 3.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && python tools/webp.py && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "typecheck:server": "tsc -p tsconfig.server.json",
+    "build:server": "node tools/build-server.mjs",
+    "check": "tsc --noEmit && tsc -p tsconfig.server.json"
+  },
+  "dependencies": {
+    "pixi.js": "^8.6.6",
+    "planck": "^1.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "@types/ws": "^8.18.1",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "ws": "^8.21.3"
+  }
+}

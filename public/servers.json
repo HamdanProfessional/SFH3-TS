@@ -1,0 +1,9 @@
+[
+  { "name": "Team Deathmatch",  "url": "wss://sfh3.retris.io/ws/1", "region": "eu" },
+  { "name": "Capture the Flag", "url": "wss://sfh3.retris.io/ws/2", "region": "eu" },
+  { "name": "Free-For-All",     "url": "wss://sfh3.retris.io/ws/3", "region": "eu" },
+  { "name": "Co-op Campaign",   "url": "wss://sfh3.retris.io/ws/4", "region": "eu" },
+  { "name": "Ranked",           "url": "wss://sfh3.retris.io/ws/5", "region": "eu" },
+  { "name": "Clan War",         "url": "wss://sfh3.retris.io/ws/6", "region": "eu" },
+  { "name": "Custom Maps",      "url": "wss://sfh3.retris.io/ws/7", "region": "eu" }
+]

@@ -1,0 +1,1976 @@
+{
+ "scale": 1,
+ "plate": {
+  "file": "ui/plate_missions.png",
+  "x": -240.0,
+  "y": 0,
+  "w": 1280,
+  "h": 600
+ },
+ "text": {
+  "2635": {
+   "cid": 2635,
+   "x": -11.1,
+   "y": 3.15,
+   "w": 258.0,
+   "h": 21.2,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 14.0,
+   "fontId": 2053,
+   "font": "Xoireqe",
+   "color": 16737792,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"Xoireqe\" size=\"14\" color=\"#ff6600\" letterSpacing=\"0.00\" kerning=\"1\">MISSION 999</font></p>"
+  },
+  "2636": {
+   "cid": 2636,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 251.95,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 2350,
+   "font": "QTypeSquare-Light",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"QTypeSquare-Light\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">DIFFICULTY</font></p>"
+  },
+  "2637": {
+   "cid": 2637,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 86.7,
+   "h": 22.0,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 15.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 6750105,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"QTypeSquare-Book\" size=\"15\" color=\"#66ff99\" letterSpacing=\"0.00\" kerning=\"1\">INSANE</font></p>"
+  },
+  "2640": {
+   "cid": 2640,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 152.8,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"QTypeSquare-Book\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">CAPTURE THE FLAG</font></p>"
+  },
+  "2641": {
+   "cid": 2641,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 147.8,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"QTypeSquare-Book\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">4 vs 4</font></p>"
+  },
+  "2643": {
+   "cid": 2643,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 150.8,
+   "h": 20.85,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 14.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"QTypeSquare-Book\" size=\"14\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">99</font></p>"
+  },
+  "2644": {
+   "cid": 2644,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 149.8,
+   "h": 18.75,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 23,
+   "font": "QTypeSquare-BlackMajuscles",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "right",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"right\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\"><b>BLOOD GULCH</b></font></p>"
+  },
+  "2647": {
+   "cid": 2647,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 250.8,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16763955,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"QTypeSquare-Book\" size=\"12\" color=\"#ffcc33\" letterSpacing=\"0.00\" kerning=\"1\">BLOOD GULCH</font></p>"
+  },
+  "2654": {
+   "cid": 2654,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 150.8,
+   "h": 20.85,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 14.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"QTypeSquare-Book\" size=\"14\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">99</font></p>"
+  },
+  "2656": {
+   "cid": 2656,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 152.8,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"QTypeSquare-Book\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">10</font></p>"
+  },
+  "2658": {
+   "cid": 2658,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 152.8,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"QTypeSquare-Book\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">10</font></p>"
+  },
+  "2659": {
+   "cid": 2659,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 249.9,
+   "h": 26.35,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 20.0,
+   "fontId": 2053,
+   "font": "Xoireqe",
+   "color": 16763904,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"Xoireqe\" size=\"20\" color=\"#ffcc00\" letterSpacing=\"0.00\" kerning=\"1\">CUSTOM GAME</font></p>"
+  },
+  "2660": {
+   "cid": 2660,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 76.05,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 2350,
+   "font": "QTypeSquare-Light",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"QTypeSquare-Light\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">SCORE</font></p>"
+  },
+  "2661": {
+   "cid": 2661,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 152.8,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"QTypeSquare-Book\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">CAPTURE THE FLAG</font></p>"
+  },
+  "2662": {
+   "cid": 2662,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 152.8,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"QTypeSquare-Book\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">10</font></p>"
+  },
+  "2664": {
+   "cid": 2664,
+   "x": 30.05,
+   "y": -2.0,
+   "w": 120.75,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 20,
+   "font": "QTypeSquare-Book",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"QTypeSquare-Book\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">10</font></p>"
+  },
+  "2665": {
+   "cid": 2665,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 249.85,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 34,
+   "font": "Arial Bold",
+   "color": 10066329,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"Arial Bold\" size=\"12\" color=\"#999999\" letterSpacing=\"0.00\" kerning=\"1\"><b>This is a description</b></font></p>"
+  },
+  "2666": {
+   "cid": 2666,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 218.85,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 34,
+   "font": "Arial Bold",
+   "color": 10066329,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"Arial Bold\" size=\"12\" color=\"#999999\" letterSpacing=\"0.00\" kerning=\"1\"><b>This is a description</b></font></p>"
+  },
+  "2667": {
+   "cid": 2667,
+   "x": 131.85,
+   "y": -2.0,
+   "w": 85.0,
+   "h": 18.4,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 34,
+   "font": "Arial Bold",
+   "color": 13408563,
+   "alpha": 1.0,
+   "align": "right",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"right\"><font face=\"Arial Bold\" size=\"12\" color=\"#cc9933\" letterSpacing=\"0.00\" kerning=\"1\"><b>-10% EXP</b></font></p>"
+  },
+  "2668": {
+   "cid": 2668,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 149.8,
+   "h": 18.75,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 23,
+   "font": "QTypeSquare-BlackMajuscles",
+   "color": 16777215,
+   "alpha": 1.0,
+   "align": "right",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"right\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\"><b>BLOOD GULCH</b></font></p>"
+  },
+  "2673": {
+   "cid": 2673,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 249.85,
+   "h": 49.1,
+   "wordWrap": true,
+   "multiline": true,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 34,
+   "font": "Arial Bold",
+   "color": 16724787,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"><font face=\"Arial Bold\" size=\"12\" color=\"#ff3333\" letterSpacing=\"0.00\" kerning=\"1\"><b>ERROR: This squad code is invalid.</b></font></p><p align=\"left\"><font face=\"Arial Bold\" size=\"12\" color=\"#ff3333\" letterSpacing=\"0.00\" kerning=\"1\"><b>Make sure it was copied correctly and not modified.</b></font></p>"
+  },
+  "2674": {
+   "cid": 2674,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 249.85,
+   "h": 17.7,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 12.0,
+   "fontId": 34,
+   "font": "Arial Bold",
+   "color": 3355443,
+   "alpha": 1.0,
+   "align": "left",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"left\"></p>"
+  }
+ },
+ "cont": {
+  "tex": {
+   "file": "cont.png",
+   "w": 2518.0,
+   "h": 497.0,
+   "ox": 137.1,
+   "oy": 82.95
+  },
+  "place": [
+   10.45,
+   102.0
+  ],
+  "clip": [
+   12.15,
+   104.0,
+   775.3,
+   370.95
+  ]
+ },
+ "fog": {
+  "file": "fog.png",
+  "w": 443.0,
+  "h": 437.0,
+  "ox": -1.0,
+  "oy": 0.0
+ },
+ "scroll": {
+  "file": "scroll.png",
+  "w": 55.35,
+  "h": 8.45,
+  "ox": 0.0,
+  "oy": 0.0
+ },
+ "dots": {
+  "dot": [
+   {
+    "file": "dot_1.png",
+    "w": 57.6,
+    "h": 40.55,
+    "ox": 28.8,
+    "oy": 23.35
+   },
+   {
+    "file": "dot_2.png",
+    "w": 57.6,
+    "h": 40.55,
+    "ox": 28.8,
+    "oy": 23.35
+   },
+   {
+    "file": "dot_3.png",
+    "w": 57.6,
+    "h": 40.55,
+    "ox": 28.8,
+    "oy": 23.35
+   }
+  ],
+  "chal": [
+   {
+    "file": "chal_1.png",
+    "w": 57.6,
+    "h": 40.55,
+    "ox": 28.8,
+    "oy": 23.35
+   },
+   {
+    "file": "chal_2.png",
+    "w": 57.6,
+    "h": 40.55,
+    "ox": 28.8,
+    "oy": 23.35
+   },
+   {
+    "file": "chal_3.png",
+    "w": 57.6,
+    "h": 40.55,
+    "ox": 28.8,
+    "oy": 23.35
+   }
+  ]
+ },
+ "beat": [
+  null,
+  {
+   "file": "beat_2.png",
+   "w": 115.8,
+   "h": 65.4,
+   "ox": 57.15,
+   "oy": 32.5
+  },
+  {
+   "file": "beat_3.png",
+   "w": 115.8,
+   "h": 65.4,
+   "ox": 57.15,
+   "oy": 32.5
+  },
+  {
+   "file": "beat_4.png",
+   "w": 115.8,
+   "h": 65.4,
+   "ox": 57.15,
+   "oy": 32.5
+  },
+  {
+   "file": "beat_5.png",
+   "w": 115.8,
+   "h": 65.4,
+   "ox": 57.15,
+   "oy": 32.5
+  },
+  {
+   "file": "beat_6.png",
+   "w": 115.8,
+   "h": 65.4,
+   "ox": 57.15,
+   "oy": 32.5
+  },
+  {
+   "file": "beat_7.png",
+   "w": 115.8,
+   "h": 65.4,
+   "ox": 57.15,
+   "oy": 32.5
+  }
+ ],
+ "boxmap": {
+  "street": {
+   "file": "boxmap_street.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "factory": {
+   "file": "boxmap_factory.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "caves": {
+   "file": "boxmap_caves.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "canyon": {
+   "file": "boxmap_canyon.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "forest": {
+   "file": "boxmap_forest.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "cavesb": {
+   "file": "boxmap_cavesb.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "cqc": {
+   "file": "boxmap_cqc.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "frigate": {
+   "file": "boxmap_frigate.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "construction": {
+   "file": "boxmap_construction.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "junkyard": {
+   "file": "boxmap_junkyard.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "temple": {
+   "file": "boxmap_temple.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "volcano": {
+   "file": "boxmap_volcano.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  },
+  "gorge": {
+   "file": "boxmap_gorge.png",
+   "w": 325.8,
+   "h": 167.5,
+   "ox": 10.55,
+   "oy": 3.2
+  }
+ },
+ "box": {
+  "1": {
+   "under": {
+    "file": "box_1_under.png",
+    "w": 669.35,
+    "h": 474.05,
+    "ox": 353.6,
+    "oy": 5.3
+   },
+   "over": {
+    "file": "box_1.png",
+    "w": 669.35,
+    "h": 474.05,
+    "ox": 353.6,
+    "oy": 5.3
+   },
+   "place": [
+    {
+     "name": "",
+     "cid": 2606,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "name": "mc_map",
+     "cid": 2634,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      -3.5,
+      98.3
+     ]
+    },
+    {
+     "name": "item",
+     "cid": 2345,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      129.5,
+      290.3
+     ]
+    },
+    {
+     "name": "txt_mission",
+     "cid": 2635,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      9.1,
+      0.75
+     ]
+    },
+    {
+     "name": "txt_difftext",
+     "cid": 2636,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      2.05,
+      354.4
+     ]
+    },
+    {
+     "name": "txt_diff",
+     "cid": 2637,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      110.25,
+      351.2
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2638,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      38.95
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2639,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      58.6
+     ]
+    },
+    {
+     "name": "txt_mode",
+     "cid": 2640,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      103.15,
+      37.65
+     ]
+    },
+    {
+     "name": "txt_teams",
+     "cid": 2641,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      103.15,
+      57.3
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2642,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      329.6
+     ]
+    },
+    {
+     "name": "txt_level",
+     "cid": 2643,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      112.15,
+      326.6
+     ]
+    },
+    {
+     "name": "txt_map",
+     "cid": 2644,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      106.15,
+      103.25
+     ]
+    },
+    {
+     "name": "mc_beatshield",
+     "cid": 2152,
+     "m": [
+      0.6028,
+      0.0,
+      0.0,
+      0.6028,
+      219.75,
+      207.8
+     ]
+    },
+    {
+     "name": "mc_diffshield",
+     "cid": 2152,
+     "m": [
+      0.3106,
+      0.0,
+      0.0,
+      0.3106,
+      210.05,
+      360.05
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2645,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      -420.3,
+      320.6
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2646,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      -419.35,
+      337.65
+     ]
+    },
+    {
+     "name": "txt_special",
+     "cid": 2647,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      5.15,
+      79.25
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2648,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2649,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      56.8,
+      234.75
+     ]
+    },
+    {
+     "name": "bt_prev",
+     "cid": 2652,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      95.75,
+      360.35
+     ]
+    },
+    {
+     "name": "bt_next",
+     "cid": 2652,
+     "m": [
+      -1.0,
+      0.0,
+      0.0,
+      1.0,
+      241.75,
+      360.35
+     ]
+    },
+    {
+     "name": "mc_mode",
+     "cid": 2034,
+     "m": [
+      2.0,
+      0.0,
+      0.0,
+      2.0,
+      17.2,
+      115.55
+     ]
+    }
+   ],
+   "clip": [
+    -1.55,
+    0.0,
+    259.05,
+    376.95
+   ]
+  },
+  "2": {
+   "under": {
+    "file": "box_2_under.png",
+    "w": 669.35,
+    "h": 474.05,
+    "ox": 353.6,
+    "oy": 5.3
+   },
+   "over": {
+    "file": "box_2.png",
+    "w": 669.35,
+    "h": 474.05,
+    "ox": 353.6,
+    "oy": 5.3
+   },
+   "place": [
+    {
+     "name": "",
+     "cid": 2653,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "name": "mc_map",
+     "cid": 2634,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      -3.5,
+      98.3
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2642,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      359.1
+     ]
+    },
+    {
+     "name": "txt_level",
+     "cid": 2654,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      112.15,
+      356.1
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2655,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      310.15
+     ]
+    },
+    {
+     "name": "txt_enemy",
+     "cid": 2656,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      110.15,
+      310.2
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2657,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      335.45
+     ]
+    },
+    {
+     "name": "txt_diff",
+     "cid": 2658,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      110.15,
+      335.5
+     ]
+    },
+    {
+     "name": "bt_enemyprev",
+     "cid": 2652,
+     "m": [
+      0.8,
+      0.0,
+      0.0,
+      0.8,
+      116.35,
+      317.0
+     ]
+    },
+    {
+     "name": "bt_enemynext",
+     "cid": 2652,
+     "m": [
+      -0.8,
+      0.0,
+      0.0,
+      0.8,
+      249.15,
+      317.0
+     ]
+    },
+    {
+     "name": "bt_diffprev",
+     "cid": 2652,
+     "m": [
+      0.8,
+      0.0,
+      0.0,
+      0.8,
+      116.35,
+      342.3
+     ]
+    },
+    {
+     "name": "bt_diffnext",
+     "cid": 2652,
+     "m": [
+      -0.8,
+      0.0,
+      0.0,
+      0.8,
+      249.15,
+      342.3
+     ]
+    },
+    {
+     "name": "bt_squad",
+     "cid": 2087,
+     "m": [
+      2.637,
+      0.0,
+      0.0,
+      0.44,
+      129.4,
+      277.05
+     ]
+    },
+    {
+     "name": "txt_mission",
+     "cid": 2659,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      4.1,
+      7.75
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2638,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      38.95
+     ]
+    },
+    {
+     "name": "txt_scorename",
+     "cid": 2660,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      78.6
+     ]
+    },
+    {
+     "name": "txt_mode",
+     "cid": 2661,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      93.15,
+      37.65
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2645,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      -420.3,
+      320.6
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2646,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      -419.35,
+      337.65
+     ]
+    },
+    {
+     "name": "txt_score",
+     "cid": 2662,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      93.15,
+      78.65
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2663,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      237.6
+     ]
+    },
+    {
+     "name": "txt_mod",
+     "cid": 2664,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      93.15,
+      237.65
+     ]
+    },
+    {
+     "name": "txt_modedesc",
+     "cid": 2665,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      5.15,
+      57.65
+     ]
+    },
+    {
+     "name": "txt_moddesc",
+     "cid": 2666,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      5.15,
+      258.6
+     ]
+    },
+    {
+     "name": "txt_modexp",
+     "cid": 2667,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      39.15,
+      258.6
+     ]
+    },
+    {
+     "name": "txt_map",
+     "cid": 2668,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      106.15,
+      103.25
+     ]
+    },
+    {
+     "name": "bt_modeprev",
+     "cid": 2652,
+     "m": [
+      0.8,
+      0.0,
+      0.0,
+      0.8,
+      86.35,
+      44.45
+     ]
+    },
+    {
+     "name": "bt_modenext",
+     "cid": 2652,
+     "m": [
+      -0.8,
+      0.0,
+      0.0,
+      0.8,
+      249.15,
+      44.45
+     ]
+    },
+    {
+     "name": "bt_scoreprev",
+     "cid": 2652,
+     "m": [
+      0.8,
+      0.0,
+      0.0,
+      0.8,
+      86.35,
+      85.45
+     ]
+    },
+    {
+     "name": "bt_scorenext",
+     "cid": 2652,
+     "m": [
+      -0.8,
+      0.0,
+      0.0,
+      0.8,
+      249.15,
+      85.45
+     ]
+    },
+    {
+     "name": "bt_modprev",
+     "cid": 2652,
+     "m": [
+      0.8,
+      0.0,
+      0.0,
+      0.8,
+      116.35,
+      244.45
+     ]
+    },
+    {
+     "name": "bt_modnext",
+     "cid": 2652,
+     "m": [
+      -0.8,
+      0.0,
+      0.0,
+      0.8,
+      249.15,
+      244.45
+     ]
+    },
+    {
+     "name": "bt_prev",
+     "cid": 2652,
+     "m": [
+      1.5086,
+      0.0,
+      0.0,
+      4.9769,
+      18.65,
+      174.0
+     ]
+    },
+    {
+     "name": "bt_next",
+     "cid": 2652,
+     "m": [
+      -1.5086,
+      0.0,
+      0.0,
+      4.9769,
+      238.9,
+      174.0
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2669,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      7.55,
+      280.2
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2670,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      149.05,
+      280.2
+     ]
+    },
+    {
+     "name": "mc_mode",
+     "cid": 2034,
+     "m": [
+      2.0,
+      0.0,
+      0.0,
+      2.0,
+      17.2,
+      115.55
+     ]
+    }
+   ],
+   "clip": [
+    -1.55,
+    0.0,
+    259.05,
+    376.95
+   ]
+  },
+  "3": {
+   "under": {
+    "file": "box_3_under.png",
+    "w": 669.35,
+    "h": 474.05,
+    "ox": 353.6,
+    "oy": 5.3
+   },
+   "over": {
+    "file": "box_3.png",
+    "w": 669.35,
+    "h": 474.05,
+    "ox": 353.6,
+    "oy": 5.3
+   },
+   "place": [
+    {
+     "name": "",
+     "cid": 2671,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "name": "mc_map",
+     "cid": 2634,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      -3.5,
+      98.3
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2672,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "name": "bt_bots",
+     "cid": 2087,
+     "m": [
+      2.637,
+      0.0,
+      0.0,
+      0.44,
+      -2.6,
+      277.05
+     ]
+    },
+    {
+     "name": "txt_codedesc",
+     "cid": 2673,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      5.6,
+      304.75
+     ]
+    },
+    {
+     "name": "txt_squadcode",
+     "cid": 2674,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      5.1,
+      358.05
+     ]
+    },
+    {
+     "name": "txt_mission",
+     "cid": 2659,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      4.1,
+      7.75
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2638,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      38.95
+     ]
+    },
+    {
+     "name": "txt_scorename",
+     "cid": 2660,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      78.6
+     ]
+    },
+    {
+     "name": "txt_mode",
+     "cid": 2661,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      93.15,
+      37.65
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2645,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      -420.3,
+      320.6
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2646,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      -419.35,
+      337.65
+     ]
+    },
+    {
+     "name": "txt_score",
+     "cid": 2662,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      93.15,
+      78.65
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2663,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      1.95,
+      237.6
+     ]
+    },
+    {
+     "name": "txt_mod",
+     "cid": 2664,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      93.15,
+      237.65
+     ]
+    },
+    {
+     "name": "txt_modedesc",
+     "cid": 2665,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      5.15,
+      57.65
+     ]
+    },
+    {
+     "name": "txt_moddesc",
+     "cid": 2666,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      5.15,
+      258.6
+     ]
+    },
+    {
+     "name": "txt_modexp",
+     "cid": 2667,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      39.15,
+      258.6
+     ]
+    },
+    {
+     "name": "txt_map",
+     "cid": 2668,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      106.15,
+      103.25
+     ]
+    },
+    {
+     "name": "bt_modeprev",
+     "cid": 2652,
+     "m": [
+      0.8,
+      0.0,
+      0.0,
+      0.8,
+      86.35,
+      44.45
+     ]
+    },
+    {
+     "name": "bt_modenext",
+     "cid": 2652,
+     "m": [
+      -0.8,
+      0.0,
+      0.0,
+      0.8,
+      249.15,
+      44.45
+     ]
+    },
+    {
+     "name": "bt_scoreprev",
+     "cid": 2652,
+     "m": [
+      0.8,
+      0.0,
+      0.0,
+      0.8,
+      86.35,
+      85.45
+     ]
+    },
+    {
+     "name": "bt_scorenext",
+     "cid": 2652,
+     "m": [
+      -0.8,
+      0.0,
+      0.0,
+      0.8,
+      249.15,
+      85.45
+     ]
+    },
+    {
+     "name": "bt_modprev",
+     "cid": 2652,
+     "m": [
+      0.8,
+      0.0,
+      0.0,
+      0.8,
+      116.35,
+      244.45
+     ]
+    },
+    {
+     "name": "bt_modnext",
+     "cid": 2652,
+     "m": [
+      -0.8,
+      0.0,
+      0.0,
+      0.8,
+      249.15,
+      244.45
+     ]
+    },
+    {
+     "name": "bt_prev",
+     "cid": 2652,
+     "m": [
+      1.5086,
+      0.0,
+      0.0,
+      4.9769,
+      18.65,
+      174.0
+     ]
+    },
+    {
+     "name": "bt_next",
+     "cid": 2652,
+     "m": [
+      -1.5086,
+      0.0,
+      0.0,
+      4.9769,
+      238.9,
+      174.0
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2669,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      7.55,
+      280.2
+     ]
+    },
+    {
+     "name": "",
+     "cid": 2670,
+     "m": [
+      1.0,
+      0.0,
+      0.0,
+      1.0,
+      149.05,
+      280.2
+     ]
+    },
+    {
+     "name": "mc_mode",
+     "cid": 2034,
+     "m": [
+      2.0,
+      0.0,
+      0.0,
+      2.0,
+      17.2,
+      115.55
+     ]
+    }
+   ],
+   "clip": [
+    -1.55,
+    0.0,
+    259.05,
+    376.95
+   ]
+  }
+ },
+ "boxmode": {
+  "dm": {
+   "file": "boxmode_dm.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "tdm": {
+   "file": "boxmode_tdm.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "elim": {
+   "file": "boxmode_elim.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "telim": {
+   "file": "boxmode_telim.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "ctf": {
+   "file": "boxmode_ctf.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "dom": {
+   "file": "boxmode_dom.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "one": {
+   "file": "boxmode_one.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "zom": {
+   "file": "boxmode_zom.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "gg": {
+   "file": "boxmode_gg.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  },
+  "tgg": {
+   "file": "boxmode_tgg.png",
+   "w": 14.7,
+   "h": 14.5,
+   "ox": 7.55,
+   "oy": 7.25
+  }
+ },
+ "buttons": {
+  "2652": {
+   "states": {
+    "up": "btn_2652_up.png",
+    "over": "btn_2652_over.png",
+    "down": "btn_2652_down.png"
+   },
+   "offX": -11.55,
+   "offY": -11.45,
+   "w": 82.95,
+   "h": 23.65
+  },
+  "2087": {
+   "states": {
+    "up": "btn_2087_up.png",
+    "over": "btn_2087_over.png",
+    "down": "btn_2087_down.png"
+   },
+   "offX": -0.0,
+   "offY": -0.0,
+   "w": 50.0,
+   "h": 50.0
+  },
+  "2144": {
+   "states": {
+    "up": "btn_2144_up.png",
+    "over": "btn_2144_over.png",
+    "down": "btn_2144_down.png"
+   },
+   "offX": -24.65,
+   "offY": -14.35,
+   "w": 49.05,
+   "h": 39.65
+  }
+ }
+}

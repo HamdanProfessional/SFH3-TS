@@ -1,0 +1,699 @@
+{
+ "scale": 2,
+ "box": {
+  "left": {
+   "file": "panels/box_left.png",
+   "w": 382.1,
+   "h": 446.45,
+   "ox": 58.05,
+   "oy": 16.05,
+   "place": {
+    "x": 0.0,
+    "y": 136.0
+   }
+  },
+  "right": {
+   "file": "panels/box_right.png",
+   "w": 546.0,
+   "h": 593.4,
+   "ox": 353.65,
+   "oy": 120.65,
+   "place": {
+    "x": 800.0,
+    "y": 136.0
+   }
+  },
+  "status": {
+   "file": "panels/status.png",
+   "w": 276.2,
+   "h": 43.25,
+   "ox": 138.1,
+   "oy": 21.6,
+   "place": {
+    "x": 400.8,
+    "y": 181.8
+   }
+  }
+ },
+ "fields": {
+  "txt_health": {
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.0384,
+    124.85,
+    35.9
+   ],
+   "cid": 2453,
+   "spec": {
+    "cid": 2453,
+    "x": 53.65,
+    "y": -2.0,
+    "w": 40.0,
+    "h": 18.75,
+    "wordWrap": false,
+    "multiline": false,
+    "autoSize": false,
+    "html": true,
+    "size": 12.0,
+    "fontId": 23,
+    "font": "QTypeSquare-BlackMajuscles",
+    "color": 16777215,
+    "alpha": 1.0,
+    "align": "right",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"right\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\"><b>150</b></font></p>"
+   }
+  },
+  "txt_crit": {
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.0384,
+    120.85,
+    54.05
+   ],
+   "cid": 2454,
+   "spec": {
+    "cid": 2454,
+    "x": 58.65,
+    "y": -2.0,
+    "w": 39.0,
+    "h": 18.75,
+    "wordWrap": false,
+    "multiline": false,
+    "autoSize": false,
+    "html": true,
+    "size": 12.0,
+    "fontId": 23,
+    "font": "QTypeSquare-BlackMajuscles",
+    "color": 16777215,
+    "alpha": 1.0,
+    "align": "right",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"right\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"12\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\"><b>20%</b></font></p>"
+   }
+  },
+  "txt_aim": {
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.0384,
+    141.9,
+    73.05
+   ],
+   "cid": 2455,
+   "spec": {
+    "cid": 2455,
+    "x": 40.65,
+    "y": -2.0,
+    "w": 35.95,
+    "h": 18.75,
+    "wordWrap": false,
+    "multiline": false,
+    "autoSize": false,
+    "html": true,
+    "size": 12.0,
+    "fontId": 23,
+    "font": "QTypeSquare-BlackMajuscles",
+    "color": 10092543,
+    "alpha": 1.0,
+    "align": "right",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"right\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"12\" color=\"#99ffff\" letterSpacing=\"0.00\" kerning=\"1\"><b>5</b></font></p>"
+   }
+  },
+  "txt_mobile": {
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.0384,
+    141.9,
+    89.3
+   ],
+   "cid": 2456,
+   "spec": {
+    "cid": 2456,
+    "x": 41.65,
+    "y": -2.0,
+    "w": 34.95,
+    "h": 18.75,
+    "wordWrap": false,
+    "multiline": false,
+    "autoSize": false,
+    "html": true,
+    "size": 12.0,
+    "fontId": 23,
+    "font": "QTypeSquare-BlackMajuscles",
+    "color": 10092543,
+    "alpha": 1.0,
+    "align": "right",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"right\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"12\" color=\"#99ffff\" letterSpacing=\"0.00\" kerning=\"1\"><b>3</b></font></p>"
+   }
+  },
+  "txt_aggro": {
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.0384,
+    142.1,
+    106.5
+   ],
+   "cid": 2457,
+   "spec": {
+    "cid": 2457,
+    "x": 43.15,
+    "y": -2.0,
+    "w": 33.25,
+    "h": 18.75,
+    "wordWrap": false,
+    "multiline": false,
+    "autoSize": false,
+    "html": true,
+    "size": 12.0,
+    "fontId": 23,
+    "font": "QTypeSquare-BlackMajuscles",
+    "color": 10092543,
+    "alpha": 1.0,
+    "align": "right",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"right\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"12\" color=\"#99ffff\" letterSpacing=\"0.00\" kerning=\"1\"><b>8</b></font></p>"
+   }
+  },
+  "txt_newskill": {
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    2.4,
+    221.55
+   ],
+   "cid": 2459,
+   "spec": {
+    "cid": 2459,
+    "x": -2.0,
+    "y": -2.0,
+    "w": 104.0,
+    "h": 18.4,
+    "wordWrap": true,
+    "multiline": true,
+    "autoSize": false,
+    "html": true,
+    "size": 12.0,
+    "fontId": 20,
+    "font": "QTypeSquare-Book",
+    "color": 16776960,
+    "alpha": 1.0,
+    "align": "left",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"left\"><font face=\"QTypeSquare-Book\" size=\"12\" color=\"#ffff00\" letterSpacing=\"0.00\" kerning=\"1\">NEW SKILL</font></p>"
+   }
+  },
+  "txt_class": {
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    82.6,
+    -13.35
+   ],
+   "cid": 2460,
+   "spec": {
+    "cid": 2460,
+    "x": -58.95,
+    "y": -2.0,
+    "w": 199.1,
+    "h": 19.1,
+    "wordWrap": false,
+    "multiline": false,
+    "autoSize": false,
+    "html": true,
+    "size": 14.0,
+    "fontId": 2053,
+    "font": "Xoireqe",
+    "color": 16763904,
+    "alpha": 1.0,
+    "align": "left",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"left\"><font face=\"Xoireqe\" size=\"14\" color=\"#ffcc00\" letterSpacing=\"0.00\" kerning=\"1\">engineer</font></p>"
+   }
+  },
+  "txt_level": {
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    174.25,
+    6.3
+   ],
+   "cid": 2461,
+   "spec": {
+    "cid": 2461,
+    "x": -16.3,
+    "y": 0.45,
+    "w": 65.9,
+    "h": 21.25,
+    "wordWrap": false,
+    "multiline": false,
+    "autoSize": false,
+    "html": true,
+    "size": 14.0,
+    "fontId": 23,
+    "font": "QTypeSquare-BlackMajuscles",
+    "color": 15437831,
+    "alpha": 1.0,
+    "align": "right",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"right\"><font face=\"QTypeSquare-BlackMajuscles\" size=\"14\" color=\"#eb9007\" letterSpacing=\"0.00\" kerning=\"1\"><b>Lv 30</b></font></p>"
+   }
+  },
+  "txt_name": {
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    31.65,
+    8.95
+   ],
+   "cid": 2462,
+   "spec": {
+    "cid": 2462,
+    "x": -24.75,
+    "y": -2.0,
+    "w": 157.6,
+    "h": 20.85,
+    "wordWrap": false,
+    "multiline": false,
+    "autoSize": false,
+    "html": true,
+    "size": 14.0,
+    "fontId": 20,
+    "font": "QTypeSquare-Book",
+    "color": 16777215,
+    "alpha": 1.0,
+    "align": "left",
+    "leftMargin": 0.0,
+    "rightMargin": 0.0,
+    "indent": 0.0,
+    "leading": 2.0,
+    "text": "<p align=\"left\"><font face=\"QTypeSquare-Book\" size=\"14\" color=\"#ffffff\" letterSpacing=\"0.00\" kerning=\"1\">Josana Gerfolo</font></p>"
+   }
+  }
+ },
+ "items": {
+  "bar": [
+   3.6318,
+   0.0,
+   0.0,
+   0.3217,
+   7.65,
+   25.2
+  ],
+  "bar1_health": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   38.1
+  ],
+  "bar2_health": [
+   1.7408,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   38.1
+  ],
+  "bar1_crit": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   55.6
+  ],
+  "bar2_crit": [
+   1.7408,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   55.6
+  ],
+  "bar1_aim": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   73.1
+  ],
+  "bar2_aim": [
+   1.7408,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   73.1
+  ],
+  "bar1_mobile": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   90.6
+  ],
+  "bar2_mobile": [
+   1.7408,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   90.6
+  ],
+  "bar1_aggro": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   107.6
+  ],
+  "bar2_aggro": [
+   1.7408,
+   0.0,
+   0.0,
+   1.0,
+   33.25,
+   107.6
+  ],
+  "mc_class": [
+   1.2424,
+   0.0,
+   0.0,
+   1.2424,
+   14.95,
+   -7.05
+  ],
+  "newskill": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   92.5,
+   227.95
+  ],
+  "trait": [
+   0.5343,
+   0.0,
+   0.0,
+   0.5343,
+   39.5,
+   198.3
+  ],
+  "flaw": [
+   0.5343,
+   0.0,
+   0.0,
+   0.5343,
+   114.55,
+   198.3
+  ],
+  "streak": [
+   0.5343,
+   0.0,
+   0.0,
+   0.5343,
+   190.85,
+   198.3
+  ],
+  "perk00": [
+   0.5343,
+   0.0,
+   0.0,
+   0.5343,
+   39.5,
+   267.7
+  ],
+  "perk01": [
+   0.5343,
+   0.0,
+   0.0,
+   0.5343,
+   39.5,
+   329.7
+  ],
+  "perk10": [
+   0.5343,
+   0.0,
+   0.0,
+   0.5343,
+   112.5,
+   267.7
+  ],
+  "perk11": [
+   0.5343,
+   0.0,
+   0.0,
+   0.5343,
+   112.5,
+   329.7
+  ],
+  "perk20": [
+   0.5343,
+   0.0,
+   0.0,
+   0.5343,
+   187.5,
+   267.7
+  ],
+  "perk21": [
+   0.5343,
+   0.0,
+   0.0,
+   0.5343,
+   187.5,
+   329.7
+  ],
+  "primary": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   -116.05,
+   47.45
+  ],
+  "secondary": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   -116.05,
+   166.9
+  ],
+  "gun": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   -171.0,
+   284.25
+  ],
+  "armor": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   -56.95,
+   284.25
+  ]
+ },
+ "cols": {
+  "1": {
+   "file": "panels/col_1.png",
+   "w": 25.05,
+   "h": 15.0,
+   "ox": 0.5,
+   "oy": 0.5,
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.3537,
+    14.0,
+    130.4
+   ]
+  },
+  "2": {
+   "file": "panels/col_2.png",
+   "w": 25.05,
+   "h": 15.0,
+   "ox": 0.5,
+   "oy": 0.5,
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.3537,
+    48.6,
+    130.4
+   ]
+  },
+  "3": {
+   "file": "panels/col_3.png",
+   "w": 25.05,
+   "h": 15.0,
+   "ox": 0.5,
+   "oy": 0.5,
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.3537,
+    83.2,
+    130.4
+   ]
+  },
+  "4": {
+   "file": "panels/col_4.png",
+   "w": 25.05,
+   "h": 15.0,
+   "ox": 0.5,
+   "oy": 0.5,
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.3537,
+    117.8,
+    130.4
+   ]
+  },
+  "5": {
+   "file": "panels/col_5.png",
+   "w": 25.05,
+   "h": 15.0,
+   "ox": 0.5,
+   "oy": 0.5,
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.3537,
+    152.4,
+    130.4
+   ]
+  },
+  "6": {
+   "file": "panels/col_6.png",
+   "w": 25.05,
+   "h": 15.0,
+   "ox": 0.5,
+   "oy": 0.5,
+   "m": [
+    1.0,
+    0.0,
+    0.0,
+    1.3537,
+    187.05,
+    130.4
+   ]
+  }
+ },
+ "sel": {
+  "file": "picker/sel.png",
+  "w": 147.95,
+  "h": 84.65,
+  "ox": 73.95,
+  "oy": 42.3
+ },
+ "button": {
+  "cid": 2446,
+  "states": {
+   "up": "panels/btn_2446_up.png",
+   "over": "panels/btn_2446_over.png",
+   "down": "panels/btn_2446_down.png"
+  },
+  "offX": -1.2,
+  "offY": -0.7,
+  "w": 105.55,
+  "h": 26.8,
+  "m": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   -117.7,
+   332.25
+  ]
+ },
+ "statusField": {
+  "m": [
+   1.0,
+   0.0,
+   0.0,
+   1.0,
+   -115.75,
+   -18.85
+  ],
+  "cid": 2433,
+  "spec": {
+   "cid": 2433,
+   "x": -2.0,
+   "y": -2.0,
+   "w": 243.5,
+   "h": 25.55,
+   "wordWrap": false,
+   "multiline": false,
+   "autoSize": false,
+   "html": true,
+   "size": 20.0,
+   "fontId": 2053,
+   "font": "Xoireqe",
+   "color": 16763904,
+   "alpha": 1.0,
+   "align": "center",
+   "leftMargin": 0.0,
+   "rightMargin": 0.0,
+   "indent": 0.0,
+   "leading": 2.0,
+   "text": "<p align=\"center\"><font face=\"Xoireqe\" size=\"20\" color=\"#ffcc00\" letterSpacing=\"0.00\" kerning=\"1\">INJURED</font></p>"
+  }
+ }
+}
