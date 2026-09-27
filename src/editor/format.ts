@@ -11,8 +11,8 @@ export const MAX_HOLDS = 5;
 export const MAX_NAME = 32;
 export const MAX_RLE = 96 * 1024;
 
-export const FORMAT_VERSION = 4;
-const READS = [1, 2, 3, 4];
+export const FORMAT_VERSION = 5;
+const READS = [1, 2, 3, 4, 5];
 
 export interface Material {
   id: number;
@@ -81,6 +81,8 @@ export interface CustomMap {
   flags: EdFlag[];
   holds: EdHold[];
   mission?: EdMission | null;
+  stock?: string;
+  stockArt?: boolean;
 }
 
 export interface MapWire {
@@ -96,6 +98,8 @@ export interface MapWire {
   flags?: [number, number, number][];
   holds?: [number, number][];
   mission?: EdMission;
+  stock?: string;
+  stockArt?: boolean;
 }
 
 export const SIZE_PRESETS: readonly { label: string; w: number; h: number }[] = [
@@ -160,7 +164,7 @@ export function decodeCells(rle: string, count: number): Uint8Array | null {
 
 export function toWire(m: CustomMap): MapWire {
   const w: MapWire = {
-    v: !m.mission ? 2 : usesDevs(m.mission) ? FORMAT_VERSION : 3,
+    v: wireVersion(m),
     name: m.name,
     w: m.w,
     h: m.h,
@@ -173,7 +177,17 @@ export function toWire(m: CustomMap): MapWire {
     holds: m.holds.map((h) => [h.x, h.y]),
   };
   if (m.mission) w.mission = cloneMission(m.mission);
+  if (m.stock) {
+    w.stock = m.stock;
+    if (m.stockArt) w.stockArt = true;
+  }
   return w;
+}
+
+function wireVersion(m: CustomMap): number {
+  if (m.stock || (m.mission && usesHeroes(m.mission))) return 5;
+  if (m.mission) return usesDevs(m.mission) ? 4 : 3;
+  return 2;
 }
 
 function int(v: unknown, lo: number, hi: number): number | null {
@@ -247,9 +261,11 @@ export function sanitiseMap(raw: unknown): CustomMap | null {
     ? r.backdrop : "street";
   const theme = typeof r.theme === "string" && KEY_RE.test(r.theme) ? r.theme : "concrete";
   const mission = sanitiseMission(r.mission);
+  const stock = typeof r.stock === "string" && KEY_RE.test(r.stock) ? r.stock : "";
   return {
     name: cleanName(r.name), w, h, backdrop, theme, cells, spawns, items, flags, holds,
     ...(mission ? { mission } : {}),
+    ...(stock ? { stock, stockArt: r.stockArt === true } : {}),
   };
 }
 
@@ -279,14 +295,27 @@ export type MissionRule = typeof MISSION_RULES[number];
 export const MISSION_CLASSES = ["", "eng", "jug", "med", "gun", "eli", "mer", "sni", "nin"] as const;
 
 export const MISSION_DEVS = ["mike", "justin"] as const;
-export const MISSION_ROSTER = [...MISSION_CLASSES, ...MISSION_DEVS] as const;
+export const MISSION_HEROES = ["wesley", "nathan", "jyn", "tower", "dex"] as const;
+export const MISSION_ROSTER = [...MISSION_CLASSES, ...MISSION_DEVS, ...MISSION_HEROES] as const;
 
 export function isDev(cls: string): cls is typeof MISSION_DEVS[number] {
   return (MISSION_DEVS as readonly string[]).includes(cls);
 }
 
+export function isHero(cls: string): cls is typeof MISSION_HEROES[number] {
+  return (MISSION_HEROES as readonly string[]).includes(cls);
+}
+
+export function isNamed(cls: string): boolean {
+  return isDev(cls) || isHero(cls);
+}
+
 function usesDevs(mis: EdMission): boolean {
   return mis.devPhases || mis.units.some((u) => isDev(u.cls));
+}
+
+function usesHeroes(mis: EdMission): boolean {
+  return mis.units.some((u) => isHero(u.cls));
 }
 
 export const MISSION_MAX_LVL = 35;
@@ -366,7 +395,7 @@ export function sanitiseMission(raw: unknown): EdMission | null {
     if (!x || typeof x !== "object") continue;
     const o = x as Record<string, unknown>;
     const cls = oneOf(o.cls, MISSION_ROSTER, "");
-    const dev = isDev(cls);
+    const dev = isNamed(cls);
     if (dev && devs.has(cls)) continue;
     const ally = o.ally === true;
     const isBoss = !ally && !boss && o.boss === true;

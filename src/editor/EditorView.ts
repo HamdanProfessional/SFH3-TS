@@ -9,7 +9,7 @@ import {
   HISTORY_STEPS, History, MIRROR_DIRS, clearArea, copyArea, flipClip, mirrorMap, mirrorPoint,
   mirrorRect, pasteClip, swapTeam, type CellRect, type Clip, type MirrorDir,
 } from "./edit";
-import { backdropUrls } from "../game/maps";
+import { backdropUrls, stockArtRect, type StockArtRect } from "../game/maps";
 import { importStockMap, stockMaps } from "./importStock";
 import { PLAY_MODES, type PlayOptions } from "./playtest";
 import {
@@ -83,6 +83,7 @@ const HOLD_BOX = { dx: -120, dy: -100, w: 240, h: 200 } as const;
 const BRUSHES = [1, 2, 3, 5, 8, 12] as const;
 const TEAM_COLOR = ["#ffcc33", "#ff5a4a", "#4aa3ff"] as const;
 const FIELD_COMMIT_MS = 700;
+const CELLS_OVER_ART = 0.35;
 
 const STOP = ["keydown", "keyup", "keypress", "mousedown", "mouseup", "click",
   "wheel", "contextmenu", "pointerdown", "pointerup"] as const;
@@ -197,6 +198,9 @@ export class EditorView {
   private issues = el("div", "font-size:11px;line-height:1.4;margin-top:4px;");
   private header = el("div", "font-size:11px;color:#b4b0b6;margin:6px 0 6px;line-height:1.35;");
   private listBox = el("div", "display:none;margin-top:6px;");
+  private stockChk = el("input");
+  private stockRow = el("label", "display:none;margin-top:6px;font-size:11px;cursor:pointer;");
+  private stockImg: { id: string; img: HTMLImageElement; rect: StockArtRect } | null = null;
   private linkBox = el("div", "display:none;margin-top:6px;");
   private readonly mapPane = el("div");
   private readonly tabBtns = new Map<"map" | "mission", HTMLButtonElement>();
@@ -391,17 +395,9 @@ export class EditorView {
     const stock = el("select", INPUT + "width:auto;flex:1;min-width:0;");
     this.select(stock, stockMaps().map((m) => [m.id, m.name]), "street", () => {});
     const importBtn = this.button("Import", () => {
-      if (!this.confirmDiscard()) return;
       importBtn.disabled = true;
-      importStockMap(stock.value).then((map) => {
-        const next = { ...this.state, map, localId: null, sharedId: null,
-          author: "", dirty: true, view: null };
-        this.loadState(next, true);
-        this.flash(`Imported ${map.name}: its ground, spawns, pickups and objectives.`);
-      }, () => {
-        this.flash("Could not load that campaign map.");
-      }).finally(() => { importBtn.disabled = false; });
-    }, "Start from a campaign map: its layout becomes editable cells");
+      void this.openStock(stock.value).finally(() => { importBtn.disabled = false; });
+    }, "Start from a campaign map, with its original art");
     const stockRow = this.row(el("span", "font-size:11px;color:#b4b0b6;align-self:center;",
       "Campaign:"), stock, importBtn);
     stockRow.style.flexWrap = "nowrap";
@@ -512,6 +508,14 @@ export class EditorView {
     this.select(this.themeSel, THEMES.map((t) => [t.key, t.label]), this.m.theme,
       (v) => { this.m.theme = v; this.commit("Ground colour"); });
     look.appendChild(this.themeSel);
+    this.stockChk.type = "checkbox";
+    this.stockChk.addEventListener("change", () => {
+      this.m.stockArt = this.stockChk.checked;
+      this.commit(this.m.stockArt ? "Campaign art on" : "Campaign art off");
+      this.requestDraw();
+    });
+    this.stockRow.append(this.stockChk, document.createTextNode(" Campaign art (the map's original painting)"));
+    look.appendChild(this.stockRow);
 
     const mirror = this.section("Mirror");
     const dirSel = el("select", INPUT);
@@ -590,6 +594,8 @@ export class EditorView {
     this.nameInput.value = this.m.name;
     this.backdropSel.value = this.m.backdrop;
     this.themeSel.value = this.m.theme;
+    this.stockRow.style.display = this.m.stock ? "block" : "none";
+    this.stockChk.checked = !!this.m.stockArt;
     this.showBackdrop();
     this.missions.sync();
   }
@@ -710,11 +716,48 @@ export class EditorView {
     this.flash(`Saved "${this.m.name}"`);
   }
 
+  private async openStock(id: string): Promise<void> {
+    if (!this.confirmDiscard()) return;
+    try {
+      const map = await importStockMap(id);
+      const next = { ...this.state, map, localId: null, sharedId: null,
+        author: "", dirty: true, view: null };
+      this.loadState(next, true);
+      this.flash(`Opened ${map.name}: its art, ground, spawns, pickups and objectives.`);
+    } catch {
+      this.flash("Could not load that campaign map.", true);
+    }
+  }
+
+  private stockArt(): { img: HTMLImageElement; rect: StockArtRect } | null {
+    const id = this.m.stock;
+    if (!id || !this.m.stockArt) return null;
+    if (this.stockImg?.id !== id) {
+      const rect = stockArtRect(id);
+      if (!rect) return null;
+      const img = new Image();
+      img.onload = () => this.requestDraw();
+      img.src = rect.url.replace(/\.png(?=\?|$)/, ".webp");
+      this.stockImg = { id, img, rect };
+    }
+    const s = this.stockImg;
+    return s.img.complete && s.img.naturalWidth ? s : null;
+  }
+
   private toggleList(): void {
     const box = this.listBox;
     if (box.style.display !== "none") { box.style.display = "none"; return; }
     box.style.display = "block";
     box.innerHTML = "";
+    box.appendChild(el("div", "color:#b4b0b6;font-size:11px;", "Campaign maps"));
+    const grid = el("div", "display:flex;flex-wrap:wrap;gap:4px;margin:3px 0 8px;");
+    for (const s of stockMaps()) {
+      grid.appendChild(this.button(s.name, () => {
+        box.style.display = "none";
+        void this.openStock(s.id);
+      }, `Open ${s.name} with its original art`));
+    }
+    box.appendChild(grid);
     const local = listLocal();
     box.appendChild(el("div", "color:#b4b0b6;font-size:11px;", "Saved in this browser"));
     if (!local.length) box.appendChild(el("div", "color:#9a979c;font-size:11px;", "(none yet)"));
@@ -1372,8 +1415,15 @@ export class EditorView {
     sky.addColorStop(1, "#141b26");
     g.fillStyle = sky;
     g.fillRect(0, 0, W, H);
+    const art = this.stockArt();
+    if (art) {
+      g.imageSmoothingEnabled = true;
+      g.drawImage(art.img, art.rect.x, art.rect.y, art.rect.w, art.rect.h);
+      g.globalAlpha = CELLS_OVER_ART;
+    }
     g.imageSmoothingEnabled = false;
     g.drawImage(this.grid, 0, 0, W, H);
+    g.globalAlpha = 1;
 
     const px = 1 / zoom;
     if (this.showGrid && zoom * CELL >= 6) {

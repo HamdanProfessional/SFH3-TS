@@ -151,6 +151,28 @@ export async function loadBackdrop(info: MapInfo):
   return { bg1, bg2, sky };
 }
 
+export interface StockArtRect {
+  url: string;
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+}
+
+export function stockArtRect(id: string): StockArtRect | null {
+  const rec = DATA.maps[id];
+  if (!rec) return null;
+  return { url: url(`maps/${rec.image.file}`), x: rec.image.x, y: rec.image.y, w: rec.image.w, h: rec.image.h };
+}
+
+export async function loadStockArt(id: string):
+  Promise<Pick<LoadedMap, "art" | "artX" | "artY" | "width" | "height"> | null> {
+  const r = stockArtRect(id);
+  if (!r) return null;
+  const art = await Assets.load<Texture>(r.url);
+  return { art, artX: r.x, artY: r.y, width: r.w, height: r.h };
+}
+
 const cache = new Map<string, Promise<LoadedMap>>();
 
 export function loadMap(id: string): Promise<LoadedMap> {

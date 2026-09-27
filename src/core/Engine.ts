@@ -73,9 +73,14 @@ export class Engine {
   }
 
   private setupScaling(mount: HTMLElement): void {
+    let lastW = 0;
+    let lastH = 0;
     const resize = () => {
       const vw = Math.max(1, mount.clientWidth);
       const vh = Math.max(1, mount.clientHeight);
+      if (vw === lastW && vh === lastH) return;
+      lastW = vw;
+      lastH = vh;
       const { width: logicalW, height: logicalH, scale } = computeStageSize(vw, vh);
 
       const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
@@ -92,6 +97,12 @@ export class Engine {
       this.relayoutScreen();
     };
     window.addEventListener("resize", resize);
+    window.visualViewport?.addEventListener("resize", resize);
+    window.addEventListener("orientationchange", () => {
+      resize();
+      for (const ms of [120, 350, 800]) window.setTimeout(resize, ms);
+    });
+    if (typeof ResizeObserver !== "undefined") new ResizeObserver(resize).observe(mount);
     resize();
   }
 

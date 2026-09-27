@@ -1,7 +1,7 @@
 import {
   MAX_BRIEF, MAX_NAME, MAX_PROMPT, MISSION_MAX_ALLIES, MISSION_MAX_ENEMIES, MISSION_MAX_LVL,
   MISSION_MAX_ROWS, MISSION_MAX_SCORE, MISSION_MODES, MISSION_ROSTER, MISSION_RULES, MISSION_WINS,
-  cleanText, isDev, type CustomMap, type EdMission, type EdMissionUnit, type MissionText,
+  cleanText, isDev, isNamed, type CustomMap, type EdMission, type EdMissionUnit, type MissionText,
 } from "./format";
 import type { BuildIssue, NavGraph } from "./build";
 import {
@@ -254,15 +254,15 @@ export class MissionPanel {
     const cls = select(el("select", SMALL), MISSION_ROSTER.map((c) => [c, CLASS_LABELS[c] ?? c]),
       u.cls, (v) => {
         u.cls = v;
-        if (isDev(v)) {
+        if (isNamed(v)) {
           u.count = 1;
           u.name = "";
-          if (!u.statMod) u.statMod = 1;
         }
+        if (isDev(v) && !u.statMod) u.statMod = 1;
         this.edit(true);
       });
     for (const o of Array.from(cls.options)) {
-      o.disabled = isDev(o.value) && o.value !== u.cls && mis.units.some((x) => x.cls === o.value);
+      o.disabled = isNamed(o.value) && o.value !== u.cls && mis.units.some((x) => x.cls === o.value);
     }
     const del = button("✖", () => { mis.units.splice(i, 1); this.edit(true); }, "Remove this row");
     const r1 = row(side, cls, del);
@@ -273,7 +273,7 @@ export class MissionPanel {
     lvl.title = "Level, exactly";
     const r2 = row(lvl);
     r2.style.flexWrap = "nowrap";
-    if (!u.boss && !isDev(u.cls)) {
+    if (!u.boss && !isNamed(u.cls)) {
       const count = select(el("select", SMALL),
         range(1, u.ally ? MISSION_MAX_ALLIES : MISSION_MAX_ENEMIES).map(([v]) => [v, `x${v}`]),
         String(u.count), (v) => { u.count = Number(v); this.fitCounts(mis); this.edit(true); });
@@ -314,7 +314,7 @@ export class MissionPanel {
       lab.append(boss, document.createTextNode(" Boss"));
       const r4 = row(lab);
       r4.style.flexWrap = "nowrap";
-      if (u.boss && !isDev(u.cls)) {
+      if (u.boss && !isNamed(u.cls)) {
         const name = el("input", SMALL);
         name.maxLength = 20;
         name.placeholder = "Name (random)";

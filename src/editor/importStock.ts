@@ -125,6 +125,6 @@ export async function importStockMap(id: string): Promise<CustomMap> {
   const name = stockMaps().find((m) => m.id === id)?.name ?? id;
   return {
     name, w: W, h: H, backdrop: id, theme: THEME[id] ?? "concrete", cells,
-    spawns, items, flags, holds,
+    spawns, items, flags, holds, stock: id, stockArt: true,
   };
 }

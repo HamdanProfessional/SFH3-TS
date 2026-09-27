@@ -1,6 +1,6 @@
 import { Texture } from "pixi.js";
 import { getMap, type MapInfo } from "../data/StatsMaps";
-import { loadBackdrop, type LoadedMap } from "../game/maps";
+import { loadBackdrop, loadStockArt, type LoadedMap } from "../game/maps";
 import { CELL, MAT, MATERIALS, SOLID, type CustomMap } from "./format";
 import { buildArena } from "./build";
 
@@ -167,8 +167,11 @@ export function customInfo(m: CustomMap): MapInfo {
 
 export async function loadCustomMap(m: CustomMap, mode: string): Promise<LoadedMap> {
   const info = customInfo(m);
-  const backdrop = await loadBackdrop(info);
-  const art = Texture.from(paintTerrain(m));
+  const [backdrop, stock] = await Promise.all([
+    loadBackdrop(info),
+    m.stock && m.stockArt ? loadStockArt(m.stock).catch(() => null) : Promise.resolve(null),
+  ]);
+  const art = stock ? stock.art : Texture.from(paintTerrain(m));
   const radarTex = Texture.from(paintRadar(m));
   const W = m.w * CELL;
   const H = m.h * CELL;
@@ -181,10 +184,10 @@ export async function loadCustomMap(m: CustomMap, mode: string): Promise<LoadedM
     wallW: W,
     wallH: H,
     radarTex,
-    artX: 0,
-    artY: 0,
-    width: W,
-    height: H,
+    artX: stock ? stock.artX : 0,
+    artY: stock ? stock.artY : 0,
+    width: stock ? stock.width : W,
+    height: stock ? stock.height : H,
     ...backdrop,
   };
 }

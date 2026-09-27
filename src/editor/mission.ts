@@ -7,7 +7,7 @@ import type { UnitInfo } from "../game/UnitInfo";
 import type { Unit } from "../game/Unit";
 import type { MatchScript, MatchScriptHost } from "../screens/GameScreen";
 import {
-  MISSION_CLASSES, isDev, type CustomMap, type EdMission, type EdMissionUnit, type MissionRule,
+  MISSION_CLASSES, isDev, isHero, type CustomMap, type EdMission, type EdMissionUnit, type MissionRule,
   type MissionWin,
 } from "./format";
 import { buildNav, checkMap, type BuildIssue, type NavGraph } from "./build";
@@ -43,6 +43,12 @@ export const CLASS_LABELS: Readonly<Record<string, string>> = {
   "": "Random class", eng: "Engineer", jug: "Juggernaut", med: "Medic", gun: "Gunner",
   eli: "Elite", mer: "Mercenary", sni: "Sniper", nin: "Ninja",
   mike: "Mike (developer)", justin: "Justin (developer)",
+  wesley: "Wesley (Engineer)", nathan: "Nathan (Engineer)", jyn: "Jyn (Sniper)",
+  tower: "Tower (Juggernaut)", dex: "Dex (Mercenary)",
+};
+
+const HERO_SPECIFIC: Readonly<Record<string, string>> = {
+  wesley: "starter1", nathan: "$eng", jyn: "$sni", tower: "$jug", dex: "$mer",
 };
 
 export const DEV_PHASE_SCORES = [4, 8, 12, 16, 20, 23] as const;
@@ -100,11 +106,19 @@ export function missionRecord(m: CustomMap, mis: EdMission): { record: Mission; 
       const skills = dev ? { ...ALL_TRAITS, streak_: 1, ...ruled } : ruled;
       if (skills) extra.skills = skills;
       if (!row.ally && mis.rule === "enemyRegen") extra.permRegen = 1;
+      const hero = isHero(row.cls);
       const info = dev
         ? u("", row.cls, "", extra)
-        : u(row.cls || UT.randEl(Classes.CLASSES_ALL), "enemy", "", extra);
+        : hero
+          ? u("", HERO_SPECIFIC[row.cls], "", extra)
+          : u(row.cls || UT.randEl(Classes.CLASSES_ALL), "enemy", "", extra);
       if (dev) info.devHero = true;
-      if (!dev) {
+      if (hero) {
+        info.extra.pendingWeapons = {
+          primary: { random: "primary" }, secondary: { random: "secondary" }, randomMods: true,
+        };
+      }
+      if (!dev && !hero) {
         if (row.name) info.name = row.name;
         else if (row.ally) info.name = UT.randEl(HERO_NAMES);
       }

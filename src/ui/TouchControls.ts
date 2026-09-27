@@ -4,6 +4,7 @@ import { hasTouch } from "../core/device";
 
 const SRC = "touch";
 const REACH = 55;
+const HUD_ROW = 64;
 const BTN_BG = "rgba(0,0,0,0.35)";
 const BTN_DOWN = "rgba(255,255,255,0.35)";
 
@@ -132,7 +133,7 @@ class TouchLayer {
     this.builtFor = sizeKey();
 
     const o = controls();
-    const s = clampNum(o.touchScale, 0.7, 1.6);
+    const s = clampNum(o.touchScale, 0.7, 1.6) * deviceUnit();
     const twin = o.touchLayout === 1;
     const w = window.innerWidth, h = window.innerHeight;
     const flip = (x: number): number => (o.touchLeft ? w - x : x);
@@ -292,7 +293,7 @@ class TouchLayer {
   }
 
   private steer(which: "move" | "aim", s: Stick, dx: number, dy: number): void {
-    const reach = REACH * clampNum(controls().touchScale, 0.7, 1.6)
+    const reach = REACH * clampNum(controls().touchScale, 0.7, 1.6) * deviceUnit()
       * (controls().touchLayout === 1 ? 1.3 : 1);
     const m = Math.hypot(dx, dy);
     if (m > reach) { dx *= reach / m; dy *= reach / m; }
@@ -351,6 +352,11 @@ class TouchLayer {
   }
 }
 
+function deviceUnit(): number {
+  const short = Math.min(window.innerWidth, window.innerHeight);
+  return clampNum(short / 400, 0.85, 1.3);
+}
+
 function layoutOf(twin: boolean, autoFire: boolean, s: number, w: number, h: number): Control[] {
   const out: Control[] = [];
   const btn = (id: string, action: Action, x: number, y: number, d: number): void => {
@@ -358,13 +364,15 @@ function layoutOf(twin: boolean, autoFire: boolean, s: number, w: number, h: num
   };
   const col: [string, string][] = [["JUMP", "KeyW"], ["RELOAD", "KeyR"], ["SWAP", "KeyQ"],
     ["STREAK", "KeyE"]];
+  const m = 14 * Math.min(s, 1.2);
+  const hud = HUD_ROW * Math.min(h / 600, 1.3);
   if (twin) {
-    const r = 65 * s, pad = 24;
-    const my = h - pad - r;
+    const r = 58 * s, pad = m + 6;
+    const my = h - pad - hud - r;
     out.push({ id: "move", label: "", action: null, x: pad + r, y: my, w: 2 * r, h: 2 * r });
     const ax = w - pad - r;
     out.push({ id: "aim", label: "", action: null, x: ax, y: my, w: 2 * r, h: 2 * r });
-    const R = r + 62 * s, d = 56 * s;
+    const R = r + 56 * s, d = 52 * s;
     col.forEach(([id, code], i) => {
       const a = Math.PI - (i * Math.PI) / 6;
       btn(id, code, ax + Math.cos(a) * R, my - Math.sin(a) * R, d);
@@ -374,14 +382,27 @@ function layoutOf(twin: boolean, autoFire: boolean, s: number, w: number, h: num
       btn("FIRE", "fire", ax + Math.cos(a) * R, my - Math.sin(a) * R, 70 * s);
     }
   } else {
-    out.push({ id: "move", label: "", action: null, x: 110, y: h - 110, w: 100 * s, h: 100 * s });
-    out.push({ id: "aim", label: "", action: null, x: w - 200, y: h - 110, w: 100 * s, h: 100 * s });
-    const d = 62 * s;
-    col.forEach(([id, code], i) => btn(id, code, w - 14 - d / 2, h - 18 - d / 2 - i * 70 * s, d));
-    if (!autoFire) btn("FIRE", "fire", w - 14 - d - 18 - 36 * s, h - 18 - 36 * s, 72 * s);
+    const D = 72 * s, d = 54 * s, gap = 8 * s;
+    const jx = w - m - D / 2, jy = h - m - hud - D / 2;
+    btn("JUMP", "KeyW", jx, jy, D);
+    const R = Math.max(D / 2 + d / 2 + gap, (d + gap) / (2 * Math.sin(Math.PI / 8)));
+    const arc: [string, string, number][] = [["RELOAD", "KeyR", 180], ["SWAP", "KeyQ", 135],
+      ["STREAK", "KeyE", 90]];
+    for (const [id, code, deg] of arc) {
+      const a = (deg * Math.PI) / 180;
+      btn(id, code, jx + Math.cos(a) * R, jy - Math.sin(a) * R, d);
+    }
+    const left = jx - R - d / 2;
+    if (!autoFire) btn("FIRE", "fire", left - gap - 34 * s, jy, 68 * s);
+    const cluster = w - (autoFire ? left : left - gap - 68 * s);
+    const st = 100 * s;
+    const sy = h - m - hud - st * 0.6;
+    out.push({ id: "move", label: "", action: null, x: m + st * 0.75, y: sy, w: st, h: st });
+    out.push({ id: "aim", label: "", action: null, x: Math.max(w * 0.5, w - cluster - m - st * 0.7),
+      y: sy, w: st, h: st });
   }
-  out.push({ id: "PAUSE", label: "II", action: "Escape", x: w / 2, y: 8 + 18 * s,
-    w: 44 * s, h: 36 * s });
+  out.push({ id: "PAUSE", label: "II", action: "Escape", x: w / 2, y: m + 16 * s,
+    w: 46 * s, h: 34 * s });
   return out;
 }
 
