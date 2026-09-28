@@ -1,6 +1,6 @@
 import {
-  CELL, MAX_HOLDS, MAX_ITEMS, MAX_SPAWNS, encodeCells, type CustomMap, type EdFlag, type EdHold,
-  type EdItem, type EdMission, type EdSpawn,
+  CELL, MAX_HOLDS, MAX_ITEMS, MAX_JUMPS, MAX_SPAWNS, encodeCells, type CustomMap, type EdFlag,
+  type EdHold, type EdItem, type EdJump, type EdMission, type EdSpawn,
 } from "./format";
 import { settle } from "./build";
 
@@ -41,14 +41,16 @@ function restOf(m: CustomMap): string {
   return JSON.stringify({
     name: m.name, backdrop: m.backdrop, theme: m.theme,
     spawns: m.spawns, items: m.items, flags: m.flags, holds: m.holds,
-    mission: m.mission ?? null,
+    mission: m.mission ?? null, jumps: m.jumps ?? [],
+    stock: m.stock ?? "", stockArt: !!m.stockArt,
   });
 }
 
 function applyRest(m: CustomMap, json: string): void {
   const r = JSON.parse(json) as {
     name: string; backdrop: string; theme: string; spawns: EdSpawn[]; items: EdItem[];
-    flags: EdFlag[]; holds: EdHold[]; mission: EdMission | null;
+    flags: EdFlag[]; holds: EdHold[]; mission: EdMission | null; jumps?: EdJump[];
+    stock?: string; stockArt?: boolean;
   };
   m.name = r.name;
   m.backdrop = r.backdrop;
@@ -58,6 +60,11 @@ function applyRest(m: CustomMap, json: string): void {
   m.flags = r.flags;
   m.holds = r.holds;
   m.mission = r.mission;
+  m.jumps = r.jumps ?? [];
+  if (r.stock) {
+    m.stock = r.stock;
+    m.stockArt = !!r.stockArt;
+  }
 }
 
 function region(cells: Uint8Array, w: number, r: CellRect): Uint8Array {
@@ -157,6 +164,11 @@ export class History {
     return true;
   }
 
+  revert(): void {
+    this.map.cells.set(this.cells);
+    applyRest(this.map, this.rest);
+  }
+
   undo(): string | null {
     this.commit("Edit");
     const s = this.undos.pop();
@@ -231,6 +243,11 @@ function addObjects(m: CustomMap, extra: Omit<Clip, "w" | "h" | "cells">): strin
   let items = 0;
   let flags = 0;
   let holds = 0;
+  let jumps = 0;
+  const own = (m.jumps ??= []);
+  for (const j of extra.jumps ?? []) {
+    if (own.length < MAX_JUMPS) own.push(j); else jumps++;
+  }
   for (const s of extra.spawns) {
     if (m.spawns.length < MAX_SPAWNS) m.spawns.push(s); else spawns++;
   }
@@ -248,6 +265,7 @@ function addObjects(m: CustomMap, extra: Omit<Clip, "w" | "h" | "cells">): strin
   if (items) out.push(`${plural(items, "pickup")} left out (at most ${MAX_ITEMS})`);
   if (flags) out.push(`${plural(flags, "flag")} left out (one per team)`);
   if (holds) out.push(`${plural(holds, "zone")} left out (at most ${MAX_HOLDS})`);
+  if (jumps) out.push(`${plural(jumps, "bot jump")} left out (at most ${MAX_JUMPS})`);
   return out;
 }
 
@@ -259,6 +277,7 @@ export interface Clip {
   items: EdItem[];
   flags: EdFlag[];
   holds: EdHold[];
+  jumps?: EdJump[];
 }
 
 export function copyArea(m: CustomMap, r: CellRect, objects: boolean): Clip {
@@ -275,6 +294,9 @@ export function copyArea(m: CustomMap, r: CellRect, objects: boolean): Clip {
     items: pick(m.items),
     flags: pick(m.flags),
     holds: pick(m.holds),
+    jumps: objects
+      ? (m.jumps ?? []).filter((j) => inRect(j, r)).map((j) => ({ ...j, x: j.x - ox, y: j.y - oy, tx: j.tx - ox, ty: j.ty - oy }))
+      : [],
   };
 }
 
@@ -286,6 +308,7 @@ export function clearArea(m: CustomMap, r: CellRect, objects: boolean): void {
   m.items = keep(m.items);
   m.flags = keep(m.flags);
   m.holds = keep(m.holds);
+  m.jumps = keep(m.jumps ?? []);
 }
 
 export function flipClip(c: Clip, horizontal: boolean): Clip {
@@ -299,9 +322,15 @@ export function flipClip(c: Clip, horizontal: boolean): Clip {
   const f = <T extends Pt>(o: T): T => horizontal
     ? { ...o, x: flipX(o.x, c.w) }
     : { ...o, y: flipY(o.y, c.h) };
+  const fj = (j: EdJump): EdJump => {
+    const a = f({ x: j.x, y: j.y });
+    const b = f({ x: j.tx, y: j.ty });
+    return { ...j, x: a.x, y: a.y, tx: b.x, ty: b.y };
+  };
   return {
     w: c.w, h: c.h, cells,
     spawns: c.spawns.map(f), items: c.items.map(f), flags: c.flags.map(f), holds: c.holds.map(f),
+    jumps: (c.jumps ?? []).map(fj),
   };
 }
 
@@ -322,8 +351,15 @@ export function pasteClip(m: CustomMap, c: Clip, x0: number, y0: number, air: bo
     .map((o) => ({ ...o, x: o.x + x0 * CELL, y: o.y + y0 * CELL }))
     .filter((o) => o.x >= 0 && o.x <= W && o.y >= 0 && o.y <= H)
     .map((o) => ({ ...o, x: Math.round(o.x), y: Math.round(settle(m, o.x, o.y)) }));
+  const dx = x0 * CELL;
+  const dy = y0 * CELL;
+  const jumps = (c.jumps ?? [])
+    .map((j) => ({ ...j, x: j.x + dx, y: j.y + dy, tx: j.tx + dx, ty: j.ty + dy }))
+    .filter((j) => j.x >= 0 && j.x <= W && j.y >= 0 && j.y <= H
+      && j.tx >= 0 && j.tx <= W && j.ty >= 0 && j.ty <= H);
   return addObjects(m, {
     spawns: place(c.spawns), items: place(c.items), flags: place(c.flags), holds: place(c.holds),
+    jumps,
   });
 }
 
@@ -373,15 +409,22 @@ export function mirrorMap(m: CustomMap, dir: MirrorDir): string[] {
   const [items, iTwins] = split(m.items);
   const [flags, fTwins] = split(m.flags);
   const [holds, hTwins] = split(m.holds);
+  const [jumps, jKept] = split(m.jumps ?? []);
+  const jTwins = jKept.map((j) => {
+    const b = twin({ x: j.tx, y: j.ty });
+    return { ...j, tx: b.x, ty: b.y };
+  });
   m.spawns = spawns;
   m.items = items;
   m.flags = flags;
   m.holds = holds;
+  m.jumps = jumps;
   return addObjects(m, {
     spawns: sTwins.map((s) => ({ ...s, team: swapTeam(s.team) })),
     items: iTwins,
     flags: fTwins.map((f) => ({ ...f, team: swapTeam(f.team) })),
     holds: hTwins,
+    jumps: jTwins,
   });
 }
 
@@ -394,4 +437,49 @@ export function mirrorRect(m: CustomMap, r: CellRect, lr: boolean): CellRect {
 export function mirrorPoint(m: CustomMap, o: Pt, lr: boolean): Pt {
   const p = clampTo(m, lr ? { x: flipX(o.x, m.w), y: o.y } : { x: o.x, y: flipY(o.y, m.h) });
   return lr ? p : { x: p.x, y: Math.round(settle(m, p.x, p.y)) };
+}
+
+export const RESIZE_ANCHORS: readonly { key: string; label: string; ax: number; ay: number }[] = [
+  { key: "bc", label: "Keep the bottom, centred", ax: 0.5, ay: 1 },
+  { key: "bl", label: "Keep the bottom-left", ax: 0, ay: 1 },
+  { key: "br", label: "Keep the bottom-right", ax: 1, ay: 1 },
+  { key: "tl", label: "Keep the top-left", ax: 0, ay: 0 },
+  { key: "c", label: "Keep the middle", ax: 0.5, ay: 0.5 },
+];
+
+export function resizeMap(m: CustomMap, w: number, h: number, ax: number, ay: number): CustomMap {
+  const dx = Math.round((w - m.w) * ax);
+  const dy = Math.round((h - m.h) * ay);
+  const cells = new Uint8Array(w * h);
+  for (let y = 0; y < m.h; y++) {
+    const ny = y + dy;
+    if (ny < 0 || ny >= h) continue;
+    for (let x = 0; x < m.w; x++) {
+      const nx = x + dx;
+      if (nx < 0 || nx >= w) continue;
+      cells[ny * w + nx] = m.cells[y * m.w + x];
+    }
+  }
+  const ox = dx * CELL;
+  const oy = dy * CELL;
+  const W = w * CELL;
+  const H = h * CELL;
+  const inside = (x: number, y: number) => x >= 0 && x <= W && y >= 0 && y <= H;
+  const move = <T extends Pt>(list: T[]): T[] => list
+    .map((o) => ({ ...o, x: o.x + ox, y: o.y + oy }))
+    .filter((o) => inside(o.x, o.y));
+  const jumps = (m.jumps ?? [])
+    .map((j) => ({ ...j, x: j.x + ox, y: j.y + oy, tx: j.tx + ox, ty: j.ty + oy }))
+    .filter((j) => inside(j.x, j.y) && inside(j.tx, j.ty));
+  return {
+    ...m,
+    w, h, cells,
+    spawns: move(m.spawns),
+    items: move(m.items),
+    flags: move(m.flags),
+    holds: move(m.holds),
+    jumps,
+    mission: m.mission ? JSON.parse(JSON.stringify(m.mission)) as EdMission : m.mission,
+    stockArt: m.stock && (dx || dy) ? false : m.stockArt,
+  };
 }

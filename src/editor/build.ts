@@ -1,7 +1,9 @@
 import { BitmapWallMask, type ArenaDef, type RawNode } from "../game/Arena";
 import { CELL, MATERIALS, MAT, ITEM_RESPAWN, type CustomMap } from "./format";
 
-const IDS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const IDS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+  + Array.from({ length: 0x180 - 0xc0 }, (_, i) => String.fromCharCode(0xc0 + i))
+    .filter((c) => c !== "×" && c !== "÷").join("");
 
 const HEADROOM = 6;
 const STEP = 4;
@@ -361,6 +363,27 @@ function tryGraph(m: CustomMap, floors: Floor[], floorAt: Int32Array, fill: numb
     }
   }
 
+  const floorNear = (px: number, py: number): { f: Floor; cx: number } | null => {
+    const cx0 = Math.max(0, Math.min(m.w - 1, Math.floor(px / CELL)));
+    const cy0 = Math.floor((py + 1) / CELL);
+    for (const dx of [0, -1, 1, -2, 2]) {
+      for (let dy = -2; dy <= 4; dy++) {
+        const f = at(cx0 + dx, cy0 + dy);
+        if (f) return { f, cx: cx0 + dx };
+      }
+    }
+    return null;
+  };
+  const authored: { from: Floor; fx: number; to: Floor; tx: number; walk: boolean }[] = [];
+  for (const j of m.jumps ?? []) {
+    const a = floorNear(j.x, j.y);
+    const b = floorNear(j.tx, j.ty);
+    if (!a || !b || a.f === b.f) continue;
+    a.f.anchors.add(a.cx);
+    b.f.anchors.add(b.cx);
+    authored.push({ from: a.f, fx: a.cx, to: b.f, tx: b.cx, walk: !!j.walk });
+  }
+
   let n = 0;
   for (const f of floors) {
     const x0 = f.cells[0].x;
@@ -431,6 +454,20 @@ function tryGraph(m: CustomMap, floors: Floor[], floorAt: Int32Array, fill: numb
     } else {
       boxes.push({ x: lx - 42, y: ly - 72, width: 85, height: 80, target: target.id, from: launch.id });
     }
+  }
+
+  for (const a of authored) {
+    const lx = a.fx * CELL + CELL / 2;
+    const launch = nearest(a.from, lx);
+    const target = nearest(a.to, a.tx * CELL + CELL / 2);
+    if (!launch || !target) continue;
+    link(launch, target, true);
+    if (a.walk) continue;
+    const ly = feet(floorRow(a.from, a.fx));
+    const key = `${lx},${ly},${target.id}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    boxes.push({ x: lx - 42, y: ly - 72, width: 85, height: 80, target: target.id, from: launch.id });
   }
 
   for (const f of floors) {
@@ -669,7 +706,8 @@ export function checkMap(m: CustomMap, mode: string, nav = buildNav(m, mode)): B
     if (a && b) {
       const adj = adjacency(nav.points);
       if (!reachable(adj, a.id).has(b.id) || !reachable(adj, b.id).has(a.id)) {
-        out.push({ level: "error", text: "Bots cannot get from one flag to the other and back." });
+        out.push({ level: "error",
+          text: "Bots cannot get from one flag to the other and back. A Bot jump across the gap fixes it." });
       }
     }
   }

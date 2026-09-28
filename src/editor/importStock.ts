@@ -3,10 +3,11 @@ import { ASSET_BASE, ASSET_V } from "../core/Config";
 import { MAP_ORDER, getMap } from "../data/StatsMaps";
 import {
   AIR, CELL, ITEM_KINDS, MAX_H, MAX_HOLDS, MAX_ITEMS, MAX_SPAWNS, MAX_W, MIN_H, MIN_W, SOLID,
-  type CustomMap, type EdFlag, type EdHold, type EdItem, type EdSpawn, type ItemKind,
+  MAX_JUMPS, type CustomMap, type EdFlag, type EdHold, type EdItem, type EdJump, type EdSpawn,
+  type ItemKind,
 } from "./format";
 
-interface ArenaNode { kind: string; name: string; x: number; y: number }
+interface ArenaNode { kind: string; name: string; x: number; y: number; width?: number; height?: number }
 interface ArenaRec { wall: { file: string; w: number; h: number }; nodes: ArenaNode[] }
 const ARENAS = (arena as unknown as { maps: Record<string, ArenaRec> }).maps;
 
@@ -105,6 +106,31 @@ export async function importStockMap(id: string): Promise<CustomMap> {
   const items: EdItem[] = [];
   const flags: EdFlag[] = [];
   const holds: EdHold[] = [];
+  const jumps: EdJump[] = [];
+  const wps = new Map<string, ArenaNode>();
+  for (const n of rec.nodes) if (n.kind === "waypoint") wps.set(n.name.split("_")[0], n);
+  for (const a of wps.values()) {
+    for (const id of a.name.split("_")[1] ?? "") {
+      const t = wps.get(id);
+      if (!t || t === a || jumps.length >= MAX_JUMPS) continue;
+      jumps.push({
+        x: Math.round(a.x), y: Math.round(a.y), tx: Math.round(t.x), ty: Math.round(t.y), walk: true,
+      });
+    }
+  }
+  for (const n of rec.nodes) {
+    if (n.kind !== "aiaction" || !n.name.startsWith("j_")) continue;
+    const bw = n.width ?? 85;
+    const bh = n.height ?? 80;
+    for (const id of n.name.slice(2)) {
+      const t = wps.get(id);
+      if (!t || jumps.length >= MAX_JUMPS) continue;
+      jumps.push({
+        x: Math.round(n.x + bw / 2), y: Math.round(n.y + bh - 8),
+        tx: Math.round(t.x), ty: Math.round(t.y),
+      });
+    }
+  }
   for (const n of rec.nodes) {
     if (!inside(n)) continue;
     const x = Math.round(n.x), y = Math.round(n.y);
@@ -125,6 +151,6 @@ export async function importStockMap(id: string): Promise<CustomMap> {
   const name = stockMaps().find((m) => m.id === id)?.name ?? id;
   return {
     name, w: W, h: H, backdrop: id, theme: THEME[id] ?? "concrete", cells,
-    spawns, items, flags, holds, stock: id, stockArt: true,
+    spawns, items, flags, holds, stock: id, stockArt: true, jumps,
   };
 }

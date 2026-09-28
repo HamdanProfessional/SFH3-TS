@@ -1,14 +1,16 @@
 import {
-  CELL, MATERIALS, ITEM_KINDS, MAX_HOLDS, MAX_ITEMS, MAX_SPAWNS, SIZE_PRESETS,
-  blankMap, cleanName, type CustomMap, type EdFlag, type EdHold, type EdItem, type EdSpawn,
-  type ItemKind,
+  CELL, MATERIALS, ITEM_KINDS, MAX_H, MAX_HOLDS, MAX_ITEMS, MAX_JUMPS, MAX_SPAWNS, MAX_W, MIN_H,
+  MIN_W, SIZE_PRESETS,
+  blankMap, cleanName, type CustomMap, type EdFlag, type EdHold, type EdItem, type EdJump,
+  type EdSpawn, type ItemKind,
 } from "./format";
 import { buildNav, checkMap, settle, type NavGraph } from "./build";
 import { THEMES, cellTint, shade } from "./art";
 import {
-  HISTORY_STEPS, History, MIRROR_DIRS, clearArea, copyArea, flipClip, mirrorMap, mirrorPoint,
-  mirrorRect, pasteClip, swapTeam, type CellRect, type Clip, type MirrorDir,
+  HISTORY_STEPS, History, MIRROR_DIRS, RESIZE_ANCHORS, clearArea, copyArea, flipClip, mirrorMap,
+  mirrorPoint, mirrorRect, pasteClip, resizeMap, swapTeam, type CellRect, type Clip, type MirrorDir,
 } from "./edit";
+import { PIECES, makePiece, type PieceKey } from "./pieces";
 import { backdropUrls, stockArtRect, type StockArtRect } from "../game/maps";
 import { importStockMap, stockMaps } from "./importStock";
 import { PLAY_MODES, type PlayOptions } from "./playtest";
@@ -56,14 +58,17 @@ export interface EditorHost {
 }
 
 type Tool =
-  | "paint" | "erase" | "rect" | "rectErase" | "fill" | "select" | "move"
-  | "spawn1" | "spawn2" | "spawn0" | "item" | "flag1" | "flag2" | "hold" | "remove" | "pan";
+  | "paint" | "erase" | "rect" | "rectErase" | "line" | "ramp" | "fill" | "select" | "move"
+  | "spawn1" | "spawn2" | "spawn0" | "item" | "flag1" | "flag2" | "hold" | "jump" | "remove"
+  | "pan";
 
 const TOOLS: readonly { key: Tool; label: string; hint: string }[] = [
   { key: "paint", label: "Paint", hint: "Paint the material (B)" },
   { key: "erase", label: "Erase", hint: "Erase to air (E)" },
   { key: "rect", label: "Rect", hint: "Drag a filled rectangle (R)" },
   { key: "rectErase", label: "Rect erase", hint: "Drag a rectangle of air (Shift+R)" },
+  { key: "line", label: "Line", hint: "Drag a straight line with the brush (L)" },
+  { key: "ramp", label: "Ramp", hint: "Drag a slope: fills solid under the line so units can walk up it" },
   { key: "fill", label: "Bucket", hint: "Flood-fill the touching area (F)" },
   { key: "select", label: "Select", hint: "Drag an area to copy, cut or delete (S). Ctrl+A: all" },
   { key: "move", label: "Move", hint: "Drag a spawn, pickup, flag or zone (M)" },
@@ -75,6 +80,7 @@ const TOOLS: readonly { key: Tool; label: string; hint: string }[] = [
   { key: "flag1", label: "Red flag", hint: "Red team's flag base (Capture the Flag). One per team" },
   { key: "flag2", label: "Blue flag", hint: "Blue team's flag base (Capture the Flag). One per team" },
   { key: "hold", label: "Zone", hint: `Domination zone, up to ${MAX_HOLDS}. Lettered A-E left to right` },
+  { key: "jump", label: "Bot jump", hint: "Drag from where bots should jump to where they land, to get them across gaps" },
   { key: "remove", label: "Remove", hint: "Click a spawn, pickup, flag or zone to remove it" },
 ];
 
@@ -85,12 +91,23 @@ const TEAM_COLOR = ["#ffcc33", "#ff5a4a", "#4aa3ff"] as const;
 const FIELD_COMMIT_MS = 700;
 const CELLS_OVER_ART = 0.35;
 
+const TOUCH_CSS = ".ed-touch .sfh-btn{padding:9px 10px 8px!important;font-size:12px!important}"
+  + ".ed-touch input:not([type=checkbox]),.ed-touch select,.ed-touch textarea{font-size:16px!important}"
+  + ".ed-touch input[type=checkbox]{width:20px;height:20px;vertical-align:-5px}"
+  + ".ed-quick .sfh-btn{padding:8px 9px 7px!important;font-size:11px!important}";
+
+const QUICK_TOOLS: readonly Tool[] = ["paint", "erase", "rect", "line", "fill", "move", "pan"];
+
+function coarsePointer(): boolean {
+  return typeof matchMedia === "function" && matchMedia("(pointer: coarse)").matches;
+}
+
 const STOP = ["keydown", "keyup", "keypress", "mousedown", "mouseup", "click",
   "wheel", "contextmenu", "pointerdown", "pointerup"] as const;
 
 type Sym = "off" | "lr" | "tb";
 
-interface ObjSet { spawns: EdSpawn[]; items: EdItem[]; flags: EdFlag[]; holds: EdHold[] }
+interface ObjSet { spawns: EdSpawn[]; items: EdItem[]; flags: EdFlag[]; holds: EdHold[]; jumps?: EdJump[] }
 
 function hex(rgb: number): string {
   return `#${rgb.toString(16).padStart(6, "0")}`;
@@ -175,8 +192,13 @@ export class EditorView {
     | { kind: "stroke"; lx: number; ly: number }
     | { kind: "rect"; x0: number; y0: number }
     | { kind: "select"; x0: number; y0: number }
-    | { kind: "move"; list: { x: number; y: number }[]; i: number }
+    | { kind: "move"; list: { x: number; y: number }[]; i: number; end?: boolean }
+    | { kind: "jump"; x: number; y: number }
+    | { kind: "line"; x0: number; y0: number }
+    | { kind: "ramp"; x0: number; y0: number }
     | null = null;
+  private piece: Clip | null = null;
+  private resizeUndo: { map: CustomMap; history: History } | null = null;
   private spaceHeld = false;
   private drawQueued = false;
   private issueTimer = 0;
@@ -219,6 +241,17 @@ export class EditorView {
   private card: HTMLDivElement | null = null;
 
   private readonly onResize = (): void => this.fitCanvas();
+  private readonly touch = coarsePointer();
+  private panelOpen = true;
+  private readonly panelBtn = el("button", "position:absolute;left:8px;top:8px;z-index:3;");
+  private readonly quick = el("div", "position:absolute;left:52px;right:8px;top:8px;z-index:2;"
+    + "display:none;flex-wrap:wrap;gap:4px;align-items:center;");
+  private quickTools = new Map<Tool, HTMLButtonElement>();
+  private quickCancel: HTMLButtonElement | null = null;
+  private touches = new Map<number, { x: number; y: number }>();
+  private pending: { x: number; y: number; timer: number } | null = null;
+  private pinch: { d0: number; mx: number; my: number; zoom: number; vx: number; vy: number } | null = null;
+  private gestureHold = false;
 
   constructor(private state: EditorState, private readonly host: EditorHost) {
     this.ctx = this.canvas.getContext("2d")!;
@@ -233,9 +266,58 @@ export class EditorView {
     this.root.tabIndex = -1;
 
     this.buildPanel();
-    this.main.append(this.canvas, this.status, this.toast);
+    this.buildQuick();
+    this.main.append(this.canvas, this.status, this.toast, this.panelBtn, this.quick);
     this.root.append(this.panel, this.main);
+    if (this.touch) {
+      this.root.classList.add("ed-touch");
+      if (!document.getElementById("ed-touch-css")) {
+        const st = document.createElement("style");
+        st.id = "ed-touch-css";
+        st.textContent = TOUCH_CSS;
+        document.head.appendChild(st);
+      }
+    }
     this.bindCanvas();
+    this.setPanel(!(this.touch && (window.innerWidth < 1000 || window.innerHeight < 560)));
+  }
+
+  private buildQuick(): void {
+    this.panelBtn.className = "sfh-btn";
+    this.panelBtn.type = "button";
+    this.panelBtn.style.cssText += "padding:8px 10px 7px;font-size:13px;";
+    this.panelBtn.addEventListener("click", (e) => { e.preventDefault(); this.setPanel(!this.panelOpen); });
+    this.quick.className = "ed-quick";
+    for (const key of QUICK_TOOLS) {
+      const t = TOOLS.find((x) => x.key === key);
+      if (!t) continue;
+      const b = this.button(t.label, () => this.setTool(key), t.hint);
+      this.quickTools.set(key, b);
+      this.quick.appendChild(b);
+    }
+    this.quick.appendChild(this.button("↶", () => this.undoStep(false), "Undo"));
+    this.quick.appendChild(this.button("↷", () => this.undoStep(true), "Redo"));
+    this.quickCancel = this.button("Cancel", () => {
+      this.pasting = false;
+      this.piece = null;
+      this.drag = null;
+      this.syncButtons();
+      this.requestDraw();
+    }, "Stop pasting or placing a piece");
+    this.quick.appendChild(this.quickCancel);
+    const go = this.button("▶ Play", () => this.play(), "Play this map against bots");
+    go.style.cssText += BTN_GO + "width:auto;margin-top:0;padding:8px 12px 7px;";
+    this.quick.appendChild(go);
+  }
+
+  private setPanel(open: boolean): void {
+    this.panelOpen = open;
+    this.panel.style.display = open ? "block" : "none";
+    this.quick.style.display = open ? "none" : "flex";
+    this.panelBtn.textContent = open ? "◀" : "☰";
+    this.panelBtn.title = open ? "Hide the panel" : "Show the panel";
+    this.fitCanvas();
+    this.syncButtons();
   }
 
   mount(): void {
@@ -315,6 +397,13 @@ export class EditorView {
   private undoStep(redo: boolean): void {
     this.flushField();
     this.drag = null;
+    if (!redo && !this.history.canUndo && !this.history.pending() && this.resizeUndo) {
+      const r = this.resizeUndo;
+      this.resizeUndo = null;
+      this.loadState({ ...this.state, map: r.map, dirty: true, history: r.history }, true);
+      this.flash("Undid: Resize");
+      return;
+    }
     const label = redo ? this.history.redo() : this.history.undo();
     if (label === null) {
       this.flash(redo ? "Nothing to redo" : "Nothing to undo");
@@ -392,6 +481,32 @@ export class EditorView {
     ));
     file.appendChild(this.listBox);
 
+    const rw = el("input", INPUT + "width:64px;");
+    const rh = el("input", INPUT + "width:64px;");
+    for (const [inp, lo, hi] of [[rw, MIN_W, MAX_W], [rh, MIN_H, MAX_H]] as const) {
+      inp.type = "number";
+      inp.step = String(CELL * 10);
+      inp.min = String(lo * CELL);
+      inp.max = String(hi * CELL);
+    }
+    const anchorSel = el("select", INPUT + "margin-top:4px;");
+    this.select(anchorSel, RESIZE_ANCHORS.map((a) => [a.key, a.label]), RESIZE_ANCHORS[0].key, () => {});
+    const resizeBox = el("div", "display:none;margin-top:6px;");
+    const sizeRow = this.row(rw, el("span", "align-self:center;font-size:11px;", "x"), rh,
+      this.button("Apply", () => {
+        this.doResize(Number(rw.value), Number(rh.value), anchorSel.value);
+        resizeBox.style.display = "none";
+      }, "Change the map's size; the ground and objects are kept by the anchor below"));
+    sizeRow.style.flexWrap = "nowrap";
+    resizeBox.append(sizeRow, anchorSel);
+    file.appendChild(this.row(this.button("Resize…", () => {
+      const open = resizeBox.style.display === "none";
+      resizeBox.style.display = open ? "block" : "none";
+      rw.value = String(this.m.w * CELL);
+      rh.value = String(this.m.h * CELL);
+    }, "Make this map bigger or smaller")));
+    file.appendChild(resizeBox);
+
     const stock = el("select", INPUT + "width:auto;flex:1;min-width:0;");
     this.select(stock, stockMaps().map((m) => [m.id, m.name]), "street", () => {});
     const importBtn = this.button("Import", () => {
@@ -456,6 +571,14 @@ export class EditorView {
       this.setTool("item");
     });
     tools.appendChild(itemSel);
+
+    const pieces = this.section("Pieces");
+    const pieceSel = el("select", INPUT + "width:auto;flex:1;min-width:0;");
+    this.select(pieceSel, PIECES.map((p) => [p.key, p.label]), PIECES[0].key, () => {});
+    const placeRow = this.row(pieceSel, this.button("Place", () => this.startPiece(pieceSel.value as PieceKey),
+      "Stamp a ready-made piece in the chosen material. H / V flip it before placing"));
+    placeRow.style.flexWrap = "nowrap";
+    pieces.appendChild(placeRow);
 
     const brush = this.section("Brush");
     const br = this.row();
@@ -651,12 +774,14 @@ export class EditorView {
     for (const [k, b] of this.brushBtns) {
       b.style.cssText = BTN + "min-width:26px;text-align:center;" + (k === this.brush ? BTN_ON : "");
     }
+    for (const [k, b] of this.quickTools) b.style.cssText = BTN + (k === this.tool ? BTN_ON : "");
     this.canvas.style.cursor = this.tool === "pan" ? "grab" : "crosshair";
   }
 
   private setTool(t: Tool): void {
     this.tool = t;
     this.pasting = false;
+    this.piece = null;
     this.syncButtons();
     this.requestDraw();
   }
@@ -960,6 +1085,15 @@ export class EditorView {
     }, { passive: false });
     c.addEventListener("pointerdown", (e) => {
       c.setPointerCapture(e.pointerId);
+      if (e.pointerType === "touch") {
+        this.touches.set(e.pointerId, { x: e.offsetX, y: e.offsetY });
+        if (this.touches.size >= 2) { this.startPinch(); return; }
+        if (this.gestureHold) return;
+        this.hover = this.toWorld(e.offsetX, e.offsetY);
+        const x = e.offsetX, y = e.offsetY;
+        this.pending = { x, y, timer: window.setTimeout(() => this.flushPending(), 120) };
+        return;
+      }
       const pan = e.button === 1 || e.button === 2 || this.spaceHeld || this.tool === "pan";
       if (pan) {
         this.drag = { kind: "pan", sx: e.offsetX, sy: e.offsetY, vx: this.view.x, vy: this.view.y };
@@ -970,6 +1104,17 @@ export class EditorView {
       this.begin(this.toWorld(e.offsetX, e.offsetY), e.shiftKey);
     });
     c.addEventListener("pointermove", (e) => {
+      if (e.pointerType === "touch") {
+        if (!this.touches.has(e.pointerId)) return;
+        this.touches.set(e.pointerId, { x: e.offsetX, y: e.offsetY });
+        if (this.pinch) { this.movePinch(); return; }
+        if (this.gestureHold) return;
+        const p = this.pending;
+        if (p) {
+          if (Math.hypot(e.offsetX - p.x, e.offsetY - p.y) < 8) return;
+          this.flushPending();
+        }
+      }
       const w = this.toWorld(e.offsetX, e.offsetY);
       this.hover = w;
       const d = this.drag;
@@ -981,13 +1126,29 @@ export class EditorView {
       } else if (d?.kind === "move") {
         const o = d.list[d.i];
         const p = this.clampPx(w);
-        o.x = p.x;
-        o.y = Math.round(settle(this.m, p.x, p.y));
+        const y = Math.round(settle(this.m, p.x, p.y));
+        if (d.end) {
+          const j = o as EdJump;
+          j.tx = p.x;
+          j.ty = y;
+        } else {
+          o.x = p.x;
+          o.y = y;
+        }
       }
       this.updateStatus();
       this.requestDraw();
     });
     const end = (e: PointerEvent): void => {
+      if (e.pointerType === "touch") {
+        this.touches.delete(e.pointerId);
+        if (this.pinch || this.gestureHold) {
+          if (this.touches.size < 2) this.pinch = null;
+          if (!this.touches.size) this.gestureHold = false;
+          return;
+        }
+        if (this.pending) this.flushPending();
+      }
       const d = this.drag;
       this.drag = null;
       this.syncButtons();
@@ -996,11 +1157,61 @@ export class EditorView {
       else if (d?.kind === "stroke") this.commit(this.tool === "erase" ? "Erase" : "Paint");
       else if (d?.kind === "select") this.finishSelect(d, w);
       else if (d?.kind === "move") this.commit("Move");
+      else if (d?.kind === "jump") this.finishJump(d, w);
+      else if (d?.kind === "line") this.finishLine(d, w);
+      else if (d?.kind === "ramp") this.finishRamp(d, w);
       this.requestDraw();
     };
     c.addEventListener("pointerup", end);
     c.addEventListener("pointercancel", end);
     c.addEventListener("pointerleave", () => { this.hover = null; this.requestDraw(); });
+  }
+
+  private flushPending(): void {
+    const p = this.pending;
+    if (!p) return;
+    clearTimeout(p.timer);
+    this.pending = null;
+    if (this.tool === "pan") {
+      this.drag = { kind: "pan", sx: p.x, sy: p.y, vx: this.view.x, vy: this.view.y };
+      return;
+    }
+    this.begin(this.toWorld(p.x, p.y), false);
+  }
+
+  private startPinch(): void {
+    if (this.pending) { clearTimeout(this.pending.timer); this.pending = null; }
+    const d = this.drag;
+    if (d && d.kind !== "pan") {
+      this.history.revert();
+      this.drag = null;
+      this.changed(false);
+    } else {
+      this.drag = null;
+    }
+    const [a, b] = [...this.touches.values()];
+    this.pinch = {
+      d0: Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)),
+      mx: (a.x + b.x) / 2, my: (a.y + b.y) / 2,
+      zoom: this.view.zoom, vx: this.view.x, vy: this.view.y,
+    };
+    this.gestureHold = true;
+  }
+
+  private movePinch(): void {
+    const p = this.pinch;
+    if (!p || this.touches.size < 2) return;
+    const [a, b] = [...this.touches.values()];
+    const d = Math.max(1, Math.hypot(a.x - b.x, a.y - b.y));
+    const mx = (a.x + b.x) / 2;
+    const my = (a.y + b.y) / 2;
+    const z = Math.max(0.05, Math.min(3, (p.zoom * d) / p.d0));
+    const wx = (p.mx - p.vx) / p.zoom;
+    const wy = (p.my - p.vy) / p.zoom;
+    this.view.zoom = z;
+    this.view.x = mx - wx * z;
+    this.view.y = my - wy * z;
+    this.requestDraw();
   }
 
   private onKey(e: KeyboardEvent, down: boolean): void {
@@ -1030,8 +1241,8 @@ export class EditorView {
       return;
     }
     if (k === "escape") {
-      if (this.pasting) this.pasting = false;
-      else if (this.drag?.kind === "select" || this.drag?.kind === "rect") this.drag = null;
+      if (this.pasting) { this.pasting = false; this.piece = null; }
+      else if (this.drag && this.drag.kind !== "pan") this.drag = null;
       else this.sel = null;
       this.requestDraw();
     } else if (k === "delete" || k === "backspace") {
@@ -1040,6 +1251,7 @@ export class EditorView {
     } else if (k === "b") this.setTool("paint");
     else if (k === "e") this.setTool("erase");
     else if (k === "r") this.setTool(e.shiftKey ? "rectErase" : "rect");
+    else if (k === "l") this.setTool("line");
     else if (k === "f") this.setTool("fill");
     else if (k === "s") this.setTool("select");
     else if (k === "m") this.setTool("move");
@@ -1087,13 +1299,19 @@ export class EditorView {
       case "rectErase":
         this.drag = { kind: "rect", x0: c.x, y0: c.y };
         break;
+      case "line":
+        this.drag = { kind: "line", x0: c.x, y0: c.y };
+        break;
+      case "ramp":
+        this.drag = { kind: "ramp", x0: c.x, y0: c.y };
+        break;
       case "select":
         this.sel = null;
         this.drag = { kind: "select", x0: c.x, y0: c.y };
         break;
       case "move": {
         const hit = this.objectAt(w);
-        if (hit) this.drag = { kind: "move", list: hit.list, i: hit.i };
+        if (hit) this.drag = { kind: "move", list: hit.list, i: hit.i, end: hit.end };
         break;
       }
       case "fill":
@@ -1160,12 +1378,104 @@ export class EditorView {
         this.commit("Zone");
         break;
       }
+      case "jump": {
+        if (!this.inMap(w)) return;
+        const p = this.placeAt(w);
+        this.drag = { kind: "jump", x: p.x, y: p.y };
+        break;
+      }
       case "remove":
         this.removeAt(w);
         break;
       case "pan":
         break;
     }
+  }
+
+  private linePoints(x0: number, y0: number, x1: number, y1: number): { x: number; y: number }[] {
+    const steps = Math.max(Math.abs(x1 - x0), Math.abs(y1 - y0), 1);
+    const out: { x: number; y: number }[] = [];
+    for (let i = 0; i <= steps; i++) {
+      out.push({ x: Math.round(x0 + ((x1 - x0) * i) / steps), y: Math.round(y0 + ((y1 - y0) * i) / steps) });
+    }
+    return out;
+  }
+
+  private rampRects(x0: number, y0: number, x1: number, y1: number): CellRect[] {
+    const bottom = Math.max(y0, y1);
+    const out: CellRect[] = [];
+    const lo = Math.min(x0, x1);
+    const hi = Math.max(x0, x1);
+    for (let x = lo; x <= hi; x++) {
+      const t = hi === lo ? 0 : (x - x0) / (x1 - x0);
+      const top = Math.round(y0 + (y1 - y0) * t);
+      out.push({ ax: x, ay: Math.min(top, bottom), bx: x, by: bottom });
+    }
+    return out;
+  }
+
+  private finishLine(d: { x0: number; y0: number }, w: { x: number; y: number }): void {
+    const c = this.cellOf(w);
+    for (const p of this.linePoints(d.x0, d.y0, c.x, c.y)) this.stamp(p.x, p.y);
+    this.commit("Line");
+  }
+
+  private finishRamp(d: { x0: number; y0: number }, w: { x: number; y: number }): void {
+    const c = this.cellOf(w);
+    const v = this.brushValue();
+    for (const r of this.rampRects(d.x0, d.y0, c.x, c.y)) this.fillCells(r, v);
+    this.commit("Ramp");
+  }
+
+  private activeClip(): Clip | null {
+    return this.piece ?? this.clip;
+  }
+
+  private startPiece(key: PieceKey): void {
+    this.piece = makePiece(key, this.mat);
+    this.buildGhost();
+    this.pasting = true;
+    this.requestDraw();
+    const name = PIECES.find((p) => p.key === key)?.label ?? "piece";
+    this.flash(`Click to place the ${name.toLowerCase()} (Shift+click places more). H / V flip it, Esc cancels`);
+  }
+
+  private doResize(wPx: number, hPx: number, anchor: string): void {
+    const w = Math.round(wPx / CELL);
+    const h = Math.round(hPx / CELL);
+    if (!(w >= MIN_W && w <= MAX_W && h >= MIN_H && h <= MAX_H)) {
+      this.flash(`Width ${MIN_W * CELL}-${MAX_W * CELL}px, height ${MIN_H * CELL}-${MAX_H * CELL}px`, true);
+      return;
+    }
+    if (w === this.m.w && h === this.m.h) { this.flash("That is already the size"); return; }
+    const a = RESIZE_ANCHORS.find((r) => r.key === anchor) ?? RESIZE_ANCHORS[0];
+    this.flushField();
+    this.history.commit("Edit");
+    const before = this.m;
+    const map = resizeMap(before, w, h, a.ax, a.ay);
+    this.resizeUndo = { map: before, history: this.history };
+    const artOff = !!before.stockArt && !map.stockArt;
+    this.loadState({ ...this.state, map, dirty: true, history: undefined }, true);
+    this.flash(`Resized to ${w * CELL} x ${h * CELL}px. Ctrl+Z undoes it`
+      + (artOff ? ". Campaign art is off: the painting cannot move with the ground" : ""));
+  }
+
+  private finishJump(d: { x: number; y: number }, w: { x: number; y: number }): void {
+    const t = this.placeAt(this.clampPx(w));
+    if (Math.hypot(t.x - d.x, t.y - d.y) < 3 * CELL) {
+      this.flash("Drag from the take-off point to where the bot should land", true);
+      return;
+    }
+    const jumps = (this.m.jumps ??= []);
+    const a = this.twinOf(d);
+    const b = a ? mirrorPoint(this.m, t, this.sym === "lr") : null;
+    if (jumps.length + (a ? 2 : 1) > MAX_JUMPS) {
+      this.flash(`At most ${MAX_JUMPS} bot jumps and paths`, true);
+      return;
+    }
+    jumps.push({ x: d.x, y: d.y, tx: t.x, ty: t.y });
+    if (a && b) jumps.push({ x: a.x, y: a.y, tx: b.x, ty: b.y });
+    this.commit("Bot jump");
   }
 
   private brushValue(): number {
@@ -1238,7 +1548,8 @@ export class EditorView {
     }
   }
 
-  private objectAt(w: { x: number; y: number }): { list: { x: number; y: number }[]; i: number } | null {
+  private objectAt(w: { x: number; y: number }):
+    { list: { x: number; y: number }[]; i: number; end?: boolean } | null {
     const near = (o: { x: number; y: number }) =>
       Math.abs(o.x - w.x) < 20 && w.y > o.y - 60 && w.y < o.y + 10;
     const lists: { x: number; y: number }[][] = [
@@ -1247,6 +1558,14 @@ export class EditorView {
     for (const list of lists) {
       const i = list.findIndex(near);
       if (i >= 0) return { list, i };
+    }
+    const jumps = this.m.jumps ?? [];
+    const dot = (x: number, y: number) => Math.hypot(x - w.x, y - 12 - w.y) < 18;
+    for (let i = 0; i < jumps.length; i++) {
+      const j = jumps[i];
+      if (j.walk) continue;
+      if (dot(j.tx, j.ty)) return { list: jumps, i, end: true };
+      if (dot(j.x, j.y)) return { list: jumps, i };
     }
     return null;
   }
@@ -1306,6 +1625,7 @@ export class EditorView {
   }
 
   private startPaste(): void {
+    this.piece = null;
     if (!this.clip) {
       this.flash("Nothing copied yet: select an area and press Ctrl+C", true);
       return;
@@ -1322,17 +1642,26 @@ export class EditorView {
   }
 
   private pasteAt(w: { x: number; y: number }, keep: boolean): void {
-    const clip = this.clip;
+    const clip = this.activeClip();
     if (!clip) { this.pasting = false; return; }
+    const piece = clip === this.piece;
     const o = this.pasteOrigin(w, clip);
-    const left = pasteClip(this.m, clip, o.x, o.y, this.pasteAir);
-    this.sel = this.rectOf(o.x, o.y, o.x + clip.w - 1, o.y + clip.h - 1);
+    const left = pasteClip(this.m, clip, o.x, o.y, piece ? false : this.pasteAir);
+    this.sel = piece ? null : this.rectOf(o.x, o.y, o.x + clip.w - 1, o.y + clip.h - 1);
     this.pasting = keep;
-    this.commit("Paste");
+    if (!keep) this.piece = null;
+    this.commit(piece ? "Piece" : "Paste");
     if (left.length) this.flash(`Pasted. ${left.join("; ")}`, true);
   }
 
   private flip(horizontal: boolean): void {
+    if (this.piece && this.pasting) {
+      this.piece = flipClip(this.piece, horizontal);
+      this.buildGhost();
+      this.requestDraw();
+      this.flash(`Piece flipped ${horizontal ? "left-right" : "top-bottom"}`);
+      return;
+    }
     if (!this.clip) { this.flash("Nothing copied yet", true); return; }
     this.clip = flipClip(this.clip, horizontal);
     this.buildGhost();
@@ -1341,7 +1670,7 @@ export class EditorView {
   }
 
   private buildGhost(): void {
-    const c = this.clip;
+    const c = this.activeClip();
     if (!c) { this.ghost = null; return; }
     const g = this.ghost ?? el("canvas");
     g.width = c.w;
@@ -1392,13 +1721,16 @@ export class EditorView {
     }
     const s = this.sel;
     if (s) bits.push(`selection ${s.bx - s.ax + 1} x ${s.by - s.ay + 1}`);
-    bits.push(this.pasting
-      ? "click: paste · Shift+click: paste again · H / V: flip · Esc: cancel"
-      : "wheel: zoom · right-drag / Space: pan · Ctrl+Z / Ctrl+Y: undo / redo");
+    bits.push(this.touch
+      ? (this.pasting ? "tap: place · Cancel to stop" : "one finger: use the tool · two fingers: pan and pinch to zoom")
+      : this.pasting
+        ? "click: paste · Shift+click: paste again · H / V: flip · Esc: cancel"
+        : "wheel: zoom · right-drag / Space: pan · Ctrl+Z / Ctrl+Y: undo / redo");
     this.status.textContent = bits.join("   ·   ");
   }
 
   private draw(): void {
+    if (this.quickCancel) this.quickCancel.style.display = this.pasting ? "" : "none";
     const g = this.ctx;
     const { zoom, x: vx, y: vy } = this.view;
     const W = this.m.w * CELL;
@@ -1453,6 +1785,10 @@ export class EditorView {
 
     const h = this.hover;
     const d = this.drag;
+    if (d?.kind === "jump" && h) {
+      const t = this.placeAt(this.clampPx(h));
+      this.drawJump(g, px, { x: d.x, y: d.y, tx: t.x, ty: t.y }, 0.8);
+    }
     g.strokeStyle = "rgba(255,255,255,0.9)";
     g.lineWidth = px;
     const box = (r: CellRect, fill: string) => {
@@ -1472,6 +1808,25 @@ export class EditorView {
       if (d.kind === "rect" && this.sym !== "off") {
         box(mirrorRect(this.m, r, this.sym === "lr"), "rgba(255,120,255,0.12)");
       }
+    } else if ((d?.kind === "line" || d?.kind === "ramp") && h) {
+      const c = this.cellOf(h);
+      const fill = this.tool === "erase" ? "rgba(255,80,80,0.3)" : "rgba(255,255,255,0.28)";
+      const rects: CellRect[] = d.kind === "ramp"
+        ? this.rampRects(d.x0, d.y0, c.x, c.y)
+        : this.linePoints(d.x0, d.y0, c.x, c.y).map((p) => {
+          const bw = this.brush;
+          const x0 = p.x - Math.floor((bw - 1) / 2);
+          const y0 = p.y - Math.floor((bw - 1) / 2);
+          return { ax: x0, ay: y0, bx: x0 + bw - 1, by: y0 + bw - 1 };
+        });
+      g.fillStyle = fill;
+      for (const r of rects) {
+        g.fillRect(r.ax * CELL, r.ay * CELL, (r.bx - r.ax + 1) * CELL, (r.by - r.ay + 1) * CELL);
+        if (this.sym !== "off") {
+          const q = mirrorRect(this.m, r, this.sym === "lr");
+          g.fillRect(q.ax * CELL, q.ay * CELL, (q.bx - q.ax + 1) * CELL, (q.by - q.ay + 1) * CELL);
+        }
+      }
     } else if (h && !this.pasting && (this.tool === "paint" || this.tool === "erase")) {
       const c = this.cellOf(h);
       const b = this.brush;
@@ -1489,12 +1844,12 @@ export class EditorView {
       g.strokeRect(s.ax * CELL, s.ay * CELL, (s.bx - s.ax + 1) * CELL, (s.by - s.ay + 1) * CELL);
       g.setLineDash([]);
     }
-    const clip = this.clip;
+    const clip = this.activeClip();
     if (this.pasting && clip && this.ghost && h) {
       const o = this.pasteOrigin(h, clip);
       const gx = o.x * CELL;
       const gy = o.y * CELL;
-      if (this.pasteAir) {
+      if (this.pasteAir && clip !== this.piece) {
         g.fillStyle = "rgba(10,14,20,0.55)";
         g.fillRect(gx, gy, clip.w * CELL, clip.h * CELL);
       }
@@ -1522,8 +1877,42 @@ export class EditorView {
     g.fillText(t, x, y);
   }
 
+  private drawJump(g: CanvasRenderingContext2D, px: number, j: EdJump, alpha = 1): void {
+    const sy = j.y - 12;
+    const ty = j.ty - 12;
+    const cx = (j.x + j.tx) / 2;
+    const cy = Math.min(sy, ty) - Math.max(40, Math.abs(j.tx - j.x) * 0.25);
+    const a0 = g.globalAlpha;
+    g.globalAlpha = a0 * alpha;
+    g.strokeStyle = "#00e5ff";
+    g.lineWidth = 3 * px;
+    g.setLineDash([10 * px, 6 * px]);
+    g.beginPath();
+    g.moveTo(j.x, sy);
+    g.quadraticCurveTo(cx, cy, j.tx, ty);
+    g.stroke();
+    g.setLineDash([]);
+    const ang = Math.atan2(ty - cy, j.tx - cx);
+    const hs = 14 * Math.max(px, 0.6);
+    g.fillStyle = "#00e5ff";
+    g.beginPath();
+    g.moveTo(j.tx, ty);
+    g.lineTo(j.tx - hs * Math.cos(ang - 0.45), ty - hs * Math.sin(ang - 0.45));
+    g.lineTo(j.tx - hs * Math.cos(ang + 0.45), ty - hs * Math.sin(ang + 0.45));
+    g.closePath();
+    g.fill();
+    g.beginPath();
+    g.arc(j.x, sy, 7, 0, Math.PI * 2);
+    g.fill();
+    g.strokeStyle = "#000";
+    g.lineWidth = 2 * px;
+    g.stroke();
+    g.globalAlpha = a0;
+  }
+
   private drawObjects(g: CanvasRenderingContext2D, px: number, o: ObjSet, ghost: boolean,
                       between?: () => void): void {
+    for (const j of o.jumps ?? []) if (!j.walk) this.drawJump(g, px, j);
     const zones = [...o.holds].sort((a, b) => a.x - b.x);
     zones.forEach((z, i) => {
       g.fillStyle = "rgba(255,255,255,0.08)";

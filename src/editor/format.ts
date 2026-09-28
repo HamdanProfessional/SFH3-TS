@@ -11,8 +11,8 @@ export const MAX_HOLDS = 5;
 export const MAX_NAME = 32;
 export const MAX_RLE = 96 * 1024;
 
-export const FORMAT_VERSION = 5;
-const READS = [1, 2, 3, 4, 5];
+export const FORMAT_VERSION = 6;
+const READS = [1, 2, 3, 4, 5, 6];
 
 export interface Material {
   id: number;
@@ -83,7 +83,12 @@ export interface CustomMap {
   mission?: EdMission | null;
   stock?: string;
   stockArt?: boolean;
+  jumps?: EdJump[];
 }
+
+export interface EdJump { x: number; y: number; tx: number; ty: number; walk?: boolean }
+
+export const MAX_JUMPS = 160;
 
 export interface MapWire {
   v: number;
@@ -100,6 +105,7 @@ export interface MapWire {
   mission?: EdMission;
   stock?: string;
   stockArt?: boolean;
+  jumps?: ([number, number, number, number] | [number, number, number, number, number])[];
 }
 
 export const SIZE_PRESETS: readonly { label: string; w: number; h: number }[] = [
@@ -181,10 +187,14 @@ export function toWire(m: CustomMap): MapWire {
     w.stock = m.stock;
     if (m.stockArt) w.stockArt = true;
   }
+  if (m.jumps?.length) {
+    w.jumps = m.jumps.map((j) => j.walk ? [j.x, j.y, j.tx, j.ty, 1] : [j.x, j.y, j.tx, j.ty]);
+  }
   return w;
 }
 
 function wireVersion(m: CustomMap): number {
+  if (m.jumps?.length) return 6;
   if (m.stock || (m.mission && usesHeroes(m.mission))) return 5;
   if (m.mission) return usesDevs(m.mission) ? 4 : 3;
   return 2;
@@ -262,10 +272,21 @@ export function sanitiseMap(raw: unknown): CustomMap | null {
   const theme = typeof r.theme === "string" && KEY_RE.test(r.theme) ? r.theme : "concrete";
   const mission = sanitiseMission(r.mission);
   const stock = typeof r.stock === "string" && KEY_RE.test(r.stock) ? r.stock : "";
+  const jumps: EdJump[] = [];
+  for (const j of Array.isArray(r.jumps) ? r.jumps.slice(0, MAX_JUMPS) : []) {
+    if (!Array.isArray(j)) continue;
+    const x = int(j[0], 0, pxW);
+    const y = int(j[1], 0, pxH);
+    const tx = int(j[2], 0, pxW);
+    const ty = int(j[3], 0, pxH);
+    if (x === null || y === null || tx === null || ty === null) continue;
+    jumps.push(j[4] === 1 ? { x, y, tx, ty, walk: true } : { x, y, tx, ty });
+  }
   return {
     name: cleanName(r.name), w, h, backdrop, theme, cells, spawns, items, flags, holds,
     ...(mission ? { mission } : {}),
     ...(stock ? { stock, stockArt: r.stockArt === true } : {}),
+    ...(jumps.length ? { jumps } : {}),
   };
 }
 
@@ -278,6 +299,7 @@ export function cloneMap(m: CustomMap): CustomMap {
     flags: m.flags.map((f) => ({ ...f })),
     holds: m.holds.map((h) => ({ ...h })),
     mission: m.mission ? cloneMission(m.mission) : null,
+    jumps: (m.jumps ?? []).map((j) => ({ ...j })),
   };
 }
 
