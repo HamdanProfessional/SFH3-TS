@@ -1,16 +1,17 @@
 import {
   CELL, MATERIALS, ITEM_KINDS, MAX_H, MAX_HOLDS, MAX_ITEMS, MAX_JUMPS, MAX_SPAWNS, MAX_W, MIN_H,
   MIN_W, SIZE_PRESETS,
-  blankMap, cleanName, type CustomMap, type EdFlag, type EdHold, type EdItem, type EdJump,
+  blankMap, cleanName, type CustomMap, type EdDecal, type EdFlag, type EdHold, type EdItem, type EdJump,
   type EdSpawn, type ItemKind,
 } from "./format";
-import { buildNav, checkMap, settle, type NavGraph } from "./build";
+import { buildNav, checkMap, lift, settle, type NavGraph } from "./build";
 import { THEMES, cellTint, shade } from "./art";
 import {
   HISTORY_STEPS, History, MIRROR_DIRS, RESIZE_ANCHORS, clearArea, copyArea, flipClip, mirrorMap,
   mirrorPoint, mirrorRect, pasteClip, resizeMap, swapTeam, type CellRect, type Clip, type MirrorDir,
 } from "./edit";
 import { PIECES, makePiece, type PieceKey } from "./pieces";
+import { drawDecal } from "./art";
 import { backdropUrls, stockArtRect, type StockArtRect } from "../game/maps";
 import { importStockMap, stockMaps } from "./importStock";
 import { PLAY_MODES, type PlayOptions } from "./playtest";
@@ -223,6 +224,11 @@ export class EditorView {
   private stockChk = el("input");
   private stockRow = el("label", "display:none;margin-top:6px;font-size:11px;cursor:pointer;");
   private stockImg: { id: string; img: HTMLImageElement; rect: StockArtRect } | null = null;
+  private artImgs = new Map<string, HTMLImageElement>();
+  private groundOverArt = false;
+  private stockCache = new Map<string, Promise<CustomMap>>();
+  private grabBox: HTMLDivElement | null = null;
+  private grabRo: ResizeObserver | null = null;
   private linkBox = el("div", "display:none;margin-top:6px;");
   private readonly mapPane = el("div");
   private readonly tabBtns = new Map<"map" | "mission", HTMLButtonElement>();
@@ -374,6 +380,10 @@ export class EditorView {
 
   private commit(label: string): void {
     this.flushField();
+    const m = this.m;
+    for (const list of [m.spawns, m.items, m.flags, m.holds] as { x: number; y: number }[][]) {
+      for (const o of list) o.y = lift(m, o.x, o.y);
+    }
     this.history.commit(label);
     this.changed();
     this.syncHistory();
@@ -579,6 +589,12 @@ export class EditorView {
       "Stamp a ready-made piece in the chosen material. H / V flip it before placing"));
     placeRow.style.flexWrap = "nowrap";
     pieces.appendChild(placeRow);
+    const grabSel = el("select", INPUT + "width:auto;flex:1;min-width:0;");
+    this.select(grabSel, stockMaps().map((s) => [s.id, s.name]), "forest", () => {});
+    const grabRow = this.row(grabSel, this.button("Grab…", () => void this.openGrab(grabSel.value),
+      "Take a rock, platform or any part of a campaign map, with its art, and stamp it here"));
+    grabRow.style.flexWrap = "nowrap";
+    pieces.append(el("div", HINT, "Or grab a piece of a campaign map, art and all:"), grabRow);
 
     const brush = this.section("Brush");
     const br = this.row();
@@ -664,6 +680,10 @@ export class EditorView {
       this.checkLabel(navChk, "Show bot paths"),
       this.checkLabel(gridChk, "Grid"),
     );
+    const overChk = el("input");
+    overChk.type = "checkbox";
+    overChk.addEventListener("change", () => { this.groundOverArt = overChk.checked; this.requestDraw(); });
+    view.appendChild(this.checkLabel(overChk, "Show ground over props"));
 
     const play = this.section("Play test");
     const mode = el("select", INPUT);
@@ -852,6 +872,170 @@ export class EditorView {
     } catch {
       this.flash("Could not load that campaign map.", true);
     }
+  }
+
+  private artImage(src: string): HTMLImageElement | null {
+    let img = this.artImgs.get(src);
+    if (!img) {
+      const r = stockArtRect(src);
+      if (!r) return null;
+      img = new Image();
+      img.onload = () => this.requestDraw();
+      img.src = r.url.replace(/\.png(?=\?|$)/, ".webp");
+      this.artImgs.set(src, img);
+    }
+    return img.complete && img.naturalWidth ? img : null;
+  }
+
+  private drawDecals(g: CanvasRenderingContext2D, decals: readonly EdDecal[]): void {
+    for (const d of decals) {
+      const img = this.artImage(d.src);
+      if (img) drawDecal(g, img, d);
+    }
+  }
+
+  private stockMap(id: string): Promise<CustomMap> {
+    let p = this.stockCache.get(id);
+    if (!p) {
+      p = importStockMap(id);
+      p.catch(() => this.stockCache.delete(id));
+      this.stockCache.set(id, p);
+    }
+    return p;
+  }
+
+  private closeGrab(): void {
+    this.grabRo?.disconnect();
+    this.grabRo = null;
+    this.grabBox?.remove();
+    this.grabBox = null;
+  }
+
+  private async openGrab(id: string): Promise<void> {
+    this.closeGrab();
+    const box = el("div", "position:absolute;inset:0;z-index:5;background:rgba(0,0,0,0.95);"
+      + "display:flex;flex-direction:column;");
+    for (const t of ["pointerdown", "pointermove", "pointerup", "wheel"]) {
+      box.addEventListener(t, (e) => e.stopPropagation());
+    }
+    this.grabBox = box;
+    this.main.appendChild(box);
+    const bar = el("div", "display:flex;gap:6px;align-items:center;padding:8px;flex-wrap:wrap;");
+    const title = el("div", "flex:1;min-width:160px;font-size:12px;color:#fff;",
+      "Loading the campaign map…");
+    const cancel = this.button("Cancel", () => this.closeGrab());
+    const use = this.button("Use it", () => {});
+    use.disabled = true;
+    use.style.cssText += BTN_GO + "width:auto;margin-top:0;padding:8px 14px 7px;";
+    bar.append(title, cancel, use);
+    const wrap = el("div", "flex:1;position:relative;min-height:0;");
+    const cv = el("canvas", "position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:crosshair;");
+    wrap.appendChild(cv);
+    box.append(bar, wrap);
+    let src: CustomMap;
+    try {
+      src = await this.stockMap(id);
+    } catch {
+      title.textContent = "Could not load that campaign map.";
+      return;
+    }
+    if (this.grabBox !== box) return;
+    title.textContent = `Drag over the part of ${src.name} you want: a rock, a platform, anything.`;
+    const rect = stockArtRect(id);
+    const img = this.artImage(id);
+    const grid = el("canvas");
+    grid.width = src.w;
+    grid.height = src.h;
+    const gctx = grid.getContext("2d")!;
+    const gimg = gctx.createImageData(src.w, src.h);
+    paintCells(src.cells, gimg, src.theme, 1);
+    gctx.putImageData(gimg, 0, 0);
+    const W = src.w * CELL;
+    const H = src.h * CELL;
+    let sel: CellRect | null = null;
+    let start: { x: number; y: number } | null = null;
+    const fit = () => {
+      const r = wrap.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.max(1, Math.round(r.width * dpr));
+      cv.height = Math.max(1, Math.round(r.height * dpr));
+      const k = Math.min((r.width - 16) / W, (r.height - 16) / H);
+      return { k, ox: (r.width - W * k) / 2, oy: (r.height - H * k) / 2, dpr };
+    };
+    let v = fit();
+    const cellAt = (e: PointerEvent) => ({
+      x: Math.max(0, Math.min(src.w - 1, Math.floor((e.offsetX - v.ox) / v.k / CELL))),
+      y: Math.max(0, Math.min(src.h - 1, Math.floor((e.offsetY - v.oy) / v.k / CELL))),
+    });
+    const paint = () => {
+      const g = cv.getContext("2d")!;
+      g.setTransform(v.dpr, 0, 0, v.dpr, 0, 0);
+      g.clearRect(0, 0, cv.width, cv.height);
+      g.translate(v.ox, v.oy);
+      g.scale(v.k, v.k);
+      g.fillStyle = "#1b2638";
+      g.fillRect(0, 0, W, H);
+      const live = this.artImage(id);
+      if (live && rect) {
+        g.imageSmoothingEnabled = true;
+        g.drawImage(live, rect.x, rect.y, rect.w, rect.h);
+        g.globalAlpha = 0.25;
+      }
+      g.imageSmoothingEnabled = false;
+      g.drawImage(grid, 0, 0, W, H);
+      g.globalAlpha = 1;
+      if (sel) {
+        const px = 1 / v.k;
+        g.fillStyle = "rgba(0,229,255,0.15)";
+        g.strokeStyle = "#00e5ff";
+        g.lineWidth = 2 * px;
+        const x = sel.ax * CELL, y = sel.ay * CELL;
+        const w = (sel.bx - sel.ax + 1) * CELL, h = (sel.by - sel.ay + 1) * CELL;
+        g.fillRect(x, y, w, h);
+        g.strokeRect(x, y, w, h);
+      }
+    };
+    if (!img && rect) {
+      const probe = new Image();
+      probe.onload = () => paint();
+      probe.src = rect.url.replace(/\.png(?=\?|$)/, ".webp");
+    }
+    cv.addEventListener("pointerdown", (e) => {
+      cv.setPointerCapture(e.pointerId);
+      start = cellAt(e);
+      sel = { ax: start.x, ay: start.y, bx: start.x, by: start.y };
+      paint();
+    });
+    cv.addEventListener("pointermove", (e) => {
+      if (!start) return;
+      const c = cellAt(e);
+      sel = {
+        ax: Math.min(start.x, c.x), ay: Math.min(start.y, c.y),
+        bx: Math.max(start.x, c.x), by: Math.max(start.y, c.y),
+      };
+      paint();
+    });
+    const up = () => {
+      start = null;
+      use.disabled = !sel || (sel.bx - sel.ax < 1 && sel.by - sel.ay < 1);
+    };
+    cv.addEventListener("pointerup", up);
+    cv.addEventListener("pointercancel", up);
+    use.onclick = (e) => {
+      e.preventDefault();
+      if (!sel) return;
+      const clip = copyArea(src, sel, false, rect);
+      this.closeGrab();
+      this.piece = clip;
+      this.buildGhost();
+      this.pasting = true;
+      this.requestDraw();
+      this.flash(this.touch ? "Tap to place it. Cancel to stop"
+        : "Click to place it (Shift+click places more). H / V flip it, Esc cancels");
+    };
+    this.grabRo = new ResizeObserver(() => { v = fit(); paint(); });
+    this.grabRo.observe(wrap);
+    paint();
   }
 
   private stockArt(): { img: HTMLImageElement; rect: StockArtRect } | null {
@@ -1602,12 +1786,14 @@ export class EditorView {
   private copySel(cut: boolean): void {
     const r = this.needSel();
     if (!r) return;
-    const c = copyArea(this.m, r, this.withObjects);
+    const c = copyArea(this.m, r, this.withObjects, this.m.stock ? stockArtRect(this.m.stock) : null);
     this.clip = c;
     this.buildGhost();
     this.updateClipInfo();
     const objs = c.spawns.length + c.items.length + c.flags.length + c.holds.length;
-    const what = `${c.w} x ${c.h} cells${objs ? `, ${objs} object${objs > 1 ? "s" : ""}` : ""}`;
+    const props = c.decals?.length ?? 0;
+    const what = `${c.w} x ${c.h} cells${objs ? `, ${objs} object${objs > 1 ? "s" : ""}` : ""}`
+      + (props ? ` and the art` : "");
     if (cut) {
       clearArea(this.m, r, this.withObjects);
       this.commit("Cut");
@@ -1756,6 +1942,17 @@ export class EditorView {
     g.imageSmoothingEnabled = false;
     g.drawImage(this.grid, 0, 0, W, H);
     g.globalAlpha = 1;
+    const decals = this.m.decals ?? [];
+    if (decals.length) {
+      g.imageSmoothingEnabled = true;
+      this.drawDecals(g, decals);
+      if (this.groundOverArt) {
+        g.imageSmoothingEnabled = false;
+        g.globalAlpha = CELLS_OVER_ART;
+        g.drawImage(this.grid, 0, 0, W, H);
+        g.globalAlpha = 1;
+      }
+    }
 
     const px = 1 / zoom;
     if (this.showGrid && zoom * CELL >= 6) {
@@ -1854,6 +2051,14 @@ export class EditorView {
         g.fillRect(gx, gy, clip.w * CELL, clip.h * CELL);
       }
       g.drawImage(this.ghost, gx, gy, clip.w * CELL, clip.h * CELL);
+      if (clip.decals?.length) {
+        g.save();
+        g.translate(gx, gy);
+        g.globalAlpha = 0.85;
+        g.imageSmoothingEnabled = true;
+        this.drawDecals(g, clip.decals);
+        g.restore();
+      }
       g.save();
       g.translate(gx, gy);
       g.globalAlpha = 0.7;

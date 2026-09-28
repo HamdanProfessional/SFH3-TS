@@ -1,7 +1,7 @@
-import { Texture } from "pixi.js";
+import { Assets, Texture } from "pixi.js";
 import { getMap, type MapInfo } from "../data/StatsMaps";
-import { loadBackdrop, loadStockArt, type LoadedMap } from "../game/maps";
-import { CELL, MAT, MATERIALS, SOLID, type CustomMap } from "./format";
+import { loadBackdrop, loadStockArt, stockArtRect, type LoadedMap } from "../game/maps";
+import { CELL, MAT, MATERIALS, SOLID, type CustomMap, type EdDecal } from "./format";
 import { buildArena } from "./build";
 
 export const THEMES: readonly { key: string; label: string; tint: number }[] = [
@@ -165,13 +165,63 @@ export function customInfo(m: CustomMap): MapInfo {
   };
 }
 
+export function drawDecal(g: CanvasRenderingContext2D, img: CanvasImageSource, d: EdDecal,
+                          ox = 0, oy = 0): void {
+  g.save();
+  g.translate(d.x + ox + (d.fx ? d.sw : 0), d.y + oy + (d.fy ? d.sh : 0));
+  g.scale(d.fx ? -1 : 1, d.fy ? -1 : 1);
+  g.drawImage(img, d.sx, d.sy, d.sw, d.sh, 0, 0, d.sw, d.sh);
+  g.restore();
+}
+
+async function decalImages(decals: readonly EdDecal[]): Promise<Map<string, CanvasImageSource>> {
+  const out = new Map<string, CanvasImageSource>();
+  await Promise.all([...new Set(decals.map((d) => d.src))].map(async (src) => {
+    const r = stockArtRect(src);
+    if (!r) return;
+    try {
+      const tex = await Assets.load<Texture>(r.url);
+      out.set(src, tex.source.resource as CanvasImageSource);
+    } catch {
+      return;
+    }
+  }));
+  return out;
+}
+
 export async function loadCustomMap(m: CustomMap, mode: string): Promise<LoadedMap> {
   const info = customInfo(m);
-  const [backdrop, stock] = await Promise.all([
+  const decals = m.decals ?? [];
+  const [backdrop, stock, images] = await Promise.all([
     loadBackdrop(info),
     m.stock && m.stockArt ? loadStockArt(m.stock).catch(() => null) : Promise.resolve(null),
+    decals.length ? decalImages(decals) : Promise.resolve(new Map<string, CanvasImageSource>()),
   ]);
-  const art = stock ? stock.art : Texture.from(paintTerrain(m));
+  let art = stock ? stock.art : null;
+  let artX = stock ? stock.artX : 0;
+  let artY = stock ? stock.artY : 0;
+  if (decals.length) {
+    const W0 = m.w * CELL;
+    const H0 = m.h * CELL;
+    const bx = Math.min(0, artX);
+    const by = Math.min(0, artY);
+    const bw = Math.max(W0, stock ? artX + stock.width : 0) - bx;
+    const bh = Math.max(H0, stock ? artY + stock.height : 0) - by;
+    const c = document.createElement("canvas");
+    c.width = Math.ceil(bw);
+    c.height = Math.ceil(bh);
+    const g = c.getContext("2d")!;
+    if (stock) g.drawImage(stock.art.source.resource as CanvasImageSource, artX - bx, artY - by);
+    else g.drawImage(paintTerrain(m), -bx, -by);
+    for (const d of decals) {
+      const img = images.get(d.src);
+      if (img) drawDecal(g, img, d, -bx, -by);
+    }
+    art = Texture.from(c);
+    artX = bx;
+    artY = by;
+  }
+  if (!art) art = Texture.from(paintTerrain(m));
   const radarTex = Texture.from(paintRadar(m));
   const W = m.w * CELL;
   const H = m.h * CELL;
@@ -184,8 +234,8 @@ export async function loadCustomMap(m: CustomMap, mode: string): Promise<LoadedM
     wallW: W,
     wallH: H,
     radarTex,
-    artX: stock ? stock.artX : 0,
-    artY: stock ? stock.artY : 0,
+    artX,
+    artY,
     width: stock ? stock.width : W,
     height: stock ? stock.height : H,
     ...backdrop,

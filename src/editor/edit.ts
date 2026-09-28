@@ -1,7 +1,10 @@
 import {
-  CELL, MAX_HOLDS, MAX_ITEMS, MAX_JUMPS, MAX_SPAWNS, encodeCells, type CustomMap, type EdFlag,
-  type EdHold, type EdItem, type EdJump, type EdMission, type EdSpawn,
+  CELL, MAX_DECALS, MAX_DECAL_SIDE, MAX_HOLDS, MAX_ITEMS, MAX_JUMPS, MAX_SPAWNS, encodeCells,
+  type CustomMap, type EdDecal, type EdFlag, type EdHold, type EdItem, type EdJump, type EdMission,
+  type EdSpawn,
 } from "./format";
+
+export interface ArtRect { x: number; y: number; w: number; h: number }
 import { settle } from "./build";
 
 export const HISTORY_STEPS = 100;
@@ -41,7 +44,7 @@ function restOf(m: CustomMap): string {
   return JSON.stringify({
     name: m.name, backdrop: m.backdrop, theme: m.theme,
     spawns: m.spawns, items: m.items, flags: m.flags, holds: m.holds,
-    mission: m.mission ?? null, jumps: m.jumps ?? [],
+    mission: m.mission ?? null, jumps: m.jumps ?? [], decals: m.decals ?? [],
     stock: m.stock ?? "", stockArt: !!m.stockArt,
   });
 }
@@ -49,7 +52,7 @@ function restOf(m: CustomMap): string {
 function applyRest(m: CustomMap, json: string): void {
   const r = JSON.parse(json) as {
     name: string; backdrop: string; theme: string; spawns: EdSpawn[]; items: EdItem[];
-    flags: EdFlag[]; holds: EdHold[]; mission: EdMission | null; jumps?: EdJump[];
+    flags: EdFlag[]; holds: EdHold[]; mission: EdMission | null; jumps?: EdJump[]; decals?: EdDecal[];
     stock?: string; stockArt?: boolean;
   };
   m.name = r.name;
@@ -61,6 +64,7 @@ function applyRest(m: CustomMap, json: string): void {
   m.holds = r.holds;
   m.mission = r.mission;
   m.jumps = r.jumps ?? [];
+  m.decals = r.decals ?? [];
   if (r.stock) {
     m.stock = r.stock;
     m.stockArt = !!r.stockArt;
@@ -248,6 +252,11 @@ function addObjects(m: CustomMap, extra: Omit<Clip, "w" | "h" | "cells">): strin
   for (const j of extra.jumps ?? []) {
     if (own.length < MAX_JUMPS) own.push(j); else jumps++;
   }
+  let decals = 0;
+  const art = (m.decals ??= []);
+  for (const d of extra.decals ?? []) {
+    if (art.length < MAX_DECALS) art.push(d); else decals++;
+  }
   for (const s of extra.spawns) {
     if (m.spawns.length < MAX_SPAWNS) m.spawns.push(s); else spawns++;
   }
@@ -266,6 +275,7 @@ function addObjects(m: CustomMap, extra: Omit<Clip, "w" | "h" | "cells">): strin
   if (flags) out.push(`${plural(flags, "flag")} left out (one per team)`);
   if (holds) out.push(`${plural(holds, "zone")} left out (at most ${MAX_HOLDS})`);
   if (jumps) out.push(`${plural(jumps, "bot jump")} left out (at most ${MAX_JUMPS})`);
+  if (decals) out.push(`${plural(decals, "prop")} left out (at most ${MAX_DECALS})`);
   return out;
 }
 
@@ -278,9 +288,32 @@ export interface Clip {
   flags: EdFlag[];
   holds: EdHold[];
   jumps?: EdJump[];
+  decals?: EdDecal[];
 }
 
-export function copyArea(m: CustomMap, r: CellRect, objects: boolean): Clip {
+function decalCentre(d: EdDecal): Pt {
+  return { x: d.x + d.sw / 2, y: d.y + d.sh / 2 };
+}
+
+function decalInRect(d: EdDecal, r: CellRect): boolean {
+  const c = decalCentre(d);
+  return c.x >= r.ax * CELL && c.x < (r.bx + 1) * CELL && c.y >= r.ay * CELL && c.y < (r.by + 1) * CELL;
+}
+
+export function baseArtDecal(m: CustomMap, r: CellRect, art: ArtRect): EdDecal | null {
+  if (!m.stock || !m.stockArt) return null;
+  const x0 = Math.max(r.ax * CELL, art.x);
+  const y0 = Math.max(r.ay * CELL, art.y);
+  const x1 = Math.min((r.bx + 1) * CELL, art.x + art.w, x0 + MAX_DECAL_SIDE);
+  const y1 = Math.min((r.by + 1) * CELL, art.y + art.h, y0 + MAX_DECAL_SIDE);
+  if (x1 - x0 < 2 || y1 - y0 < 2) return null;
+  return {
+    src: m.stock, sx: Math.round(x0 - art.x), sy: Math.round(y0 - art.y),
+    sw: Math.round(x1 - x0), sh: Math.round(y1 - y0), x: Math.round(x0), y: Math.round(y0),
+  };
+}
+
+export function copyArea(m: CustomMap, r: CellRect, objects: boolean, art?: ArtRect | null): Clip {
   const ox = r.ax * CELL;
   const oy = r.ay * CELL;
   const rel = <T extends Pt>(o: T): T => ({ ...o, x: o.x - ox, y: o.y - oy });
@@ -295,8 +328,12 @@ export function copyArea(m: CustomMap, r: CellRect, objects: boolean): Clip {
     flags: pick(m.flags),
     holds: pick(m.holds),
     jumps: objects
-      ? (m.jumps ?? []).filter((j) => inRect(j, r)).map((j) => ({ ...j, x: j.x - ox, y: j.y - oy, tx: j.tx - ox, ty: j.ty - oy }))
+      ? (m.jumps ?? []).filter((j) => inRect(j, r) && inRect({ x: j.tx, y: j.ty }, r)).map((j) => ({ ...j, x: j.x - ox, y: j.y - oy, tx: j.tx - ox, ty: j.ty - oy }))
       : [],
+    decals: [
+      ...(art ? [baseArtDecal(m, r, art)].filter((d): d is EdDecal => !!d) : []),
+      ...(m.decals ?? []).filter((d) => decalInRect(d, r)),
+    ].map((d) => ({ ...d, x: d.x - ox, y: d.y - oy })),
   };
 }
 
@@ -308,7 +345,8 @@ export function clearArea(m: CustomMap, r: CellRect, objects: boolean): void {
   m.items = keep(m.items);
   m.flags = keep(m.flags);
   m.holds = keep(m.holds);
-  m.jumps = keep(m.jumps ?? []);
+  m.jumps = keep(m.jumps ?? []).filter((j) => !inRect({ x: j.tx, y: j.ty }, r));
+  m.decals = (m.decals ?? []).filter((d) => !decalInRect(d, r));
 }
 
 export function flipClip(c: Clip, horizontal: boolean): Clip {
@@ -327,10 +365,14 @@ export function flipClip(c: Clip, horizontal: boolean): Clip {
     const b = f({ x: j.tx, y: j.ty });
     return { ...j, x: a.x, y: a.y, tx: b.x, ty: b.y };
   };
+  const fd = (d: EdDecal): EdDecal => horizontal
+    ? { ...d, x: c.w * CELL - d.x - d.sw, fx: !d.fx }
+    : { ...d, y: c.h * CELL - d.y - d.sh, fy: !d.fy };
   return {
     w: c.w, h: c.h, cells,
     spawns: c.spawns.map(f), items: c.items.map(f), flags: c.flags.map(f), holds: c.holds.map(f),
     jumps: (c.jumps ?? []).map(fj),
+    decals: (c.decals ?? []).map(fd),
   };
 }
 
@@ -357,9 +399,12 @@ export function pasteClip(m: CustomMap, c: Clip, x0: number, y0: number, air: bo
     .map((j) => ({ ...j, x: j.x + dx, y: j.y + dy, tx: j.tx + dx, ty: j.ty + dy }))
     .filter((j) => j.x >= 0 && j.x <= W && j.y >= 0 && j.y <= H
       && j.tx >= 0 && j.tx <= W && j.ty >= 0 && j.ty <= H);
+  const decals = (c.decals ?? [])
+    .map((d) => ({ ...d, x: d.x + dx, y: d.y + dy }))
+    .filter((d) => d.x + d.sw > 0 && d.x < W && d.y + d.sh > 0 && d.y < H);
   return addObjects(m, {
     spawns: place(c.spawns), items: place(c.items), flags: place(c.flags), holds: place(c.holds),
-    jumps,
+    jumps, decals,
   });
 }
 
@@ -414,12 +459,18 @@ export function mirrorMap(m: CustomMap, dir: MirrorDir): string[] {
     const b = twin({ x: j.tx, y: j.ty });
     return { ...j, tx: b.x, ty: b.y };
   });
+  const dKept = (m.decals ?? []).filter((d) => side(decalCentre(d)) <= 0);
+  const dTwins = dKept.filter((d) => side(decalCentre(d)) < 0).map((d) => lr
+    ? { ...d, x: w * CELL - d.x - d.sw, fx: !d.fx }
+    : { ...d, y: h * CELL - d.y - d.sh, fy: !d.fy });
   m.spawns = spawns;
   m.items = items;
   m.flags = flags;
   m.holds = holds;
   m.jumps = jumps;
+  m.decals = dKept;
   return addObjects(m, {
+    decals: dTwins,
     spawns: sTwins.map((s) => ({ ...s, team: swapTeam(s.team) })),
     items: iTwins,
     flags: fTwins.map((f) => ({ ...f, team: swapTeam(f.team) })),
@@ -471,6 +522,9 @@ export function resizeMap(m: CustomMap, w: number, h: number, ax: number, ay: nu
   const jumps = (m.jumps ?? [])
     .map((j) => ({ ...j, x: j.x + ox, y: j.y + oy, tx: j.tx + ox, ty: j.ty + oy }))
     .filter((j) => inside(j.x, j.y) && inside(j.tx, j.ty));
+  const decals = (m.decals ?? [])
+    .map((d) => ({ ...d, x: d.x + ox, y: d.y + oy }))
+    .filter((d) => d.x + d.sw > 0 && d.x < W && d.y + d.sh > 0 && d.y < H);
   return {
     ...m,
     w, h, cells,
@@ -479,6 +533,7 @@ export function resizeMap(m: CustomMap, w: number, h: number, ax: number, ay: nu
     flags: move(m.flags),
     holds: move(m.holds),
     jumps,
+    decals,
     mission: m.mission ? JSON.parse(JSON.stringify(m.mission)) as EdMission : m.mission,
     stockArt: m.stock && (dx || dy) ? false : m.stockArt,
   };

@@ -562,7 +562,7 @@ function nearestPoint(points: readonly NavPoint[], x: number, y: number): NavPoi
 export function flagPoint(nav: NavGraph, m: CustomMap, team: 1 | 2): NavPoint | null {
   const f = m.flags.find((o) => o.team === team);
   if (!f) return null;
-  const y = settle(m, f.x, f.y - CELL);
+  const y = settle(m, f.x, lift(m, f.x, f.y) - CELL);
   const p = nearestPoint(nav.points, f.x, y);
   return p && Math.abs(p.x - f.x) <= 30 && Math.abs(p.y - y) <= 20 ? p : null;
 }
@@ -659,6 +659,24 @@ export function buildNav(m: CustomMap, mode = "tdm"): NavGraph {
   return { points: [], boxes: [] };
 }
 
+export function lift(m: CustomMap, x: number, y: number): number {
+  const cx = Math.max(0, Math.min(m.w - 1, Math.floor(x / CELL)));
+  let cy = Math.floor((y - 1) / CELL);
+  for (let guard = 0; guard < m.h; guard++) {
+    let blocked = -1;
+    for (let i = 0; i < HEADROOM; i++) {
+      const r = cy - i;
+      if (r >= 0 && r < m.h && mat(m, cx, r).solid) { blocked = r; break; }
+    }
+    if (blocked < 0) return guard ? feet(cy + 1) : y;
+    let top = blocked;
+    while (top > 0 && mat(m, cx, top - 1).solid) top--;
+    if (top <= 0) return y;
+    cy = top - 1;
+  }
+  return y;
+}
+
 export function settle(m: CustomMap, x: number, y: number): number {
   const cx = Math.max(0, Math.min(m.w - 1, Math.floor(x / CELL)));
   for (let cy = Math.max(0, Math.floor(y / CELL)); cy < m.h; cy++) {
@@ -741,7 +759,8 @@ export function buildArena(m: CustomMap, mode: string): ArenaDef {
   nodes.push(...buildPhysBoxes(m));
 
   const nearest = (x: number, y: number): string => nearestPoint(nav.points, x, y)?.id ?? "";
-  let spawns = m.spawns.map((s) => ({ ...s, y: settle(m, s.x, s.y - CELL) }));
+  const ground = (x: number, y: number): number => settle(m, x, lift(m, x, y) - CELL);
+  let spawns = m.spawns.map((s) => ({ ...s, y: ground(s.x, s.y) }));
   const has = (t: number) => spawns.some((s) => s.team === t);
   if (mode === "dm" && !has(0)) spawns = spawns.map((s) => ({ ...s, team: 0 as const }));
   if (mode !== "dm") {
@@ -755,15 +774,15 @@ export function buildArena(m: CustomMap, mode: string): ArenaDef {
   for (const it of m.items) {
     nodes.push({
       kind: "pickup", name: `${it.kind}_${ITEM_RESPAWN}`,
-      x: it.x, y: settle(m, it.x, it.y - CELL), rotation: 0,
+      x: it.x, y: ground(it.x, it.y), rotation: 0,
     });
   }
   for (const f of m.flags) {
-    const y = settle(m, f.x, f.y - CELL);
+    const y = ground(f.x, f.y);
     nodes.push({ kind: "ctfflag", name: `${nearest(f.x, y)}__${f.team}`, x: f.x, y, rotation: 0 });
   }
   for (const h of m.holds) {
-    nodes.push({ kind: "holdpoint", name: "", x: h.x, y: settle(m, h.x, h.y - CELL), rotation: 0 });
+    nodes.push({ kind: "holdpoint", name: "", x: h.x, y: ground(h.x, h.y), rotation: 0 });
   }
   return { wall: buildMask(m), nodes };
 }

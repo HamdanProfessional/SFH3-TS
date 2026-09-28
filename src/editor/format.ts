@@ -11,8 +11,8 @@ export const MAX_HOLDS = 5;
 export const MAX_NAME = 32;
 export const MAX_RLE = 96 * 1024;
 
-export const FORMAT_VERSION = 6;
-const READS = [1, 2, 3, 4, 5, 6];
+export const FORMAT_VERSION = 7;
+const READS = [1, 2, 3, 4, 5, 6, 7];
 
 export interface Material {
   id: number;
@@ -84,7 +84,23 @@ export interface CustomMap {
   stock?: string;
   stockArt?: boolean;
   jumps?: EdJump[];
+  decals?: EdDecal[];
 }
+
+export interface EdDecal {
+  src: string;
+  sx: number;
+  sy: number;
+  sw: number;
+  sh: number;
+  x: number;
+  y: number;
+  fx?: boolean;
+  fy?: boolean;
+}
+
+export const MAX_DECALS = 64;
+export const MAX_DECAL_SIDE = 2400;
 
 export interface EdJump { x: number; y: number; tx: number; ty: number; walk?: boolean }
 
@@ -106,6 +122,7 @@ export interface MapWire {
   stock?: string;
   stockArt?: boolean;
   jumps?: ([number, number, number, number] | [number, number, number, number, number])[];
+  decals?: [string, number, number, number, number, number, number, number][];
 }
 
 export const SIZE_PRESETS: readonly { label: string; w: number; h: number }[] = [
@@ -190,10 +207,15 @@ export function toWire(m: CustomMap): MapWire {
   if (m.jumps?.length) {
     w.jumps = m.jumps.map((j) => j.walk ? [j.x, j.y, j.tx, j.ty, 1] : [j.x, j.y, j.tx, j.ty]);
   }
+  if (m.decals?.length) {
+    w.decals = m.decals.map((d) => [d.src, d.sx, d.sy, d.sw, d.sh, d.x, d.y,
+      (d.fx ? 1 : 0) | (d.fy ? 2 : 0)]);
+  }
   return w;
 }
 
 function wireVersion(m: CustomMap): number {
+  if (m.decals?.length) return 7;
   if (m.jumps?.length) return 6;
   if (m.stock || (m.mission && usesHeroes(m.mission))) return 5;
   if (m.mission) return usesDevs(m.mission) ? 4 : 3;
@@ -282,11 +304,25 @@ export function sanitiseMap(raw: unknown): CustomMap | null {
     if (x === null || y === null || tx === null || ty === null) continue;
     jumps.push(j[4] === 1 ? { x, y, tx, ty, walk: true } : { x, y, tx, ty });
   }
+  const decals: EdDecal[] = [];
+  for (const d of Array.isArray(r.decals) ? r.decals.slice(0, MAX_DECALS) : []) {
+    if (!Array.isArray(d) || typeof d[0] !== "string" || !KEY_RE.test(d[0])) continue;
+    const sx = int(d[1], 0, 8000);
+    const sy = int(d[2], 0, 8000);
+    const sw = int(d[3], 1, MAX_DECAL_SIDE);
+    const sh = int(d[4], 1, MAX_DECAL_SIDE);
+    const x = int(d[5], -MAX_DECAL_SIDE, pxW);
+    const y = int(d[6], -MAX_DECAL_SIDE, pxH);
+    const f = int(d[7], 0, 3) ?? 0;
+    if (sx === null || sy === null || sw === null || sh === null || x === null || y === null) continue;
+    decals.push({ src: d[0], sx, sy, sw, sh, x, y, ...(f & 1 ? { fx: true } : {}), ...(f & 2 ? { fy: true } : {}) });
+  }
   return {
     name: cleanName(r.name), w, h, backdrop, theme, cells, spawns, items, flags, holds,
     ...(mission ? { mission } : {}),
     ...(stock ? { stock, stockArt: r.stockArt === true } : {}),
     ...(jumps.length ? { jumps } : {}),
+    ...(decals.length ? { decals } : {}),
   };
 }
 
@@ -300,6 +336,7 @@ export function cloneMap(m: CustomMap): CustomMap {
     holds: m.holds.map((h) => ({ ...h })),
     mission: m.mission ? cloneMission(m.mission) : null,
     jumps: (m.jumps ?? []).map((j) => ({ ...j })),
+    decals: (m.decals ?? []).map((d) => ({ ...d })),
   };
 }
 
