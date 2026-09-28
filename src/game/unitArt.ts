@@ -2,13 +2,15 @@ import {
   Assets, BlurFilter, Container, Filter, GlProgram, Matrix, Rectangle, Sprite,
   Text, TextStyle, Texture, UniformGroup, defaultFilterVert,
 } from "pixi.js";
-import { ASSET_BASE, ASSET_V } from "../core/Config";
+import { ASSET_BASE, ASSET_V, computeStageSize } from "../core/Config";
+import { MAX_DPR } from "../core/device";
 import { UT } from "../core/UT";
 import type { Unit } from "./Unit";
 import type { FilterSpec } from "./types";
 import { lerpRows } from "./poseLerp";
 import { LEVEL_ALPHA, NAME_ALPHA, NAME_FONT, NAME_GAP, TEXT_LIFT, nameTint } from "./plateStyle";
 import rig from "../assets/unitAnim.json";
+import hiSheets from "../assets/unitSheetsHi.json";
 import hudUi from "../assets/hudUi.json";
 
 interface GunLike {
@@ -24,21 +26,28 @@ interface Nested {
 }
 
 interface FrameRec {
-  i: number;
-  ox: number;
-  oy: number;
+  r: number[];
   skin?: Nested;
   gun?: Nested;
   face?: Nested;
   hair?: Nested;
 }
 
+interface SheetRec {
+  file: string;
+  w: number;
+  h: number;
+}
+
 interface GroupRec {
-  cell: [number, number];
-  cols: number;
-  perPage: number;
-  sheets: { file: string; w: number; h: number }[];
+  sheets: SheetRec[];
   frames: Record<string, FrameRec>;
+}
+
+interface SheetSet {
+  scale: number;
+  dir: string;
+  groups: Record<string, { sheets: SheetRec[]; frames: Record<string, number[]> }>;
 }
 
 type Placement = (string | number)[];
@@ -55,6 +64,38 @@ interface RigData {
 }
 
 const RIG = rig as unknown as RigData;
+
+const LO_SET: SheetSet = {
+  scale: RIG.scale,
+  dir: `${ASSET_BASE}/units`,
+  groups: Object.fromEntries(Object.entries(RIG.groups).map(([name, g]) => [name, {
+    sheets: g.sheets,
+    frames: Object.fromEntries(Object.entries(g.frames).map(([k, f]) => [k, f.r])),
+  }])),
+};
+
+const HI_SET: SheetSet = {
+  ...(hiSheets as unknown as Omit<SheetSet, "dir">),
+  dir: `${ASSET_BASE}/units/hi`,
+};
+
+const HI_READY = Object.keys(RIG.groups).every((g) => g in HI_SET.groups);
+const HI_AT = 2.25;
+
+function sheetSet(): SheetSet {
+  if (!HI_READY) return LO_SET;
+  const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+  const { scale } = computeStageSize(Math.max(1, window.innerWidth), Math.max(1, window.innerHeight));
+  return scale * dpr > HI_AT ? HI_SET : LO_SET;
+}
+
+function setFiles(set: SheetSet): string[] {
+  const files = new Set<string>();
+  for (const g of Object.values(set.groups)) {
+    for (const s of g.sheets) files.add(s.file);
+  }
+  return [...files];
+}
 
 const LIMB_GROUP: Readonly<Record<string, string>> = {
   body: "body", waist: "waist",
@@ -106,7 +147,9 @@ function weaponFrame(labels: Record<string, number>, id: string | undefined, rar
 export interface BakedTex {
   tex: Texture;
   rec: FrameRec;
-  cell: [number, number];
+  ax: number;
+  ay: number;
+  scale: number;
 }
 
 const GLOW_FRAG = `
@@ -235,10 +278,12 @@ async function loadClassIcons(): Promise<void> {
 }
 
 export class HeroArt {
-  private readonly sheets = new Map<string, Texture>();
+  private readonly set: SheetSet;
+  private readonly sheets: Map<string, Texture>;
   private readonly cache = new Map<string, Texture>();
 
-  constructor(sheets: Map<string, Texture>) {
+  constructor(set: SheetSet, sheets: Map<string, Texture>) {
+    this.set = set;
     this.sheets = sheets;
   }
 
@@ -247,25 +292,19 @@ export class HeroArt {
   }
 
   texture(group: string, frame: number): BakedTex | null {
-    const g = RIG.groups[group];
-    const rec = g?.frames[String(frame)];
-    if (!g || !rec) return null;
+    const rec = RIG.groups[group]?.frames[String(frame)];
+    const g = this.set.groups[group];
+    const r = g?.frames[String(frame)];
+    if (!rec || !r) return null;
     const key = `${group}:${frame}`;
     let tex = this.cache.get(key);
     if (!tex) {
-      const page = Math.floor(rec.i / g.perPage);
-      const sheet = this.sheets.get(g.sheets[page]?.file ?? "");
+      const sheet = this.sheets.get(g.sheets[r[0]]?.file ?? "");
       if (!sheet) return null;
-      const local = rec.i % g.perPage;
-      const col = local % g.cols;
-      const row = Math.floor(local / g.cols);
-      tex = new Texture({
-        source: sheet.source,
-        frame: new Rectangle(col * g.cell[0], row * g.cell[1], g.cell[0], g.cell[1]),
-      });
+      tex = new Texture({ source: sheet.source, frame: new Rectangle(r[1], r[2], r[3], r[4]) });
       this.cache.set(key, tex);
     }
-    return { tex, rec, cell: g.cell };
+    return { tex, rec, ax: r[5] / r[3], ay: r[6] / r[4], scale: this.set.scale };
   }
 
   sprite(): HeroSprite {
@@ -273,34 +312,40 @@ export class HeroArt {
   }
 }
 
-let cached: HeroArt | null = null;
+const loaded = new Map<SheetSet, HeroArt>();
 
 export function heroArtUrls(): string[] {
-  const files = new Set<string>();
-  for (const g of Object.values(RIG.groups)) {
-    for (const s of g.sheets) files.add(`${ASSET_BASE}/units/${s.file}?v=${ASSET_V}`);
-  }
-  for (const cls of CLASS_IDS) files.add(`ui/hud/icon_${cls}.png`);
-  return [...files];
+  const set = sheetSet();
+  const files = setFiles(set).map((f) => `${set.dir}/${f}?v=${ASSET_V}`);
+  for (const cls of CLASS_IDS) files.push(`ui/hud/icon_${cls}.png`);
+  return files;
 }
 
-export async function loadHero(): Promise<HeroArt> {
-  if (cached) return cached;
-  const files = new Set<string>();
-  for (const g of Object.values(RIG.groups)) {
-    for (const s of g.sheets) files.add(s.file);
-  }
+async function loadSet(set: SheetSet): Promise<HeroArt> {
+  const done = loaded.get(set);
+  if (done) return done;
   const [entries] = await Promise.all([
     Promise.all(
-      [...files].map(async (f) => {
-        const tex = await Assets.load<Texture>(`${ASSET_BASE}/units/${f}?v=${ASSET_V}`);
+      setFiles(set).map(async (f) => {
+        const tex = await Assets.load<Texture>(`${set.dir}/${f}?v=${ASSET_V}`);
         return [f, tex] as const;
       }),
     ),
     loadClassIcons(),
   ]);
-  cached = new HeroArt(new Map(entries));
-  return cached;
+  const art = new HeroArt(set, new Map(entries));
+  loaded.set(set, art);
+  return art;
+}
+
+export async function loadHero(): Promise<HeroArt> {
+  const set = sheetSet();
+  if (set === LO_SET) return loadSet(LO_SET);
+  try {
+    return await loadSet(set);
+  } catch {
+    return loadSet(LO_SET);
+  }
 }
 
 export class HeroSprite extends Container {
@@ -656,8 +701,8 @@ export class HeroSprite extends Container {
       this.rig.addChild(sp);
     }
     sp.texture = baked.tex;
-    sp.anchor.set(baked.rec.ox / baked.cell[0], baked.rec.oy / baked.cell[1]);
-    const s = RIG.scale || 1;
+    sp.anchor.set(baked.ax, baked.ay);
+    const s = baked.scale;
     sp.setFromMatrix(new Matrix(
       m[0] / s, m[1] / s, m[2] / s, m[3] / s, m[4], m[5]));
     sp.visible = true;

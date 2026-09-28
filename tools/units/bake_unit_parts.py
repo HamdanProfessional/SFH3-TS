@@ -3,7 +3,6 @@ from __future__ import annotations
 
 import glob
 import json
-import math
 import os
 import re
 import sys
@@ -11,6 +10,7 @@ import xml.etree.ElementTree as ET
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import gunlayer
+import sheetpack
 import svgraster as R
 import swflabels as L
 
@@ -19,8 +19,10 @@ from PIL import Image
 SC = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.normpath(os.path.join(SC, "..", ".."))
 SPR = os.path.normpath(os.path.join(REPO, "..", "sfh3_decompiled", "sprites"))
-OUT = os.path.join(REPO, "public", "assets", "units")
+HI = "--hi" in sys.argv
+OUT = os.path.join(REPO, "public", "assets", "units", *(["hi"] if HI else []))
 RIG = os.path.join(REPO, "src", "assets", "unitAnim.json")
+HI_LAYOUT = os.path.join(REPO, "src", "assets", "unitSheetsHi.json")
 TMP = os.path.join(OUT, "_tmp")
 
 UNITMC_CID = 1970
@@ -57,10 +59,8 @@ COSTUME_FRAMES = sorted({b + c - 1 for b in BASE_FRAMES for c in range(1, 7)})
 NUM = r"[-0-9.eE]+"
 MAT = re.compile(r"matrix\(([^)]*)\)")
 XLINK = "{http://www.w3.org/1999/xlink}href"
-MARGIN = 2
-MAX_SHEET = 4096
 
-SUPERSAMPLE = 2
+SUPERSAMPLE = 4 if HI else 2
 DSF = R.BASE_DSF * SUPERSAMPLE
 
 
@@ -198,43 +198,16 @@ class Pack:
         return True
 
     def flush(self) -> dict:
-        if not self.items:
-            return {"cell": [1, 1], "cols": 1, "perPage": 1, "sheets": [], "frames": {}}
-        minx = min(-it["ox"] for it in self.items)
-        miny = min(-it["oy"] for it in self.items)
-        maxx = max(it["W"] - it["ox"] for it in self.items)
-        maxy = max(it["H"] - it["oy"] for it in self.items)
-        cw = int(math.ceil(maxx - minx)) + 2 * MARGIN
-        ch = int(math.ceil(maxy - miny)) + 2 * MARGIN
-        cols = max(1, min(MAX_SHEET // cw, len(self.items)))
-        rows = max(1, MAX_SHEET // ch)
-        per_page = cols * rows
-        pages = math.ceil(len(self.items) / per_page)
-        sheets = []
-        records = {}
-        for p in range(pages):
-            n = min(per_page, len(self.items) - p * per_page)
-            rr = math.ceil(n / cols)
-            im = Image.new("RGBA", (cols * cw, rr * ch), (0, 0, 0, 0))
-            for j in range(n):
-                it = self.items[p * per_page + j]
-                frame = Image.open(it["path"]).convert("RGBA")
-                x = (j % cols) * cw + int(round(-it["ox"] - minx)) + MARGIN
-                y = (j // cols) * ch + int(round(-it["oy"] - miny)) + MARGIN
-                im.paste(frame, (x, y), frame)
-                records[it["key"]] = {
-                    "i": p * per_page + j,
-                    "ox": round(-minx + MARGIN, 2), "oy": round(-miny + MARGIN, 2),
-                    **it["extra"],
-                }
-            rel = f"hero_{self.name}_{p}.png"
-            im.save(os.path.join(OUT, rel))
-            sheets.append({"file": rel, "w": im.width, "h": im.height})
-            print(f"    {self.name} page {p}: {im.width}x{im.height} ({n} cells)")
+        items = []
         for it in self.items:
+            im, ax, ay = sheetpack.trimmed(Image.open(it["path"]), it["ox"], it["oy"])
+            items.append({"key": it["key"], "im": im, "ax": ax, "ay": ay})
             os.remove(it["path"])
-        return {"cell": [cw, ch], "cols": cols, "perPage": per_page,
-                "sheets": sheets, "frames": records}
+        sheets, rects = sheetpack.pack(items, OUT, f"hero_{self.name}")
+        for p, sh in enumerate(sheets):
+            print(f"    {self.name} page {p}: {sh['w']}x{sh['h']}")
+        return {"sheets": sheets,
+                "frames": {it["key"]: {"r": rects[it["key"]], **it["extra"]} for it in self.items}}
 
 
 def add_part_frames(pack: Pack, pg, name: str, cid: int):
@@ -373,13 +346,17 @@ def main():
     import shutil
     shutil.rmtree(TMP, ignore_errors=True)
 
+    if HI:
+        write_hi_layout(groups)
+        return
     rig = {
         "note": ("In-game hero rig (`UnitMC`, symbol 1970). `timeline` holds the "
                  "top-level placements per SWF frame; `groups` holds packed part "
-                 "atlases keyed by frame. Limb/head frames carry the nested "
-                 "`skin`/`gun`/`face`/`hair` placements `Stats_Classes.setSkin` "
-                 "recolours. Cell/origin pixels are `scale` times the clip-local "
-                 "unit; divide the rig matrix by `scale` to place them."),
+                 "atlases keyed by frame. Each frame's `r` is [page, x, y, w, h, "
+                 "anchorX, anchorY] in sheet pixels, trimmed to the art. Limb/head "
+                 "frames carry the nested `skin`/`gun`/`face`/`hair` placements "
+                 "`Stats_Classes.setSkin` recolours. Sheet pixels are `scale` times "
+                 "the clip-local unit; divide the rig matrix by `scale` to place them."),
         "scale": SUPERSAMPLE,
         "timeline": timeline,
         "groups": groups,
@@ -395,6 +372,25 @@ def main():
                if f.endswith(".png"))
     print(f"\nwrote {done} frames in {len([g for g in groups])} groups -> {RIG}")
     print(f"pages {size // 1024} KB in {OUT}")
+
+
+def write_hi_layout(groups: dict) -> None:
+    with open(RIG, encoding="utf-8") as fh:
+        lo = json.load(fh)["groups"]
+    for name, g in lo.items():
+        missing = set(g["frames"]) - set(groups.get(name, {}).get("frames", {}))
+        if missing:
+            raise SystemExit(f"hi bake is missing {name} frames {sorted(missing)[:8]}")
+    layout = {
+        "scale": SUPERSAMPLE,
+        "groups": {name: {"sheets": g["sheets"],
+                          "frames": {k: f["r"] for k, f in g["frames"].items()}}
+                   for name, g in groups.items()},
+    }
+    with open(HI_LAYOUT, "w", encoding="utf-8") as fh:
+        json.dump(layout, fh, separators=(",", ":"))
+    texels = sum(sh["w"] * sh["h"] for g in groups.values() for sh in g["sheets"])
+    print(f"wrote {HI_LAYOUT}: {texels / 1e6:.1f}M texels")
 
 
 if __name__ == "__main__":

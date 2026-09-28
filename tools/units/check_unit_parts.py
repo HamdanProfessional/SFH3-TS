@@ -29,14 +29,10 @@ def cell_image(group: str, frame) -> Image.Image | None:
     rec = frame_rec(group, frame)
     if not rec:
         return None
-    g = RIG["groups"][group]
-    cw, ch = g["cell"]
-    page = rec["i"] // g["perPage"]
-    sheet = g["sheets"][page]
-    local = rec["i"] % g["perPage"]
-    col, row = local % g["cols"], local // g["cols"]
+    p, x, y, w, h = rec["r"][:5]
+    sheet = RIG["groups"][group]["sheets"][p]
     im = Image.open(os.path.join(OUT, sheet["file"])).convert("RGBA")
-    return im.crop((col * cw, row * ch, (col + 1) * cw, (row + 1) * ch))
+    return im.crop((x, y, x + w, y + h))
 
 
 def mul(inner, outer):
@@ -59,8 +55,9 @@ def draw(canvas: Image.Image, group: str, frame, m, ox, oy):
     ia, ib, ic, id_ = d / det, -b / det, -c / det, a / det
     ie = (c * f - d * e) / det
     if_ = (b * e - a * f) / det
-    data = (ia, ic, ie + rec["ox"] - ia * ox - ic * oy,
-            ib, id_, if_ + rec["oy"] - ib * ox - id_ * oy)
+    ax, ay = rec["r"][5], rec["r"][6]
+    data = (ia, ic, ie + ax - ia * ox - ic * oy,
+            ib, id_, if_ + ay - ib * ox - id_ * oy)
     layer = cell.transform(size, Image.AFFINE, data, resample=Image.BICUBIC)
     canvas.alpha_composite(layer)
 
