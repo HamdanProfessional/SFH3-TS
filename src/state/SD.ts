@@ -10,8 +10,10 @@ import * as Guns from "../data/StatsGuns";
 import * as Perks from "../data/StatsPerks";
 import * as Classes from "../data/StatsClasses";
 import { MAX_LVL, MAX_MISSION } from "../data/StatsMisc";
+import { repairSave } from "./repairSave";
 
 const STORAGE_KEY = "sfh3.save";
+const BROKEN_KEY = "sfh3.save.broken";
 export const SCHEMA = 2;
 
 export const MAX_HEROES = 15;
@@ -574,17 +576,15 @@ class SaveData {
     };
   }
 
-  fromBlob(ob: SaveBlob): void {
+  fromBlob(raw: SaveBlob): void {
+    const ob = repairSave(raw);
     this.heroes = ob.heroes.map(loadHero);
     this.selHero = ob.selHero;
     this.squad = ob.squad;
-    this.items = (Array.isArray(ob.items) ? ob.items : [])
-      .map((b) => (Array.isArray(b) ? b : []).map(loadItem).filter(knownItem));
-    while (this.items.length < 13) this.items.push([]);
+    this.items = ob.items.map((b) => b.map(loadItem));
     this.funds = ob.funds;
     this.day = ob.day;
-    this.stages = Array.isArray(ob.stages) && ob.stages.length
-      ? ob.stages.slice(0, MAX_MISSION) : [0];
+    this.stages = ob.stages.length ? ob.stages.slice(0, MAX_MISSION) : [0];
     this.bpClasses = ob.bpClasses;
     this.uniqueClasses = ob.uniqueClasses;
     this.bpOwned = ob.bpOwned;
@@ -596,9 +596,8 @@ class SaveData {
                                              Math.floor(ob.storageLevel ?? 0) || 0));
     this.lastDaily = ob.lastDaily;
     this.mapItem = ob.mapItem.map((v) =>
-      typeof v === "string" || typeof v === "number" ? v : GunInfo.loadObject(v))
-      .filter((v) => !(v instanceof GunInfo) || knownItem(v));
-    this.storeItems = ob.storeItems.map(loadItem).filter(knownItem);
+      typeof v === "string" || typeof v === "number" ? v : GunInfo.loadObject(v));
+    this.storeItems = ob.storeItems.map(loadItem);
     this.storeOrder = ob.storeOrder;
     this.achievements = ob.achievements;
     this.achOb = ob.achOb;
@@ -632,15 +631,17 @@ class SaveData {
     }
     try {
       const ob = JSON.parse(raw) as SaveBlob;
-      if (ob.schema !== SCHEMA) {
-        this.newGame();
-        return;
+      if (ob.schema === SCHEMA) {
+        this.fromBlob(ob);
+        if (this.heroes.length) return;
       }
-      this.fromBlob(ob);
-      if (!this.heroes.length) this.newGame();
     } catch {
-      this.newGame();
     }
+    try {
+      localStorage.setItem(BROKEN_KEY, raw);
+    } catch {
+    }
+    this.newGame();
   }
 }
 
@@ -657,6 +658,7 @@ function saveHero(h: UnitInfo): Record<string, unknown> {
 
 function loadHero(ob: Record<string, unknown>): UnitInfo {
   const info = UnitInfo.loadObject(ob);
+  if (!info.perks.length) info.randomPerks();
   if (info.primary) info.primary = GunInfo.loadObject(info.primary as GunInfoSave);
   if (info.secondary) info.secondary = GunInfo.loadObject(info.secondary as GunInfoSave);
   info.devHero = hasDevFace(info);
@@ -671,9 +673,6 @@ function loadItem(v: GunInfoSave | string): InvItem {
   return typeof v === "string" ? v : GunInfo.loadObject(v);
 }
 
-function knownItem(v: InvItem): boolean {
-  return typeof v === "string" || !!Guns.itemOb[v.id];
-}
 
 export const SD = new SaveData();
 bindControls(() => SD.options, () => SD.save());
