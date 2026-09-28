@@ -9,6 +9,9 @@ const ENTER = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none" strok
 const EXIT = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#fff" '
   + 'stroke-width="2"><path d="M6 1v5H1M17 6h-5V1M12 17v-5h5M1 12h5v5"/></svg>';
 
+const ARROW = '<svg width="34" height="44" viewBox="0 0 34 44" fill="none" stroke="#ffcc00" '
+  + 'stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 42V4M4 17 17 4l13 13"/></svg>';
+
 const TIP_KEY = "sfh3.homeTip";
 
 function isIOS(): boolean {
@@ -22,11 +25,21 @@ function installed(): boolean {
     || matchMedia("(display-mode: fullscreen)").matches;
 }
 
+function barsShowing(): boolean {
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  if (h >= w) return false;
+  return h < Math.min(screen.width, screen.height) - 12;
+}
+
 class FullscreenToggle {
   private el: HTMLDivElement | null = null;
   private tip: HTMLDivElement | null = null;
   private shown = true;
   private homeScreenOnly = false;
+  private swipe: HTMLDivElement | null = null;
+  private swipeSkipped = false;
+  private swipeTimer = 0;
 
   install(): void {
     const doc = document as FsDoc;
@@ -56,17 +69,81 @@ class FullscreenToggle {
     this.el = el;
     this.paint();
     if (this.homeScreenOnly) {
+      this.installSwipe();
       let seen = false;
       try { seen = localStorage.getItem(TIP_KEY) === "1"; } catch { seen = true; }
       if (!seen) {
         const first = () => {
           window.removeEventListener("pointerdown", first, true);
-          window.setTimeout(() => this.showTip(8000), 600);
+          if (this.swipe?.style.display !== "flex") window.setTimeout(() => this.showTip(8000), 600);
           try { localStorage.setItem(TIP_KEY, "1"); } catch { return; }
         };
         window.addEventListener("pointerdown", first, true);
       }
     }
+  }
+
+  private installSwipe(): void {
+    const html = document.documentElement.style;
+    html.height = "auto";
+    html.overflowX = "hidden";
+    html.overflowY = "auto";
+    const body = document.body.style;
+    body.height = "auto";
+    body.overflow = "visible";
+    body.minHeight = "calc(100vh + 240px)";
+    const box = document.createElement("div");
+    box.style.cssText = "position:fixed;inset:0;z-index:35;display:none;flex-direction:column;"
+      + "align-items:center;justify-content:center;gap:10px;padding:16px;box-sizing:border-box;"
+      + "background:rgba(0,0,0,0.72);color:#fff;text-align:center;touch-action:pan-y;"
+      + "font:13px/1.4 QTypeSquare-Bold, Verdana, sans-serif;user-select:none;-webkit-user-select:none;";
+    const arrow = document.createElement("div");
+    arrow.innerHTML = ARROW;
+    const title = document.createElement("div");
+    title.style.cssText = "font-size:20px;color:#ffcc00;";
+    title.textContent = "Swipe up for full screen";
+    const sub = document.createElement("div");
+    sub.style.cssText = "max-width:360px;opacity:0.85;";
+    sub.innerHTML = "That tucks Safari's bar away. For no bars at all, tap <b>Share</b> and "
+      + "<b>Add to Home Screen</b>, then play from the icon.<br><span style=\"opacity:0.7\">Tap to skip</span>";
+    box.append(arrow, title, sub);
+    arrow.animate([{ transform: "translateY(10px)" }, { transform: "translateY(-10px)" }],
+      { duration: 800, iterations: Infinity, direction: "alternate", easing: "ease-in-out" });
+    let sx = 0;
+    let sy = 0;
+    box.addEventListener("pointerdown", (e) => { sx = e.clientX; sy = e.clientY; });
+    box.addEventListener("pointerup", (e) => {
+      if (Math.abs(e.clientX - sx) < 10 && Math.abs(e.clientY - sy) < 10) {
+        this.swipeSkipped = true;
+        this.paintSwipe();
+      }
+    });
+    box.addEventListener("mousedown", (e) => e.stopPropagation());
+    document.body.appendChild(box);
+    this.swipe = box;
+    const check = () => this.paintSwipe();
+    window.addEventListener("resize", check);
+    window.visualViewport?.addEventListener("resize", check);
+    window.addEventListener("orientationchange", () => {
+      for (const ms of [120, 400, 900]) window.setTimeout(check, ms);
+    });
+    window.addEventListener("scroll", () => {
+      check();
+      clearTimeout(this.swipeTimer);
+      this.swipeTimer = window.setTimeout(() => {
+        if (window.scrollY > 0 && barsShowing()) {
+          this.swipeSkipped = true;
+          this.paintSwipe();
+        }
+      }, 900);
+    }, { passive: true });
+    check();
+  }
+
+  private paintSwipe(): void {
+    if (!this.swipe) return;
+    const show = !this.swipeSkipped && !Input.playing && barsShowing();
+    this.swipe.style.display = show ? "flex" : "none";
   }
 
   private showTip(autoHide = 0): void {
@@ -103,6 +180,7 @@ class FullscreenToggle {
     if (show === this.shown) return;
     this.shown = show;
     this.el.style.display = show ? "flex" : "none";
+    this.paintSwipe();
   }
 
   private paint(): void {

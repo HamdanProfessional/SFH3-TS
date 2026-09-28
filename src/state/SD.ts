@@ -436,7 +436,9 @@ class SaveData {
   }
 
   bucketOf(item: InvItem): number {
-    return typeof item === "string" ? Perks.getGunType(item) : item.stats.type;
+    if (typeof item === "string") return Perks.getGunType(item);
+    const t = item.stats?.type;
+    return Number.isInteger(t) && t >= 0 && t < 13 ? t : 13;
   }
 
   priceOf(item: InvItem): number {
@@ -576,7 +578,9 @@ class SaveData {
     this.heroes = ob.heroes.map(loadHero);
     this.selHero = ob.selHero;
     this.squad = ob.squad;
-    this.items = ob.items.map((b) => b.map(loadItem));
+    this.items = (Array.isArray(ob.items) ? ob.items : [])
+      .map((b) => (Array.isArray(b) ? b : []).map(loadItem).filter(knownItem));
+    while (this.items.length < 13) this.items.push([]);
     this.funds = ob.funds;
     this.day = ob.day;
     this.stages = Array.isArray(ob.stages) && ob.stages.length
@@ -592,8 +596,9 @@ class SaveData {
                                              Math.floor(ob.storageLevel ?? 0) || 0));
     this.lastDaily = ob.lastDaily;
     this.mapItem = ob.mapItem.map((v) =>
-      typeof v === "string" || typeof v === "number" ? v : GunInfo.loadObject(v));
-    this.storeItems = ob.storeItems.map(loadItem);
+      typeof v === "string" || typeof v === "number" ? v : GunInfo.loadObject(v))
+      .filter((v) => !(v instanceof GunInfo) || knownItem(v));
+    this.storeItems = ob.storeItems.map(loadItem).filter(knownItem);
     this.storeOrder = ob.storeOrder;
     this.achievements = ob.achievements;
     this.achOb = ob.achOb;
@@ -664,6 +669,10 @@ function saveItem(v: InvItem): GunInfoSave | string {
 
 function loadItem(v: GunInfoSave | string): InvItem {
   return typeof v === "string" ? v : GunInfo.loadObject(v);
+}
+
+function knownItem(v: InvItem): boolean {
+  return typeof v === "string" || !!Guns.itemOb[v.id];
 }
 
 export const SD = new SaveData();
