@@ -1,5 +1,7 @@
 import { Assets, Texture } from "pixi.js";
-import { fillCache, manifestFiles } from "./menuParts";
+import { ASSET_V } from "../core/Config";
+import { screenDensity } from "../core/device";
+import { manifestFiles } from "./menuParts";
 import rig from "./menuRig.json";
 import info from "./menuInfo.json";
 
@@ -45,6 +47,7 @@ interface MenuRigData {
   gunLabels: Record<string, number>;
   animLabels: Record<string, number>;
   shadow: TexRec;
+  hi?: string;
 }
 
 export interface InfoField {
@@ -66,20 +69,33 @@ const R = rig as unknown as MenuRigData;
 const INFO = info as unknown as Record<string, InfoRec> & { bar?: TexRec };
 
 const BASE = "assets/menu-parts/";
+const RIG_FILES = manifestFiles(R);
+const MENU_HI_AT = 1.25;
 const cache = new Map<string, Texture>();
 const pending = new Map<string, Promise<unknown>>();
 let epoch = 0;
+let hiMenu: boolean | null = null;
+
+function url(file: string): string {
+  hiMenu ??= !!R.hi && screenDensity() > MENU_HI_AT;
+  return `${BASE}${hiMenu && RIG_FILES.has(file) ? R.hi : ""}${file}?v=${ASSET_V}`;
+}
 
 export function rigEpoch(): number {
   return epoch;
 }
 
 export function rigArtUrls(): string[] {
-  return [...manifestFiles(INFO, manifestFiles(R))].map((f) => BASE + f);
+  return [...manifestFiles(INFO, manifestFiles(R))].map(url);
 }
 
 export async function loadRigArt(): Promise<void> {
-  await fillCache(BASE, manifestFiles(INFO, manifestFiles(R)), cache);
+  await Promise.all([...manifestFiles(INFO, manifestFiles(R))].map(async (f) => {
+    if (cache.has(f)) return;
+    try {
+      cache.set(f, await Assets.load<Texture>(url(f)));
+    } catch {}
+  }));
   epoch++;
 }
 
@@ -96,7 +112,7 @@ export const MenuRig = {
     const hit = cache.get(rec.file);
     if (hit) return hit;
     if (!pending.has(rec.file)) {
-      pending.set(rec.file, Assets.load<Texture>(`${BASE}${rec.file}`)
+      pending.set(rec.file, Assets.load<Texture>(url(rec.file))
         .then((t) => { cache.set(rec.file, t); epoch++; })
         .catch(() => void pending.delete(rec.file)));
     }

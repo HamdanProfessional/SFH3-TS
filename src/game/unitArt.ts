@@ -2,8 +2,8 @@ import {
   Assets, BlurFilter, Container, Filter, GlProgram, Matrix, Rectangle, Sprite,
   Text, TextStyle, Texture, UniformGroup, defaultFilterVert,
 } from "pixi.js";
-import { ASSET_BASE, ASSET_V, computeStageSize } from "../core/Config";
-import { MAX_DPR } from "../core/device";
+import { ASSET_BASE, ASSET_V } from "../core/Config";
+import { screenDensity } from "../core/device";
 import { UT } from "../core/UT";
 import type { Unit } from "./Unit";
 import type { FilterSpec } from "./types";
@@ -83,10 +83,7 @@ const HI_READY = Object.keys(RIG.groups).every((g) => g in HI_SET.groups);
 const HI_AT = 2.25;
 
 function sheetSet(): SheetSet {
-  if (!HI_READY) return LO_SET;
-  const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
-  const { scale } = computeStageSize(Math.max(1, window.innerWidth), Math.max(1, window.innerHeight));
-  return scale * dpr > HI_AT ? HI_SET : LO_SET;
+  return HI_READY && screenDensity() > HI_AT ? HI_SET : LO_SET;
 }
 
 function setFiles(set: SheetSet): string[] {

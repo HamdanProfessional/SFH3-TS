@@ -19,9 +19,12 @@ import swflabels as L
 
 REPO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 OUT_PNG = os.path.join(REPO, "public", "assets", "menu-parts")
+HI_DIR = "hi"
 OUT_JSON = os.path.join(REPO, "src", "assets", "menuRig.json")
 
 SUPERSAMPLE = 2
+HI = 2
+RENDER = os.path.join(tempfile.gettempdir(), "sfh3_menu_render.png")
 
 UNIT_CID = 2090
 SHADOW_CID = 2089
@@ -92,6 +95,37 @@ def art_bbox(png: str, rec: dict):
             round((bb[2] - bb[0]) * k, 2), round((bb[3] - bb[1]) * k, 2)]
 
 
+def finish(src: str, rel: str, w: float, h: float, ox: float, oy: float,
+           with_bb=False) -> dict:
+    from PIL import Image
+    hi = Image.open(src).convert("RGBA")
+    ew, eh = hi.width + hi.width % HI, hi.height + hi.height % HI
+    if (ew, eh) != hi.size:
+        even = Image.new("RGBA", (ew, eh), (0, 0, 0, 0))
+        even.paste(hi, (0, 0))
+        hi = even
+    lo = hi.convert("RGBa").reduce(HI).convert("RGBA")
+    tight = lo.getchannel("A").getbbox()
+    box = (0, 0, 1, 1) if not tight else (
+        max(0, tight[0] - 1), max(0, tight[1] - 1),
+        min(lo.width, tight[2] + 1), min(lo.height, tight[3] + 1))
+    kx, ky = w / lo.width, h / lo.height
+    for base, im, k in ((OUT_PNG, lo, 1), (os.path.join(OUT_PNG, HI_DIR), hi, HI)):
+        out = os.path.join(base, rel)
+        os.makedirs(os.path.dirname(out), exist_ok=True)
+        im.crop(tuple(v * k for v in box)).save(out)
+    rec = {
+        "file": rel.replace("\\", "/"),
+        "w": round((box[2] - box[0]) * kx, 2), "h": round((box[3] - box[1]) * ky, 2),
+        "ox": round(ox - box[0] * kx, 2), "oy": round(oy - box[1] * ky, 2),
+    }
+    if with_bb:
+        bb = art_bbox(os.path.join(OUT_PNG, rel), rec)
+        if bb:
+            rec["bb"] = bb
+    return rec
+
+
 def bake(pg, cid: int, frame: int, rel: str, hide_cids=(), svg_text=None,
          trim=False):
     path = os.path.join(sprite_dir(cid), f"{frame}.svg")
@@ -101,19 +135,9 @@ def bake(pg, cid: int, frame: int, rel: str, hide_cids=(), svg_text=None,
     tx, ty = R.stage_origin(svg)
     m = re.search(r'<svg[^>]*?height="([\d.]+)px"[^>]*?width="([\d.]+)px"', svg)
     w, h = float(m.group(2)), float(m.group(1))
-    out = os.path.join(OUT_PNG, rel)
-    os.makedirs(os.path.dirname(out), exist_ok=True)
-    R.render(pg, svg, out, rect=(0, 0, w, h), hide_cids=[str(c) for c in hide_cids])
-    rec = {
-        "file": rel.replace("\\", "/"),
-        "w": round(w * 2, 2), "h": round(h * 2, 2),
-        "ox": round(tx * 2, 2), "oy": round(ty * 2, 2),
-    }
-    if trim:
-        bb = art_bbox(out, rec)
-        if bb:
-            rec["bb"] = bb
-    return rec
+    R.render(pg, svg, RENDER, rect=(0, 0, w, h), hide_cids=[str(c) for c in hide_cids])
+    return finish(RENDER, rel, round(w * 2, 2), round(h * 2, 2),
+                  round(tx * 2, 2), round(ty * 2, 2), with_bb=trim)
 
 
 def parse_timeline():
@@ -196,17 +220,14 @@ def bake_shadow(pg):
             f'<defs>{grad.group(0)}</defs>'
             f'<g transform="matrix(0.5,0,0,0.5,{-minx * 0.5},{-miny * 0.5})">{path}</g></svg>')
     rel = "shadow.png"
-    out = os.path.join(OUT_PNG, rel)
-    os.makedirs(OUT_PNG, exist_ok=True)
     pg.set_viewport_size({"width": max(8, round(bw / 2) + 4), "height": max(8, round(bh / 2) + 4)})
     pg.set_content('<body style="margin:0;background:transparent">'
                    f'<img src="data:image/svg+xml;base64,{base64.b64encode(body.encode()).decode()}" '
                    f'width="{bw / 2}" height="{bh / 2}"></body>')
     pg.wait_for_selector("img")
-    pg.query_selector("img").screenshot(path=out, omit_background=True)
+    pg.query_selector("img").screenshot(path=RENDER, omit_background=True)
     pg.set_content(R.PAGE)
-    return {"file": rel, "w": round(bw, 2), "h": round(bh, 2),
-            "ox": round(-minx, 2), "oy": round(-miny, 2)}
+    return finish(RENDER, rel, round(bw, 2), round(bh, 2), round(-minx, 2), round(-miny, 2))
 
 
 def main():
@@ -232,6 +253,7 @@ def main():
                  "Divide the placement by `scale` (or fold `rec.w / width`) when "
                  "drawing a raw texture."),
         "scale": SUPERSAMPLE,
+        "hi": f"{HI_DIR}/",
         "timeline": {"frames": timeline},
         "costumeFrames": COSTUME_FRAMES,
         "parts": {}, "heads": {}, "faces": {}, "skins": {}, "hairs": {},
@@ -241,7 +263,7 @@ def main():
     tmp = tempfile.mkdtemp(prefix="gunlayer_")
     from playwright.sync_api import sync_playwright
     with sync_playwright() as pw:
-        b, pg = R.open_page(pw, supersample=SUPERSAMPLE)
+        b, pg = R.open_page(pw, supersample=SUPERSAMPLE * HI)
         done = 0
 
         rig["shadow"] = bake_shadow(pg)

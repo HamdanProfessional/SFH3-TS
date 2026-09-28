@@ -1,7 +1,12 @@
+import { computeStageSize } from "./Config";
+
 interface Hints {
   matchMedia?: (q: string) => { matches: boolean };
   screen?: { width: number; height: number };
   navigator?: { hardwareConcurrency?: number; deviceMemory?: number; maxTouchPoints?: number };
+  devicePixelRatio?: number;
+  innerWidth?: number;
+  innerHeight?: number;
 }
 const g = globalThis as Hints;
 const browser = typeof g.matchMedia === "function";
@@ -29,3 +34,10 @@ export const isLowPower: boolean = isPhone || (browser && (
 ));
 
 export const MAX_DPR = isPhone ? 1.5 : Infinity;
+
+export function screenDensity(): number {
+  if (!browser) return 1;
+  const dpr = Math.min(g.devicePixelRatio || 1, MAX_DPR);
+  const { scale } = computeStageSize(Math.max(1, g.innerWidth ?? 1), Math.max(1, g.innerHeight ?? 1));
+  return scale * dpr;
+}
