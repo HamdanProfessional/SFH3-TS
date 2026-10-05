@@ -38,35 +38,47 @@ function sized(svg: string, sw: number, sh: number, scale: number): string {
   return root + svg.slice(end);
 }
 
-export async function rasterSvg(c: SvgCrop, scale: number): Promise<ArtTile[]> {
-  const res = await fetch(c.url);
-  if (!res.ok) throw new Error(`${c.url}: ${res.status}`);
-  const blob = new Blob([sized(await res.text(), c.sw, c.sh, scale)], { type: "image/svg+xml" });
+export async function svgImage(url: string, sw: number, sh: number, scale: number): Promise<HTMLImageElement> {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`${url}: ${res.status}`);
+  const blob = new Blob([sized(await res.text(), sw, sh, scale)], { type: "image/svg+xml" });
   const src = URL.createObjectURL(blob);
   try {
     const img = new Image();
     img.src = src;
     await img.decode();
-    const W = Math.ceil(c.w * scale);
-    const H = Math.ceil(c.h * scale);
-    const out: ArtTile[] = [];
-    for (let ty = 0; ty < H; ty += SVG_TILE) {
-      for (let tx = 0; tx < W; tx += SVG_TILE) {
-        const canvas = document.createElement("canvas");
-        canvas.width = Math.min(SVG_TILE, W - tx);
-        canvas.height = Math.min(SVG_TILE, H - ty);
-        const g = canvas.getContext("2d");
-        if (!g) throw new Error("no 2d canvas");
-        g.drawImage(img, -c.x * scale - tx, -c.y * scale - ty, c.sw * scale, c.sh * scale);
-        out.push({
-          tex: new Texture({ source: new CanvasSource({ resource: canvas, resolution: scale }) }),
-          x: tx / scale,
-          y: ty / scale,
-        });
-      }
-    }
-    return out;
+    return img;
   } finally {
     URL.revokeObjectURL(src);
   }
+}
+
+export function tiledCanvas(w: number, h: number, scale: number,
+                            draw: (g: CanvasRenderingContext2D) => void): ArtTile[] {
+  const W = Math.ceil(w * scale);
+  const H = Math.ceil(h * scale);
+  const out: ArtTile[] = [];
+  for (let ty = 0; ty < H; ty += SVG_TILE) {
+    for (let tx = 0; tx < W; tx += SVG_TILE) {
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.min(SVG_TILE, W - tx);
+      canvas.height = Math.min(SVG_TILE, H - ty);
+      const g = canvas.getContext("2d");
+      if (!g) throw new Error("no 2d canvas");
+      g.translate(-tx, -ty);
+      g.scale(scale, scale);
+      draw(g);
+      out.push({
+        tex: new Texture({ source: new CanvasSource({ resource: canvas, resolution: scale }) }),
+        x: tx / scale,
+        y: ty / scale,
+      });
+    }
+  }
+  return out;
+}
+
+export async function rasterSvg(c: SvgCrop, scale: number): Promise<ArtTile[]> {
+  const img = await svgImage(c.url, c.sw, c.sh, scale);
+  return tiledCanvas(c.w, c.h, scale, (g) => g.drawImage(img, -c.x, -c.y, c.sw, c.sh));
 }

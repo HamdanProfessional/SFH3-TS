@@ -195,20 +195,19 @@ export interface StockArtRect {
   y: number;
   w: number;
   h: number;
+  svg?: string;
+  sw?: number;
+  sh?: number;
 }
 
 export function stockArtRect(id: string): StockArtRect | null {
   const rec = DATA.maps[id];
   if (!rec) return null;
-  return { url: url(`maps/${rec.image.file}`), x: rec.image.x, y: rec.image.y, w: rec.image.w, h: rec.image.h };
-}
-
-export async function loadStockArt(id: string):
-  Promise<Pick<LoadedMap, "art" | "artX" | "artY" | "width" | "height"> | null> {
-  const r = stockArtRect(id);
-  if (!r) return null;
-  const art = await Assets.load<Texture>(r.url);
-  return { art, artX: r.x, artY: r.y, width: r.w, height: r.h };
+  const a = rec.image;
+  return {
+    url: url(`maps/${a.file}`), x: a.x, y: a.y, w: a.w, h: a.h,
+    ...(a.svg ? { svg: url(`maps/${a.svg}`), sw: a.sw, sh: a.sh } : {}),
+  };
 }
 
 const cache = new Map<string, Promise<LoadedMap>>();

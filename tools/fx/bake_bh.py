@@ -248,6 +248,24 @@ def main():
     argv = sys.argv[1:]
     names = [argv[i + 1] for i, a in enumerate(argv) if a == "--name"]
     bake = float(argv[argv.index("--bake") + 1]) if "--bake" in argv else 1.0
+    budget = float(argv[argv.index("--budget") + 1]) if "--budget" in argv else 0.0
+    prev = json.load(open(RIG, encoding="utf-8")).get("fx", {}) if os.path.exists(RIG) else {}
+
+    def bake_for(name):
+        e = prev.get(name)
+        if not budget or not e or "cells" not in e:
+            return bake
+        old = e.get("bakeScale") or 1.0
+        seen, base = set(), 0.0
+        for c in e["cells"]:
+            key = (c.get("p"), c.get("x"), c.get("y"))
+            if c.get("w") and key not in seen:
+                seen.add(key)
+                base += c["w"] * c["h"] / (old * old)
+        s = 4.0
+        while s > 1.0 and base * s * s > budget:
+            s -= 0.5
+        return max(s, old if old <= 4.0 else 4.0)
     os.makedirs(OUT, exist_ok=True)
 
     buf = S.body()
@@ -300,7 +318,7 @@ def main():
             if key not in baked:
                 got = bake_effect(
                     pg, name, cid, n_rot, sx, sy, fbody, tint,
-                    D.subanims(buf, sp[cid]) if cid in sp else [], bake=bake,
+                    D.subanims(buf, sp[cid]) if cid in sp else [], bake=bake_for(name),
                     base_deg=base_deg)
                 if not got:
                     continue

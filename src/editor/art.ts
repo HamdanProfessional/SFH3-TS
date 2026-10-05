@@ -1,6 +1,7 @@
 import { Assets, Texture } from "pixi.js";
 import { getMap, type MapInfo } from "../data/StatsMaps";
-import { loadBackdrop, loadStockArt, stockArtRect, type LoadedMap } from "../game/maps";
+import { loadBackdrop, stockArtRect, type LoadedMap } from "../game/maps";
+import { svgImage, svgScale, tiledCanvas, useSvgArt, type ArtTile } from "../game/svgArt";
 import { CELL, MAT, MATERIALS, SOLID, type CustomMap, type EdDecal } from "./format";
 import { buildArena } from "./build";
 
@@ -166,22 +167,39 @@ export function customInfo(m: CustomMap): MapInfo {
 }
 
 export function drawDecal(g: CanvasRenderingContext2D, img: CanvasImageSource, d: EdDecal,
-                          ox = 0, oy = 0): void {
+                          ox = 0, oy = 0, k = 1): void {
   g.save();
   g.translate(d.x + ox + (d.fx ? d.sw : 0), d.y + oy + (d.fy ? d.sh : 0));
   g.scale(d.fx ? -1 : 1, d.fy ? -1 : 1);
-  g.drawImage(img, d.sx, d.sy, d.sw, d.sh, 0, 0, d.sw, d.sh);
+  g.drawImage(img, d.sx * k, d.sy * k, d.sw * k, d.sh * k, 0, 0, d.sw, d.sh);
   g.restore();
 }
 
-async function decalImages(decals: readonly EdDecal[]): Promise<Map<string, CanvasImageSource>> {
-  const out = new Map<string, CanvasImageSource>();
-  await Promise.all([...new Set(decals.map((d) => d.src))].map(async (src) => {
-    const r = stockArtRect(src);
-    if (!r) return;
+interface ArtSource {
+  img: CanvasImageSource;
+  k: number;
+  w: number;
+  h: number;
+}
+
+async function stockSource(id: string, scale: number): Promise<ArtSource | null> {
+  const r = stockArtRect(id);
+  if (!r) return null;
+  if (scale > 1 && r.svg && r.sw !== undefined && r.sh !== undefined) {
     try {
-      const tex = await Assets.load<Texture>(r.url);
-      out.set(src, tex.source.resource as CanvasImageSource);
+      return { img: await svgImage(r.svg, r.sw, r.sh, scale), k: scale, w: r.sw, h: r.sh };
+    } catch {}
+  }
+  const tex = await Assets.load<Texture>(r.url);
+  return { img: tex.source.resource as CanvasImageSource, k: 1, w: tex.width, h: tex.height };
+}
+
+async function decalSources(decals: readonly EdDecal[], scale: number): Promise<Map<string, ArtSource>> {
+  const out = new Map<string, ArtSource>();
+  await Promise.all([...new Set(decals.map((d) => d.src))].map(async (src) => {
+    try {
+      const s = await stockSource(src, scale);
+      if (s) out.set(src, s);
     } catch {
       return;
     }
@@ -192,36 +210,40 @@ async function decalImages(decals: readonly EdDecal[]): Promise<Map<string, Canv
 export async function loadCustomMap(m: CustomMap, mode: string): Promise<LoadedMap> {
   const info = customInfo(m);
   const decals = m.decals ?? [];
-  const [backdrop, stock, images] = await Promise.all([
+  const scale = useSvgArt() ? svgScale() : 1;
+  const rect = m.stock && m.stockArt ? stockArtRect(m.stock) : null;
+  const [backdrop, stock, sources] = await Promise.all([
     loadBackdrop(info),
-    m.stock && m.stockArt ? loadStockArt(m.stock).catch(() => null) : Promise.resolve(null),
-    decals.length ? decalImages(decals) : Promise.resolve(new Map<string, CanvasImageSource>()),
+    rect && m.stock ? stockSource(m.stock, scale).catch(() => null) : Promise.resolve(null),
+    decals.length ? decalSources(decals, scale) : Promise.resolve(new Map<string, ArtSource>()),
   ]);
-  let art = stock ? stock.art : null;
-  let artX = stock ? stock.artX : 0;
-  let artY = stock ? stock.artY : 0;
-  if (decals.length) {
+  let art = Texture.EMPTY;
+  let artTiles: ArtTile[] | undefined;
+  let artX = stock && rect ? rect.x : 0;
+  let artY = stock && rect ? rect.y : 0;
+  if (stock || decals.length) {
     const W0 = m.w * CELL;
     const H0 = m.h * CELL;
-    const bx = Math.min(0, artX);
-    const by = Math.min(0, artY);
-    const bw = Math.max(W0, stock ? artX + stock.width : 0) - bx;
-    const bh = Math.max(H0, stock ? artY + stock.height : 0) - by;
-    const c = document.createElement("canvas");
-    c.width = Math.ceil(bw);
-    c.height = Math.ceil(bh);
-    const g = c.getContext("2d")!;
-    if (stock) g.drawImage(stock.art.source.resource as CanvasImageSource, artX - bx, artY - by);
-    else g.drawImage(paintTerrain(m), -bx, -by);
-    for (const d of decals) {
-      const img = images.get(d.src);
-      if (img) drawDecal(g, img, d, -bx, -by);
-    }
-    art = Texture.from(c);
+    const sw = stock && rect ? rect.w : 0;
+    const sh = stock && rect ? rect.h : 0;
+    const bx = decals.length ? Math.min(0, artX) : artX;
+    const by = decals.length ? Math.min(0, artY) : artY;
+    const bw = decals.length ? Math.max(W0, stock ? artX + sw : 0) - bx : sw;
+    const bh = decals.length ? Math.max(H0, stock ? artY + sh : 0) - by : sh;
+    const terrain = stock ? null : paintTerrain(m);
+    artTiles = tiledCanvas(bw, bh, scale, (g) => {
+      if (stock) g.drawImage(stock.img, artX - bx, artY - by, stock.w, stock.h);
+      else if (terrain) g.drawImage(terrain, -bx, -by);
+      for (const d of decals) {
+        const s = sources.get(d.src);
+        if (s) drawDecal(g, s.img, d, -bx, -by, s.k);
+      }
+    });
     artX = bx;
     artY = by;
+  } else {
+    art = Texture.from(paintTerrain(m));
   }
-  if (!art) art = Texture.from(paintTerrain(m));
   const radarTex = Texture.from(paintRadar(m));
   const W = m.w * CELL;
   const H = m.h * CELL;
@@ -230,14 +252,15 @@ export async function loadCustomMap(m: CustomMap, mode: string): Promise<LoadedM
     info,
     def: buildArena(m, mode),
     art,
+    artTiles,
     wallTex: radarTex,
     wallW: W,
     wallH: H,
     radarTex,
     artX,
     artY,
-    width: stock ? stock.width : W,
-    height: stock ? stock.height : H,
+    width: stock && rect ? rect.w : W,
+    height: stock && rect ? rect.h : H,
     ...backdrop,
   };
 }
