@@ -20,6 +20,7 @@ export class Tooltip extends Container {
     this.addChild(this.bg);
     this.titleTxt = label("", PAD, PAD, { fontSize: 12, fontWeight: "bold", fill: COLOR.active });
     this.descTxt = new Text({
+      roundPixels: true,
       text: "",
       style: textStyle({ fontSize: 12, fill: COLOR.text, wordWrap: true, wordWrapWidth: MAX_WIDTH }),
     });

@@ -58,7 +58,7 @@ function fieldAt(name: string, initial = ""): Text {
   const cid = FIELD[name];
   const s = TEXT[String(cid)];
   const p = AT[name];
-  const t = new Text({ text: initial, style: new TextStyle(fieldStyle(cid)) });
+  const t = new Text({ roundPixels: true, text: initial, style: new TextStyle(fieldStyle(cid)) });
   t.alpha = s.alpha;
   const bx = p.x + s.x, by = p.y + s.y;
   if (s.align === "center") {

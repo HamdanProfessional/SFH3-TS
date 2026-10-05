@@ -210,6 +210,7 @@ export class MapBrowserPage extends MenuPage {
     }
     if (S.status) {
       const t = new Text({
+        roundPixels: true,
         text: S.status,
         style: new TextStyle({
           fontFamily: BOOK, fontSize: 11, fill: S.statusBad ? SFH.red : SFH.green,

@@ -319,6 +319,7 @@ function ascent(font: string, size: number): number {
 export function drawRuns(view: Container, runs: readonly TextRun[], dy = 0): void {
   for (const [x, y, size, font, fill, alpha, text] of runs) {
     const t = new Text({
+      roundPixels: true,
       text,
       style: new TextStyle({
         fontFamily: [font, "Verdana", "sans-serif"],
@@ -341,6 +342,7 @@ export function pageField(
   const align = spec.align ?? "left";
   const wrapW = spec.w > 0 ? spec.w : undefined;
   const t = new Text({
+    roundPixels: true,
     text: initial,
     style: new TextStyle({
       fontFamily: [spec.font ?? "QTypeSquare-Book", "Verdana", "sans-serif"],

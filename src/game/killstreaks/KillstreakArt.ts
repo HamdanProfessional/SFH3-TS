@@ -179,6 +179,7 @@ function makeView(): View {
 
 function labelText(): Text {
   return new Text({
+    roundPixels: true,
     text: "",
     style: new TextStyle({
       fontFamily: ["QTypeSquare-Bold", "Verdana", "sans-serif"],

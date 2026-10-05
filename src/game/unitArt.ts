@@ -246,6 +246,7 @@ const PLATE = {
 
 function plateText(fontFamily: string[] = ["QTypeSquare-Bold", "Verdana", "sans-serif"]): Text {
   return new Text({
+    roundPixels: true,
     text: "",
     style: new TextStyle({
       fontFamily,

@@ -33,7 +33,7 @@ export function textStyle(opts: Partial<TextStyleOptions> = {}): TextStyle {
 export function label(
   str: string, x: number, y: number, opts: Partial<TextStyleOptions> = {},
 ): Text {
-  const t = new Text({ text: str, style: textStyle(opts) });
+  const t = new Text({ roundPixels: true, text: str, style: textStyle(opts) });
   t.position.set(x, y);
   return t;
 }

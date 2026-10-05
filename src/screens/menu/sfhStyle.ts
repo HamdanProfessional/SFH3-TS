@@ -26,7 +26,7 @@ export const DISPLAY = ["Xoireqe", "QTypeSquare-Bold", "Verdana", "sans-serif"];
 export function sText(
   str: string, x: number, y: number, size = 12, fill: number = SFH.white, font = BOOK,
 ): Text {
-  const t = new Text({ text: str, style: new TextStyle({ fontFamily: font, fontSize: size, fill }) });
+  const t = new Text({ roundPixels: true, text: str, style: new TextStyle({ fontFamily: font, fontSize: size, fill }) });
   t.position.set(x, y);
   return t;
 }
@@ -82,6 +82,7 @@ export class SfhButton extends Container {
     this.position.set(x, y);
     this.addChild(this.bg);
     this.txt = new Text({
+      roundPixels: true,
       text: str.toUpperCase(),
       style: new TextStyle({ fontFamily: CAPS, fontSize, fill: SFH.white, letterSpacing: 1 }),
     });

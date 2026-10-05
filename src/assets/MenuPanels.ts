@@ -95,6 +95,7 @@ export function panelFieldText(
   const spec = rec.spec ?? ({} as FieldSpec);
   const align = spec.align ?? "left";
   const t = new Text({
+    roundPixels: true,
     text: value,
     style: new TextStyle({
       fontFamily: [spec.font ?? "QTypeSquare-Book", "Verdana", "sans-serif"],

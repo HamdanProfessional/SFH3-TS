@@ -132,6 +132,7 @@ export function itemField(
   const spec = UI.text[String(cid)];
   const align = spec?.align ?? "left";
   const t = new Text({
+    roundPixels: true,
     text: "",
     style: new TextStyle({
       fontFamily: [spec?.font ?? "QTypeSquare-Book", "Verdana", "sans-serif"],

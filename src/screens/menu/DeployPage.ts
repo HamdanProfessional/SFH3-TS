@@ -154,6 +154,7 @@ export class DeployPage extends MenuPage {
     this.view.addChild(this.codeArt);
 
     this.codeTxt = new Text({
+      roundPixels: true,
       text: "",
       style: new TextStyle({
         fontFamily: ["QTypeSquare-Book", "Verdana", "sans-serif"],
@@ -379,6 +380,7 @@ export class DeployPage extends MenuPage {
     const spec = f.spec ?? {};
     const align = spec.align ?? "left";
     const t = new Text({
+      roundPixels: true,
       text: value,
       style: new TextStyle({
         fontFamily: [spec.font ?? "QTypeSquare-Book", "Verdana", "sans-serif"],

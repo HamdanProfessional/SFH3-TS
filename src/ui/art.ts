@@ -333,6 +333,7 @@ export function fieldText(
   const spec = textSpec(cid);
   const align = spec?.align ?? "left";
   const t = new Text({
+    roundPixels: true,
     text: initial,
     style: new TextStyle({
       fontFamily: [spec?.font ?? "QTypeSquare-Book", "Verdana", "sans-serif"],

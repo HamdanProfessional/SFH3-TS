@@ -151,6 +151,7 @@ export class AchievementToast {
   private field(cid: string, place: [number, number]): Text {
     const spec = U.text[cid];
     const t = new Text({
+      roundPixels: true,
       text: "",
       style: new TextStyle({
         fontFamily: [spec?.font ?? "QTypeSquare-Book", "Verdana", "sans-serif"],

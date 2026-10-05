@@ -522,6 +522,7 @@ export class MenuScreen extends Screen {
   private showLoadError(): void {
     if (!this.loadErrorTxt) {
       this.loadErrorTxt = new Text({
+        roundPixels: true,
         text: "MATCH FAILED TO START — see the console",
         style: {
           fontFamily: ["QTypeSquare-Bold", "Verdana", "sans-serif"],

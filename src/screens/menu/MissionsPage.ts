@@ -117,6 +117,7 @@ function boxField(cid: number, place: { x: number; y: number }): Text {
   const spec = MissionsArt.data.text[String(cid)];
   const align = spec?.align ?? "left";
   const t = new Text({
+    roundPixels: true,
     text: authoredText(spec?.text),
     style: new TextStyle({
       ...fontOf(spec?.font),

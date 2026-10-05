@@ -414,6 +414,7 @@ function gameText(
   } = {},
 ): Text {
   const t = new Text({
+    roundPixels: true,
     text: str,
     style: {
       fontFamily: [o.font ?? "QTypeSquare-Book", "Verdana", "sans-serif"],

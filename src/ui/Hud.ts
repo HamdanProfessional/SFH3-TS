@@ -222,7 +222,7 @@ function placeField(f: Field, off: (a: Anchor) => number, dy: number): void {
 
 function newFieldText(cid: number, bx: number, by: number, initial = ""): Text {
   const s = TEXT[String(cid)];
-  const t = new Text({ text: initial, style: new TextStyle(fieldStyle(cid)) });
+  const t = new Text({ roundPixels: true, text: initial, style: new TextStyle(fieldStyle(cid)) });
   t.alpha = s?.alpha ?? 1;
   placeField({ t, bx, by, w: s?.w ?? 0, align: s?.align ?? "left",
     anchor: "centre" }, () => 0, 0);

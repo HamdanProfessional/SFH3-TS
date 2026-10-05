@@ -536,6 +536,7 @@ export class GetItemModal extends Container {
     str: string, rect: [number, number, number, number] | null, y = 0,
   ): Text {
     const t = new Text({
+      roundPixels: true,
       text: str,
       style: {
         fontFamily: ["QTypeSquare-Bold", "Verdana", "sans-serif"],
