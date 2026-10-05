@@ -12,7 +12,7 @@ import { Quality } from "../state/Quality";
 import { Tween } from "./Tween";
 import { Transition, type TransitionKind } from "./Transition";
 import type { Screen, ScreenClass } from "./Screen";
-import { MAX_DPR } from "./device";
+import { deviceDpr, setDprCap } from "./device";
 
 const FADE_MS = 150;
 
@@ -24,6 +24,8 @@ export class Engine {
   private current: Screen | null = null;
   private accumulator = 0;
   private lastLogic = 0;
+  private dprCap = Infinity;
+  private rescale: (() => void) | null = null;
   private tickWorker: Worker | null = null;
 
   private curtain = new Graphics();
@@ -54,7 +56,7 @@ export class Engine {
       background: 0x000000,
       antialias: true,
       autoDensity: false,
-      resolution: Math.min(window.devicePixelRatio || 1, 2, MAX_DPR),
+      resolution: Math.min(deviceDpr(), 2),
     });
     mount.appendChild(app.canvas);
 
@@ -75,6 +77,10 @@ export class Engine {
   private setupScaling(mount: HTMLElement): void {
     let lastW = 0;
     let lastH = 0;
+    this.rescale = () => {
+      lastW = 0;
+      resize();
+    };
     const resize = () => {
       const vw = Math.max(1, mount.clientWidth);
       const vh = Math.max(1, mount.clientHeight);
@@ -83,7 +89,7 @@ export class Engine {
       lastH = vh;
       const { width: logicalW, height: logicalH, scale } = computeStageSize(vw, vh);
 
-      const dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);
+      const dpr = deviceDpr();
       const resolution = Math.max(1, Math.min(scale * dpr, 4));
       this.app.renderer.resize(logicalW, logicalH, resolution);
 
@@ -108,6 +114,12 @@ export class Engine {
 
   private applyQuality = (): void => {
     this.app.ticker.maxFPS = Quality.maxFps;
+    const cap = Quality.level === "low" ? 1 : Infinity;
+    if (cap !== this.dprCap) {
+      this.dprCap = cap;
+      setDprCap(cap);
+      this.rescale?.();
+    }
   };
 
   private startLoop(): void {

@@ -33,11 +33,19 @@ export const isLowPower: boolean = isPhone || (browser && (
   || (g.navigator?.deviceMemory ?? 8) <= 2
 ));
 
-export const MAX_DPR = isPhone ? 1.5 : Infinity;
+let dprCap = Infinity;
+
+export function setDprCap(cap: number): void {
+  dprCap = cap;
+}
+
+export function deviceDpr(): number {
+  return Math.min(g.devicePixelRatio || 1, dprCap);
+}
 
 export function screenDensity(): number {
   if (!browser) return 1;
-  const dpr = Math.min(g.devicePixelRatio || 1, MAX_DPR);
+  const dpr = deviceDpr();
   const { scale } = computeStageSize(Math.max(1, g.innerWidth ?? 1), Math.max(1, g.innerHeight ?? 1));
   return scale * dpr;
 }

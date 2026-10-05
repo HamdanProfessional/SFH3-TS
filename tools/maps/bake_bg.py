@@ -94,7 +94,11 @@ def render(pg, svg: str, out_path: str):
 
 def bake(pg, cid: int, frame: int, out_path: str, want_usebox: bool):
     svg = open(frame_svg(cid, frame), encoding="utf-8").read()
-    _w, _h, ox, oy = root_header(svg)
+    sw, sh, ox, oy = root_header(svg)
+    label = os.path.splitext(os.path.basename(out_path))[0]
+    os.makedirs(os.path.join(os.path.dirname(out_path), "svg"), exist_ok=True)
+    with open(os.path.join(os.path.dirname(out_path), "svg", f"{label}.svg"), "w", encoding="utf-8") as fh:
+        fh.write(svg)
     ub = usebox_size(svg) if want_usebox else None
     raw = render(pg, svg, out_path)
     im = Image.open(raw).convert("RGBA")
@@ -106,7 +110,9 @@ def bake(pg, cid: int, frame: int, out_path: str, want_usebox: bool):
         im = im.crop(bbox)
     im.save(out_path)
     rec = {"file": os.path.basename(out_path), "w": im.width, "h": im.height,
-           "lx": round(off[0] - ox, 1), "ly": round(off[1] - oy, 1)}
+           "lx": round(off[0] - ox, 1), "ly": round(off[1] - oy, 1),
+           "svg": f"svg/{label}.svg", "sx": off[0], "sy": off[1],
+           "sw": round(sw, 2), "sh": round(sh, 2)}
     if ub:
         rec["useW"], rec["useH"] = ub
     else:

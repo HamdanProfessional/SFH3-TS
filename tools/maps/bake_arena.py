@@ -144,7 +144,10 @@ def main():
                 continue
 
             img_svg = open(find_svg(image_cid), encoding="utf-8").read()
-            _iw, _ih, itx, ity = root_header(img_svg)
+            sw, sh, itx, ity = root_header(img_svg)
+            os.makedirs(os.path.join(OUT, "svg"), exist_ok=True)
+            with open(os.path.join(OUT, "svg", f"{mid}.svg"), "w", encoding="utf-8") as fh:
+                fh.write(img_svg)
             raw = render(pg, img_svg, os.path.join(OUT, f"{mid}.png"))
             art = Image.open(raw).convert("RGBA")
             iw, ih = art.size
@@ -175,7 +178,8 @@ def main():
 
             data["maps"][mid] = {
                 "image": {"file": f"{mid}.png", "x": img_x, "y": img_y,
-                          "w": iw, "h": ih},
+                          "w": iw, "h": ih, "svg": f"svg/{mid}.svg",
+                          "sw": round(sw, 2), "sh": round(sh, 2)},
                 "wall": {"file": f"{mid}_wall.png", "w": bw, "h": bh},
                 "radar": {"file": f"{mid}_radarwall.png", "w": rw, "h": rh},
                 "nodes": nodes_for_frame(frame),

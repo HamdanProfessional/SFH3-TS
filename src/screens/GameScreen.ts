@@ -85,7 +85,7 @@ export class GameScreen extends Screen {
   private bgFar = new Container();
   private bgNear = new Container();
   readonly world = new Container();
-  private mapArt: Sprite | null = null;
+  private mapArt: Container | null = null;
   private skySprite: Sprite | null = null;
   private skyLayer: SkyLayer | null = null;
   private bg1Layer: BgLayer | null = null;
@@ -198,7 +198,16 @@ export class GameScreen extends Screen {
         this.bgFar.addChild(s);
       }
       this.fitBackdrops();
-      this.mapArt = new Sprite(a.map.art);
+      if (a.map.artTiles?.length) {
+        this.mapArt = new Container();
+        for (const t of a.map.artTiles) {
+          const s = new Sprite(t.tex);
+          s.position.set(t.x, t.y);
+          this.mapArt.addChild(s);
+        }
+      } else {
+        this.mapArt = new Sprite(a.map.art);
+      }
       this.mapArt.position.set(a.map.artX, a.map.artY);
       this.world.addChildAt(this.mapArt, 0);
       this.hud.radar.setMap(a.map.radarTex);

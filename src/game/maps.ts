@@ -4,11 +4,14 @@ import { BitmapWallMask, type ArenaDef, type RawNode } from "./Arena";
 import { getMap, type MapInfo } from "../data/StatsMaps";
 import arenaData from "../assets/arenaData.json";
 import bgRig from "../assets/bgRig.json";
+import { SVG_TILE, rasterSvg, svgScale, useSvgArt, type ArtTile } from "./svgArt";
 
 interface MapArt {
   file: string;
   x: number; y: number;
   w: number; h: number;
+  svg?: string;
+  sw?: number; sh?: number;
 }
 
 interface MapWall {
@@ -33,6 +36,9 @@ interface LayerRecord {
   w: number; h: number;
   lx: number; ly: number;
   useW: number; useH: number;
+  svg?: string;
+  sx?: number; sy?: number;
+  sw?: number; sh?: number;
 }
 
 const DATA = arenaData as unknown as { maps: Record<string, MapRecord> };
@@ -69,6 +75,7 @@ export interface LoadedMap {
   info: MapInfo;
   def: ArenaDef;
   art: Texture;
+  artTiles?: ArtTile[];
   wallTex: Texture;
   wallW: number;
   wallH: number;
@@ -98,36 +105,67 @@ function maskFrom(texture: Texture, width: number, height: number): BitmapWallMa
   return BitmapWallMask.fromRGBA(width, height, rgba);
 }
 
+function svgLayer(rec: LayerRecord): boolean {
+  return useSvgArt() && !!rec.svg && rec.sw !== undefined && rec.sh !== undefined;
+}
+
+async function layerTexture(dir: string, rec: LayerRecord): Promise<Texture> {
+  if (svgLayer(rec)) {
+    const scale = Math.min(svgScale(), SVG_TILE / rec.w, SVG_TILE / rec.h);
+    try {
+      const [tile] = await rasterSvg({
+        url: url(`${dir}/${rec.svg}`), sw: rec.sw!, sh: rec.sh!,
+        x: rec.sx ?? 0, y: rec.sy ?? 0, w: rec.w, h: rec.h,
+      }, scale);
+      if (tile) return tile.tex;
+    } catch {}
+  }
+  return Assets.load<Texture>(url(`${dir}/${rec.file}`));
+}
+
+function layerUrl(dir: string, rec: LayerRecord): string[] {
+  return svgLayer(rec) ? [] : [url(`${dir}/${rec.file}`)];
+}
+
 async function bgLayer(label: string): Promise<BgLayer | null> {
   const rec = BG.bg[label];
   if (!rec) return null;
-  const tex = await Assets.load<Texture>(url(`bg/${rec.file}`));
+  const tex = await layerTexture("bg", rec);
   return { tex, x: rec.lx, y: rec.ly, useW: rec.useW, useH: rec.useH };
 }
 
 async function skyLayer(label: string): Promise<SkyLayer | null> {
   const rec = BG.sky[label];
   if (!rec) return null;
-  const tex = await Assets.load<Texture>(url(`sky/${rec.file}`));
+  const tex = await layerTexture("sky", rec);
   return { tex, x: rec.lx, y: rec.ly };
+}
+
+function svgMap(art: MapArt): boolean {
+  return useSvgArt() && !!art.svg && art.sw !== undefined && art.sh !== undefined;
+}
+
+async function mapArt(art: MapArt): Promise<{ art: Texture; artTiles?: ArtTile[] }> {
+  if (svgMap(art)) {
+    try {
+      const artTiles = await rasterSvg({
+        url: url(`maps/${art.svg}`), sw: art.sw!, sh: art.sh!, x: 0, y: 0, w: art.w, h: art.h,
+      }, svgScale());
+      if (artTiles.length) return { art: Texture.EMPTY, artTiles };
+    } catch {}
+  }
+  return { art: await Assets.load<Texture>(url(`maps/${art.file}`)) };
 }
 
 export function mapAssetUrls(id: string): string[] {
   const rec = DATA.maps[id];
   if (!rec) return [];
   const out = [
-    url(`maps/${rec.image.file}`),
+    ...(svgMap(rec.image) ? [] : [url(`maps/${rec.image.file}`)]),
     url(`maps/${rec.wall.file}`),
     url(`maps/${rec.radar.file}`),
   ];
-  const info = getMap(id);
-  const bg1 = info.bg1 ? BG.bg[info.bg1] : null;
-  const bg2 = info.bg2 ? BG.bg[info.bg2] : null;
-  const sky = info.sky ? BG.sky[info.sky] : null;
-  if (bg1) out.push(url(`bg/${bg1.file}`));
-  if (bg2) out.push(url(`bg/${bg2.file}`));
-  if (sky) out.push(url(`sky/${sky.file}`));
-  return out;
+  return [...out, ...backdropUrls(getMap(id))];
 }
 
 export function backdropUrls(info: MapInfo): string[] {
@@ -135,9 +173,9 @@ export function backdropUrls(info: MapInfo): string[] {
   const bg1 = info.bg1 ? BG.bg[info.bg1] : null;
   const bg2 = info.bg2 ? BG.bg[info.bg2] : null;
   const sky = info.sky ? BG.sky[info.sky] : null;
-  if (bg1) out.push(url(`bg/${bg1.file}`));
-  if (bg2) out.push(url(`bg/${bg2.file}`));
-  if (sky) out.push(url(`sky/${sky.file}`));
+  if (bg1) out.push(...layerUrl("bg", bg1));
+  if (bg2) out.push(...layerUrl("bg", bg2));
+  if (sky) out.push(...layerUrl("sky", sky));
   return out;
 }
 
@@ -183,7 +221,7 @@ export function loadMap(id: string): Promise<LoadedMap> {
     if (!rec) throw new Error(`no baked map "${id}"`);
     const info = getMap(id);
     const [art, wallTex, radarTex, bg1, bg2, sky] = await Promise.all([
-      Assets.load<Texture>(url(`maps/${rec.image.file}`)),
+      mapArt(rec.image),
       Assets.load<Texture>(url(`maps/${rec.wall.file}`)),
       Assets.load<Texture>(url(`maps/${rec.radar.file}`)),
       info.bg1 ? bgLayer(info.bg1) : Promise.resolve(null),
@@ -195,7 +233,7 @@ export function loadMap(id: string): Promise<LoadedMap> {
       id,
       info,
       def: { wall: mask, nodes: rec.nodes },
-      art,
+      ...art,
       wallTex,
       wallW: rec.wall.w,
       wallH: rec.wall.h,
