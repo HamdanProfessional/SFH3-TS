@@ -38,9 +38,10 @@ export function buildRoster(
     out.push({ info: squad[active], owner: p.id, squad, active });
   });
 
+  const botLevel = humanLevel(out, cfg.botLevel);
   for (let i = 0; i < cfg.bots; i++) {
     const info = newHero(UT.randEl(Classes.CLASSES_ALL), "", "");
-    const lvl = clamp(Math.trunc(cfg.botLevel * UT.rand(0.8, 1.2)), 1, MAX_LVL + 5);
+    const lvl = clamp(Math.trunc(botLevel * UT.rand(0.8, 1.2)), 1, MAX_LVL + 5);
     applyPendingWeapons(info);
     info.setupLevelStats(lvl);
     info.team = teamed ? shortestTeam(out, i) : 0;
@@ -49,6 +50,12 @@ export function buildRoster(
   }
 
   return out;
+}
+
+function humanLevel(humans: readonly RosterEntry[], cap: number): number {
+  if (!humans.length) return cap;
+  const avg = humans.reduce((n, e) => n + e.info.level, 0) / humans.length;
+  return Math.max(1, Math.min(cap, Math.round(avg)));
 }
 
 export function heroForRound(
