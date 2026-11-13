@@ -40,7 +40,8 @@ const PROFILES: Record<QualityLevel, QualityProfile> = {
     detail: true,
     maxFx: 40,
     tracerLife: 5,
-    maxFps: 60,
+    // 0 = uncapped, follows the display refresh rate
+    maxFps: 0,
     stageQuality: "high",
   },
   max: {

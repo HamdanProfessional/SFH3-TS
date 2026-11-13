@@ -657,6 +657,24 @@ export class Unit {
   get armRotation(): number {
     return armRotationOf(this.rotReload, this.rotArm);
   }
+
+  /**
+   * Draw-only: works out facing and arm/head angles for a given aim point and body position
+   * without touching unit state. Game logic runs at 30 Hz, so the local player's aim is
+   * recomputed with this on every rendered frame to keep turning and aiming in step with the mouse.
+   */
+  visualAim(aimX: number, aimY: number, x: number, y: number): { face: number; arm: number; head: number } {
+    const mc = this.MC;
+    let rot = getRotation(x + mc.armX + mc.rotation * 1.2, y + mc.armY, aimX, aimY) - 90;
+    const flip = this.mov.jumping ? aimX < x : fixRotation(rot + 90 - mc.rotation) < 0;
+    if (flip) rot = -rot + 180;
+    rot = fixRotation(rot) + (flip ? mc.rotation : -mc.rotation);
+    return {
+      face: flip ? -1 : 1,
+      arm: armRotationOf(this.rotReload, rot),
+      head: headRotationOf(this.rotReload, rot),
+    };
+  }
   get headRotation(): number {
     return headRotationOf(this.rotReload, this.rotArm);
   }
