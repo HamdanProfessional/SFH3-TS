@@ -558,7 +558,6 @@ export class GameScreen extends Screen {
     }
     this.hud.enterFrame();
     this.hud.radar.update(this.player, this.units, this.radarObjectives());
-    this.drawAimer();
     if (Input.showHitboxes !== this.showNodes) {
       this.showNodes = Input.showHitboxes;
       this.drawNodes();
@@ -761,6 +760,7 @@ export class GameScreen extends Screen {
     this.bgFar.position.set(p.b2x + (c.b2x - p.b2x) * t,
       p.b2y + (c.b2y - p.b2y) * t);
     if (!this.overview) this.fxLayer.root.position.set(x - c.x, y - c.y);
+    this.renderPlayerAim(t, x, y);
     for (const [u, s] of this.unitViews) {
       if (s.visible) s.renderPose(t);
       const l = this.unitLerp.get(u);
@@ -769,6 +769,32 @@ export class GameScreen extends Screen {
     }
     this.phys?.renderFrame(t);
     if (this.combat) this.drawHpBars(t);
+    this.drawAimer();
+  }
+
+  /**
+   * The crosshair and the local player's aim are redrawn from the current mouse position on
+   * every rendered frame instead of waiting for the 30 Hz logic tick.
+   * Visual only: shot direction still comes from aimX/aimY in the logic tick.
+   */
+  private renderPlayerAim(t: number, camX: number, camY: number): void {
+    const u = this.player as Unit | null;
+    const view = u ? this.unitViews.get(u) : undefined;
+    for (const s of this.unitViews.values()) if (s !== view) s.aimOverride = null;
+    if (!u || !view) return;
+    if (!u.human || u.dead || !this.gameStarted || this.paused || this.overview
+      || u.unitInfo.extra.noAim || u.status.sFrozen) {
+      view.aimOverride = null;
+      return;
+    }
+    // The logic tick moves aim halfway to the mouse each step; apply the same easing continuously across the tick
+    const k = 1 - Math.pow(0.5, t);
+    const aimX = u.aimX + (Input.mouseX - camX - u.aimX) * k;
+    const aimY = u.aimY + (Input.mouseY - camY - u.aimY) * k;
+    const l = this.unitLerp.get(u);
+    const ux = l ? l.px + (l.cx - l.px) * t : u.x;
+    const uy = l ? l.py + (l.cy - l.py) * t : u.y;
+    view.aimOverride = u.visualAim(aimX, aimY, ux, uy);
   }
 
   private freezeLerp(): void {

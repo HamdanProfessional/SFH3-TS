@@ -350,6 +350,8 @@ export class HeroSprite extends Container {
   private readonly art: HeroArt;
   private unit: Unit | null = null;
   private face = 1;
+  /** Aim recomputed every rendered frame for the local player (see Unit.visualAim); null uses the logic-frame values. */
+  aimOverride: { face: number; arm: number; head: number } | null = null;
   private readonly sprites = new Map<string, Sprite>();
   private readonly shown = new Set<string>();
   private anim = "idle";
@@ -446,8 +448,9 @@ export class HeroSprite extends Container {
       }
     }
 
-    const rotArm = u ? u.armRotation : 0;
-    const rotHead = u ? u.headRotation : 0;
+    const aim = this.aimOverride;
+    const rotArm = aim ? aim.arm : u ? u.armRotation : 0;
+    const rotHead = aim ? aim.head : u ? u.headRotation : 0;
 
     this.shown.clear();
     for (const e of row) {
@@ -506,7 +509,7 @@ export class HeroSprite extends Container {
 
     this.rig.rotation = u ? u.MC.rotation * DEG : 0;
     const scale = u ? u.scale : 1;
-    this.rig.scale.set(this.face * scale, scale);
+    this.rig.scale.set((aim ? aim.face : this.face) * scale, scale);
     this.rig.alpha = u ? u.mcAlpha : 1;
 
     this.applyFilters(u);
