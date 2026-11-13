@@ -21,6 +21,7 @@ import { closeForm, formOpen, openForm } from "../../ui/DomForm";
 import {
   BOLD, BOOK, CAPS, SFH, SfhButton, paintRow, sHeading, sInfo, sPanel, sText, sTitle,
 } from "./sfhStyle";
+import { tr } from "../../i18n";
 
 const ROW_H = 44;
 const ROW_GAP = 4;
@@ -1407,6 +1408,9 @@ function md(ms: number): string {
 }
 
 function clip(s: string, n: number): string {
+  // Translate before truncating; a Chinese character is about two letters wide
+  s = tr(s);
+  if (/[㐀-鿿]/.test(s)) n = Math.ceil(n / 2);
   return s.length > n ? `${s.slice(0, n - 1)}...` : s;
 }
 

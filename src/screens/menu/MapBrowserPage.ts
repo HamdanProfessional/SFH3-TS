@@ -8,6 +8,7 @@ import type { BrowseRow, BrowseSort, MapThumb } from "../../editor/store";
 import {
   BOLD, BOOK, CAPS, SFH, SfhButton, paintRow, sInfo, sPanel, sText, sTitle,
 } from "./sfhStyle";
+import { tr } from "../../i18n";
 
 type Store = typeof import("../../editor/store");
 type Format = typeof import("../../editor/format");
@@ -409,5 +410,8 @@ function age(ms: number): string {
 }
 
 function clip(s: string, n: number): string {
+  // Translate before truncating; a Chinese character is about two letters wide
+  s = tr(s);
+  if (/[㐀-鿿]/.test(s)) n = Math.ceil(n / 2);
   return s.length > n ? `${s.slice(0, n - 1)}...` : s;
 }

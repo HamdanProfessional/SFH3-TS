@@ -4,6 +4,7 @@ import {
 } from "pixi.js";
 import type { TextStyleOptions } from "pixi.js";
 import pages from "../../assets/pagesUi.json";
+import { drawRunsZh } from "../../i18n/runs";
 
 export const PAGE_SCALE = 2;
 
@@ -317,6 +318,7 @@ function ascent(font: string, size: number): number {
 }
 
 export function drawRuns(view: Container, runs: readonly TextRun[], dy = 0): void {
+  if (drawRunsZh(view, runs, dy, ascent)) return;
   for (const [x, y, size, font, fill, alpha, text] of runs) {
     const t = new Text({
       roundPixels: true,

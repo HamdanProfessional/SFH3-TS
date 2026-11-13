@@ -5,6 +5,7 @@ import {
 import * as Config from "../core/Config";
 import { COLOR, focusable, label, hitTest } from "./kit";
 import { SH } from "../audio/SH";
+import { srcText } from "../i18n/pixi";
 import { FxArt } from "../assets/FxArt";
 import { itemOb } from "../data/StatsClasses";
 import { GAME_MODE_IDS, getGameMode } from "../data/StatsMisc";
@@ -1224,7 +1225,7 @@ export class Hud extends Container {
   }
 
   get quitConfirm(): boolean {
-    return this.pauseQuit.text === "Cancel";
+    return srcText(this.pauseQuit) === "Cancel";
   }
 
   setQuitConfirm(on: boolean): void {

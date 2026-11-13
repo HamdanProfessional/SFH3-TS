@@ -2,6 +2,7 @@ import { controls, saveControls } from "../state/controls";
 import { TouchControls } from "./TouchControls";
 import { Focus } from "../core/Focus";
 import { sfhCss } from "./sfhCss";
+import { tr } from "../i18n";
 
 class ControlsSheet {
   private root: HTMLDivElement | null = null;
@@ -56,9 +57,9 @@ class ControlsSheet {
     const pad = firstPadId();
     const info = document.createElement("div");
     info.style.cssText = "padding:6px 2px;color:#b4b0b6;font-size:11px;line-height:1.5;";
-    info.innerHTML = (pad ? `Connected: ${escapeHtml(pad)}` : "No gamepad found: press a button on it.")
+    info.innerHTML = tr((pad ? `Connected: ${escapeHtml(pad)}` : "No gamepad found: press a button on it.")
       + "<br>Left stick move, A jump, right stick aim, RT fire, LT right-click action,"
-      + " X reload, Y/RB swap, B/LB killstreak, Start pause.";
+      + " X reload, Y/RB swap, B/LB killstreak, Start pause.");
     body.appendChild(info);
 
     const end = document.createElement("div");

@@ -1,4 +1,5 @@
 import { Input } from "../core/Input";
+import { tr } from "../i18n";
 
 type FsDoc = Document & { webkitFullscreenElement?: Element; webkitExitFullscreen?: () => void;
   webkitFullscreenEnabled?: boolean };
@@ -104,8 +105,8 @@ class FullscreenToggle {
     title.textContent = "Swipe up for full screen";
     const sub = document.createElement("div");
     sub.style.cssText = "max-width:360px;opacity:0.85;";
-    sub.innerHTML = "That tucks Safari's bar away. For no bars at all, tap <b>Share</b> and "
-      + "<b>Add to Home Screen</b>, then play from the icon.<br><span style=\"opacity:0.7\">Tap to skip</span>";
+    sub.innerHTML = tr("That tucks Safari's bar away. For no bars at all, tap <b>Share</b> and "
+      + "<b>Add to Home Screen</b>, then play from the icon.<br><span style=\"opacity:0.7\">Tap to skip</span>");
     box.append(arrow, title, sub);
     arrow.animate([{ transform: "translateY(10px)" }, { transform: "translateY(-10px)" }],
       { duration: 800, iterations: Infinity, direction: "alternate", easing: "ease-in-out" });
@@ -153,9 +154,9 @@ class FullscreenToggle {
         + "padding:10px 34px 10px 12px;background:rgba(0,0,0,0.88);color:#fff;"
         + "font:12px/1.4 QTypeSquare-Bold, Verdana, sans-serif;border-left:3px solid #ffcc00;"
         + "touch-action:manipulation;";
-      tip.innerHTML = "<b style=\"color:#ffcc00\">Play full screen</b><br>"
+      tip.innerHTML = tr("<b style=\"color:#ffcc00\">Play full screen</b><br>"
         + "Tap <b>Share</b> in Safari, then <b>Add to Home Screen</b>. "
-        + "Open the game from your home screen and the browser bars are gone.";
+        + "Open the game from your home screen and the browser bars are gone.");
       const x = document.createElement("div");
       x.textContent = "✕";
       x.style.cssText = "position:absolute;right:8px;top:6px;padding:4px 6px;cursor:pointer;";
