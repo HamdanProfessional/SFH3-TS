@@ -7,6 +7,7 @@ import { Input } from "../core/Input";
 import { Focus } from "../core/Focus";
 import type { PreloadProgress } from "../core/Preload";
 import UI from "../assets/loaderUi.json";
+import { tr } from "../i18n";
 
 export interface LoaderArg {
   run: (onProgress: PreloadProgress) => Promise<unknown>;
@@ -146,7 +147,7 @@ export class LoaderScreen extends Screen {
       const result = await a.run?.((done, total, label) => {
         if (this.dead) return;
         this.target = total > 0 ? Math.min(1, done / total) : 0;
-        this.status = `${a.title ? a.title + " — " : ""}${label}`
+        this.status = `${a.title ? a.title + " — " : ""}${tr(label)}`
           + (total > 0 ? `  ${done} / ${total}` : "");
       });
       if (this.dead) return;

@@ -28,6 +28,7 @@ import {
 import { sfhCss } from "../ui/sfhCss";
 import { MissionPanel, missionCard } from "./MissionPanel";
 import { checkMission, type MissionResult } from "./mission";
+import { tr } from "../i18n";
 
 export interface EditorState {
   map: CustomMap;
@@ -2079,7 +2080,7 @@ export class EditorView {
     g.textAlign = "center";
     g.textBaseline = "middle";
     g.fillStyle = color;
-    g.fillText(t, x, y);
+    g.fillText(tr(t), x, y);
   }
 
   private drawJump(g: CanvasRenderingContext2D, px: number, j: EdJump, alpha = 1): void {

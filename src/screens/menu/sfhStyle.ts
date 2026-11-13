@@ -1,6 +1,7 @@
 import { Container, Graphics, Text, TextStyle } from "pixi.js";
 import { focusable, hitTest, isBackLabel } from "../../ui/kit";
 import { SH } from "../../audio/SH";
+import { srcText } from "../../i18n/pixi";
 import { Input } from "../../core/Input";
 
 export const SFH = {
@@ -119,7 +120,7 @@ export class SfhButton extends Container {
       this.pressed = p;
       this.redraw();
     }
-    if (this.visible && this.enabled && isBackLabel(this.txt.text)) {
+    if (this.visible && this.enabled && isBackLabel(srcText(this.txt))) {
       focusable(this.x, this.y, this.w, this.h, { back: true });
     }
   }

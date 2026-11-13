@@ -1,4 +1,7 @@
 import "./core/webp";
+import { initI18n } from "./i18n";
+import { installTextHooks, loadZhFonts } from "./i18n/pixi";
+import { installDomTranslation } from "./i18n/dom";
 import { Engine } from "./core/Engine";
 import { MenuScreen } from "./screens/MenuScreen";
 import { LoaderScreen } from "./screens/LoaderScreen";
@@ -22,9 +25,12 @@ async function main() {
   const mount = document.getElementById("game");
   if (!mount) throw new Error("#game mount element not found");
 
+  await initI18n();
+  installTextHooks();
+  installDomTranslation();
   const engine = await Engine.create(mount);
   if (import.meta.env.DEV) (window as unknown as Record<string, unknown>).sfh3Dev = { SD, SH, Sound };
-  await loadFonts();
+  await Promise.all([loadFonts(), loadZhFonts()]);
   engine.setScreen(LoaderScreen, {
     run: (p) => preloadBoot(p),
     done: () => void boot(engine),

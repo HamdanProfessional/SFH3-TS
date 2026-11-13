@@ -7,6 +7,7 @@ import { TouchControls } from "../../ui/TouchControls";
 import { SD, type Options } from "../../state/SD";
 import { Quality } from "../../state/Quality";
 import { SH } from "../../audio/SH";
+import { lang, setLang } from "../../i18n";
 
 const PAGE_TOP = 64;
 
@@ -55,6 +56,7 @@ export class OptionsPage extends MenuPage {
   private delTexts: ReturnType<typeof fieldText>[] = [];
   private confirming = false;
   private controlsBtn: Button | null = null;
+  private langBtn: Button | null = null;
   protected body = new Container();
 
   build(_w: number, _h: number): void {
@@ -109,6 +111,11 @@ export class OptionsPage extends MenuPage {
     this.controlsBtn = new Button(TouchControls.available ? "CONTROLS: TOUCH & GAMEPAD"
       : "CONTROLS: GAMEPAD", 126, 298 - PAGE_TOP, 250, 22, 12);
     this.body.addChild(this.controlsBtn);
+
+    // 两种语言下都写上对方的叫法，切错了也找得回来
+    this.langBtn = new Button(lang === "zh" ? "语言 / LANGUAGE：中文" : "LANGUAGE / 语言: ENGLISH",
+      386, 298 - PAGE_TOP, 228, 22, 12);
+    this.body.addChild(this.langBtn);
   }
 
   protected get showBack(): boolean {
@@ -130,6 +137,7 @@ export class OptionsPage extends MenuPage {
   update(_dt: number): void {
     for (const { btn } of this.toggles) btn.setState(btn.visible && hitTest(...btn.hitBox()) ? "over" : "up");
     this.controlsBtn?.update();
+    this.langBtn?.update();
     for (const b of [this.back, this.deleteBtn, this.delYes, this.delNo]) {
       if (!b?.visible) continue;
       focusable(...b.hitBox(), { back: b === (this.confirming ? this.delNo : this.back) });
@@ -139,6 +147,11 @@ export class OptionsPage extends MenuPage {
   onClick(): void {
     if (this.controlsBtn?.activate()) {
       ControlsPanel.open();
+      return;
+    }
+    if (this.langBtn?.activate()) {
+      SH.playSound("S_Click");
+      setLang(lang === "zh" ? "en" : "zh", () => SD.save());
       return;
     }
     for (const { setting, btn } of this.toggles) {

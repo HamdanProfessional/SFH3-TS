@@ -2,6 +2,7 @@ import { Container, Graphics, Text, TextStyle, type TextStyleOptions } from "pix
 import { Input } from "../core/Input";
 import { Focus, type FocusOpts, type Rect } from "../core/Focus";
 import { SH } from "../audio/SH";
+import { srcText } from "../i18n/pixi";
 
 export const COLOR = {
   active: 0xffcc00,
@@ -147,7 +148,7 @@ export class Button extends Container {
       this.pressed = p;
       this.redraw();
     }
-    if (this.visible && this.enabled && isBackLabel(this.txt.text)) {
+    if (this.visible && this.enabled && isBackLabel(srcText(this.txt))) {
       focusable(this.x, this.y, this.w, this.h, { back: true });
     }
   }
